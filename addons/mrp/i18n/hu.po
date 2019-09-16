@@ -9,6 +9,7 @@
 # krnkris, 2017
 # Tamás Dombos, 2019
 # Ákos Nagy <akos.nagy@oregional.hu>, 2019
+# Istvan Lechner <leki69@gmail.com>, 2019
 # gezza <geza.nagy@oregional.hu>, 2019
 # 
 msgid ""
@@ -132,7 +133,7 @@ msgstr "<span class=\"o_stat_text\">Teljesítmény</span>"
 #: model:ir.ui.view,arch_db:mrp.mrp_production_form_view
 #: model:ir.ui.view,arch_db:mrp.mrp_production_workcenter_form_view_inherit
 msgid "<span class=\"o_stat_text\">Scraps</span>"
-msgstr ""
+msgstr "Hulladék"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_routing_form_view
@@ -2873,6 +2874,7 @@ msgstr ""
 #: model:ir.model.fields,help:mrp.field_mrp_workorder_is_user_working
 msgid "Technical field indicating whether the current user is working. "
 msgstr ""
+"Egy technikai mező, amely jelzi, hogy a jelenlegi felhasználó dolgozik-e."
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production_post_visible
@@ -3275,7 +3277,7 @@ msgstr "Mértékegység (Mértékegység) a készlet ellenőrzés mértékegysé
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Unlock"
-msgstr ""
+msgstr "Feloldás"
 
 #. module: mrp
 #: model:ir.ui.view,arch_db:mrp.mrp_production_form_view
