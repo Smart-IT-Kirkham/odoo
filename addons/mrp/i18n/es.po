@@ -11,22 +11,23 @@
 # Luis M. Ontalba <luis.martinez@tecnativa.com>, 2018
 # e2f <projects@e2f.com>, 2018
 # David Arnold <blaggacao@users.noreply.github.com>, 2018
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2018
+# Miguel Orueta <mo@landoo.es>, 2018
 # Rick Hunter <rick.hunter.ec@gmail.com>, 2018
 # nle_odoo, 2018
 # Martin Trigaux, 2018
 # Gabriel Umana <gabriel.umana@delfixcr.com>, 2019
 # Rick Hunter <rick_hunter_ec@yahoo.com>, 2019
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2019
+# Mariana Santos Romo <msn@odoo.com>, 2019
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2019
-# Miguel Orueta <mo@landoo.es>, 2019
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-03-29 10:09+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:21+0000\n"
-"Last-Translator: Miguel Orueta <mo@landoo.es>, 2019\n"
+"Last-Translator: Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2019\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -205,6 +206,11 @@ msgid "<span class=\"o_stat_text\">Work Orders</span>"
 msgstr "<span class=\"o_stat_text\">Órdenes de trabajo</span>"
 
 #. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.label_production_view_pdf
+msgid "<span>1.0</span>"
+msgstr ""
+
+#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
 msgid "<span><strong>Unit Cost</strong></span>"
 msgstr "<span><strong>Costo unitario</strong></span>"
@@ -233,7 +239,7 @@ msgstr "<span>PLANIFICAR ÓRDENES</span>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_kanban
 msgid "<span>Reporting</span>"
-msgstr "Informes"
+msgstr "<span>Informes</span>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.stock_production_type_kanban
@@ -386,8 +392,8 @@ msgid ""
 "the option: A + B = C + D."
 msgstr ""
 "Añadir subproductos a las listas de materiales. Esto se puede usar para "
-"obtener varios productos terminados también. Sin esta opción solo puedes "
-"hacer:  A + B = C. Con la opción: A + B = C + D."
+"obtener varios productos terminados al mismo tiempo. Sin esta opción, solo "
+"puedes hacer:  A + B = C. Con ella: A + B = C + D."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.res_config_settings_view_form
@@ -712,7 +718,7 @@ msgstr "Comprar"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_res_config_settings__module_mrp_byproduct
 msgid "By-Products"
-msgstr "Co-productos"
+msgstr "Subproductos"
 
 #. module: mrp
 #: code:addons/mrp/models/stock_warehouse.py:66
@@ -1619,6 +1625,11 @@ msgstr "Es un documento publico"
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__is_user_working
 msgid "Is the Current User Working"
 msgstr "¿Está trabajando el usuario actual?"
+
+#. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__is_first_wo
+msgid "Is the first WO to produce"
+msgstr ""
 
 #. module: mrp
 #: code:addons/mrp/models/mrp_workcenter.py:163
@@ -2551,13 +2562,13 @@ msgstr ""
 #: model:product.product,name:mrp.product_product_wood_ply
 #: model:product.template,name:mrp.product_product_wood_ply_product_template
 msgid "Ply Layer"
-msgstr ""
+msgstr "Multi-capa"
 
 #. module: mrp
 #: model:product.product,name:mrp.product_product_ply_veneer
 #: model:product.template,name:mrp.product_product_ply_veneer_product_template
 msgid "Ply Veneer"
-msgstr ""
+msgstr "Capa de chapa"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -2595,6 +2606,7 @@ msgid "Processed Disassembly Lines"
 msgstr "Líneas de desmontaje procesadas"
 
 #. module: mrp
+#: model:ir.model,name:mrp.model_procurement_group
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__procurement_group_id
 msgid "Procurement Group"
 msgstr "Grupo de abastecimiento"
@@ -2719,7 +2731,6 @@ msgstr "Documento de producción"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__production_location_id
-#: model:ir.model.fields,field_description:mrp.field_mrp_routing__location_id
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_routing_search_view
 msgid "Production Location"
 msgstr "Ubicación de producción"
@@ -2894,6 +2905,7 @@ msgstr "Materias primas"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__location_src_id
+#: model:ir.model.fields,field_description:mrp.field_mrp_routing__location_id
 msgid "Raw Materials Location"
 msgstr "Ubicación materias primas"
 
@@ -2982,7 +2994,7 @@ msgstr "Reporte:"
 #. module: mrp
 #: model:ir.ui.menu,name:mrp.menu_mrp_reporting
 msgid "Reporting"
-msgstr "Informando"
+msgstr "Informes"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_product_produce__serial
@@ -3274,7 +3286,7 @@ msgstr ""
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__origin
 msgid "Source"
-msgstr "Texto original"
+msgstr "Origen"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workcenter__costs_hour
@@ -3451,6 +3463,11 @@ msgid ""
 msgstr ""
 "Campo técnico que esta en 'falso' mientras se completa temporalmente en la "
 "orden de trabajo"
+
+#. module: mrp
+#: model:ir.model.fields,help:mrp.field_mrp_bom_line__valid_product_attribute_value_ids
+msgid "Technical compute"
+msgstr "Cálculo Técnico "
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_workorder__is_user_working
@@ -4039,6 +4056,11 @@ msgstr ""
 "la previsión de ventas."
 
 #. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom_line__valid_product_attribute_value_ids
+msgid "Valid Product Attribute Values"
+msgstr ""
+
+#. module: mrp
 #. openerp-web
 #: code:addons/mrp/static/src/xml/mrp.xml:21
 #, python-format
@@ -4104,7 +4126,7 @@ msgstr "Aviso"
 #: model:product.product,name:mrp.product_product_wood_wear
 #: model:product.template,name:mrp.product_product_wood_wear_product_template
 msgid "Wear Layer"
-msgstr ""
+msgstr "Capa protectora"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_document__website_id
@@ -4468,10 +4490,22 @@ msgstr ""
 " serie codificados."
 
 #. module: mrp
+#: code:addons/mrp/models/mrp_bom.py:109
+#, python-format
+msgid "You cannot create a new Bill of Material from here."
+msgstr ""
+
+#. module: mrp
 #: code:addons/mrp/models/mrp_unbuild.py:88
 #, python-format
 msgid "You cannot delete an unbuild order if the state is 'Done'."
 msgstr "No puede eliminar una orden de destrucción si el estado es 'Listo'."
+
+#. module: mrp
+#: code:addons/mrp/models/mrp_production.py:533
+#, python-format
+msgid "You cannot produce a MO with a bom kit product."
+msgstr ""
 
 #. module: mrp
 #: code:addons/mrp/wizard/mrp_product_produce.py:82

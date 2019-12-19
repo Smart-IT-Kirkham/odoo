@@ -352,8 +352,10 @@ QUnit.module('Views', {
                             'The correct _view_ref should have been sent to the server, first time');
                     }
                     if (args.model === 'partner_type') {
-                        assert.deepEqual(context, {tree_view_ref: 'some_other_tree_view'},
-                            'The correct _view_ref should have been sent to the server for the subview');
+                        assert.deepEqual(context, {
+                            base_model_name: 'product',
+                            tree_view_ref: 'some_other_tree_view',
+                        }, 'The correct _view_ref should have been sent to the server for the subview');
                     }
                 }
                 return this._super.apply(this, arguments);
@@ -4526,6 +4528,35 @@ QUnit.module('Views', {
         });
     });
 
+    QUnit.test('non inline subview and create=0 in action context', async function (assert) {
+        // the create=0 should apply on the main view (form), but not on subviews
+        assert.expect(2);
+
+        const form = await createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: '<form><field name="product_ids" mode="kanban"/></form>',
+            archs: {
+                "product,false,kanban": `<kanban>
+                                            <templates><t t-name="kanban-box">
+                                                <div><field name="name"/></div>
+                                            </t></templates>
+                                        </kanban>`,
+            },
+            res_id: 1,
+            viewOptions: {
+                context: {create: false},
+                mode: 'edit',
+            },
+        });
+
+        assert.containsNone(form, '.o_form_button_create');
+        assert.containsOnce(form, '.o-kanban-button-new');
+
+        form.destroy();
+    });
+
     QUnit.test('readonly fields with modifiers may be saved', function (assert) {
         // the readonly property on the field description only applies on view,
         // this is not a DB constraint. It should be seen as a default value,
@@ -4821,6 +4852,49 @@ QUnit.module('Views', {
             "foo field should have focus");
 
         form.destroy();
+    });
+
+    QUnit.test('correct amount of buttons', function (assert) {
+        assert.expect(7);
+
+        var self = this;
+        var buttons = Array(8).join(
+            '<button type="object" class="oe_stat_button" icon="fa-check-square">' +
+                '<field name="bar"/>' +
+            '</button>'
+        );
+        var statButtonSelector = '.oe_stat_button:not(.dropdown-item, .dropdown-toggle)';
+
+        var createFormWithDeviceSizeClass = function (size_class) {
+            return createView({
+                View: FormView,
+                model: 'partner',
+                data: self.data,
+                arch: '<form>' +
+                    '<div name="button_box" class="oe_button_box">'
+                        + buttons +
+                    '</div>' +
+                '</form>',
+                res_id: 2,
+                config: {
+                    device: {size_class: size_class},
+                },
+            });
+        }
+
+        var assertFormContainsNButtonsWithSizeClass = function (size_class, n) {
+            var form = createFormWithDeviceSizeClass(size_class);
+            assert.containsN(form, statButtonSelector, n, 'The form has the expected amount of buttons');
+            form.destroy();
+        }
+
+        assertFormContainsNButtonsWithSizeClass(0, 2);
+        assertFormContainsNButtonsWithSizeClass(1, 2);
+        assertFormContainsNButtonsWithSizeClass(2, 2);
+        assertFormContainsNButtonsWithSizeClass(3, 4);
+        assertFormContainsNButtonsWithSizeClass(4, 7);
+        assertFormContainsNButtonsWithSizeClass(5, 7);
+        assertFormContainsNButtonsWithSizeClass(6, 7);
     });
 
     QUnit.module('focus and scroll test', {
@@ -7722,6 +7796,46 @@ QUnit.module('Views', {
         assert.containsOnce(actionManager, '.o_kanban_view');
 
         actionManager.destroy();
+    });
+
+    QUnit.test('edit a record in readonly and switch to edit before it is actually saved', async function (assert) {
+        assert.expect(3);
+
+        const prom = $.Deferred(); // testUtils.makeTestPromise();
+        const form = await createView({
+            View: FormView,
+            model: 'partner',
+            data: this.data,
+            arch: `<form>
+                    <field name="foo"/>
+                    <field name="bar" widget="toggle_button"/>
+                </form>`,
+            mockRPC: function (route, args) {
+                const result = this._super.apply(this, arguments);
+                if (args.method === 'write') { // delay the write RPC
+                    assert.deepEqual(args.args[1], {bar: false});
+                    return prom.then(_.constant(result));
+                }
+                return result;
+            },
+            res_id: 1,
+        });
+
+        // edit the record (in readonly) with toogle_button widget (and delay the write RPC)
+        await testUtils.dom.click(form.$('.o_field_widget[name=bar]'));
+
+        // switch to edit mode
+        await testUtils.form.clickEdit(form);
+
+        assert.hasClass(form.$('.o_form_view'), 'o_form_readonly'); // should wait for the RPC to return
+
+        // make write RPC return
+        prom.resolve();
+        // await testUtils.nextTick();
+
+        assert.hasClass(form.$('.o_form_view'), 'o_form_editable');
+
+        form.destroy();
     });
 
     QUnit.module('FormViewTABMainButtons');
