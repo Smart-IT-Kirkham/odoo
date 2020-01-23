@@ -3,18 +3,20 @@
 # * portal
 # 
 # Translators:
-# ExcaliberX <excaliberx@gmail.com>, 2017
-# Martin Trigaux, 2017
-# Fishfur A Banter <fishfurbanter@gmail.com>, 2017
 # yoav sc <yoav19991@gmail.com>, 2017
+# Martin Trigaux, 2017
 # Moshe Flam <pashute@gmail.com>, 2017
+# Fishfur A Banter <fishfurbanter@gmail.com>, 2017
+# ExcaliberX <excaliberx@gmail.com>, 2018
+# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2020
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-07-27 11:56+0000\n"
-"PO-Revision-Date: 2018-07-27 11:56+0000\n"
-"Last-Translator: Moshe Flam <pashute@gmail.com>, 2017\n"
+"PO-Revision-Date: 2017-09-20 10:21+0000\n"
+"Last-Translator: ZVI BLONDER <ZVIBLONDER@gmail.com>, 2020\n"
 "Language-Team: Hebrew (https://www.transifex.com/odoo/teams/41243/he/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -53,7 +55,7 @@ msgstr ""
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.portal_show_sign_in
 msgid "<b>Sign in</b>"
-msgstr ""
+msgstr "<b>התחבר</b>"
 
 #. module: portal
 #: model:ir.ui.view,arch_db:portal.frontend_layout
@@ -119,6 +121,8 @@ msgid ""
 "Confirm\n"
 "                                <span class=\"fa fa-long-arrow-right\"/>"
 msgstr ""
+"אשר\n"
+"                                <span class=\"fa fa-long-arrow-right\"/>"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_wizard_user_partner_id
@@ -159,7 +163,7 @@ msgstr "נוצר בתאריך"
 #: model:ir.model.fields,help:portal.field_project_task_portal_url
 #: model:ir.model.fields,help:portal.field_sale_order_portal_url
 msgid "Customer Portal URL"
-msgstr ""
+msgstr "כתובת פורטל לקוח"
 
 #. module: portal
 #: model:ir.model.fields,field_description:portal.field_portal_mixin_display_name
@@ -184,7 +188,7 @@ msgstr "דוא\"ל"
 #. module: portal
 #: model:ir.model,name:portal.model_mail_thread
 msgid "Email Thread"
-msgstr ""
+msgstr "שרשור דוא\"ל"
 
 #. module: portal
 #: code:addons/portal/wizard/portal_wizard.py:130
@@ -302,7 +306,7 @@ msgstr "ניהול גישה לפורטל"
 #: model:ir.model.fields,field_description:portal.field_project_task_portal_url
 #: model:ir.model.fields,field_description:portal.field_sale_order_portal_url
 msgid "Portal Access URL"
-msgstr ""
+msgstr "כתובת גישה לפורטל"
 
 #. module: portal
 #: model:ir.model,name:portal.model_portal_wizard_user
