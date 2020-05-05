@@ -23,6 +23,8 @@
 # Martin Trigaux, 2019
 # Wahyu Setiawan <wahyusetiaaa@gmail.com>, 2019
 # Ryanto The <ry.the77@gmail.com>, 2019
+# PAS IRVANUS <ipankbiz@gmail.com>, 2019
+# pnyet <david@zeromail.us>, 2020
 # 
 msgid ""
 msgstr ""
@@ -30,7 +32,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-12-10 14:44+0000\n"
 "PO-Revision-Date: 2018-08-24 09:14+0000\n"
-"Last-Translator: Ryanto The <ry.the77@gmail.com>, 2019\n"
+"Last-Translator: pnyet <david@zeromail.us>, 2020\n"
 "Language-Team: Indonesian (https://www.transifex.com/odoo/teams/41243/id/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -6405,6 +6407,8 @@ msgid ""
 "Account holder name, in case it is different than the name of the Account "
 "Holder"
 msgstr ""
+"Account holder name, in case it is different than the name of the Account "
+"Holder"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting
@@ -7531,6 +7535,7 @@ msgstr ""
 msgid ""
 "Bank account type: Normal or IBAN. Inferred from the bank account number."
 msgstr ""
+"Bank account type: Normal or IBAN. Inferred from the bank account number."
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_company__bank_ids
@@ -7681,7 +7686,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_batch_payment
 msgid "Batch Payment"
-msgstr ""
+msgstr "Pembayaran Kelompok"
 
 #. module: base
 #: selection:res.country,name_position:0
@@ -8756,7 +8761,7 @@ msgstr ""
 #. module: base
 #: model:ir.model,name:base.model_res_config_settings
 msgid "Config Settings"
-msgstr ""
+msgstr "Config Settings"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.config_wizard_step_view_form
@@ -9122,7 +9127,7 @@ msgstr "Buat Sebuah Menu"
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_res_partner_bank_account_form
 msgid "Create a bank account"
-msgstr ""
+msgstr "Create a bank account"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_ui_view_custom
@@ -9153,7 +9158,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:base.action_partner_customer_form
 #: model_terms:ir.actions.act_window,help:base.action_partner_form
 msgid "Create a new customer in your address book"
-msgstr ""
+msgstr "Create a new customer in your address book"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.res_partner_industry_action
@@ -11962,7 +11967,7 @@ msgstr ""
 #: selection:ir.actions.act_window,target:0
 #: selection:ir.actions.client,target:0
 msgid "Full Screen"
-msgstr ""
+msgstr "Tampilan Layar Penuh"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_purchase_mrp_workorder_quality
@@ -12097,7 +12102,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_property_view_search
 msgid "Generic"
-msgstr ""
+msgstr "Umum"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_generic_coa
@@ -12528,7 +12533,7 @@ msgstr "Perantara Perangkat Keras"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__qr_code_valid
 msgid "Has all required arguments"
-msgstr ""
+msgstr "Has all required arguments"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat__header_spacing
@@ -13877,7 +13882,7 @@ msgstr ""
 #. module: base
 #: selection:res.company,base_onboarding_company_state:0
 msgid "Just done"
-msgstr ""
+msgstr "Just done"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_K
@@ -14961,7 +14966,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_marketing_automation
 msgid "Marketing Automation Tests"
-msgstr ""
+msgstr "Percobaan Otomasi Marketing"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ma
@@ -15587,7 +15592,7 @@ msgstr "Penyaring saya"
 #. module: base
 #: model:res.country,name:base.mm
 msgid "Myanmar"
-msgstr ""
+msgstr "Myanmar"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_N
@@ -15901,7 +15906,7 @@ msgstr "Tidak Terpasang"
 #. module: base
 #: selection:res.company,base_onboarding_company_state:0
 msgid "Not done"
-msgstr ""
+msgstr "Not done"
 
 #. module: base
 #: code:addons/base/models/ir_model.py:1407
@@ -17104,7 +17109,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:base.action_partner_customer_form
 #: model_terms:ir.actions.act_window,help:base.action_partner_form
 msgid "Odoo helps you easily track all activities related to a customer."
-msgstr ""
+msgstr "Odoo helps you easily track all activities related to a customer."
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_partner_supplier_form
@@ -17787,7 +17792,7 @@ msgstr "Menu Induk"
 #: model:ir.model.fields,field_description:base.field_ir_ui_menu__parent_path
 #: model:ir.model.fields,field_description:base.field_res_partner_category__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "Parent Path"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner__parent_name
@@ -18464,7 +18469,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_website_event
 msgid "Publish events, sell tickets"
-msgstr ""
+msgstr "Publikasi kegiatan, jual tiket"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_slides
@@ -19001,7 +19006,7 @@ msgstr "Laporan"
 #. module: base
 #: model:ir.model,name:base.model_ir_actions_report
 msgid "Report Action"
-msgstr ""
+msgstr "Report Action"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_report__report_file
@@ -19421,7 +19426,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__sanitized_acc_number
 msgid "Sanitized Account Number"
-msgstr ""
+msgstr "Sanitized Account Number"
 
 #. module: base
 #: selection:res.lang,week_start:0
@@ -20066,7 +20071,7 @@ msgstr ""
 #: model:ir.model.fields,help:base.field_res_bank__bic
 #: model:ir.model.fields,help:base.field_res_partner_bank__bank_bic
 msgid "Sometimes called BIC or Swift."
-msgstr ""
+msgstr "Sometimes called BIC or Swift."
 
 #. module: base
 #: code:addons/base/models/ir_attachment.py:382
@@ -21603,7 +21608,7 @@ msgstr "Nama bahasa harus unik"
 #. module: base
 #: sql_constraint:ir.module.module:0
 msgid "The name of the module must be unique!"
-msgstr ""
+msgstr "Nama module harus unik!"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_sequence__number_increment
@@ -23083,7 +23088,7 @@ msgstr ""
 #. module: base
 #: model:res.country,name:base.vu
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
