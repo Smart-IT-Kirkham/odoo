@@ -14103,7 +14103,7 @@ msgstr "Endereço de fatura"
 #. module: base
 #: model:ir.module.module,summary:base.module_account
 msgid "Invoices & Payments"
-msgstr ""
+msgstr "Faturas e Pagamentos"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_documents_account

@@ -40,7 +40,7 @@
 # Cristóbal Martí Oliver <info@moblesmarti.com>, 2018
 # Cristopher Cravioto <ccr@odoo.com>, 2018
 # Nacho Hermoso <nacho@domatix.com>, 2018
-# JOSE ALEJANDRO ECHEVERRI VALENCIA <josealejandroeche@gmail.com>, 2018
+# Jose Alejandro Echeverri Valencia <josealejandroeche@gmail.com>, 2018
 # Massiel Acuna <mac@odoo.com>, 2018
 # Fernando Herrera <baloosoftware@gmail.com>, 2018
 # Rodrigo Aragon <conectacoatepec@gmail.com>, 2018
@@ -70,7 +70,7 @@
 # Osiris Román <osiris.roman@yachaytech.edu.ec>, 2020
 # Elena Aguirre Claeyssens <eac@odoo.com>, 2020
 # Haider Ilich López Areiza <hlopez@itsoluciones.com.co>, 2020
-# Rafael Blasco <rafabn@antiun.com>, 2020
+# Rafael Blasco <rafael.blasco@tecnativa.com>, 2020
 # e2f <projects@e2f.com>, 2020
 # 
 msgid ""
