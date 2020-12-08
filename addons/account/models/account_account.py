@@ -45,7 +45,7 @@ class AccountAccount(models.Model):
                 raise ValidationError(_('You cannot have a receivable/payable account that is not reconcilable. (account code: %s)', account.code))
 
     @api.constrains('user_type_id')
-    def _check_user_type_id(self):
+    def _check_user_type_id_unique_current_year_earning(self):
         data_unaffected_earnings = self.env.ref('account.data_unaffected_earnings')
         result = self.read_group([('user_type_id', '=', data_unaffected_earnings.id)], ['company_id'], ['company_id'])
         for res in result:
@@ -169,7 +169,7 @@ class AccountAccount(models.Model):
             raise UserError(_("You can't change the company of your account since there are some journal items linked to it."))
 
     @api.constrains('user_type_id')
-    def _check_user_type_id(self):
+    def _check_user_type_id_sales_purchase_journal(self):
         if not self:
             return
 
@@ -224,7 +224,10 @@ class AccountAccount(models.Model):
         raise UserError(_('Cannot generate an unused account code.'))
 
     def _compute_opening_debit_credit(self):
-        if not self:
+        self.opening_debit = 0
+        self.opening_credit = 0
+        self.opening_balance = 0
+        if not self.ids:
             return
         self.env.cr.execute("""
             SELECT line.account_id,

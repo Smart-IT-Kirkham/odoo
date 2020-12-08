@@ -30,6 +30,8 @@ msgid ""
 "<i class=\"fa fa-warning\"/>\n"
 "                        Two-factor authentication not enabled"
 msgstr ""
+"<i class=\"fa fa-warning\"/>\n"
+"                        Autenticazione a due fattori non abilitata"
 
 #. module: auth_totp_portal
 #: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
@@ -39,18 +41,22 @@ msgid ""
 "                        Two-factor authentication enabled\n"
 "                    </span>"
 msgstr ""
+"<span class=\"text-success\">\n"
+"                        <i class=\"fa fa-check-circle\"/>\n"
+"                        Autenticazione a due fattori abilitata\n"
+"                    </span>"
 
 #. module: auth_totp_portal
 #: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook
 msgid "Enable two-factor authentication"
-msgstr ""
+msgstr "Abilita autenticazione a due fattori"
 
 #. module: auth_totp_portal
 #. openerp-web
 #: code:addons/auth_totp_portal/static/src/js/totp_frontend.js:0
 #, python-format
 msgid "Operation failed for unknown reason."
-msgstr ""
+msgstr "Operazione non riuscita per motivi sconosciuti."
 
 #. module: auth_totp_portal
 #: model_terms:ir.ui.view,arch_db:auth_totp_portal.totp_portal_hook

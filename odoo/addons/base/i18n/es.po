@@ -3,83 +3,39 @@
 # 	* base
 # 
 # Translators:
-# Cristóbal Martí Oliver <info@moblesmarti.com>, 2020
-# Cristopher Cravioto <ccr@odoo.com>, 2020
-# Efrem Jimenez <efj@odoo.com>, 2020
-# Nacho Hermoso <nacho@domatix.com>, 2020
-# AleEscandon <alejandra.escandon@jarsa.com.mx>, 2020
-# Nhomar Hernández [Vauxoo] <nhomar@vauxoo.com>, 2020
-# Carlos Vásquez <carlos.vasquez@clearcorp.co.cr>, 2020
-# Kiko <kiko@comunitea.com>, 2020
-# b3f3300d6588d364d534a46dbff68ebb_f82c93d <25ccc199032c6e11a5e1ece329556b43_531019>, 2020
-# Oscar Soto <oscar.soto.ochoa@gmail.com>, 2020
-# Cristian Salamea <ovnicraft@gmail.com>, 2020
-# Fabian <fabiananguiano@gmail.com>, 2020
-# José Vicente <txusev@gmail.com>, 2020
-# Katherine Zaoral <katherine.zaoral@gmail.com>, 2020
-# Julián Andrés Osorio López <mcjulian1107@gmail.com>, 2020
-# Hbto [ Vauxoo ] <hbto@vauxoo.com>, 2020
-# Leonardo Chianea <noamixcontenidos@gmail.com>, 2020
-# Wilcar José Angulo <wilcarjose@gmail.com>, 2020
-# Hugo Santos <hugo.santos@factorlibre.com>, 2020
-# Mateo Tibaquirá Palacios <nestormateo@gmail.com>, 2020
-# Carlos rodriguez <carlosalbertor436@gmail.com>, 2020
-# Rodrigo Aragon <conectacoatepec@gmail.com>, 2020
-# e2f <projects@e2f.com>, 2020
-# Marco Alejandro Martinez <martinezsuarezmarcoalejandro@gmail.com>, 2020
-# Luis González <lgonzalez@vauxoo.com>, 2020
-# José Luis <alagunajs@gmail.com>, 2020
-# Alejandro Santana <alejandrosantana@anubia.es>, 2020
-# oihane <oihanecruce@gmail.com>, 2020
-# Massiel Acuna <mac@odoo.com>, 2020
-# Mariana Santos Romo <msn@odoo.com>, 2020
-# Juan José Scarafía <scarafia.juanjose@gmail.com>, 2020
-# Christopher Ormaza <chris.ormaza@gmail.com>, 2020
-# Miguel Orueta <mo@landoo.es>, 2020
-# David Arnold <blaggacao@users.noreply.github.com>, 2020
-# Sergio Flores <vitavitae1@gmail.com>, 2020
-# Pablo Rojas <rojaspablo88@gmail.com>, 2020
-# Otto Runarsson <oru@odoo.com>, 2020
-# John Guardado <jgu@odoo.com>, 2020
-# Tomas Caucino <tc@adhoc.com.ar>, 2020
-# Osiris Román <osiris.roman@yachaytech.edu.ec>, 2020
 # David Perez <david@closemarketing.es>, 2020
-# Carlos Lopez <celm1990@hotmail.com>, 2020
-# Rick Hunter <rick_hunter_ec@yahoo.com>, 2020
-# juani_aizean <juani@aizean.com>, 2020
 # Gustavo Valverde, 2020
-# Inigo Zuluaga <inigo_zuluaga@yahoo.es>, 2020
-# Soluntec <abraham@soluntec.es>, 2020
-# JOSE ALEJANDRO ECHEVERRI VALENCIA <josealejandroeche@gmail.com>, 2020
-# ced903afe967c2a46d1036224972db9d, 2020
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2020
-# Ana Juaristi <ajuaristio@gmail.com>, 2020
-# Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2020
-# gabriumaa <gabriel.umana@delfixcr.com>, 2020
-# Antonio Trueba, 2020
-# RGB Consulting <odoo@rgbconsulting.com>, 2020
-# 966ff43e6966712895a590e7320ca288, 2020
-# Nicolás Broggi <rnbroggi@gmail.com>, 2020
 # Elena Aguirre Claeyssens <eac@odoo.com>, 2020
-# Fernando Herrera <baloosoftware@gmail.com>, 2020
+# Soluntec <abraham@soluntec.es>, 2020
+# ced903afe967c2a46d1036224972db9d, 2020
+# gabriumaa <gabriel.umana@delfixcr.com>, 2020
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2020
+# Sergio Flores <vitavitae1@gmail.com>, 2020
+# Julián Andrés Osorio López <mcjulian1107@gmail.com>, 2020
+# 966ff43e6966712895a590e7320ca288, 2020
+# Alejandro Santana <alejandrosantana@anubia.es>, 2020
+# Inigo Zuluaga <inigo_zuluaga@yahoo.es>, 2020
+# Nicolás Broggi <rnbroggi@gmail.com>, 2020
+# Antonio Trueba, 2020
 # Jon Perez <jop@odoo.com>, 2020
-# VivianMontana23 <vivianpvm@gmail.com>, 2020
 # Jesse Garza <jga@odoo.com>, 2020
 # gpi odoo <gpi@odoo.com>, 2020
-# Martin Trigaux, 2020
+# RGB Consulting <odoo@rgbconsulting.com>, 2020
 # Luis M. Ontalba <luis.martinez@tecnativa.com>, 2020
-# Rick Hunter <rick.hunter.ec@gmail.com>, 2020
-# Raquel Iciarte <ric@odoo.com>, 2020
 # Haider Ilich López Areiza <hlopez@itsoluciones.com.co>, 2020
+# Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2020
+# Martin Trigaux, 2020
 # Carolina Gonzalez <cgo@odoo.com>, 2020
+# Susanna Pujol, 2020
+# Rick Hunter <rick.hunter.ec@gmail.com>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-10-02 14:25+0000\n"
+"POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Carolina Gonzalez <cgo@odoo.com>, 2020\n"
+"Last-Translator: Rick Hunter <rick.hunter.ec@gmail.com>, 2020\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -610,6 +566,9 @@ msgid ""
 "        Accounting reports for Sweden\n"
 "    "
 msgstr ""
+"\n"
+"Informes contables para Suecia\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ch_reports
@@ -925,15 +884,9 @@ msgid ""
 "        Generate payment orders as recommended by the SEPA norm, thanks to pain.001 messages. Supported pain version (countries) are pain.001.001.03 (generic), pain.001.001.03.ch.02 (Switzerland) and pain.001.003.03 (Germany). The generated XML file can then be uploaded to your bank.\n"
 "\n"
 "        This module follow the implementation guidelines issued by the European Payment Council.\n"
-"        For more informations about the SEPA standards : http://www.iso20022.org/ and http://www.europeanpaymentscouncil.eu/\n"
+"        For more information about the SEPA standards : http://www.iso20022.org/ and http://www.europeanpaymentscouncil.eu/\n"
 "    "
 msgstr ""
-"\n"
-"         Genera órdenes de pago según lo recomendado por la norma SEPA, gracias a los mensajes de pain.001. La versión pain admitida (países) es pain.001.001.03 (genérico), pain.001.001.03.ch.02 (Suiza) y pain.001.003.03 (Alemania). El archivo XML generado puede luego cargarse en tu banco.\n"
-"\n"
-"         Este módulo sigue las pautas de implementación emitidas por el Consejo Europeo de Pagos.\n"
-"         Para obtener más información sobre las normas SEPA: http://www.iso20022.org/ and http://www.europeanpaymentscouncil.eu/\n"
-"      "
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_winbooks_import
@@ -2685,7 +2638,7 @@ msgid ""
 "This module has been tested as base for more of 1000 companies, because\n"
 "it is based in a mixtures of most common software in the Venezuelan\n"
 "market what will allow for sure to accountants feel them first steps with\n"
-"Odoo more confortable.\n"
+"Odoo more comfortable.\n"
 "\n"
 "This module doesn't pretend be the total localization for Venezuela,\n"
 "but it will help you to start really quickly with Odoo in this country.\n"
@@ -3242,12 +3195,6 @@ msgid ""
 "in the selected countries.\n"
 "The wizard can be run again for adding more countries.\n"
 "\n"
-"The wizard creates a separate Chart of Taxes for collecting the\n"
-"VAT amounts of the MOSS declaration, so extracting the MOSS\n"
-"data should be easy.\n"
-"Look for a Chart of Taxes named \"EU MOSS VAT Chart\" in the\n"
-"Taxes Report menu (Generic Accounting Report).\n"
-"\n"
 "References\n"
 "++++++++++\n"
 "- Directive 2008/8/EC\n"
@@ -3255,54 +3202,6 @@ msgid ""
 "\n"
 "    "
 msgstr ""
-"\n"
-"EU Mini One Stop Shop (MOSS) VAT for telecommunications, broadcasting and electronic services\n"
-"=============================================================================================\n"
-"\n"
-"As of January 1rst, 2015, telecommunications, broadcasting\n"
-"and electronic services sold within the European Union\n"
-"have to be always taxed in the country where the customer\n"
-"belongs. In order to simplify the application of this EU\n"
-"directive, the Mini One Stop Shop (MOSS) registration scheme\n"
-"allows businesses to make a unique tax declaration.\n"
-"\n"
-"This module makes it possible by helping with the creation\n"
-"of the required EU fiscal positions and taxes in order to\n"
-"automatically apply and record the required taxes.\n"
-"\n"
-"This module installs a wizard to help setup fiscal positions\n"
-"and taxes for selling electronic services inside EU.\n"
-"\n"
-"The wizard lets you select:\n"
-" - the EU countries to which you are selling these\n"
-"   services\n"
-" - your national VAT tax for services, to be mapped\n"
-"   to the target country's tax\n"
-" - optionally: a template fiscal position, in order\n"
-"   to copy the account mapping. Should be your\n"
-"   existing B2C Intra-EU fiscal position. (defaults\n"
-"   to no account mapping)\n"
-" - optionally: an account to use for collecting the\n"
-"   tax amounts (defaults to the account used by your\n"
-"   national VAT tax for services)\n"
-"\n"
-"It creates the corresponding fiscal positions and taxes,\n"
-"automatically applicable for EU sales with a customer\n"
-"in the selected countries.\n"
-"The wizard can be run again for adding more countries.\n"
-"\n"
-"The wizard creates a separate Chart of Taxes for collecting the\n"
-"VAT amounts of the MOSS declaration, so extracting the MOSS\n"
-"data should be easy.\n"
-"Look for a Chart of Taxes named \"EU MOSS VAT Chart\" in the\n"
-"Taxes Report menu (Generic Accounting Report).\n"
-"\n"
-"References\n"
-"++++++++++\n"
-"- Directive 2008/8/EC\n"
-"- Council Implementing Regulation (EU) No 1042/2013\n"
-"\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_documents_hr
@@ -3760,6 +3659,7 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_nl_intrastat
+#: model:ir.module.module,description:base.module_l10n_nl_report_intrastat
 msgid ""
 "\n"
 "Generates Netherlands Intrastat report for declaration based on invoices.\n"
@@ -5640,9 +5540,9 @@ msgid ""
 "Swiss localization\n"
 "==================\n"
 "Added a QR-IBAN field on bank account.\n"
-"If this field is empty, but the bank account number itself is a valid QR-IBAN number, it will still be used as QR-IBAN as before.  \n"
-"But if you fill in the new QR-IBAN field, that one will be used as the QR-IBAN.  This should help for reconciliation as \n"
-"on the bank statements, the old IBAN code is still used.  \n"
+"If this field is empty but the bank account number itself is a valid QR-IBAN number, it will continue using it as QR-IBAN.\n"
+"However, if the new QR-IBAN field is filled, the value will be used as the QR-IBAN.\n"
+"This should help for reconciliation on the bank statements where the old IBAN code is still used.\n"
 "    "
 msgstr ""
 
@@ -6250,9 +6150,10 @@ msgid ""
 "This is the latest basic Israelian localisation necessary to run Odoo in Israel:\n"
 "================================================================================\n"
 "\n"
-"This module consists:\n"
-" - Generic Israelian chart of accounts\n"
-" - Israelian taxes\n"
+"This module consists of:\n"
+" - Generic Israel Chart of Accounts\n"
+" - Taxes and tax report\n"
+" - Fiscal position for Palestina\n"
 " "
 msgstr ""
 
@@ -6740,7 +6641,7 @@ msgstr ""
 msgid ""
 "\n"
 "This module allows to print your payments on pre-printed check paper.\n"
-"You can configure the output (layout, stubs informations, etc.) in company settings, and manage the\n"
+"You can configure the output (layout, stubs information, etc.) in company settings, and manage the\n"
 "checks numbering (if you use pre-printed checks without numbers) in journal settings.\n"
 "\n"
 "Supported formats\n"
@@ -7070,6 +6971,13 @@ msgstr ""
 "\n"
 "Instala el perfil para asociaciones para gestionar eventos, registros, asociados y productos de asociados (esquemas).\n"
 "    "
+
+#. module: base
+#: model:ir.module.module,summary:base.module_account_online_synchronization
+msgid ""
+"\n"
+"This module is used for Online bank synchronization."
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_approvals
@@ -7670,6 +7578,19 @@ msgstr ""
 "    "
 
 #. module: base
+#: model:ir.module.module,description:base.module_account_online_synchronization
+msgid ""
+"\n"
+"With this module, users will be able to link bank journals to their\n"
+"online bank accounts (for supported banking institutions), and configure\n"
+"a periodic and automatic synchronization of their bank statements.\n"
+"This module has been added end of 2020 and is purpose is to work with\n"
+"the latest providers. It should be used over the previous account_online_sync\n"
+"module.\n"
+"    "
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_payment_sips
 msgid ""
 "\n"
@@ -8081,10 +8002,9 @@ msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
-msgid "<code>Warning</code>: Warning Exception to use with <code>raise</code>"
+msgid ""
+"<code>UserError</code>: Warning Exception to use with <code>raise</code>"
 msgstr ""
-"<code>Warning</code>: Excepción de Advertencia para usar con "
-"<code>raise</code>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_fields_form
@@ -8206,7 +8126,7 @@ msgstr "<i class=\"fa fa-times\" title=\"Cerrar el panel de bienvenida\"/>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.onboarding_container
-msgid "<span aria-label=\"Close\">&amp;times;</span>"
+msgid "<span aria-label=\"Close\">×</span>"
 msgstr ""
 
 #. module: base
@@ -8936,11 +8856,6 @@ msgid "Access to unauthorized or invalid companies."
 msgstr "Acceso a empresas no autorizadas o inválidas."
 
 #. module: base
-#: model:ir.module.category,name:base.module_category_account
-msgid "Account"
-msgstr "Cuenta"
-
-#. module: base
 #: model:ir.module.module,shortdesc:base.module_account_auto_transfer
 msgid "Account Automatic Transfers"
 msgstr ""
@@ -9636,6 +9551,11 @@ msgid "Advanced features for stock_account"
 msgstr "Características avanzadas para stock_account"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_be_hr_payroll_proration
+msgid "Advantage Proration"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_payment_adyen
 #: model:ir.module.module,shortdesc:base.module_payment_adyen
 msgid "Adyen Payment Acquirer"
@@ -9742,6 +9662,11 @@ msgstr "Asigne días libres y siga las solicitudes de días libres"
 #: model:ir.module.module,summary:base.module_helpdesk_fsm
 msgid "Allow generating fsm tasks from ticket"
 msgstr "Permite generar tareas autómata finito a partir de un ticket"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_hr_payroll_edit_lines
+msgid "Allow payslip edition"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_event_crm
@@ -10757,6 +10682,21 @@ msgid "Belgian Intrastat Declaration"
 msgstr "Declaración Intrasat belga"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_proration
+msgid "Belgian Payroll - Advantage Proration"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_posted_employee
+msgid "Belgian Payroll - Posted Employee"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_variable_revenue
+msgid "Belgian Payroll - Variable Revenue"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_pos_blackbox_be
 msgid "Belgian Registered Cash Register"
 msgstr "Sistema belga de registro de pagos en efectivo"
@@ -11084,8 +11024,8 @@ msgstr "Por"
 #. module: base
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
-msgid "By default the widget uses the field informations"
-msgstr "Por defecto el widget usa la información del campo"
+msgid "By default the widget uses the field information"
+msgstr ""
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_C
@@ -11265,6 +11205,12 @@ msgid ""
 msgstr ""
 "No es posible crear nuevos '%s' registros sólamente des de su nombre. Por "
 "favor, cree esos registros manualmente e intente importar de nuevo."
+
+#. module: base
+#: code:addons/base/models/res_lang.py:0
+#, python-format
+msgid "Cannot deactivate a language that is currently used by contacts."
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/res_lang.py:0
@@ -15172,6 +15118,11 @@ msgid ""
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_payment_fix_register_token
+msgid "Fix register payment wizard with 'payment' module"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__image_url
 msgid "Flag"
 msgstr "Marcar"
@@ -18379,11 +18330,6 @@ msgid "Localization"
 msgstr "Localización"
 
 #. module: base
-#: model:ir.module.category,name:base.module_category_account_localizations
-msgid "Localizations"
-msgstr "Localizaciones"
-
-#. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_logging_form_view
 msgid "Log"
 msgstr "Registro"
@@ -19787,6 +19733,11 @@ msgid "Netherlands Intrastat Declaration"
 msgstr "Declaración Intrastat de Holanda"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_nl_report_intrastat
+msgid "Netherlands Intrastat Declaration Reports"
+msgstr ""
+
+#. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form_simple_modif
 msgid "New API Key"
 msgstr ""
@@ -20134,6 +20085,11 @@ msgstr "Número de módulos actualizados"
 #: model:ir.model.fields,help:base.field_res_users__rules_count
 msgid "Number of record rules that apply to the current user"
 msgstr "Número de reglas de registro que se aplican al usuario actual"
+
+#. module: base
+#: model:res.country,vat_label:base.pf
+msgid "N° Tahiti"
+msgstr ""
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_O
@@ -21094,7 +21050,7 @@ msgid ""
 "### Blazing fast search\n"
 "\n"
 "Scan products, browse through hierarchical categories, or get quick information\n"
-"about products with the blasting fast filter accross all your products.\n"
+"about products with the blasting fast filter across all your products.\n"
 "\n"
 "Integrated Inventory Management\n"
 "-------------------------------\n"
@@ -21621,6 +21577,11 @@ msgstr ""
 #: model:ir.module.category,name:base.module_category_marketing_online_appointment
 msgid "Online Appointment"
 msgstr "Cita en línea"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_account_online_synchronization
+msgid "Online Bank Statement Synchronization"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_event_sale
@@ -22553,6 +22514,11 @@ msgid "Payroll Localization"
 msgstr ""
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_hr_payroll_edit_lines
+msgid "Payroll: Edit lines - Recompute work entries"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_payment_payulatam
 msgid "PayuLatam Payment Acquirer"
 msgstr "Método de pago PayuLatam"
@@ -22617,7 +22583,7 @@ msgstr "Pivote"
 #. module: base
 #: model:ir.module.module,summary:base.module_project_forecast
 msgid "Plan your resources on project tasks"
-msgstr ""
+msgstr "Planifique sus recursos en las tareas del proyecto"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_human_resources_planning
@@ -22750,6 +22716,11 @@ msgstr "Portugal"
 #: model:ir.module.module,shortdesc:base.module_l10n_pt
 msgid "Portugal - Accounting"
 msgstr "Portugal - Contabilidad"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_l10n_be_hr_payroll_posted_employee
+msgid "Posted Employee"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_constraint__definition
@@ -23723,8 +23694,8 @@ msgstr "Elminar del menú \"Imprimir\""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.act_report_xml_view
-msgid "Remove the contextual action related this report"
-msgstr "Elimina la acción contextual relacionada con este informe"
+msgid "Remove the contextual action related to this report"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_renting
@@ -25428,8 +25399,8 @@ msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_documents_hr_holidays
-msgid "Store employee's time off documents  in the Document app"
-msgstr "Almacenar ausencias de empleados en la aplicación de Documentos"
+msgid "Store employee's time off documents in the Document app"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__store
@@ -26880,14 +26851,6 @@ msgid ""
 msgstr ""
 
 #. module: base
-#: code:addons/base/models/ir_sequence.py:0
-#, python-format
-msgid ""
-"This transaction wasn't executed because another transaction is already "
-"using the same no-gap sequence. Please try again later."
-msgstr ""
-
-#. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__thousands_sep
 msgid "Thousands Separator"
 msgstr "Separador de millares"
@@ -28170,6 +28133,11 @@ msgid "Vanuatu"
 msgstr "Vanuatu"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_be_hr_payroll_variable_revenue
+msgid "Variable Revenue"
+msgstr ""
+
+#. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 msgid ""
 "Various fields may use Python code or Python expressions. The following "
@@ -28470,11 +28438,6 @@ msgid "Web-only translations"
 msgstr "Traducciones sólo para web"
 
 #. module: base
-#: model:ir.module.module,shortdesc:base.module_website_event_crm_questions
-msgid "Webiste Event CRM Questions"
-msgstr ""
-
-#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__website
 #: model:ir.module.category,name:base.module_category_website
 #: model:ir.module.category,name:base.module_category_website_website
@@ -28494,6 +28457,11 @@ msgstr "Sitio web - Gestión de Ventas"
 #: model:ir.module.module,shortdesc:base.module_website_enterprise
 msgid "Website Enterprise"
 msgstr "Sitio web de la Empresa"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_website_event_crm_questions
+msgid "Website Event CRM Questions"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_event_crm
@@ -29135,16 +29103,6 @@ msgstr "account_ponto"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_qr_code_sepa
 msgid "account_qr_code_sepa"
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,summary:base.module_l10n_lt
-msgid "accounting, Lithuanian"
-msgstr ""
-
-#. module: base
-#: model:ir.module.module,summary:base.module_l10n_lt_reports
-msgid "accounting, report, Lithuanian"
 msgstr ""
 
 #. module: base
