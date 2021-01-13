@@ -1532,7 +1532,10 @@ class Binary(http.Controller):
             if not (width or height):
                 width, height = odoo.tools.image_guess_size_from_field_name(field)
 
-        image_base64 = image_process(image_base64, size=(int(width), int(height)), crop=crop, quality=int(quality))
+        try:
+            image_base64 = image_process(image_base64, size=(int(width), int(height)), crop=crop, quality=int(quality))
+        except Exception:
+            return request.not_found()
 
         content = base64.b64decode(image_base64)
         headers = http.set_safe_image_headers(headers, content)
@@ -1686,7 +1689,7 @@ class Binary(http.Controller):
         else:
             current_dir = os.path.dirname(os.path.abspath(__file__))
             fonts_directory = os.path.join(current_dir, '..', 'static', 'src', 'fonts', 'sign')
-            font_filenames = sorted(os.listdir(fonts_directory))
+            font_filenames = sorted([fn for fn in os.listdir(fonts_directory) if fn.endswith(('.ttf', '.otf', '.woff', '.woff2'))])
 
             for filename in font_filenames:
                 font_file = open(os.path.join(fonts_directory, filename), 'rb')

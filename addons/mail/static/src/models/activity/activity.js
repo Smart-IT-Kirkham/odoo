@@ -43,7 +43,7 @@ function factory(dependencies) {
             if ('can_write' in data) {
                 data2.canWrite = data.can_write;
             }
-            if ('create_data' in data) {
+            if ('create_date' in data) {
                 data2.dateCreate = data.create_date;
             }
             if ('date_deadline' in data) {
@@ -283,6 +283,12 @@ function factory(dependencies) {
         creator: many2one('mail.user'),
         dateCreate: attr(),
         dateDeadline: attr(),
+        /**
+         * Backup of the feedback content of an activity to be marked as done in the popover.
+         * Feature-specific to restoring the feedback content when component is re-mounted.
+         * In all other cases, this field value should not be trusted.
+         */
+        feedbackBackup: attr(),
         force_next: attr({
             default: false,
         }),

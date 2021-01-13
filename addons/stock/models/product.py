@@ -143,7 +143,7 @@ class Product(models.Model):
             domain_move_in_done = list(domain_move_in)
             domain_move_out_done = list(domain_move_out)
         if from_date:
-            date_date_expected_domain_from = [('date', '<=', from_date)]
+            date_date_expected_domain_from = [('date', '>=', from_date)]
             domain_move_in += date_date_expected_domain_from
             domain_move_out += date_date_expected_domain_from
         if to_date:
@@ -493,7 +493,7 @@ class Product(models.Model):
         return action
 
     def action_update_quantity_on_hand(self):
-        return self.product_tmpl_id.with_context(default_product_id=self.id).action_update_quantity_on_hand()
+        return self.product_tmpl_id.with_context(default_product_id=self.id, create=True).action_update_quantity_on_hand()
 
     def action_product_forecast_report(self):
         self.ensure_one()
@@ -754,7 +754,7 @@ class ProductTemplate(models.Model):
         if (self.env.user.user_has_groups(','.join(advanced_option_groups))):
             return self.action_open_quants()
         else:
-            default_product_id = len(self.product_variant_ids) == 1 and self.product_variant_id.id
+            default_product_id = self.env.context.get('default_product_id', len(self.product_variant_ids) == 1 and self.product_variant_id.id)
             action = self.env["ir.actions.actions"]._for_xml_id("stock.action_change_product_quantity")
             action['context'] = dict(
                 self.env.context,

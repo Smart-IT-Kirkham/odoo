@@ -100,8 +100,7 @@ class AccountPayment(models.Model):
         store=True, readonly=False,
         compute='_compute_destination_account_id',
         domain="[('user_type_id.type', 'in', ('receivable', 'payable')), ('company_id', '=', company_id)]",
-        check_company=True,
-        help="The payment's currency.")
+        check_company=True)
 
     # == Stat buttons ==
     reconciled_invoice_ids = fields.Many2many('account.move', string="Reconciled Invoices",
@@ -225,7 +224,7 @@ class AccountPayment(models.Model):
         }
 
         default_line_name = self.env['account.move.line']._get_default_line_name(
-            payment_display_name['%s-%s' % (self.payment_type, self.partner_type)],
+            _("Internal Transfer") if self.is_internal_transfer else payment_display_name['%s-%s' % (self.payment_type, self.partner_type)],
             self.amount,
             self.currency_id,
             self.date,
