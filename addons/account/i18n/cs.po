@@ -1768,12 +1768,13 @@ msgid ""
 "Adjusting Entry for {link}: {percent:f}% of {amount} recognized on "
 "{new_date}"
 msgstr ""
+"Úprava položky pro {link}: {percent:f}% z {amount} uznané k {new_date}."
 
 #. module: account
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "Adjusting Entry of {date} ({percent:f}% recognized on {new_date})"
-msgstr ""
+msgstr "Úprava záznamu ze dne {date} ({percent:f}% uznáno na {new_date})"
 
 #. module: account
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
@@ -5353,10 +5354,8 @@ msgstr "Federální státy"
 #. openerp-web
 #: code:addons/account/static/src/js/tours/account.js:0
 #, python-format
-msgid ""
-"Fill in the details of the line.<br><i>Tip: all the details can be set "
-"automatically if you configure your <b>products</b>.</i>"
-msgstr ""
+msgid "Fill in the details of the line."
+msgstr "Vyplňte podrobnosti řádku."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_analytic_line__general_account_id
@@ -10623,9 +10622,9 @@ msgid ""
 "\n"
 "Only PDF and XML files will be interpreted by Odoo"
 msgstr ""
-"Na každou fakturu odešlete jeden samostatný e-mail.\n"
+"Každou fakturu odešlete jeden samostatný e-mail.\n"
 "\n"
-"Jakákoli přípona souboru bude přijata.\n"
+"Může být použita jakákoli přípona souboru.\n"
 "\n"
 "Odoo bude interpretovat pouze soubory PDF a XML"
 

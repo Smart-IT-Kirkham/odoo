@@ -3,11 +3,10 @@
 # 	* account
 # 
 # Translators:
-# Yaroslav Panychev <walkmanyd@yandex.ru>, 2020
+# Denis Baranov <baranov@itlibertas.com>, 2020
 # Андрей Гусев <gaussgss@gmail.com>, 2020
 # Viktor Pogrebniak <vp@aifil.ru>, 2020
 # Polina Alexandrova <polinaalexnder@gmail.com>, 2020
-# Denis Baranov <baranov@itlibertas.com>, 2020
 # Ekaterina <nawsikaya@bk.ru>, 2020
 # Анищук Сергей <anishukserg@gmail.com>, 2020
 # Anton Ilchenko <anton.wmt@gmail.com>, 2020
@@ -27,9 +26,10 @@
 # Vasiliy Korobatov <korobatov@gmail.com>, 2020
 # Irina Fedulova <istartlin@gmail.com>, 2020
 # Алексей Хомяков <alexey.homyakov@gmail.com>, 2020
-# Сергей Шебанин <sergey@shebanin.ru>, 2020
 # Martin Trigaux, 2021
 # Ivan Yelizariev // IEL <yelizariev@itpp.dev>, 2021
+# Yaroslav Panychev <walkmanyd@yandex.ru>, 2021
+# Сергей Шебанин <sergey@shebanin.ru>, 2021
 # 
 msgid ""
 msgstr ""
@@ -37,7 +37,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-02-25 10:15+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Ivan Yelizariev // IEL <yelizariev@itpp.dev>, 2021\n"
+"Last-Translator: Сергей Шебанин <sergey@shebanin.ru>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -162,7 +162,7 @@ msgstr "-> Посмотреть частично выверенные запис
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid ". You might want to put a higher number here."
-msgstr ""
+msgstr ". Возможно, вы захотите поставить здесь большее число."
 
 #. module: account
 #: code:addons/account/wizard/account_resequence.py:0
@@ -455,6 +455,9 @@ msgid ""
 "('state', '!=', 'draft'), ('invoice_payment_term_id', '!=', False)]}\"> or "
 "</span>"
 msgstr ""
+"<span class=\"o_form_label mx-3 oe_edit_only\" attrs=\"{'invisible': ['|', "
+"('state', '!=', 'draft'), ('invoice_payment_term_id', '!=', False)]}\"> или "
+"</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_reconcile_model_form
@@ -517,11 +520,8 @@ msgid ""
 "<span class=\"o_form_label\">Rounding Method</span>\n"
 "                                    <span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-specific.\" aria-label=\"Values set here are company-specific.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 msgstr ""
-"<span class=\"o_form_label\">метод округления</span>n"
-"                                    <span class=\"fa fa-lg fa-building-o\" "
-"title=\"Значение зависит от выбранной компании\" aria-label=\"Значение "
-"зависит от выбраннной компани.\" groups=\"base.group_multi_company\" "
-"role=\"img\"/>"
+"<span class=\"o_form_label\">Метод округления</span>\n"
+"                                    <span class=\"fa fa-lg fa-building-o\" title=\"Значение зависит от выбранной компании\" aria-label=\"Значение зависит от выбраннной компани.\" groups=\"base.group_multi_company\" role=\"img\"/>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_payment_term_line_form
@@ -608,7 +608,7 @@ msgstr "<span>Отправитель</span>"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "<span> Manually</span>"
-msgstr ""
+msgstr "<span> вручную</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
@@ -628,7 +628,7 @@ msgstr "<span>Баланс</span>"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "<span>Create</span>"
-msgstr ""
+msgstr "<span>Создать</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_invoice_document
@@ -658,7 +658,7 @@ msgstr "<span>Новая запись</span>"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "<span>New Invoice</span>"
-msgstr "<span>Новый счёт на оплату</span>"
+msgstr "<span>Новый счёт</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -715,7 +715,7 @@ msgstr "<span>Загрузить накладную</span>"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "<span>Upload</span>"
-msgstr ""
+msgstr "<span>Загрузить</span>"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -1261,7 +1261,7 @@ msgstr "Группа счетов"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_group_search
 msgid "Account groups"
-msgstr "группы рахукив"
+msgstr "Группы счетов"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_setup_bank_manual_config__acc_holder_name
@@ -1374,12 +1374,12 @@ msgstr "Бухгалтерский учёт"
 #. module: account
 #: model:ir.actions.act_window,name:account.open_account_journal_dashboard_kanban
 msgid "Accounting Dashboard"
-msgstr "Бухгалтерия: панель состояния"
+msgstr "Бухгалтерия: обзор"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "Accounting Date"
-msgstr "Дата сдачи отчётности"
+msgstr "Бухгалтерская дата"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_line_form
@@ -1396,7 +1396,7 @@ msgstr "Бухгалтерские проводки"
 #: model_terms:ir.ui.view,arch_db:account.onboarding_fiscal_year_step
 #, python-format
 msgid "Accounting Periods"
-msgstr ""
+msgstr "Отчетные периоды"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_form
@@ -1782,7 +1782,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.dashboard_onboarding_bill_step
 msgid "All done!"
-msgstr "Все завершен!"
+msgstr "Готово!"
 
 #. module: account
 #: code:addons/account/models/company.py:0
@@ -2240,7 +2240,7 @@ msgstr "Апрель"
 #: model_terms:ir.ui.view,arch_db:account.view_payment_term_form
 #: model_terms:ir.ui.view,arch_db:account.view_payment_term_search
 msgid "Archived"
-msgstr "Заархивировано"
+msgstr "Архивировано"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_account_type__internal_group__asset
@@ -2320,7 +2320,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "Auto-Complete"
-msgstr "автозаполнения"
+msgstr "Заполнить автоматически"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_line__invoice_vendor_bill_id
@@ -3011,7 +3011,7 @@ msgstr "Кассы"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__group_cash_rounding
 msgid "Cash Rounding"
-msgstr "Округление наличных денег"
+msgstr "Округлять суммы наличными"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__invoice_cash_rounding_id
@@ -3412,7 +3412,7 @@ msgstr "Валюта компании"
 #. module: account
 #: model:ir.model,name:account.model_base_document_layout
 msgid "Company Document Layout"
-msgstr ""
+msgstr "Макет документов компании"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__has_chart_of_accounts
@@ -3529,7 +3529,7 @@ msgstr "Поздравляем! Вы все настроили."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "Connect"
-msgstr ""
+msgstr "Подключить"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_tax_template__tax_scope__consu
@@ -3703,7 +3703,7 @@ msgstr "создать сторно"
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_move_out_invoice_type
 msgid "Create a customer invoice"
-msgstr "Создать аккаунт клиента"
+msgstr "Создайте счёт на оплату для клиента"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_move_journal_line
@@ -3718,7 +3718,7 @@ msgstr "Создать новый кассовый журнал"
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_customer
 msgid "Create a new customer in your address book"
-msgstr "Создайте нового клиента в ваши адресной книге"
+msgstr "Добавьте нового клиента в Контакты"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_account_fiscal_position_form
@@ -3748,12 +3748,12 @@ msgstr ""
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.product_product_action_sellable
 msgid "Create a new sellable product"
-msgstr "Создать новый товар товары"
+msgstr "Создать новый товар для продажи"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier
 msgid "Create a new supplier in your address book"
-msgstr ""
+msgstr "Добавьте нового поставщика в Контакты"
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_tax_form
@@ -3797,9 +3797,7 @@ msgstr "Создание счета-фактуры/счета"
 msgid ""
 "Create invoices, register payments and keep track of the discussions with "
 "your customers."
-msgstr ""
-"Создавайте счета-фактуры, регистрируйте платежи и следите за обсуждениями с "
-"клиентами."
+msgstr "Создавайте счета, заносите платежи и переписывайтесь с клиентами."
 
 #. module: account
 #: model_terms:ir.actions.act_window,help:account.action_move_in_invoice_type
@@ -3816,7 +3814,7 @@ msgstr "Создайте первое округление наличности"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_create_invoice_step
 msgid "Create your first invoice."
-msgstr ""
+msgstr "Создайте ваш первый счёт на оплату."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account__create_uid
@@ -4119,7 +4117,7 @@ msgstr "сторно клиента"
 #: model:ir.model.fields.selection,name:account.selection__account_invoice_report__move_type__out_invoice
 #: model:ir.model.fields.selection,name:account.selection__account_move__move_type__out_invoice
 msgid "Customer Invoice"
-msgstr "Счет клиента"
+msgstr "Счёт на оплату для клиента"
 
 #. module: account
 #: code:addons/account/models/chart_template.py:0
@@ -4184,7 +4182,7 @@ msgstr "Налоги с покупателя"
 #: model:ir.model.fields,field_description:account.field_account_payment_register__partner_id
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_search
 msgid "Customer/Vendor"
-msgstr ""
+msgstr "Заказчик/Поставщик"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.res_partner_action_customer
@@ -4366,7 +4364,7 @@ msgstr "Пункты журнала дебита, которые подходя�
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__res_company__fiscalyear_last_month__12
 msgid "December"
-msgstr "декабрём"
+msgstr "Декабрь"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model__decimal_separator
@@ -4458,7 +4456,7 @@ msgstr "Дата начала по умолчанию для этого анал
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Default taxes applied to local transactions"
-msgstr "Налоги, применяемые по умолчанию к местным сделкам"
+msgstr "Налоги, применяемые по умолчанию"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_product_product__supplier_taxes_id
@@ -4492,7 +4490,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_fiscal_year_step
 msgid "Define your fiscal years &amp; tax returns periodicity."
-msgstr ""
+msgstr "Настройте периодичность учета и налоговой отчетности."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal__bank_statements_source
@@ -4565,7 +4563,7 @@ msgstr "Описание на счет-фактуре"
 #: model:ir.model.fields,field_description:account.field_account_payment__destination_account_id
 #, python-format
 msgid "Destination Account"
-msgstr "Р/с получателя"
+msgstr "Отразить на счете"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_fiscal_position__auto_apply
@@ -4893,7 +4891,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:account.view_payment_term_line_form
 #, python-format
 msgid "Due"
-msgstr "Надо"
+msgstr "Срок"
 
 #. module: account
 #: code:addons/account/controllers/portal.py:0
@@ -4908,7 +4906,7 @@ msgstr "Надо"
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 #, python-format
 msgid "Due Date"
-msgstr "Срок выполнения"
+msgstr "Срок оплаты"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_payment_term_line_form
@@ -5113,7 +5111,7 @@ msgstr ""
 #: code:addons/account/models/chart_template.py:0
 #, python-format
 msgid "Exchange Difference"
-msgstr "Курсовая Разница"
+msgstr "Курсовые разницы"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__currency_exchange_journal_id
@@ -5234,9 +5232,7 @@ msgstr "Область/Штат"
 #. openerp-web
 #: code:addons/account/static/src/js/tours/account.js:0
 #, python-format
-msgid ""
-"Fill in the details of the line.<br><i>Tip: all the details can be set "
-"automatically if you configure your <b>products</b>.</i>"
+msgid "Fill in the details of the line."
 msgstr ""
 
 #. module: account
@@ -5354,12 +5350,12 @@ msgstr "Системы налогов"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.setup_financial_year_opening_form
 msgid "Fiscal Year End"
-msgstr ""
+msgstr "Конец отчетного периода"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.setup_financial_year_opening_form
 msgid "Fiscal Years"
-msgstr "отчетные периоды"
+msgstr "Настройка отчетных периодов"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_line__fiscal_position_id
@@ -6214,7 +6210,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:account.field_account_move__invoice_incoterm_id
 #: model:ir.model.fields,field_description:account.field_account_payment__invoice_incoterm_id
 msgid "Incoterm"
-msgstr "Incoterm"
+msgstr "Инкотерм"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_incoterms__code
@@ -6437,7 +6433,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_invoice_layout_step
 msgid "Invoice Layout"
-msgstr "макет счета"
+msgstr "Макет счета"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
@@ -6649,7 +6645,7 @@ msgstr "более"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment__is_internal_transfer
 msgid "Is Internal Transfer"
-msgstr ""
+msgstr "Внутренний перевод"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model__match_amount__lower
@@ -7856,7 +7852,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
 msgid "New Transaction"
-msgstr ""
+msgstr "Новая операция"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_resequence_wizard__new_values
@@ -7994,7 +7990,7 @@ msgstr "не содержит"
 #: code:addons/account/models/account_journal_dashboard.py:0
 #, python-format
 msgid "Not Due"
-msgstr ""
+msgstr "Без срока"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_invoice_report__payment_state__not_paid
@@ -8082,7 +8078,7 @@ msgstr "Ноябрь"
 #: code:addons/account/static/src/js/tours/account.js:0
 #, python-format
 msgid "Now, we'll create your first invoice."
-msgstr ""
+msgstr "Теперь давайте создадим ваш первый счёт на оплату."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__num_journals_without_account
@@ -8199,6 +8195,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier
 msgid "Odoo helps you easily track all activities related to a supplier."
 msgstr ""
+"Odoo поможет вам легко отслеживать все действия, связанные с поставщиком."
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_account_type__internal_group__off_balance
@@ -8326,7 +8323,7 @@ msgstr "Начальное сальдо"
 #. module: account
 #: model:ir.model,name:account.model_account_financial_year_op
 msgid "Opening Balance of Financial Year"
-msgstr "Открытый баланс отчетного периода"
+msgstr "Начальные сальдо отчетного периода"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account__opening_credit
@@ -8336,7 +8333,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_financial_year_op__opening_date
 msgid "Opening Date"
-msgstr "Дата открытия"
+msgstr "Дата начала учета"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account__opening_debit
@@ -8375,7 +8372,7 @@ msgstr "Открытие Номеров Единиц "
 #: code:addons/account/models/account_account.py:0
 #, python-format
 msgid "Opening balance"
-msgstr "открытие баланса"
+msgstr "Начальное сальдо"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account__opening_balance
@@ -8385,12 +8382,12 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account__opening_credit
 msgid "Opening credit value for this account."
-msgstr "Открытие стоимости кредита для этого счета."
+msgstr "Начальный кредит для этого счета."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account__opening_debit
 msgid "Opening debit value for this account."
-msgstr "Открытие стоимости дебету для этого счета."
+msgstr "Начальный дебет для этого счета."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_reconcile_model_form
@@ -8861,7 +8858,7 @@ msgstr "Квитанция об оплате:"
 #: model:ir.model.fields,field_description:account.field_account_move__payment_reference
 #: model:ir.model.fields,field_description:account.field_account_payment__payment_reference
 msgid "Payment Reference"
-msgstr "Ссылка На Платеж"
+msgstr "Ссылка на платеж"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__payment_state
@@ -8869,7 +8866,7 @@ msgstr "Ссылка На Платеж"
 #: model:ir.model.fields,field_description:account.field_account_move__payment_state
 #: model:ir.model.fields,field_description:account.field_account_payment__payment_state
 msgid "Payment Status"
-msgstr ""
+msgstr "Статус оплаты"
 
 #. module: account
 #: model:ir.actions.act_window,name:account.action_payment_term_form
@@ -8977,9 +8974,8 @@ msgid ""
 "Payments are used to register liquidity movements. You can process those "
 "payments by your own means or by using installed facilities."
 msgstr ""
-"Платежи используются для регистрации движений ликвидности. Вы можете "
-"обрабатывать эти платежи собственными средствами или с помощью установленных"
-" средств."
+"Платежи нужны для регистрации движений ликвидности. Вы можете обрабатывать "
+"эти платежи собственноручно или с помощью установленных плагинов."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_line__payment_ids
@@ -9145,7 +9141,7 @@ msgstr "Провести Все Проводки"
 #: model:ir.model.fields,field_description:account.field_account_move__auto_post
 #: model:ir.model.fields,field_description:account.field_account_payment__auto_post
 msgid "Post Automatically"
-msgstr ""
+msgstr "Провести автоматически"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_register_form
@@ -9533,19 +9529,19 @@ msgstr "Дебиторская задолженность"
 #: model:ir.model.fields.selection,name:account.selection__account_payment__payment_type__inbound
 #: model:ir.model.fields.selection,name:account.selection__account_payment_register__payment_type__inbound
 msgid "Receive Money"
-msgstr "Получить перевод"
+msgstr "Входящий платеж"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__partner_bank_id
 #: model:ir.model.fields,field_description:account.field_account_move__partner_bank_id
 msgid "Recipient Bank"
-msgstr ""
+msgstr "Банк-получатель"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment__partner_bank_id
 #: model:ir.model.fields,field_description:account.field_account_payment_register__partner_bank_id
 msgid "Recipient Bank Account"
-msgstr "Банковский Счет Получателя"
+msgstr "Банковский счёт получателя"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_invoice_send_wizard_form
@@ -9707,7 +9703,7 @@ msgstr "Зарегистрируйте новую квитанцию о поку
 #: model_terms:ir.actions.act_window,help:account.action_account_payments_payable
 #: model_terms:ir.actions.act_window,help:account.action_account_payments_transfer
 msgid "Register a payment"
-msgstr "зарегистрируйте оплату"
+msgstr "Зарегистрируйте платеж"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_account_type__type__other
@@ -10021,12 +10017,12 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__res_company__tax_calculation_rounding_method__round_globally
 msgid "Round Globally"
-msgstr "Глобальное Округление"
+msgstr "Округлять итог"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__res_company__tax_calculation_rounding_method__round_per_line
 msgid "Round per Line"
-msgstr "Округление по Строке"
+msgstr "Округлять по строкам"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.rounding_form_view
@@ -10436,7 +10432,7 @@ msgstr "Отправить счет"
 #: model:ir.model.fields.selection,name:account.selection__account_payment__payment_type__outbound
 #: model:ir.model.fields.selection,name:account.selection__account_payment_register__payment_type__outbound
 msgid "Send Money"
-msgstr "Отправить перевод"
+msgstr "Исходящий платеж"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -10634,7 +10630,7 @@ msgstr "Установите ваш банковский счет для син�
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_chart_of_account_step
 msgid "Setup your chart of accounts and record initial balances."
-msgstr "Настройте план счетов и записывайте начальные балансы."
+msgstr "Настройте план счетов и начальное сальдо."
 
 #. module: account
 #: model:ir.actions.server,name:account.model_account_move_action_share
@@ -10759,7 +10755,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__module_snailmail_account
 msgid "Snailmail"
-msgstr ""
+msgstr "Бумажная почта"
 
 #. module: account
 #: code:addons/account/models/account_journal.py:0
@@ -11131,7 +11127,7 @@ msgstr "Налог %.2f%%"
 #: model:ir.actions.act_window,name:account.tax_adjustments_form
 #: model:ir.ui.menu,name:account.menu_action_tax_adjustment
 msgid "Tax Adjustments"
-msgstr "налоговые корректировки"
+msgstr "Налоговые корректировки"
 
 #. module: account
 #: model:ir.model,name:account.model_tax_adjustments_wizard
@@ -11786,7 +11782,7 @@ msgstr "Сроки и условия"
 #: model:ir.model.fields,field_description:account.field_account_payment__narration
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "Terms and Conditions"
-msgstr "Правила и условия"
+msgstr "Сроки и условия..."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_res_company__account_opening_date
@@ -12883,7 +12879,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid ""
 "This move is configured to be posted automatically at the accounting date:"
-msgstr ""
+msgstr "Эта запись помечена для автоматического проведения в дату:"
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -12996,7 +12992,7 @@ msgstr "До"
 #: model_terms:ir.ui.view,arch_db:account.view_account_move_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_move_line_filter
 msgid "To Check"
-msgstr ""
+msgstr "Нужна проверка"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_report_search
@@ -13632,7 +13628,7 @@ msgstr "Условия оплаты поставщика"
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_search
 msgid "Vendor Payments"
-msgstr "платежи поставщика"
+msgstr "Платежи поставщиков"
 
 #. module: account
 #: code:addons/account/models/account_payment.py:0
@@ -14409,17 +14405,17 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.setup_bank_account_wizard
 msgid "e.g BE15001559627230"
-msgstr "напр., BE15001559627230"
+msgstr "напр., 40817810570000123456"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.setup_bank_account_wizard
 msgid "e.g Bank of America"
-msgstr "напр., Банк Америки"
+msgstr "напр., Сбербанк"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.setup_bank_account_wizard
 msgid "e.g GEBABEBB"
-msgstr ""
+msgstr "напр., 044525225"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_reconcile_model_form

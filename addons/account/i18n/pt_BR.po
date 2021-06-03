@@ -5,7 +5,7 @@
 # Translators:
 # Manel Tinoco <maneltinoco@gmail.com>, 2020
 # Ramiro Pereira de Magalhães <ramiro.p.magalhaes@gmail.com>, 2020
-# rogeriojlle <rogerio.s.machado@gmail.com>, 2020
+# Rogerio Scholz Machado <rogerio.s.machado@gmail.com>, 2020
 # Kevin Harrings <kha@odoo.com>, 2020
 # Hildeberto Abreu Magalhães <hildeberto@gmail.com>, 2020
 # Eduardo Aparicio <eduardo.caparica@gmail.com>, 2020
@@ -1436,7 +1436,7 @@ msgid ""
 "used to keep track of the tax base amount."
 msgstr ""
 "Conta que será definida em linhas criadas no diário de entrada de base de "
-"caixa e usada para guardar informação sobre o montante de base de impostos."
+"caixa e usada para manter a informação sobre o montante de base de impostos."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_fiscal_position_account__account_dest_id
@@ -1619,7 +1619,7 @@ msgstr "Ativo"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_search
 msgid "Active Account"
-msgstr "Ativar Conta"
+msgstr "Conta Ativa"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__active_domain
@@ -5441,12 +5441,8 @@ msgstr "Estados"
 #. openerp-web
 #: code:addons/account/static/src/js/tours/account.js:0
 #, python-format
-msgid ""
-"Fill in the details of the line.<br><i>Tip: all the details can be set "
-"automatically if you configure your <b>products</b>.</i>"
-msgstr ""
-"Preencha os detalhes da linha.<br><i>Dica: todos os detalhes podem ser "
-"definidos automaticamente se você configurar seus <b>produtos</b>.</i>"
+msgid "Fill in the details of the line."
+msgstr "Preencha os detalhes da linha."
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_analytic_line__general_account_id
@@ -7563,7 +7559,7 @@ msgstr "Vamos enviar a fatura."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.dashboard_onboarding_bill_step
 msgid "Let's start!"
-msgstr "Let's start!"
+msgstr "Vamos Começar!"
 
 #. module: account
 #. openerp-web
@@ -13994,7 +13990,7 @@ msgid ""
 "Used to hold the reference of the external mean that created this statement "
 "(name of imported file, reference of online synchronization...)"
 msgstr ""
-"Usado para guardar a referência da origem deste extrato bancário (nome do "
+"Usado para manter a referência da origem deste extrato bancário (nome do "
 "arquivo importado, referência de sincronização on-line...)"
 
 #. module: account

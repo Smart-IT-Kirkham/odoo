@@ -25,7 +25,6 @@
 # Martin Trigaux, 2020
 # Carolina Gonzalez <cgo@odoo.com>, 2020
 # Susanna Pujol, 2020
-# Rick Hunter <rick.hunter.ec@gmail.com>, 2020
 # Oscar Tejada <oscar.tejada@epvsaisa.com>, 2020
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2021
 # Fabien Pinckaers <fp@openerp.com>, 2021
@@ -33,6 +32,11 @@
 # Pedro M. Baeza <pedro.baeza@gmail.com>, 2021
 # Juan José Scarafía <scarafia.juanjose@gmail.com>, 2021
 # José Cabrera Lozano <jose.cabrera@edukative.es>, 2021
+# Valentino <vgaffuri2018@student.hult.edu>, 2021
+# Rick Hunter <rick.hunter.ec@gmail.com>, 2021
+# Josep Anton Belchi Riera, 2021
+# Daniela Cervantes <dace@odoo.com>, 2021
+# Cécile Collart <cco@odoo.com>, 2021
 # 
 msgid ""
 msgstr ""
@@ -40,7 +44,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: José Cabrera Lozano <jose.cabrera@edukative.es>, 2021\n"
+"Last-Translator: Cécile Collart <cco@odoo.com>, 2021\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,6 +66,16 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"Informes contables para Austria.\n"
+"================================\n"
+"\n"
+"    * Define los siguientes informes:\n"
+"        * Beneficios/Pérdidas (§ 231 UGB Gesamtkostenverfahren)\n"
+"        * Hoja de balance (§ 224 UGB)\n"
+"\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_be_invoice_bba
@@ -535,7 +549,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Informes de contabilidad para Chile"
+"Chile - Informes Contables"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_de_reports
@@ -3640,6 +3654,10 @@ msgid ""
 "============================================\n"
 "    "
 msgstr ""
+"\n"
+"Informes contables electrónicos para Luxemburgo\n"
+"============================================\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_edi
@@ -9800,7 +9818,7 @@ msgstr "El número de cuenta debe ser único"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form_simple_modif
 msgid "Account Security"
-msgstr ""
+msgstr "Seguridad de la cuenta"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_taxcloud
@@ -10491,7 +10509,7 @@ msgstr "Argelia"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_dz
 msgid "Algeria - Accounting"
-msgstr ""
+msgstr "Argelia - Contabilidad"
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment_alipay
@@ -10840,7 +10858,7 @@ msgstr "Evaluación"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_appraisal_survey
 msgid "Appraisal - Survey"
-msgstr ""
+msgstr "Evaluación - Encuesta"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_human_resources_appraisals
@@ -10956,12 +10974,12 @@ msgstr "Argentina - Contabilidad"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ar_reports
 msgid "Argentinian Accounting Reports"
-msgstr ""
+msgstr "Argentina - Informes Contables"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ar_edi
 msgid "Argentinian Electronic Invoicing"
-msgstr ""
+msgstr "Argentina - Facturación Electrónica"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_client__params
@@ -10986,7 +11004,7 @@ msgstr "Aruba"
 #: model_terms:res.partner,website_description:base.res_partner_3
 #: model_terms:res.partner,website_description:base.res_partner_4
 msgid "As a team, we are happy to contribute to this event."
-msgstr ""
+msgstr "Como equipo, estamos contentos de contribuir a este evento."
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_appraisal
@@ -12334,12 +12352,12 @@ msgstr "Chile - Contabilidad"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_cl_reports
 msgid "Chile - Accounting Reports"
-msgstr "Chile - Informes contables"
+msgstr "Chile - Informes Contables"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_cl_edi
 msgid "Chile - E-invoicing"
-msgstr ""
+msgstr "Chile - Facturación Electrónica"
 
 #. module: base
 #: model:res.country,name:base.cn
@@ -12486,18 +12504,18 @@ msgstr "Colombia"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_co
 msgid "Colombia - Accounting"
-msgstr ""
+msgstr "Colombia - Contabilidad"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_co_reports
 msgid "Colombian - Accounting Reports"
-msgstr "Colombia - informes contables"
+msgstr "Colombia - Informes Contables"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_co_pos
 #: model:ir.module.module,shortdesc:base.module_l10n_co_pos
 msgid "Colombian - Point of Sale"
-msgstr "Punto de Venta - Colombia"
+msgstr "Colombia - Punto de Venta"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_co
@@ -13220,7 +13238,7 @@ msgstr "Crea tiquetes desde iniciativas"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_menu_create
 msgid "Create _Menu"
-msgstr "Crear _Menú"
+msgstr "Crear _Menu"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_form
@@ -14244,7 +14262,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_disallowed_expenses
 msgid "Disallowed Expenses"
-msgstr ""
+msgstr "Gastos rechazados"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_disallowed_expenses_fleet
@@ -14764,7 +14782,7 @@ msgstr ""
 #. module: base
 #: model:res.country,vat_label:base.us
 msgid "EIN"
-msgstr ""
+msgstr "EIN"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hw_escpos
@@ -15842,7 +15860,7 @@ msgstr "Descripción de campos"
 #: model:ir.model,name:base.model_ir_model_fields_selection
 #: model:ir.ui.menu,name:base.ir_model_model_fields_selection
 msgid "Fields Selection"
-msgstr ""
+msgstr "Selección de campos"
 
 #. module: base
 #: code:addons/base/models/ir_model.py:0
@@ -16018,7 +16036,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fi
 msgid "Finnish Localization"
-msgstr ""
+msgstr "Localización finlandesa"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__week_start
@@ -18102,7 +18120,7 @@ msgstr "Internet de las cosas"
 #: model:ir.module.category,name:base.module_category_internet_of_things_(iot)
 #: model:ir.module.category,name:base.module_category_manufacturing_internet_of_things_(iot)
 msgid "Internet of Things (IoT)"
-msgstr ""
+msgstr "Internet de las cosas (IoT)"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__interval_number
@@ -18578,7 +18596,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_latam_base
 msgid "LATAM Localization Base"
-msgstr ""
+msgstr "Localización base LATAM"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__lgpl-3
@@ -22088,7 +22106,7 @@ msgstr "Informes de la localización mexicana de Odoo para cerrar"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_landing
 msgid "Odoo Mexico Localization for Stock/Landing"
-msgstr ""
+msgstr "México - Números de Pedimento/Almacén"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_web_mobile
@@ -26330,7 +26348,7 @@ msgstr "LinkedIn Social"
 #: model:ir.module.category,name:base.module_category_marketing_social_marketing
 #: model:ir.module.module,shortdesc:base.module_social
 msgid "Social Marketing"
-msgstr ""
+msgstr "Marketing Social"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_social_media
@@ -28268,12 +28286,12 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 msgid "To return an action, assign: <code>action = {...}</code>"
-msgstr "<code/>"
+msgstr "Para devolver una acción, asigne: <code>action = {...}</code>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_actions_todo_tree
 msgid "Todo"
-msgstr "Por hacer"
+msgstr "Todo"
 
 #. module: base
 #: model:res.country,name:base.tg
@@ -29300,12 +29318,12 @@ msgstr "Uzbekistán"
 #: model:res.country,vat_label:base.uk
 #, python-format
 msgid "VAT"
-msgstr "Nº identif. fiscal (NIF)"
+msgstr "IVA"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_vat
 msgid "VAT Number Validation"
-msgstr "Validación de número de identificación fiscal (NIF)"
+msgstr "Validación de número de IVA"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_productivity_voip
@@ -29416,7 +29434,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__vat_label
 msgid "Vat Label"
-msgstr "Etiqueta del número de identificación fiscal (NIF)"
+msgstr "Etiqueta IVA"
 
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_0
@@ -29477,7 +29495,7 @@ msgstr ""
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "View '%(name)s' is private"
-msgstr ""
+msgstr "La vista '%(name)s' es privada"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__arch
@@ -30179,8 +30197,8 @@ msgstr "No puede activar el superusuario."
 #. module: base
 #: code:addons/base/models/res_partner.py:0
 #, python-format
-msgid "You cannot archive a contact linked to an internal user."
-msgstr "No puede archivar un contacto vinculado a un usuario interno."
+msgid "You cannot archive a contact linked to a portal or internal user."
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/res_partner.py:0
@@ -30475,12 +30493,12 @@ msgstr "Por ejemplo, inglés"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
 msgid "e.g. Mister"
-msgstr "por ejemplo, Señor"
+msgstr "Por ejemplo, Señor"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
 msgid "e.g. Mr."
-msgstr "Por ejemplo, Mr."
+msgstr "Por ejemplo, Sr."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form

@@ -32,8 +32,8 @@
 # Collex100, 2020
 # Sergey Vilizhanin, 2020
 # Irina Fedulova <istartlin@gmail.com>, 2020
-# Сергей Шебанин <sergey@shebanin.ru>, 2020
 # Ivan Yelizariev // IEL <yelizariev@itpp.dev>, 2021
+# Сергей Шебанин <sergey@shebanin.ru>, 2021
 # 
 msgid ""
 msgstr ""
@@ -41,7 +41,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Ivan Yelizariev // IEL <yelizariev@itpp.dev>, 2021\n"
+"Last-Translator: Сергей Шебанин <sergey@shebanin.ru>, 2021\n"
 "Language-Team: Russian (https://www.transifex.com/odoo/teams/41243/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -4521,19 +4521,26 @@ msgid ""
 "* In a module, so that administrators and users of Odoo who do not\n"
 "  need or want an online import can avoid it being available to users.\n"
 msgstr ""
-"Новый расширенный импорт файлов для Odoo ============================ "
-"Повторно воплотите систему импорта файлов Odoo * Серверная сторона, "
-"предыдущая система заставляет большую часть логики клиенту, дублирует усилия"
-" (между клиентами), делает систему импорта намного тяжелее для использования"
-" без клиента (прямой RPC или другие формы автоматизации) и дает знания о "
-"импорт / экспорт системы намного тяжелее, чтобы собрать, поскольку она "
-"распространяется на 3+ различные проекты . * В более расширенный способ, "
-"когда пользователи и партнеры могут создавать их собственный интерфейс для "
-"импорта с другими форматами файлов (например, файлы OpenDocument), которые "
-"могут быть простыми для обработки в рабочем потоке или от источника их "
-"данных. * В модуле, для администраторов и пользователей Odoo, которые этого "
-"не делают, им это не нужно или хотят онлайн-импорт, чтобы избежать его "
-"доступности для пользователей."
+"\n"
+"Поддержка расширенного импорта файлов для Odoo\n"
+"============================\n"
+"\n"
+"Вторая версия механизма импорта из файла:\n"
+"\n"
+"* Вся обработка на сервере. Предыдущая версия имела достаточно\n"
+"много логики в клиенте. что дублировало код и затрудняло\n"
+"использование механизма импорта все стандартного клиента\n"
+"(через RPC или другие механизмы автоматизации) и усложняло\n"
+"то, чтобы разобраться в коде, так как он был распределен по\n"
+"3-м различным проектам.\n"
+"\n"
+"* С более расширяемой архитектурой. Так что пользователи и\n"
+"партнеры могут создавать собственные интерфейсы импорта\n"
+"с поддержкой дополнительных форматов (например, OpenDocument),\n"
+"которые могут быть более подходящими для их рабочего процесса\n"
+"или источников данных.\n"
+"\n"
+"* В отдельном модуле. Так что администраторы и пользователи Odoo, которым не нужна поддержка импорта могут отключить его.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_sale_account_accountant
@@ -6892,6 +6899,16 @@ msgid ""
 "can setup API keys to replace their main password.\n"
 "    "
 msgstr ""
+"\n"
+"Двухфакторная аутентификация (TOTP)\n"
+"================================\n"
+"Позволяет пользователям подключать двухфакторную аутентификацию к своим профилям для большей безопасности, с использованием одноразовых паролей (TOTP).\n"
+"\n"
+"Пользователь, у которого включена эта опция, должен будет ввести код из 6 цифр из приложения-аутентификатора при входе в систему.\n"
+"Все популярные приложения поддерживаются.\n"
+"\n"
+"Заметка: логично, что двухфакторная аутентификация заблокирует доступ по паролю для RPC-запросов. Для программного доступа через RPC-протокол вы можете настроить API-ключи в профиле.\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_tr
@@ -8763,7 +8780,7 @@ msgstr "Добавить"
 #. module: base
 #: model:ir.actions.act_window,name:base.action_view_base_language_install
 msgid "Add Language"
-msgstr ""
+msgstr "Добавить язык"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mail_bot
@@ -10154,12 +10171,12 @@ msgstr "Архитектура базового просмотра"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_import
 msgid "Base import"
-msgstr "Базовый импорт"
+msgstr "Импорт из файла"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_import_module
 msgid "Base import module"
-msgstr "Базовый импортный модуль"
+msgstr "Базовый модуль для импорта из файла"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_ui_view__mode__primary
@@ -17588,7 +17605,7 @@ msgstr "Последняя версия"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__login_date
 msgid "Latest authentication"
-msgstr ""
+msgstr "Последний вход"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_company__font__lato
@@ -21607,7 +21624,7 @@ msgstr "Сервера отправки почты"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_microsoft_calendar
 msgid "Outlook Calendar"
-msgstr ""
+msgstr "Календарь Outlook"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat__dpi
@@ -24005,7 +24022,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__secondary_color
 msgid "Secondary Color"
-msgstr ""
+msgstr "Вспомогательный цвет"
 
 #. module: base
 #: model:ir.ui.menu,name:base.menu_security
@@ -26807,7 +26824,7 @@ msgstr "Сниппет скроллер Twitter на сайте"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_auth_totp
 msgid "Two-Factor Authentication (TOTP)"
-msgstr ""
+msgstr "Двухфакторная аутентификация (TOTP)"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_attachment__type
@@ -28399,9 +28416,8 @@ msgstr "Нельзя активировать суперпользователя
 #. module: base
 #: code:addons/base/models/res_partner.py:0
 #, python-format
-msgid "You cannot archive a contact linked to an internal user."
+msgid "You cannot archive a contact linked to a portal or internal user."
 msgstr ""
-"Невозможно архивировать контакт, связанный с внутренним пользователем."
 
 #. module: base
 #: code:addons/base/models/res_partner.py:0

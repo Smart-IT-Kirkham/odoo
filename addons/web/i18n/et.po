@@ -15,9 +15,9 @@
 # Egon Raamat <egon@avalah.ee>, 2020
 # Algo Kärp <algokarp@gmail.com>, 2020
 # Andre Roomet <andreroomet@gmail.com>, 2021
-# Triine Aavik <triine@avalah.ee>, 2021
-# Eneli Õigus <enelioigus@gmail.com>, 2021
 # Piia Paurson <piia@avalah.ee>, 2021
+# Eneli Õigus <enelioigus@gmail.com>, 2021
+# Triine Aavik <triine@avalah.ee>, 2021
 # Martin Talts <martin.t@avalah.ee>, 2021
 # 
 msgid ""
@@ -1938,7 +1938,7 @@ msgstr "Jälgitud"
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__font
 msgid "Font"
-msgstr ""
+msgstr "Font"
 
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
@@ -2024,7 +2024,7 @@ msgstr "Rühmitamine"
 #. module: web
 #: model:ir.model,name:web.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP Routing"
 
 #. module: web
 #. openerp-web
@@ -2411,7 +2411,7 @@ msgstr ""
 #: code:addons/web/static/src/xml/base.xml:0
 #, python-format
 msgid "Main actions"
-msgstr ""
+msgstr "Peamised tegevused"
 
 #. module: web
 #. openerp-web
@@ -2914,6 +2914,13 @@ msgstr "Ainult sina"
 #. openerp-web
 #: code:addons/web/static/src/xml/debug.xml:0
 #, python-format
+msgid "Open Developer Tools"
+msgstr "Ava arendaja tööriistad"
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/xml/debug.xml:0
+#, python-format
 msgid "Open Developer Tools#{widget.debug_mode_help}"
 msgstr ""
 
@@ -2962,6 +2969,13 @@ msgstr "Ava listi vaates"
 #, python-format
 msgid "Open: "
 msgstr "Avatud: "
+
+#. module: web
+#. openerp-web
+#: code:addons/web/static/src/js/views/list/list_renderer.js:0
+#, python-format
+msgid "Optional columns"
+msgstr ""
 
 #. module: web
 #. openerp-web
@@ -3224,7 +3238,7 @@ msgstr "Eelmine aasta"
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__primary_color
 msgid "Primary Color"
-msgstr ""
+msgstr "Peamine värv"
 
 #. module: web
 #. openerp-web
@@ -3455,7 +3469,7 @@ msgstr "Aruande jalus"
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__report_layout_id
 msgid "Report Layout"
-msgstr ""
+msgstr "Aruande paigutus"
 
 #. module: web
 #. openerp-web
@@ -3598,7 +3612,7 @@ msgstr "Otsi: "
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__secondary_color
 msgid "Secondary Color"
-msgstr ""
+msgstr "Sekundaarne värv"
 
 #. module: web
 #. openerp-web
@@ -3933,6 +3947,8 @@ msgid ""
 "The Tax Identification Number. Complete it if the contact is subjected to "
 "government taxes. Used in some legal statements."
 msgstr ""
+"Maksu ID-kood. Täitke see, kui kontaktile kohaldatakse riiklikke makse. "
+"Kasutatakse mõnedes juriidilistes avaldustes."
 
 #. module: web
 #: code:addons/web/controllers/main.py:0
@@ -4101,7 +4117,7 @@ msgstr "Täna"
 #: code:addons/web/static/src/js/fields/basic_fields.js:0
 #, python-format
 msgid "Toggle"
-msgstr ""
+msgstr "Lülitage ümber"
 
 #. module: web
 #. openerp-web

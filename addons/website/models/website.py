@@ -942,15 +942,19 @@ class Website(models.Model):
 
     def _get_http_domain(self):
         """Get the domain of the current website, prefixed by http if no
-        scheme is specified.
+        scheme is specified and withtout trailing /.
 
         Empty string if no domain is specified on the website.
         """
         self.ensure_one()
         if not self.domain:
             return ''
-        res = urls.url_parse(self.domain)
-        return 'http://' + self.domain if not res.scheme else self.domain
+
+        domain = self.domain
+        if not self.domain.startswith('http'):
+            domain = 'http://%s' % domain
+
+        return domain.rstrip('/')
 
     def get_base_url(self):
         self.ensure_one()
@@ -971,7 +975,7 @@ class Website(models.Model):
             for key, val in list(arguments.items()):
                 if isinstance(val, models.BaseModel):
                     if val.env.context.get('lang') != lang.code:
-                        arguments[key] = val.with_context(lang=lang.url_code)
+                        arguments[key] = val.with_context(lang=lang.code)
             path = router.build(request.endpoint, arguments)
         else:
             # The build method returns a quoted URL so convert in this case for consistency.

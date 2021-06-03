@@ -13,8 +13,9 @@
 # Martin Trigaux, 2020
 # Eneli Õigus <enelioigus@gmail.com>, 2021
 # Andre Roomet <andreroomet@gmail.com>, 2021
-# Algo Kärp <algokarp@gmail.com>, 2021
 # Piia Paurson <piia@avalah.ee>, 2021
+# Algo Kärp <algokarp@gmail.com>, 2021
+# Martin Talts <martin.t@avalah.ee>, 2021
 # Triine Aavik <triine@avalah.ee>, 2021
 # 
 msgid ""
@@ -2537,7 +2538,7 @@ msgstr ""
 #. module: website_slides
 #: model:ir.model,name:website_slides.model_ir_http
 msgid "HTTP Routing"
-msgstr ""
+msgstr "HTTP Routing"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_category_demo_5_1
@@ -2553,7 +2554,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_nav
 msgid "Home"
-msgstr ""
+msgstr "Kodu"
 
 #. module: website_slides
 #: model:slide.slide,name:website_slides.slide_slide_demo_0_1
@@ -2703,7 +2704,7 @@ msgstr "Pilt"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__image_1024
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__image_1024
 msgid "Image 1024"
-msgstr ""
+msgstr "Pilt 1024"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__image_128
@@ -2715,13 +2716,13 @@ msgstr "Pilt 128"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__image_256
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__image_256
 msgid "Image 256"
-msgstr ""
+msgstr "Pilt 256"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__image_512
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__image_512
 msgid "Image 512"
-msgstr ""
+msgstr "Pilt 512"
 
 #. module: website_slides
 #: model:slide.answer,comment:website_slides.slide_slide_demo_1_4_question_0_1
@@ -4027,7 +4028,7 @@ msgstr "Tasud"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__is_seo_optimized
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__is_seo_optimized
 msgid "SEO optimized"
-msgstr ""
+msgstr "SEO optimized"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__message_has_sms_error
@@ -4103,7 +4104,7 @@ msgstr "Sektsioon"
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_1_4
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_2_1
 msgid "Section Subtitle"
-msgstr ""
+msgstr "Sektsiooni alapealkiri"
 
 #. module: website_slides
 #. openerp-web
@@ -4157,7 +4158,7 @@ msgstr "Saada kiri"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__seo_name
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__seo_name
 msgid "Seo name"
-msgstr ""
+msgstr "Seo nimi"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_answer__sequence
@@ -4382,7 +4383,7 @@ msgstr ""
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_1_4
 #: model_terms:slide.slide,html_content:website_slides.slide_slide_demo_2_1
 msgid "Start with the customer – find out what they want and give it to them."
-msgstr ""
+msgstr "Alusta kliendiga - avasta, mida nad soovivad ja anna see neile."
 
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.courses_home
@@ -4689,7 +4690,7 @@ msgstr "Nimi"
 #: model_terms:ir.ui.view,arch_db:website_slides.courses_all
 #: model_terms:ir.ui.view,arch_db:website_slides.courses_home
 msgid "Toggle navigation"
-msgstr ""
+msgstr "Lülitage navigatsioon ümber"
 
 #. module: website_slides
 #: model:slide.tag,name:website_slides.slide_tag_demo_tools
@@ -4951,7 +4952,7 @@ msgstr "Nähtav praegusel veebilehel"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__total_views
 #: model_terms:ir.ui.view,arch_db:website_slides.view_slide_channel_form
 msgid "Visits"
-msgstr ""
+msgstr "Külastused"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__karma_slide_vote
@@ -5036,25 +5037,25 @@ msgstr "Veebilehe suhtluse ajalugu"
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__website_meta_description
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__website_meta_description
 msgid "Website meta description"
-msgstr ""
+msgstr "Veebilehe metakirjeldus"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__website_meta_keywords
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__website_meta_keywords
 msgid "Website meta keywords"
-msgstr ""
+msgstr "Veebilehe meta võtmesõnad"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__website_meta_title
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__website_meta_title
 msgid "Website meta title"
-msgstr ""
+msgstr "Veebilehe metapealkiri"
 
 #. module: website_slides
 #: model:ir.model.fields,field_description:website_slides.field_slide_channel__website_meta_og_img
 #: model:ir.model.fields,field_description:website_slides.field_slide_slide__website_meta_og_img
 msgid "Website opengraph image"
-msgstr ""
+msgstr "Veebilehe opengraph pilt"
 
 #. module: website_slides
 #. openerp-web
@@ -5344,7 +5345,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.course_nav
 msgid "breadcrumb"
-msgstr ""
+msgstr "navigatsioon"
 
 #. module: website_slides
 #. openerp-web
