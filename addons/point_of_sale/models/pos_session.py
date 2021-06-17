@@ -259,6 +259,8 @@ class PosSession(models.Model):
     def action_pos_session_closing_control(self):
         self._check_pos_session_balance()
         for session in self:
+            if any(order.state == 'draft' for order in session.order_ids):
+                raise UserError(_("You cannot close the POS when orders are still in draft"))
             if session.state == 'closed':
                 raise UserError(_('This session is already closed.'))
             session.write({'state': 'closing_control', 'stop_at': fields.Datetime.now()})
@@ -319,6 +321,10 @@ class PosSession(models.Model):
                 self.env['pos.order'].search([('session_id', '=', self.id), ('state', '=', 'paid')]).write({'state': 'done'})
             else:
                 self.move_id.unlink()
+        elif not self.cash_register_id.difference:
+            cash_register = self.cash_register_id
+            cash_register.pos_session_id = False
+            cash_register.unlink()
         self.write({'state': 'closed'})
         return {
             'type': 'ir.actions.client',
