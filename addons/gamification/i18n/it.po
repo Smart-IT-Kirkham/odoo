@@ -969,7 +969,7 @@ msgstr "Bozza"
 #. module: gamification
 #: model_terms:gamification.karma.rank,description_motivational:gamification.rank_newbie
 msgid "Earn your first points and join the adventure !"
-msgstr ""
+msgstr "Guadagna i primi punti e prendi parte all'avventura !"
 
 #. module: gamification
 #: model:ir.model.fields,field_description:gamification.field_gamification_challenge__end_date
@@ -2256,11 +2256,14 @@ msgstr "Numero di volte che l'utente ha ricevuto questo riconoscimento."
 #: model:ir.model.fields,help:gamification.field_gamification_badge__stat_my_monthly_sending
 msgid "The number of time the current user has sent this badge this month."
 msgstr ""
+"Numero di volte in cui l'utente attuale ha inviato il riconoscimento nel "
+"mese in corso."
 
 #. module: gamification
 #: model:ir.model.fields,help:gamification.field_gamification_badge__stat_count_distinct
 msgid "The number of time this badge has been received by unique users."
 msgstr ""
+"Numero di volte in cui il riconoscimento è stato ricevuto da utenti univoci."
 
 #. module: gamification
 #: model:ir.model.fields,help:gamification.field_gamification_badge__stat_this_month
@@ -2513,7 +2516,7 @@ msgstr ""
 #. module: gamification
 #: model_terms:gamification.karma.rank,description:gamification.rank_bachelor
 msgid "You love learning things. Curiosity is a good way to progress."
-msgstr ""
+msgstr "Tu ami imparare cose. La curiosità è un bel modo per migliorare."
 
 #. module: gamification
 #: model_terms:gamification.karma.rank,description:gamification.rank_student
