@@ -46,3 +46,4 @@ XlsxWriter==0.9.3
 xlwt==1.3.*
 xlrd==1.0.0
 pypiwin32 ; sys_platform == 'win32'
+openerp-client-lib==1.1.1
