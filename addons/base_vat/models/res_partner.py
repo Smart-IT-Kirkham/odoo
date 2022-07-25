@@ -14,7 +14,7 @@ except ImportError:
                     "Install it to support more countries, for example with `easy_install vatnumber`.")
     vatnumber = None
 
-from odoo import api, models, _
+from odoo import api, models, tools, _
 from odoo.tools.misc import ustr
 from odoo.exceptions import ValidationError
 
@@ -90,11 +90,18 @@ class ResPartner(models.Model):
         return check_func(vat_number)
 
     @api.model
+    @tools.ormcache('vat')
+    def _check_vies(self, vat):
+        # Store the VIES result in the cache. In case an exception is raised during the request
+        # (e.g. service unavailable), the fallback on simple_vat_check is not kept in cache.
+        return vatnumber.check_vies(vat)
+
+    @api.model
     def vies_vat_check(self, country_code, vat_number):
         try:
             # Validate against  VAT Information Exchange System (VIES)
             # see also http://ec.europa.eu/taxation_customs/vies/
-            return vatnumber.check_vies(country_code.upper() + vat_number)
+            return self._check_vies(country_code.upper() + vat_number)
         except Exception:
             # see http://ec.europa.eu/taxation_customs/vies/checkVatService.wsdl
             # Fault code may contain INVALID_INPUT, SERVICE_UNAVAILABLE, MS_UNAVAILABLE,
@@ -394,3 +401,23 @@ class ResPartner(models.Model):
             return True
 
         return False
+
+    def check_vat_ua(self, vat):
+        res = []
+        for partner in self:
+            if partner.commercial_partner_id.country_id.code == 'MX':
+                if len(vat) == 10:
+                    res.append(True)
+                else:
+                    res.append(False)
+            elif partner.commercial_partner_id.is_company:
+                if len(vat) == 12:
+                    res.append(True)
+                else:
+                    res.append(False)
+            else:
+                if len(vat) == 10 or len(vat) == 9:
+                    res.append(True)
+                else:
+                    res.append(False)
+        return all(res)

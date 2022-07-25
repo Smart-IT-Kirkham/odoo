@@ -907,8 +907,11 @@ class AccountBankStatementLine(models.Model):
 
         # Fully reconciled moves are just linked to the bank statement
         total = self.amount
+        currency = self.currency_id or statement_currency
         for aml_rec in payment_aml_rec:
-            total -= aml_rec.debit - aml_rec.credit
+            balance = aml_rec.amount_currency if aml_rec.currency_id else aml_rec.balance
+            aml_currency = aml_rec.currency_id or aml_rec.company_currency_id
+            total -= aml_currency.with_context(date=aml_rec.date, company_id=aml_rec.company_id.id).compute(balance, currency)
             aml_rec.with_context(check_move_validity=False).write({'statement_line_id': self.id})
             counterpart_moves = (counterpart_moves | aml_rec.move_id)
 
@@ -1004,6 +1007,7 @@ class AccountBankStatementLine(models.Model):
             aml_dict['payment_id'] = payment and payment.id or False
             aml_obj.with_context(check_move_validity=False).create(aml_dict)
 
+            move.update_lines_tax_exigibility() # Needs to be called manually as lines were created 1 by 1
             move.post()
             #record the move name on the statement line to be able to retrieve it in case of unreconciliation
             self.write({'move_name': move.name})
