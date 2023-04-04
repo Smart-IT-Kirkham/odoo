@@ -191,7 +191,9 @@ const FontFamilyPickerUserValueWidget = SelectUserValueWidget.extend({
                         let isValidFamily = false;
 
                         try {
-                            const result = await fetch("https://fonts.googleapis.com/css?family=" + m[1]+':300,300i,400,400i,700,700i', {method: 'HEAD'});
+                            // Font family is an encoded query parameter:
+                            // "Open+Sans" needs to remain "Open+Sans".
+                            const result = await fetch("https://fonts.googleapis.com/css?family=" + m[1] + ':300,300i,400,400i,700,700i', {method: 'HEAD'});
                             // Google fonts server returns a 400 status code if family is not valid.
                             if (result.ok) {
                                 isValidFamily = true;
@@ -1284,7 +1286,7 @@ options.registry.company_data = options.Class.extend({
                     args: [session.uid, ['company_id']],
                 });
             }).then(function (res) {
-                proto.__link = '/web#action=base.action_res_company_form&view_type=form&id=' + (res && res[0] && res[0].company_id[0] || 1);
+                proto.__link = '/web#action=base.action_res_company_form&view_type=form&id=' + encodeURIComponent(res && res[0] && res[0].company_id[0] || 1);
             });
         }
         return Promise.all([this._super.apply(this, arguments), prom]);
@@ -1934,6 +1936,24 @@ options.registry.HeaderNavbar = options.Class.extend({
     },
 
     //--------------------------------------------------------------------------
+    // Public
+    //--------------------------------------------------------------------------
+
+    /**
+     * @private
+     */
+    async updateUI() {
+        await this._super(...arguments);
+        // For all header templates except those of the following selector,
+        // change the label of the option to "Mobile Alignment" (instead of
+        // "Alignment") because it only impacts the mobile view.
+        if (!this.$target[0].querySelector('#oe_structure_header_default_1, #oe_structure_header_hamburger_1, #oe_structure_header_sidebar_1')) {
+            const alignmentOptionTitleEl = this.el.querySelector('[data-name="header_alignment_opt"] we-title');
+            alignmentOptionTitleEl.textContent = _t("Mobile Alignment");
+        }
+    },
+
+    //--------------------------------------------------------------------------
     // Private
     //--------------------------------------------------------------------------
 
@@ -1947,6 +1967,14 @@ options.registry.HeaderNavbar = options.Class.extend({
     async _computeWidgetVisibility(widgetName, params) {
         if (widgetName === 'option_logo_height_scrolled') {
             return !!this.$('.navbar-brand').length;
+        }
+        if (widgetName === 'header_alignment_opt') {
+            if (!this.$target[0].querySelector('.o_offcanvas_menu_toggler')) {
+                // If hamburger type is "Default", hides the alignment option
+                // for "hamburger full" and "magazine" header templates.
+                return !this.$target[0].querySelector('#oe_structure_header_hamburger_full_1, #oe_structure_header_magazine_1');
+            }
+            return true;
         }
         return this._super(...arguments);
     },

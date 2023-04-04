@@ -59,3 +59,6 @@ Francisco Alejandro González Luna aluna@vauxoo.com https://github.com/TheAlekLu
 Alejandro Garza agarza@vauxoo.com https://github.com/agarzaarvizu
 Ulises Rivadeneyra ulises@vauxoo.com https://github.com/UlisesRivadeneyra
 Alexis Hernandez alexis@vauxoo.com https://github.com/sebasdrk17
+Rodrigo Serrano rodrigosu@vauxoo.com https://github.com/Rodrigosu-Vauxoo
+Isaac López isaac@vauxoo.com https://github.com/isaako34
+Rolando Duarte rolando@vauxoo.com https://github.com/rolandojduartem

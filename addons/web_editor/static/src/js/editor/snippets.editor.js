@@ -931,7 +931,7 @@ var SnippetEditor = Widget.extend({
         ev.preventDefault();
         ev.stopPropagation();
         this.trigger_up('request_history_undo_record', {$target: this.$target});
-        this.removeSnippet();
+        this.trigger_up('snippet_edition_request', {exec: this.removeSnippet.bind(this)});
     },
     /**
      * @private
@@ -2628,7 +2628,7 @@ var SnippetsMenu = Widget.extend({
             $content: $('<div/>', {text: _.str.sprintf(_t("Do you want to install the %s App?"), name)}).append(
                 $('<a/>', {
                     target: '_blank',
-                    href: '/web#id=' + moduleID + '&view_type=form&model=ir.module.module&action=base.open_module_tree',
+                    href: '/web#id=' + encodeURIComponent(moduleID) + '&view_type=form&model=ir.module.module&action=base.open_module_tree',
                     text: _t("More info about this app."),
                     class: 'ml4',
                 })
