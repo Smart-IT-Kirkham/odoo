@@ -27,6 +27,7 @@
 # Friederike Fasterling-Nesselbosch, 2022
 # Ahmed Aly <ahmed.aly@datenpol.at>, 2022
 # Chris Egal <sodaswed@web.de>, 2023
+# Larissa Manderfeld, 2023
 # 
 msgid ""
 msgstr ""
@@ -34,8 +35,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-11-27 13:50+0000\n"
 "PO-Revision-Date: 2020-09-07 08:09+0000\n"
-"Last-Translator: Chris Egal <sodaswed@web.de>, 2023\n"
-"Language-Team: German (https://www.transifex.com/odoo/teams/41243/de/)\n"
+"Last-Translator: Larissa Manderfeld, 2023\n"
+"Language-Team: German (https://app.transifex.com/odoo/teams/41243/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -1284,6 +1285,36 @@ msgid ""
 "        try to use this method on an invoice for whose payment no mandate can be used.\n"
 "    "
 msgstr ""
+"\n"
+"        Dieses Modul ermöglicht die Erzeugung von XML-Dateien, die konform sind mit SEPA-(SDD-)Lastschriftverfahren (einheitlich mit\n"
+"        pain.008.001.02-Spezifikation), um sie zu Ihrer Bank zu senden, um\n"
+"        eine Reihe von Zahlungen einzuziehen.\n"
+"\n"
+"        TUm für diese Zahlungsmethode in Frage zu kommen, muss der Kunde dem Unternehmen zuvor\n"
+"        ein Mandat erteilt haben, in dem er sein Einverständnis zur Nutzung des Lastschriftverfahrens erklärt.\n"
+"        Dieses Einverständnis muss in Odoo als „Kundenmandatb kodiert worden sein.\n"
+"\n"
+"        Außerdem müssen Sie die folgenden Voraussetzungen erfüllen, um\n"
+"        eine SDD-Datei ordnungsgemäß zu erstellen:\n"
+"        - Ihr Unternehmenskonto muss eine gültige IBAN-Nummer haben\n"
+"        - Ihr Unternehmen muss eine Gläubiger-Identifikationsnummer erhalten haben (dies kann im Menü „Einstellungen“ des Buchhaltungsmoduls vorgenommen werden)\n"
+"        - Ihr Unternehmen muss ein Journal für den Empfang von SDD-Zahlungen definiert haben (wiederum in den „Einstellungen“ des Buchhaltungsmoduls).\n"
+"        - Jeder Kunde, für den Sie eine Zahlung erzeugen, muss eine gültige IBAN-Kontonummer haben.\n"
+"\n"
+"        Odoo wird Sie darüber informieren, wenn eine dieser Anforderungen nicht erfüllt ist.\n"
+"\n"
+"        Alle Rechnungen, die für einen Kunden mit einem Mandat validiert werden, erhalten\n"
+"        automatisch den „bezahl“-Status und eine Zahlung wird erzeugt. Eine\n"
+"        Option im Dashboard ermöglicht es Ihnen dann, alle über SDD\n"
+"        erzeugten Zahlungen einzusehen und eine XML-Sammeldatei für diese zu erstellen, indem diese so gruppiert werden, wie\n"
+"        Sie es möchten.\n"
+"\n"
+"        Eine besondere „SEPA-Lastschrift“-Zahlungsmethode steht auch für offene payment method is also available for\n"
+"        Rechnungen zur Verfügung, wenn ein Bankkonto im „Zahlung verzeichnen“-Assistenten ausgewählt wird.\n"
+"        Nutzen Sie dies, um eine SDD-Zahlung für Rechnungen zu erzeugen, wenn Sie nach der Validierung ein Mandat\n"
+"        für seinen Besitzer hinzugefügt haben. Ihnen wird eine Fehlermeldung angezeigt, wenn Sie\n"
+"        versuchen, diese Methode für eine Rechnung verwenden, für deren Bezahlung kein Mandat verwendet werden kann.\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_google_recaptcha
@@ -1600,6 +1631,11 @@ msgid ""
 "    Necessary master data is also included.\n"
 "    "
 msgstr ""
+"\n"
+"    Das norwegische SAF-T ist ein Standarddateiformat für den Export verschiedener Arten von Buchhaltungstransaktionsdaten im XML-Format.\n"
+"    Die erste Version des SAF-T Financial beschränkt sich auf die Ebene des Hauptbuchs einschließlich der Kunden- und Lieferantentransaktionen.\n"
+"    Erforderliche Stammdaten sind ebenfalls enthalten.\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment_payumoney
@@ -3226,6 +3262,34 @@ msgid ""
 "If you install this module, and select Custom chart a basic chart will be proposed,\n"
 "but you will need set manually account defaults for taxes.\n"
 msgstr ""
+"\n"
+"Kontenplan für Venezuela.\n"
+"===============================\n"
+"\n"
+"In Venezuela gibt es keinen gesetzlich vorgeschriebenen Kontenplan, aber der in\n"
+"Odoo vorgeschlagende Standard sollte einigen anerkannten bewährten Verfahren in Venezuela entsprechen,\n"
+"dieser Plan entspricht diesen Verfahren.\n"
+"\n"
+"Dieses Modul wurde als Basis für mehr als 1000 Unternehmen getestet, da\n"
+"es auf einer Mischung der gängigsten Software auf dem venezolanischen\n"
+"Markt basiert, was den Buchhaltern die ersten Schritte mit Odoo sicher\n"
+"erleichtern wird.\n"
+"\n"
+"Dieses Modul stellt keine vollständige Lokalisierung für Venezuela dar,\n"
+"aber es wird Ihnen dabei helfen, sehr schnell mit Odoo in diesem Land zu starten.\n"
+"\n"
+"Dieses Modul bietet Ihnen:\n"
+"---------------------\n"
+"\n"
+"- Grundsteuern für Venezuela.\n"
+"- Grundlegende Daten, um Tests mit der Lokalisierung der Community durchzuführen.\n"
+"- Möglichkeit, ein Unternehmen von 0 zu starten, wenn Sie aus buchhalterischer Sicht nur einfache Bedürfnisse haben.\n"
+"\n"
+"Wir empfehlen die Nutzung von account_anglo_saxon, wenn Sie Ihre Bestände wie in Venezuela\n"
+"ohne Rechnungen bewertet haben möchten.\n"
+"\n"
+"Wenn Sie dieses Modul installieren und den benutzerdefinierten Kontenplan auswählen, wird ein Standardkontenplan vorgeschlagen,\n"
+"aber Sie müssen manuell Kontenstandards für Steuern festlegen.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_th
@@ -8381,6 +8445,20 @@ msgid ""
 "can setup API keys to replace their main password.\n"
 "    "
 msgstr ""
+"\n"
+"Zwei-Faktoren-Authentifizierung (TOTP)\n"
+"================================\n"
+"Ermöglicht Benutzern die Konfiguration der Zwei-Faktor-Authentifizierung für ihr Benutzerkonto\n"
+"für zusätzliche Sicherheit, indem zeitbasierte Einmalpasswörter (Time-based One-Time Password, TOTP) verwendet werden.\n"
+"\n"
+"Nach der Aktivierung muss der Benutzer einen 6-stelligen Code eingeben,\n"
+"der von seiner Authentifizierungs-App bereitgestellt wird, bevor ihm der Zugang zum System gewährt wird.\n"
+"Alle gängigen Authentifizierungs-Apps werden unterstützt.\n"
+"\n"
+"Hinweis: Logischerweise verhindert die Zwei-Faktor-Authentifizierung den passwortbasierten RPC-Zugang für Benutzer,\n"
+"bei denen sie aktiviert ist. Um RPC-Skripte ausführen zu können, kann der Benutzer\n"
+"API-Schlüssel einrichten, um ihre Hauptpasswörter zu ersetzen.where it is enabled.\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_tr
@@ -9038,6 +9116,8 @@ msgid ""
 "- Record is company %(company)r and %(field)r (%(fname)s: %(values)s) "
 "belongs to another company."
 msgstr ""
+"- Datensatz ist Unternehmen %(company)r und %(field)r (%(fname)s: "
+"%(values)s) gehört zu einem anderen Unternehmen."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
@@ -9733,7 +9813,7 @@ msgstr ""
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "A <graph> can only contains <field> nodes, found a <%s>"
-msgstr ""
+msgstr "Eine <graph> kann nur <field>-Knoten enthalten, <%s> gefunden"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_A
@@ -11441,7 +11521,7 @@ msgstr "Barcode Anwesenheiten Mobil"
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_attendance_mobile
 msgid "Attendances Barcode scan in Mobile"
-msgstr ""
+msgstr "Scannen des Anwesenheitsbarcodes auf Handy"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_mass_mailing
@@ -11453,6 +11533,8 @@ msgstr "Regen Sie Besucher an sich in eine Mailing Liste einzutragen"
 #, python-format
 msgid "Attribute %(attribute)s evaluation expects a boolean, got %(value)s"
 msgstr ""
+"Bewertung des Attributs %(attribute)s erwartet ein boolesches Feld, hat "
+"%(value)s erhalten"
 
 #. module: base
 #: model:res.country,name:base.au
@@ -16140,6 +16222,8 @@ msgid ""
 "Field '%(name)s' found in 'groupby' node can only be of type many2one, found"
 " %(type)s"
 msgstr ""
+"In „groupby“-Knoten gefundenes Feld „%(name)s'“ kann nur vom Typ many2one "
+"sein, gefunden %(type)s"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__help
@@ -17320,12 +17404,12 @@ msgstr "Hardware-Proxy"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_reset_view_arch_wizard__has_diff
 msgid "Has Diff"
-msgstr ""
+msgstr "Hat Diff."
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__has_iap
 msgid "Has Iap"
-msgstr ""
+msgstr "Hat Iap"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat__header_spacing
@@ -18698,7 +18782,7 @@ msgstr "Ungültiger Modulname %r in der Aktionsdefinition."
 #: code:addons/base/models/ir_actions.py:611
 #, python-format
 msgid "many2many fields cannot be evaluated by reference"
-msgstr ""
+msgstr "many2many-Felder können nicht per Referenz ausgewertet werden"
 
 #. module: base
 #: code:addons/template_inheritance.py:0
@@ -18732,7 +18816,7 @@ msgstr ""
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid special '%(value)s' in button"
-msgstr ""
+msgstr "Ungültige spezielle „%(value)s“ in Schaltfläche"
 
 #. module: base
 #: code:addons/template_inheritance.py:0
@@ -18762,7 +18846,7 @@ msgstr "Ungültige Ansicht %(name)sDefinition in %(file)s"
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid xmlid %(xmlid)s for button of type action."
-msgstr ""
+msgstr "Ungültige xmlid %(xmlid)s für Schaltflächen des Typs Aktion."
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_inventory
@@ -19079,7 +19163,7 @@ msgstr "LGPL Version 3"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lt_reports
 msgid "Lithuania - Accounting Reports"
-msgstr ""
+msgstr "Lithuania - Accounting Reports"
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -19686,6 +19770,8 @@ msgstr "Modul zwischen Point of Sale und Verkauf verknüpfen"
 #: model:ir.module.module,summary:base.module_pos_hr_l10n_be
 msgid "Link module between Pos Blackbox Be and Pos HR"
 msgstr ""
+"Verknüpfungsmodul zwischen Kassensystem Blackblox Be und Kassensystem "
+"Personal"
 
 #. module: base
 #: code:addons/base/models/ir_qweb_fields.py:0
@@ -19876,7 +19962,7 @@ msgstr "MRP-Features für die Qualitätskontrolle mit IoT"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_purchase_stock
 msgid "MTO Sale <-> Purchase"
-msgstr ""
+msgstr "Einzelfertigung Verkauf <-> Einkauf"
 
 #. module: base
 #: model:res.country,name:base.mo
@@ -23980,7 +24066,7 @@ msgstr "Anzeigetafel für Aufgaben"
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Page direct ancestor must be notebook"
-msgstr ""
+msgstr "Der direkte Vorfahr der Seite muss ein Notebook sein"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat__page_height
@@ -25903,7 +25989,7 @@ msgstr "Postausgang-Server (SMTP)"
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_purchase_stock
 msgid "SO/PO relation in case of MTO"
-msgstr ""
+msgstr "Verbindung zwischen Verkaufs-/Kaufauftrag bei Einzelfertigung"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model__order
@@ -26022,7 +26108,7 @@ msgstr "Sale Purchase"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_stock_margin
 msgid "Sale Stock Margin"
-msgstr ""
+msgstr "Verkauf Bestand Marge"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_subscription_dashboard
@@ -27879,7 +27965,7 @@ msgstr ""
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Those modules cannot be uninstalled: %s"
-msgstr ""
+msgstr "Diese Module können nicht deinstalliert werden: %s"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner_category__active
@@ -28603,6 +28689,8 @@ msgid ""
 "present in a separate module as it contains models used only to perform\n"
 "tests independently to functional aspects of other models. "
 msgstr ""
+"Dieses Modul enthält Tests im Zusammenhang mit dem Timer. Diese befinden sich in einem separaten Modul, da es Modelle enthält, die nur zur Durchführung\n"
+"von Tests unabhängig von funktionalen Aspekten anderer Modelle verwendet werden."
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_mail_full
