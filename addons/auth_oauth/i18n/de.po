@@ -147,7 +147,7 @@ msgstr "Login mit Odoo.com"
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_auth_oauth_provider__body
 msgid "Login button label"
-msgstr ""
+msgstr "Bezeichnung der Anmeldeschaltfläche"
 
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_res_users__oauth_access_token
@@ -229,7 +229,7 @@ msgstr "Systemparameter"
 #. module: auth_oauth
 #: model:ir.model.fields,field_description:auth_oauth.field_auth_oauth_provider__validation_endpoint
 msgid "UserInfo URL"
-msgstr ""
+msgstr "Benutzerinfo-URL"
 
 #. module: auth_oauth
 #: model:ir.model,name:auth_oauth.model_res_users
