@@ -7,6 +7,7 @@
 # Goh Gangtai <gangtai.goh@gmail.com>, 2021
 # JH CHOI <hwangtog@gmail.com>, 2021
 # Linkup <link-up@naver.com>, 2021
+# Daye Jeong, 2023
 # Sarah Park, 2023
 # 
 msgid ""
@@ -45,7 +46,7 @@ msgstr "파일에 단 하나의 열만 있는데, 이는 보통 파일 구분자
 #: code:addons/base_import/static/src/legacy/js/import_action.js:0
 #, python-format
 msgid "Additional Fields"
-msgstr ""
+msgstr "추가 필드"
 
 #. module: base_import
 #. openerp-web
@@ -1048,7 +1049,7 @@ msgstr "제목 없음"
 #: code:addons/base_import/static/src/legacy/xml/base_import.xml:0
 #, python-format
 msgid "Upload File"
-msgstr ""
+msgstr "파일 업로드"
 
 #. module: base_import
 #. openerp-web

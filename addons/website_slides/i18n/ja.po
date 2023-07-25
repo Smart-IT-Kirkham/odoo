@@ -21,6 +21,7 @@
 # Noma Yuki, 2022
 # 江口和志 <sandwhale1010@gmail.com>, 2022
 # Andy Yiu, 2023
+# Junko Augias, 2023
 # Ryoko Tsuda <ryoko@quartile.co>, 2023
 # 
 msgid ""
@@ -824,7 +825,7 @@ msgstr ""
 #. module: website_slides
 #: model_terms:ir.ui.view,arch_db:website_slides.slide_share_modal_header
 msgid "<span>×</span>"
-msgstr ""
+msgstr "<span>×</span>"
 
 #. module: website_slides
 #. openerp-web
@@ -1760,6 +1761,7 @@ msgid ""
 "Congratulations, your course has been created, but there isn't any content "
 "yet. First, let's add a <b>Section</b> to give your course a structure."
 msgstr ""
+"おめでとうございます。コースは作成されましたが、まだコンテンツはありません。まず、コースを構成する <b>セクション</b>を追加してください。"
 
 #. module: website_slides
 #: model:ir.model,name:website_slides.model_res_partner
