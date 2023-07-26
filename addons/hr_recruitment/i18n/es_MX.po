@@ -6,6 +6,7 @@
 # Cécile Collart <cco@odoo.com>, 2021
 # Daniela Cervantes <dace@odoo.com>, 2021
 # Braulio D. López Vázquez <bdl@odoo.com>, 2023
+# Fernanda Alvarez, 2023
 # 
 msgid ""
 msgstr ""
@@ -13,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-09-29 13:45+0000\n"
 "PO-Revision-Date: 2020-09-07 08:13+0000\n"
-"Last-Translator: Braulio D. López Vázquez <bdl@odoo.com>, 2023\n"
+"Last-Translator: Fernanda Alvarez, 2023\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2011,9 +2012,9 @@ msgid ""
 "attached, even if they did not reply to it. If set, this will disable the "
 "creation of new records completely."
 msgstr ""
-"ID opcional de un hilo (registro) al que todos los mensajes entrantes serán "
-"adjuntados, incluso si no fueron respuestas del mismo. Si se establece, se "
-"deshabilitará completamente la creación de nuevos registros."
+"ID opcional de un hilo (registro) al que se adjuntarán todos los mensajes "
+"entrantes, incluso si no fueron respuestas del mismo. Si se establece, se "
+"deshabilitará por completo la creación de nuevos registros."
 
 #. module: hr_recruitment
 #. openerp-web
@@ -2071,10 +2072,10 @@ msgid ""
 "- partners: only authenticated partners\n"
 "- followers: only followers of the related document or members of following channels\n"
 msgstr ""
-"Política para publicar un mensaje en el documento utilizando el servidor de correo.\n"
-"- todo el mundo: todos pueden publicar\n"
-"- partners: solo partners autenticados\n"
-"- seguidores: solo seguidores del documento relacionado o miembros de los siguientes canales\n"
+"Política sobre cómo publicar un mensaje en el documento utilizando el servidor de correo.\n"
+"- todos: todos pueden publicar\n"
+"- contactos: solo los contactos verificados\n"
+"- seguidores: solo los seguidores del documento relacionado o los miembros de los canales\n"
 
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__probability
@@ -2089,7 +2090,7 @@ msgstr "Salario propuesto"
 #. module: hr_recruitment
 #: model:ir.model.fields,field_description:hr_recruitment.field_hr_applicant__salary_proposed_extra
 msgid "Proposed Salary Extra"
-msgstr "Salario extra propuesto"
+msgstr "Salario adicional propuesto"
 
 #. module: hr_recruitment
 #: model_terms:ir.ui.view,arch_db:hr_recruitment.res_config_settings_view_form

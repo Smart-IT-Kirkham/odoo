@@ -2877,8 +2877,8 @@ msgid ""
 "ID of the parent record holding the alias (example: project holding the task"
 " creation alias)"
 msgstr ""
-"ID do registro pai segurando o apelido (exemplo: projeto segurando o apelido"
-" de criação de tarefa)"
+"ID do registro primário que detém o alias (exemplo: projeto detém o alias da"
+" criação de tarefa)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity__icon
@@ -6157,7 +6157,7 @@ msgstr ""
 #. module: mail
 #: model:ir.model.fields,help:mail.field_mail_shortcode__source
 msgid "The shortcut which must be replaced in the Chat Messages"
-msgstr "O atalho que deve ser substituído nas mensagens de bate-papo"
+msgstr "O atalho que deve ser substituído nas mensagens de chat"
 
 #. module: mail
 #. openerp-web
@@ -6282,7 +6282,7 @@ msgstr "Para (Parceiros)"
 #. module: mail
 #: model:mail.activity.type,name:mail.mail_activity_data_todo
 msgid "To Do"
-msgstr "A Fazer"
+msgstr "Lista de Tarefas"
 
 #. module: mail
 #. openerp-web

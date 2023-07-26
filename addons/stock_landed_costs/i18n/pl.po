@@ -20,6 +20,7 @@
 # Martin Trigaux, 2020
 # Wojciech Warczakowski <w.warczakowski@gmail.com>, 2021
 # Krystian Harkot <kharkot@trilab.pl>, 2022
+# Tadeusz Karpiński <tadeusz.karpinski@braintec.com>, 2023
 # Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2023
 # 
 msgid ""
@@ -109,7 +110,7 @@ msgstr "Dodatkowe koszty nabycia"
 #. module: stock_landed_costs
 #: model:ir.model.fields,field_description:stock_landed_costs.field_stock_landed_cost__allowed_picking_ids
 msgid "Allowed Picking"
-msgstr ""
+msgstr "Dozwolone pobranie"
 
 #. module: stock_landed_costs
 #: model:ir.model.fields,field_description:stock_landed_costs.field_stock_landed_cost__target_model
@@ -691,7 +692,7 @@ msgstr "Przesunięcie"
 #: model:ir.model,name:stock_landed_costs.model_stock_valuation_layer
 #: model:ir.model.fields,field_description:stock_landed_costs.field_stock_landed_cost__stock_valuation_layer_ids
 msgid "Stock Valuation Layer"
-msgstr ""
+msgstr "Warstwa wyceny zapasów"
 
 #. module: stock_landed_costs
 #: model_terms:ir.ui.view,arch_db:stock_landed_costs.view_stock_landed_cost_search
