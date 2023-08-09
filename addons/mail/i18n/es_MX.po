@@ -7,6 +7,7 @@
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
 # Lucia Pacheco, 2023
 # Martin Trigaux, 2023
+# Iran Villalobos López, 2023
 # Fernanda Alvarez, 2023
 # 
 msgid ""
@@ -6123,7 +6124,7 @@ msgstr "Girar"
 #: code:addons/mail/static/src/components/attachment_viewer/attachment_viewer.xml:0
 #, python-format
 msgid "Rotate (r)"
-msgstr "Girar (r)"
+msgstr "Girar (d)"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_channel__rtc_session_ids
@@ -7155,6 +7156,13 @@ msgstr ""
 #, python-format
 msgid "This record has an exception activity."
 msgstr "Este registro tiene una actividad de excepción."
+
+#. module: mail
+#. openerp-web
+#: code:addons/mail/static/src/js/activity.js:0
+#, python-format
+msgid "Save the record before scheduling an activity!"
+msgstr "¡Guarde el registro antes de agendar una actividad!"
 
 #. module: mail
 #: code:addons/mail/models/mail_channel_partner.py:0

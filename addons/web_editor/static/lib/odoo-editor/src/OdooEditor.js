@@ -570,9 +570,9 @@ export class OdooEditor extends EventTarget {
                 }
                 case 'childList': {
                     record.addedNodes.forEach(added => {
-                        this._toRollback =
-                            this._toRollback ||
-                            (containsUnremovable(added) && UNREMOVABLE_ROLLBACK_CODE);
+                        if (!this._toRollback && containsUnremovable(added)) {
+                            this._toRollback = UNREMOVABLE_ROLLBACK_CODE;
+                        }
                         const mutation = {
                             'type': 'add',
                         };
@@ -1048,8 +1048,9 @@ export class OdooEditor extends EventTarget {
         }
     }
     unbreakableStepUnactive() {
-        this._toRollback =
-            this._toRollback === UNBREAKABLE_ROLLBACK_CODE ? false : this._toRollback;
+        if (this._toRollback === UNBREAKABLE_ROLLBACK_CODE) {
+            this._toRollback = false;
+        }
         this._checkStepUnbreakable = false;
     }
     historyPauseSteps() {
@@ -1746,10 +1747,14 @@ export class OdooEditor extends EventTarget {
         this.observerUnactive('_activateContenteditable');
         this.editable.setAttribute('contenteditable', this.options.isRootEditable);
 
-        const editableAreas = this.options.getContentEditableAreas(this).filter(node => !isVoidElement(node));
+        const editableAreas = this.options.getContentEditableAreas(this);
         for (const node of editableAreas) {
             if (!node.isContentEditable) {
-                node.setAttribute('contenteditable', true);
+                if (isVoidElement(node) || node.nodeName === 'IMG') {
+                    node.classList.add('o_editable_media');
+                } else {
+                    node.setAttribute('contenteditable', true);
+                }
             }
         }
         for (const node of this.options.getReadOnlyAreas()) {
