@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 07:16+0000\n"
+"POT-Creation-Date: 2023-08-18 08:43+0000\n"
 "PO-Revision-Date: 2021-09-14 12:24+0000\n"
 "Last-Translator: Larissa Manderfeld, 2023\n"
 "Language-Team: German (https://app.transifex.com/odoo/teams/41243/de/)\n"
@@ -933,6 +933,13 @@ msgstr "Kann Rechnungsauftrag nicht aus geschlossener Sitzung aufrufen."
 
 #. module: point_of_sale
 #. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/ProductScreen/ProductScreen.js:0
+#, python-format
+msgid "Cannot modify a tip"
+msgstr "Trinkgeld kann nicht geändert werden"
+
+#. module: point_of_sale
+#. openerp-web
 #: code:addons/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js:0
 #: code:addons/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js:0
 #, python-format
@@ -1684,9 +1691,17 @@ msgstr "Kunde erforderlich"
 #. module: point_of_sale
 #. openerp-web
 #: code:addons/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js:0
+#: code:addons/point_of_sale/wizard/pos_payment.py:0
 #, python-format
 msgid "Customer is required for %s payment method."
 msgstr "Kunde benötigt für Zahlungsmethode %s."
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/ProductScreen/ProductScreen.js:0
+#, python-format
+msgid "Customer tips, cannot be modified directly"
+msgstr "Kundentrinkgelder, können nicht sofort geändert werden"
 
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.menu_point_of_sale_customer
@@ -2033,6 +2048,13 @@ msgid "Do you want to open the customer list to select customer?"
 msgstr "Möchten Sie die Kundenliste öffnen um einen Kunden auszuwählen?"
 
 #. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Misc/AbstractReceiptScreen.js:0
+#, python-format
+msgid "Do you want to print using the web printer?"
+msgstr "Möchten Sie mit dem Webdrucker drucken?"
+
+#. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Documentation"
@@ -2286,6 +2308,13 @@ msgstr "Auftragsimport abgeschlossen"
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "Fiscal Position"
 msgstr "Steuerzuordnung"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/TicketScreen/TicketScreen.js:0
+#, python-format
+msgid "Fiscal Position not found"
+msgstr "Steuerposition nicht gefunden"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -3527,6 +3556,18 @@ msgid "Number of messages with delivery error"
 msgstr "Anzahl der Nachrichten mit einem Fehler beim Senden."
 
 #. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_config.py:0
+#, python-format
+msgid "Number of partners loaded can not be 0"
+msgstr "Anzahl der geladenen Partner kann nicht 0 sein"
+
+#. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_config.py:0
+#, python-format
+msgid "Number of product loaded can not be 0"
+msgstr "Anzahl der geladenen Produkte kann nicht 0 sein"
+
+#. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_session__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Anzahl ungelesener Nachrichten"
@@ -3601,6 +3642,15 @@ msgstr ""
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config__only_round_cash_method
 msgid "Only apply rounding on cash"
 msgstr "Rundung nur bei Bargeld anwenden"
+
+#. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_payment_method.py:0
+#, python-format
+msgid ""
+"Only journals of type 'Cash' or 'Bank' could be used with payment methods."
+msgstr ""
+"Nur Journale des Typs „Kasse“ oder „Bank“ können mit Zahlungsmitteln "
+"verwendet werden."
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -6006,6 +6056,18 @@ msgid ""
 msgstr ""
 "Beim Empfang Ihrer Bestellung ist ein Fehler im Steuerdatenmodul "
 "aufgetreten."
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/TicketScreen/TicketScreen.js:0
+#, python-format
+msgid ""
+"The fiscal position used in the original order is not loaded. Make sure it "
+"is loaded by adding it in the pos configuration."
+msgstr ""
+"Die im ursprünglichen Auftrag verwendete Steuerposition ist nicht geladen. "
+"Stellen Sie sicher, dass sie geladen ist, indem Sie sie in der Kassensystem-"
+"Konfiguration hinzufügen."
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__proxy_ip

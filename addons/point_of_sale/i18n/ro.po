@@ -15,7 +15,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-12-10 07:16+0000\n"
+"POT-Creation-Date: 2023-08-18 08:43+0000\n"
 "PO-Revision-Date: 2021-09-14 12:24+0000\n"
 "Last-Translator: Martin Trigaux, 2023\n"
 "Language-Team: Romanian (https://app.transifex.com/odoo/teams/41243/ro/)\n"
@@ -916,6 +916,13 @@ msgstr "Nu se poate factura comanda din sesiunea închisă."
 
 #. module: point_of_sale
 #. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/ProductScreen/ProductScreen.js:0
+#, python-format
+msgid "Cannot modify a tip"
+msgstr ""
+
+#. module: point_of_sale
+#. openerp-web
 #: code:addons/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js:0
 #: code:addons/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js:0
 #, python-format
@@ -1662,9 +1669,17 @@ msgstr "Client necesar"
 #. module: point_of_sale
 #. openerp-web
 #: code:addons/point_of_sale/static/src/js/Screens/PaymentScreen/PaymentScreen.js:0
+#: code:addons/point_of_sale/wizard/pos_payment.py:0
 #, python-format
 msgid "Customer is required for %s payment method."
 msgstr "Clientul este necesar pentru metoda de plată %s."
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/ProductScreen/ProductScreen.js:0
+#, python-format
+msgid "Customer tips, cannot be modified directly"
+msgstr ""
 
 #. module: point_of_sale
 #: model:ir.ui.menu,name:point_of_sale.menu_point_of_sale_customer
@@ -2009,6 +2024,13 @@ msgid "Do you want to open the customer list to select customer?"
 msgstr "Doriți să deschideți lista de clienți pentru a selecta clientul?"
 
 #. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Misc/AbstractReceiptScreen.js:0
+#, python-format
+msgid "Do you want to print using the web printer?"
+msgstr ""
+
+#. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Documentation"
@@ -2259,6 +2281,13 @@ msgstr "Importare comenzi încheiată"
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
 msgid "Fiscal Position"
 msgstr "Poziție fiscală"
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/TicketScreen/TicketScreen.js:0
+#, python-format
+msgid "Fiscal Position not found"
+msgstr ""
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -3500,6 +3529,18 @@ msgid "Number of messages with delivery error"
 msgstr "Numărul de mesaje cu eroare de livrare"
 
 #. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_config.py:0
+#, python-format
+msgid "Number of partners loaded can not be 0"
+msgstr ""
+
+#. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_config.py:0
+#, python-format
+msgid "Number of product loaded can not be 0"
+msgstr ""
+
+#. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_session__message_unread_counter
 msgid "Number of unread messages"
 msgstr "Număr de mesaje necitite"
@@ -3574,6 +3615,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_config__only_round_cash_method
 msgid "Only apply rounding on cash"
 msgstr "Aplicați numai rotunjirea în numerar"
+
+#. module: point_of_sale
+#: code:addons/point_of_sale/models/pos_payment_method.py:0
+#, python-format
+msgid ""
+"Only journals of type 'Cash' or 'Bank' could be used with payment methods."
+msgstr ""
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.pos_config_view_form
@@ -5964,6 +6012,15 @@ msgid ""
 "The fiscal data module encountered an error while receiving your order."
 msgstr ""
 "Modulul de date fiscale a întâmpinat o eroare în timpul primirii comenzii."
+
+#. module: point_of_sale
+#. openerp-web
+#: code:addons/point_of_sale/static/src/js/Screens/TicketScreen/TicketScreen.js:0
+#, python-format
+msgid ""
+"The fiscal position used in the original order is not loaded. Make sure it "
+"is loaded by adding it in the pos configuration."
+msgstr ""
 
 #. module: point_of_sale
 #: model:ir.model.fields,help:point_of_sale.field_pos_config__proxy_ip

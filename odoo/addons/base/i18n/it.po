@@ -10,9 +10,9 @@
 # Stefano Consolaro <stefano.consolaro@mymage.it>, 2022
 # Friederike Fasterling-Nesselbosch, 2022
 # Luca Carlo, 2023
-# Marianna Ciofani, 2023
 # Wil Odoo, 2023
 # Sergio Zanchetta <primes2h@gmail.com>, 2023
+# Marianna Ciofani, 2023
 # 
 msgid ""
 msgstr ""
@@ -20,7 +20,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 09:03+0000\n"
 "PO-Revision-Date: 2021-09-14 12:18+0000\n"
-"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2023\n"
+"Last-Translator: Marianna Ciofani, 2023\n"
 "Language-Team: Italian (https://app.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,6 +197,88 @@ msgid ""
 "Copyright 2018 Odoo House ApS\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"Modulo di localizzazione per la Danimarca\n"
+"=======================================\n"
+"\n"
+"Modulo per gestire il **piano dei conti per la Danimarca**. Copre sia imprese individuali che I/S, IVS, ApS e A/S\n"
+"\n"
+"**Modulet opsætter:**\n"
+"\n"
+"- **Dansk kontoplan**\n"
+"\n"
+"- Dansk moms\n"
+"        - 25% moms\n"
+"        - Resturationsmoms 6,25%\n"
+"        - Omvendt betalingspligt\n"
+"\n"
+"- Konteringsgrupper\n"
+"        - EU (Virksomhed)\n"
+"        - EU (Privat)\n"
+"        - 3.lande\n"
+"\n"
+"- Finans raporter\n"
+"        - Resulttopgørelse\n"
+"        - Balance\n"
+"        - Momsafregning\n"
+"            - Afregning\n"
+"            - Rubrik A, B og C\n"
+"\n"
+"- **Anglo-Saxon regnskabsmetode**\n"
+"\n"
+".\n"
+"\n"
+"Produkt setup:\n"
+"==============\n"
+"\n"
+"**Vare**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%\n"
+"\n"
+"**Salgskonto:**     1010 Salg af vare, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%\n"
+"\n"
+"**Købskonto:**      2010 Direkte omkostninger vare, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Ydelse**\n"
+"\n"
+"**Salgsmoms:**      Salgmoms 25%, ydelser\n"
+"\n"
+"**Salgskonto:**     1011 Salg af ydelser, m/moms\n"
+"\n"
+"**Købsmoms:**       Købsmoms 25%, ydelser\n"
+"\n"
+"**Købskonto:**      2011 Direkte omkostninger ydelser, m/moms\n"
+"\n"
+".\n"
+"\n"
+"**Vare med omvendt betalingspligt**\n"
+"\n"
+"**Salgsmoms:**      Salg omvendt betalingspligt\n"
+"\n"
+"**Salgskonto:**     1012 Salg af vare, u/moms\n"
+"\n"
+"**Købsmoms:**       Køb omvendt betalingspligt\n"
+"\n"
+"**Købskonto:**      2012 Direkte omkostninger vare, u/moms\n"
+"\n"
+"\n"
+".\n"
+"\n"
+"**Restauration**\n"
+"\n"
+"**Købsmoms:**       Restaurationsmoms 6,25%, købsmoms\n"
+"\n"
+"**Købskonto:**      4010 Restaurationsbesøg\n"
+"\n"
+".\n"
+"\n"
+"Copyright 2018 Odoo House ApS\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_do
@@ -2798,6 +2880,16 @@ msgid ""
 "If the automated inventory valuation is active, the necessary accounting entries will be created.\n"
 "\n"
 msgstr ""
+"\n"
+"Contabilità analitica nell'MRP\n"
+"===========================\n"
+"\n"
+"* Resoconto sulla struttura dei costi\n"
+"\n"
+"Consente, inoltre, di calcolare il costo del prodotto in base alla relativa DiBa, utilizzando il costo dei suoi componenti e delle operazioni del centro di lavoro.\n"
+"Aggiunge un pulsante nel prodotto stesso e anche un'azione nella vista elenco dei prodotti.\n"
+"Se è attiva la valutazione automatica del magazzino verranno create le registrazioni contabili necessarie.\n"
+"\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_forum
@@ -6470,6 +6562,16 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"Piano dei conti e localizzazione per Singapore.\n"
+"=======================================================\n"
+"\n"
+"Questo modulo aggiunge, per la contabilità:\n"
+" - il piano dei conti di Singapore\n"
+" - campo Numero di entità univoco (UEN) su azienda e partner\n"
+" - campo N° permesso (PermitNo) e Data n° permesso (PermitNoDate) sulla fattura\n"
+"\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_skills
@@ -6881,6 +6983,17 @@ msgid ""
 "Set the payment reference type from the Sales Journal.\n"
 "    "
 msgstr ""
+"\n"
+"Modulo Odoo per gestire la contabilità della Finlandia.\n"
+"============================================================\n"
+"\n"
+"Dopo l'installazione del modulo, si avrà accesso a :\n"
+"    * piano dei conti finlandese\n"
+"    * posizioni fiscali\n"
+"    * tipi di riferimento per il pagamento delle fatture (riferimento standard finlandese & riferimento creditore finlandese (RF))\n"
+"\n"
+"Impostare il tipo di riferimento di pagamento dal registro vendite.\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_uom
@@ -8201,6 +8314,12 @@ msgid ""
 "Use for update your text memo in real time with the following user that you invite.\n"
 "\n"
 msgstr ""
+"\n"
+"Modulo che aggiorna appunti dentro Odoo per l'uso su pad esterni\n"
+"==================================================================\n"
+"\n"
+"Utilizzato per aggiornare appunti testuali in tempo reale con l'utente invitato che sta seguendo.\n"
+"\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_website_slides_full
@@ -11954,12 +12073,12 @@ msgstr "Codice a barre"
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Barcode %s"
-msgstr ""
+msgstr "Codice a barre %s"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_barcodes_gs1_nomenclature
 msgid "Barcode - GS1 Nomenclature"
-msgstr ""
+msgstr "Codice a barre-Nomenclatura GS1"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_barcode_quality_control
@@ -13928,7 +14047,7 @@ msgstr "Nome nazione"
 #: code:addons/base/models/res_country.py:0
 #, python-format
 msgid "Country code cannot be empty"
-msgstr ""
+msgstr "Il codice del paese non può essere vuoto"
 
 #. module: base
 #: model:ir.model,name:base.model_res_country_state
@@ -14559,7 +14678,7 @@ msgstr "Cipro"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_cz
 msgid "Czech - Accounting"
-msgstr ""
+msgstr "Cechia-Contabilità"
 
 #. module: base
 #: model:res.country,name:base.cz
@@ -16006,6 +16125,15 @@ msgstr "Errore"
 #: model:ir.model.fields,help:base.field_ir_model_constraint__message
 msgid "Error message returned when the constraint is violated."
 msgstr "Messaggio d'errore che compare quando la limitazione è violata."
+
+#. module: base
+#: code:addons/translate.py:0
+#, python-format
+msgid ""
+"Error while parsing view:\n"
+"\n"
+"%s"
+msgstr ""
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -24584,7 +24712,7 @@ msgstr "Pakistan"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_pk
 msgid "Pakistan - Accounting"
-msgstr ""
+msgstr "Pakistan-Contabilità"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_pk_reports
@@ -24703,7 +24831,7 @@ msgstr "Nome padre"
 #. module: base
 #: model:ir.module.module,summary:base.module_barcodes_gs1_nomenclature
 msgid "Parse barcodes according to the GS1-128 specifications"
-msgstr ""
+msgstr "Analizza i codici a barre in base alle indicazioni GS1-128"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__partner_id
@@ -25772,7 +25900,7 @@ msgstr "Fornisce notifiche push e ridirezionamento all'applicazione mobile."
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_edi_proxy_client
 msgid "Proxy features for account_edi"
-msgstr ""
+msgstr "Caratteristiche proxy per account_edi"
 
 #. module: base
 #: model:res.groups,name:base.group_public
@@ -27753,7 +27881,7 @@ msgstr "Visualizzare Tutto"
 #. module: base
 #: model:ir.actions.act_window,name:base.act_view_currency_rates
 msgid "Show Currency Rates"
-msgstr ""
+msgstr "Mostra tassi di cambio"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_currency_search
@@ -28080,7 +28208,7 @@ msgstr "Spagna - Immobili"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_es_edi_sii
 msgid "Spain - SII EDI Suministro de Libros"
-msgstr ""
+msgstr "Spagna-SII EDI Suministro de Libros"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_sparse_field
@@ -28481,7 +28609,7 @@ msgstr "Svezia"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_se
 msgid "Sweden - Accounting"
-msgstr ""
+msgstr "Svezia-Contabilità"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_se_reports
@@ -28899,7 +29027,7 @@ msgstr "Thailandia - Contabilità"
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The \"%s\" action cannot be selected as home action."
-msgstr ""
+msgstr "L'azione \"%s\" non può essere selezionata come azione di base."
 
 #. module: base
 #: code:addons/base/models/res_users.py:0
@@ -30152,7 +30280,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_profile__traces_sync
 msgid "Traces Sync"
-msgstr ""
+msgstr "Sinc. tracce"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mass_mailing_event_track_sms
@@ -32186,6 +32314,7 @@ msgstr "Non puoi disattivare l'utente con cui ti sei registrato."
 #, python-format
 msgid "You cannot delete a group linked with a settings field."
 msgstr ""
+"Non è possibile eliminare un gruppo collegato ad un campo impostazioni."
 
 #. module: base
 #: code:addons/base/models/res_partner.py:0
@@ -32216,6 +32345,12 @@ msgstr ""
 "Dovresti piuttosto archiviarli dopo aver archiviato il loro utente associato.\n"
 "\n"
 "Utenti attivi collegati: %(names)s"
+
+#. module: base
+#: code:addons/base/models/ir_config_parameter.py:0
+#, python-format
+msgid "You cannot delete the %s record."
+msgstr "Impossibile eliminare il record %s."
 
 #. module: base
 #: code:addons/base/models/res_lang.py:0
@@ -32249,6 +32384,12 @@ msgid ""
 msgstr ""
 "Non è possibile ridurre il numero di cifre decimali di una valuta già "
 "utilizzata in una registrazione contabile."
+
+#. module: base
+#: code:addons/base/models/ir_config_parameter.py:0
+#, python-format
+msgid "You cannot rename config parameters with keys %s"
+msgstr "Impossibile rinominare i parametri di configurazione con chiavi %s"
 
 #. module: base
 #: code:addons/models.py:0

@@ -8,6 +8,8 @@
 # Lucia Pacheco, 2021
 # Braulio D. López Vázquez <bdl@odoo.com>, 2023
 # Fernanda Alvarez, 2023
+# Wil Odoo, 2023
+# Iran Villalobos López, 2023
 # 
 msgid ""
 msgstr ""
@@ -15,7 +17,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 08:19+0000\n"
 "PO-Revision-Date: 2021-09-14 12:24+0000\n"
-"Last-Translator: Fernanda Alvarez, 2023\n"
+"Last-Translator: Iran Villalobos López, 2023\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,7 +108,7 @@ msgstr "%s Órdenes de fabricación hijas"
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "%s cannot be deleted. Try to cancel them before."
-msgstr "%s no pueden ser eliminados. Intente cancelarlos antes."
+msgstr "%s no se pueden eliminar, intente cancelarlas antes."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
@@ -225,7 +227,7 @@ msgstr "<span class=\"o_stat_text\">Órdenes parciales</span>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "<span class=\"o_stat_text\">Child MO</span>"
-msgstr "<span class=\"o_stat_text\">Orden de fabricación hija</span>"
+msgstr "<span class=\"o_stat_text\">Orden de fabricación secundaria</span>"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_view
@@ -406,7 +408,7 @@ msgstr "<strong>Centro de trabajo: </strong>"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.stock_warn_insufficient_qty_unbuild_form_view
 msgid "? This may lead to inconsistencies in your inventory."
-msgstr "? Esto puede dar lugar a inconsistencias en su inventario."
+msgstr "? Esto puede causar inconsistencias en su inventario."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
@@ -872,7 +874,7 @@ msgstr "Horas bloqueadas durante el último mes"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_productivity_loss__name
 msgid "Blocking Reason"
-msgstr "Razón de bloqueo"
+msgstr "Motivo de bloqueo"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom_byproduct__bom_id
@@ -1044,7 +1046,7 @@ msgstr "Cambiar cantidad de producto"
 #. module: mrp
 #: model:ir.model,name:mrp.model_change_production_qty
 msgid "Change Production Qty"
-msgstr "Cambiar la cantidad de producción"
+msgstr "Cambiar cantidad de producción"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_change_production_qty
@@ -4563,6 +4565,22 @@ msgid "The capacity must be strictly positive."
 msgstr "La capacidad debe ser estrictamente positiva."
 
 #. module: mrp
+#: code:addons/mrp/models/mrp_production.py:0
+#, python-format
+msgid "The component %s should not be the same as the product to produce."
+msgstr "El componente %s no debe ser el mismo que el del producto a fabricar."
+
+#. module: mrp
+#: code:addons/mrp/models/mrp_bom.py:0
+#, python-format
+msgid ""
+"The current configuration is incorrect because it would create a cycle "
+"between these products: %s."
+msgstr ""
+"La configuración actual es incorrecta pues crearía un ciclo entre estos "
+"productos: %s."
+
+#. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_document__res_model
 msgid "The database object this attachment will be attached to."
 msgstr "Objeto de la base de datos a la que se agregará este archivo adjunto."
@@ -5461,7 +5479,7 @@ msgstr "Centros de trabajo"
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.mrp_workcenter_kanban_action
 msgid "Work Centers Overview"
-msgstr "Resumen de los centros de trabajo"
+msgstr "Información general de los centros de trabajo"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit
