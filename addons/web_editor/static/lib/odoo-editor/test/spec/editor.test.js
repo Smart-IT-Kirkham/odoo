@@ -924,6 +924,27 @@ X[]
                         ),
                     });
                 });
+                it('should delete the list item', async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: unformat(
+                            `<table><tbody>
+                                <tr>
+                                    <td><ul><li>[a</li><li>b</li><li>c]</li></ul></td>
+                                    <td><ul><li>A</li><li>B</li><li>C</li></ul></td>
+                                </tr>
+                            </tbody></table>`,
+                        ),
+                        stepFunction: deleteForward,
+                        contentAfter: unformat(
+                            `<table><tbody>
+                                <tr>
+                                    <td><ul><li>[]<br></li></ul></td>
+                                    <td><ul><li>A</li><li>B</li><li>C</li></ul></td>
+                                </tr>
+                            </tbody></table>`,
+                        ),
+                    });
+                });
                 it('should delete an image that is displayed as a block', async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: unformat(`<div>a[b<img style="display: block;"/>c]d</div>`),
@@ -1100,7 +1121,7 @@ X[]
                     stepFunction: deleteForward,
                     contentAfter: '<h1>ab []gh</h1>',
                 });
-                // // Backward selection
+                // Backward selection
                 await testEditor(BasicEditor, {
                     contentBefore: '<h1>ab ]cd</h1><p>ef[gh</p>',
                     stepFunction: deleteForward,
@@ -2023,7 +2044,19 @@ X[]
                         contentAfter: '<p>ab[]de</p>',
                     });
                 });
-                it('should delete a one letter word', async () => {
+                it('should delete a one letter word followed by visible space (start of block)', async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<p>a[] b</p>',
+                        stepFunction: deleteBackward,
+                        contentAfter: '<p>[]&nbsp;b</p>',
+                    });
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<p>[a] b</p>',
+                        stepFunction: deleteBackward,
+                        contentAfter: '<p>[]&nbsp;b</p>',
+                    });
+                });
+                it('should delete a one letter word surrounded by visible space', async () => {
                     await testEditor(BasicEditor, {
                         contentBefore: '<p>ab c[] de</p>',
                         stepFunction: deleteBackward,
@@ -2032,7 +2065,19 @@ X[]
                     await testEditor(BasicEditor, {
                         contentBefore: '<p>ab [c] de</p>',
                         stepFunction: deleteBackward,
-                        contentAfter: '<p>ab&nbsp;[] de</p>',
+                        contentAfter: '<p>ab []&nbsp;de</p>',
+                    });
+                });
+                it('should delete a one letter word preceded by visible space (end of block)', async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<p>a b[]</p>',
+                        stepFunction: deleteBackward,
+                        contentAfter: '<p>a&nbsp;[]</p>',
+                    });
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<p>a [b]</p>',
+                        stepFunction: deleteBackward,
+                        contentAfter: '<p>a&nbsp;[]</p>',
                     });
                 });
                 it('should delete an empty paragraph in a table cell', () =>

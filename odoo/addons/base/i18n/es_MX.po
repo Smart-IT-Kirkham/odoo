@@ -7,9 +7,9 @@
 # Braulio D. López Vázquez <bdl@odoo.com>, 2022
 # Aimée Mendoza Sánchez, 2023
 # Iran Villalobos López, 2023
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
 # Lucia Pacheco, 2023
 # Wil Odoo, 2023
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
 # Fernanda Alvarez, 2023
 # 
 msgid ""
@@ -12264,7 +12264,7 @@ msgid ""
 "(karma, badges, etc..)"
 msgstr ""
 "Permite entrar al perfil del sitio web de los usuarios para ver sus "
-"estadísticas (recompensas, insignias, etc.)"
+"estadísticas (karma, insignias, etc...)"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_slides_forum
@@ -20610,7 +20610,7 @@ msgstr "Internet de las cosas"
 #: model:ir.module.category,name:base.module_category_internet_of_things_(iot)
 #: model:ir.module.category,name:base.module_category_manufacturing_internet_of_things_(iot)
 msgid "Internet of Things (IoT)"
-msgstr "Internet de las cosas (IoT, por su sigla en inglés)"
+msgstr "Internet de las cosas (IoT)"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__interval_number
@@ -20649,6 +20649,12 @@ msgstr ""
 #, python-format
 msgid "Invalid 'group by' parameter"
 msgstr "Parametro 'agrupar por' no valido"
+
+#. module: base
+#: code:addons/template_inheritance.py:0
+#, python-format
+msgid "Invalid Expression while parsing xpath %r"
+msgstr "Expresión no válida al procesar xpath %r"
 
 #. module: base
 #: code:addons/base/models/ir_default.py:0
@@ -23072,7 +23078,7 @@ msgstr "Categoría de módulo"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.module_view_kanban
 msgid "Module Info"
-msgstr "Más información"
+msgstr "Información del módulo"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__shortdesc
@@ -33970,7 +33976,7 @@ msgstr "Servicio de asistencia del sitio web"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_helpdesk_livechat
 msgid "Website IM Livechat Helpdesk"
-msgstr "Mesa de ayuda mediante el chat en vivo del sitio web"
+msgstr "Servicio de asistencia mediante el chat en vivo del sitio web"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_jitsi
@@ -34042,7 +34048,7 @@ msgstr "Tablero de ventas del sitio web"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_helpdesk_slides
 msgid "Website Slides Helpdesk"
-msgstr "Servicio de mesa de ayuda mediante presentaciones en el sitio web"
+msgstr "Servicio de asistencia mediante presentaciones en el sitio web"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_studio

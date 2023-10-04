@@ -792,7 +792,7 @@ msgstr "找不到:"
 #: code:addons/website_event/static/src/xml/event_create.xml:0
 #, python-format
 msgid "On Site"
-msgstr "On Site"
+msgstr "到場"
 
 #. module: website_event
 #. openerp-web
@@ -1195,7 +1195,7 @@ msgstr "網站網址"
 #. module: website_event
 #: model:ir.model,name:website_event.model_website_visitor
 msgid "Website Visitor"
-msgstr "網站訪問者"
+msgstr "網站訪客"
 
 #. module: website_event
 #: model:ir.model.fields,field_description:website_event.field_event_event__website_meta_description

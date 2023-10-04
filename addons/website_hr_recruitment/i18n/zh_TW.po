@@ -4,6 +4,7 @@
 # 
 # Translators:
 # 敬雲 林 <chingyun@yuanchih-consult.com>, 2021
+# Wil Odoo, 2023
 # Tony Ng, 2023
 # 
 msgid ""
@@ -88,8 +89,8 @@ msgid ""
 "<span class=\"s_website_form_label_content\">Your Email</span>\n"
 "                                            <span class=\"s_website_form_mark\"> *</span>"
 msgstr ""
-"<span class=\"s_website_form_label_content\">您的Email</span>\n"
-"                                            <span class=\"s_website_form_mark\"> *</span>"
+"<span class=\"s_website_form_label_content\">你的電郵地址</span>\n"
+"                                            <span class=\"s_website_form_mark\"> *（必填）</span>"
 
 #. module: website_hr_recruitment
 #: model_terms:ir.ui.view,arch_db:website_hr_recruitment.apply
@@ -135,7 +136,7 @@ msgstr ""
 #. module: website_hr_recruitment
 #: model_terms:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
 msgid "A full-time position <br/>Attractive salary package."
-msgstr "全職職位<br>優渥的薪酬待遇"
+msgstr "全職職位，<br/>具吸引力的薪酬待遇。"
 
 #. module: website_hr_recruitment
 #: model_terms:ir.ui.view,arch_db:website_hr_recruitment.job_right_side_bar
@@ -260,6 +261,7 @@ msgstr "客戶關係"
 #. module: website_hr_recruitment
 #. openerp-web
 #: code:addons/website_hr_recruitment/static/src/js/website_hr_recruitment_editor.js:0
+#: model:ir.model,name:website_hr_recruitment.model_hr_department
 #, python-format
 msgid "Department"
 msgstr "部門"
@@ -446,6 +448,13 @@ msgid "Personal Evolution"
 msgstr "個人發展"
 
 #. module: website_hr_recruitment
+#. openerp-web
+#: code:addons/website_hr_recruitment/static/src/js/website_hr_recruitment_editor.js:0
+#, python-format
+msgid "Phone Number"
+msgstr "電話號碼"
+
+#. module: website_hr_recruitment
 #: model_terms:ir.ui.view,arch_db:website_hr_recruitment.default_website_description
 msgid "Play any sport with colleagues, <br/>the bill is covered."
 msgstr "和同事一起進行活動，<br>並由公司買單。"
@@ -490,6 +499,13 @@ msgstr "SEO 名稱"
 #: model:ir.model.fields,help:website_hr_recruitment.field_hr_job__website_published
 msgid "Set if the application is published on the website of the company."
 msgstr "設置模組是否在公司網站上發布。"
+
+#. module: website_hr_recruitment
+#. openerp-web
+#: code:addons/website_hr_recruitment/static/src/js/website_hr_recruitment_editor.js:0
+#, python-format
+msgid "Short Introduction"
+msgstr "簡短介紹"
 
 #. module: website_hr_recruitment
 #: model:ir.model,name:website_hr_recruitment.model_hr_recruitment_source
@@ -605,7 +621,21 @@ msgstr "這份工作的優點?"
 #: code:addons/website_hr_recruitment/models/hr_recruitment.py:0
 #, python-format
 msgid "You cannot apply for this job."
-msgstr ""
+msgstr "你暫時不可申請此職位。"
+
+#. module: website_hr_recruitment
+#. openerp-web
+#: code:addons/website_hr_recruitment/static/src/js/website_hr_recruitment_editor.js:0
+#, python-format
+msgid "Your Email"
+msgstr "您的電子信件"
+
+#. module: website_hr_recruitment
+#. openerp-web
+#: code:addons/website_hr_recruitment/static/src/js/website_hr_recruitment_editor.js:0
+#, python-format
+msgid "Your Name"
+msgstr "您的姓名"
 
 #. module: website_hr_recruitment
 #: model_terms:ir.ui.view,arch_db:website_hr_recruitment.thankyou_ir_ui_view

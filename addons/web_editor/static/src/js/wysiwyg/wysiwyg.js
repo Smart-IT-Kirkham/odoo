@@ -600,7 +600,7 @@ const Wysiwyg = Widget.extend({
             const clientsInfos = Object.values(this.ptp.clientsInfos);
             const couldBeDisconnected =
                 Boolean(clientsInfos.length) &&
-                clientsInfos.every((x) => PTP_CLIENT_DISCONNECTED_STATES.includes(x.peerConnection.connectionState));
+                clientsInfos.every((x) => PTP_CLIENT_DISCONNECTED_STATES.includes(x.peerConnection && x.peerConnection.connectionState));
 
             if (couldBeDisconnected) {
                 this._offlineTimeout = setTimeout(() => {
@@ -1620,9 +1620,7 @@ const Wysiwyg = Widget.extend({
         }
     },
     _processAndApplyColor: function (eventName, color) {
-        if (!color) {
-            color = 'inherit';
-        } else if (!ColorpickerWidget.isCSSColor(color) && !weUtils.isColorGradient(color)) {
+        if (color && (!ColorpickerWidget.isCSSColor(color) && !weUtils.isColorGradient(color))) {
             color = (eventName === "foreColor" ? 'text-' : 'bg-') + color;
         }
         const fonts = this.odooEditor.execCommand('applyColor', color, eventName === 'foreColor' ? 'color' : 'backgroundColor', this.lastMediaClicked);
@@ -1686,7 +1684,7 @@ const Wysiwyg = Widget.extend({
                     closestElement(selection.anchorNode, containerSelector)) ||
                 // In case a suitable container could not be found then the
                 // selection is restricted inside the editable area.
-                this.$editable.find(containerSelector);
+                this.$editable.find(containerSelector)[0];
             if (container) {
                 const range = document.createRange();
                 range.selectNodeContents(container);

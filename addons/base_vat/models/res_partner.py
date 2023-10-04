@@ -80,6 +80,7 @@ _ref_vat = {
 
 _region_specific_vat_codes = {
     'xi',
+    't',
 }
 
 
@@ -89,7 +90,14 @@ class ResPartner(models.Model):
     vat = fields.Char(string="VAT/Tax ID")
 
     def _split_vat(self, vat):
-        vat_country, vat_number = vat[:2].lower(), vat[2:].replace(' ', '')
+        '''
+        Splits the VAT Number to get the country code in a first place and the code itself in a second place.
+        This has to be done because some countries' code are one character long instead of two (i.e. "T" for Japan)
+        '''
+        if vat[1].isalpha():
+            vat_country, vat_number = vat[:2].lower(), vat[2:].replace(' ', '')
+        else:
+            vat_country, vat_number = vat[:1].lower(), vat[1:].replace(' ', '')
         return vat_country, vat_number
 
     @api.model
@@ -166,20 +174,7 @@ class ResPartner(models.Model):
 
     @api.model
     def _run_vat_test(self, vat_number, default_country, partner_is_company=True):
-        """ Checks a VAT number, either syntactically or using VIES, depending
-        on the active company's configuration.
-        A first check is made by using the first two characters of the VAT as
-        the country code. It it fails, a second one is made using default_country instead.
-
-        :param vat_number: a string with the VAT number to check.
-        :param default_country: a res.country object
-        :param partner_is_company: True if the partner is a company, else False
-
-        :return: The country code (in lower case) of the country the VAT number
-                 was validated for, if it was validated. False if it could not be validated
-                 against the provided or guessed country. None if no country was available
-                 for the check, and no conclusion could be made with certainty.
-        """
+        # OVERRIDE account
         # Get company
         if self.env.context.get('company_id'):
             company = self.env['res.company'].browse(self.env.context['company_id'])
@@ -664,6 +659,10 @@ class ResPartner(models.Model):
             vat = vat.replace(" ", "")
             return len(vat) == 11 and vat.isdigit()
         return check_func(vat)
+
+    def check_vat_t(self, vat):
+        if self.country_id.code == 'JP':
+            return self.simple_vat_check('jp', vat)
 
     def format_vat_eu(self, vat):
         # Foreign companies that trade with non-enterprises in the EU

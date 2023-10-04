@@ -9,6 +9,7 @@
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
 # Martin Trigaux, 2023
 # Lucia Pacheco, 2023
+# Wil Odoo, 2023
 # Fernanda Alvarez, 2023
 # 
 msgid ""
@@ -8675,7 +8676,7 @@ msgstr ""
 "Métodos de pago: Cada sistema de pago en línea tiene su propio método de pago. Pida una transacción en/a una tarjeta gracias al token de pago que el partner guarda al hacer una compra o subscribirse en línea.\n"
 "Cheque: Pague las facturas con un cheque e imprímalo desde Odoo.\n"
 "Depósito en lotes: Genere y envíe un depósito en lotes a su banco para recolectar varios cheques de clientes a la vez. Se necesita el módulo account_batch_payment.\n"
-"Domiciliación bancaria SEPA: podrá obtener pagos en la zona SEPA gracias a un mandato que su partner le otorgará. Se necesita el módulo account_sepa.\n"
+"Débito directo de SEPA: podrás obtener pagos en la zona SEPA gracias a un mandato que su partner le otorgará. Se necesita el módulo account_sepa.\n"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__res_company__fiscalyear_last_month__3
@@ -12643,8 +12644,8 @@ msgstr "Cuenta transitoria"
 
 #. module: account
 #: model:ir.actions.server,name:account.action_move_switch_invoice_to_credit_note
-msgid "Switch into refund/credit note"
-msgstr "Cambiar a reembolso/nota de crédito"
+msgid "Switch into invoice/credit note"
+msgstr "Cambiar a factura/nota de crédito"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account_tag__name
@@ -16662,6 +16663,12 @@ msgid ""
 msgstr ""
 "No puede cambiar una cuenta para evitar la conciliación si todavía hay "
 "algunas conciliaciones parciales pendientes."
+
+#. module: account
+#: code:addons/account/models/account_account.py:0
+#, python-format
+msgid "You cannot switch the type of a posted document."
+msgstr "No puede cambiar el tipo de un documento publicado."
 
 #. module: account
 #: code:addons/account/models/account_move.py:0

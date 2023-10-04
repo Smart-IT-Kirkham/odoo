@@ -35,10 +35,12 @@
 # Antti Oksman <antti.oksman@web-veistamo.fi>, 2021
 # Miika Nissi <miika.nissi@tawasta.fi>, 2022
 # Joakim Weckman, 2022
-# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2022
 # Richard Mouthier <rmo@odoo.com>, 2022
 # Tuomo Aura <tuomo.aura@web-veistamo.fi>, 2023
 # Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023
+# Jarmo Kortetjärvi <jarmo.kortetjarvi@gmail.com>, 2023
+# Tuomas Suutari <tuomas.suutari@anders.fi>, 2023
+# Atte Isopuro <atte.isopuro@web-veistamo.fi>, 2023
 # 
 msgid ""
 msgstr ""
@@ -46,7 +48,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 09:03+0000\n"
 "PO-Revision-Date: 2021-09-14 12:18+0000\n"
-"Last-Translator: Ossi Mantylahti <ossi.mantylahti@obs-solutions.fi>, 2023\n"
+"Last-Translator: Atte Isopuro <atte.isopuro@web-veistamo.fi>, 2023\n"
 "Language-Team: Finnish (https://app.transifex.com/odoo/teams/41243/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -16099,6 +16101,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Virhe näkymää jäsentäessä:\n"
+"\n"
+"%s"
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -17248,7 +17253,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Found multiple matches for value '%s' in field '%%(field)s' (%d matches)"
-msgstr "Löytyi useita osumia arvolle '%s' kentässä '%%(kenttä)s' (%d osumaa)"
+msgstr "Löytyi useita osumia arvolle '%s' kentässä '%%(field)s' (%d osumaa)"
 
 #. module: base
 #: model:res.country,name:base.fr
@@ -19397,10 +19402,16 @@ msgid "Invalid 'group by' parameter"
 msgstr "Virheellinen 'group by' -parametri"
 
 #. module: base
+#: code:addons/template_inheritance.py:0
+#, python-format
+msgid "Invalid Expression while parsing xpath %r"
+msgstr ""
+
+#. module: base
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid JSON format in Default Value field."
-msgstr ""
+msgstr "Oletusarvo-kentän JSON-muoto on virheellinen."
 
 #. module: base
 #: code:addons/models.py:0
@@ -26217,7 +26228,7 @@ msgstr "Prioriteetti"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_partner__type__private
 msgid "Private Address"
-msgstr "Kotiosoite"
+msgstr "Yksityinen osoite"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_partner_view_form_private
@@ -33085,7 +33096,7 @@ msgstr ""
 #: code:addons/base/models/ir_config_parameter.py:0
 #, python-format
 msgid "You cannot delete the %s record."
-msgstr ""
+msgstr "Et voi poistaa %s-tietuetta."
 
 #. module: base
 #: code:addons/base/models/res_lang.py:0
@@ -33122,7 +33133,7 @@ msgstr ""
 #: code:addons/base/models/ir_config_parameter.py:0
 #, python-format
 msgid "You cannot rename config parameters with keys %s"
-msgstr ""
+msgstr "Et voi nimetä uudelleen asetusparametrejä, joilla on avainarvoja %s"
 
 #. module: base
 #: code:addons/models.py:0

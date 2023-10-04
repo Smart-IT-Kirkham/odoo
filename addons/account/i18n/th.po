@@ -1637,7 +1637,7 @@ msgstr "รายการบัญชี"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Accounting Import"
-msgstr ""
+msgstr "การนำเข้าบัญชี"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_form
@@ -3303,7 +3303,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_tax_report_line_form
 msgid "Carryover"
-msgstr ""
+msgstr "ยกยอด"
 
 #. module: account
 #: code:addons/account/models/account_tax_report.py:0
@@ -10266,7 +10266,7 @@ msgstr "โพสต์ก่อน"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_journal
 msgid "Posted Entries only"
-msgstr ""
+msgstr "รายการที่ผ่านรายการแล้วเท่านั้น"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_move_filter
@@ -10281,7 +10281,7 @@ msgstr "รายการสมุดรายวันที่ลงราย
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.report_journal
 msgid "Posted and Draft Entries"
-msgstr ""
+msgstr "การผ่านรายการและการร่างรายการ"
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -10411,7 +10411,7 @@ msgstr "พิมพ์เช็คที่จะชําระเงินใ
 #: model:ir.model.fields.selection,name:account.selection__account_bank_statement__state__posted
 #: model_terms:ir.ui.view,arch_db:account.view_bank_statement_search
 msgid "Processing"
-msgstr ""
+msgstr "กำลังดำเนินการ"
 
 #. module: account
 #: model:ir.model,name:account.model_product_product
@@ -12275,8 +12275,8 @@ msgstr "บัญชีพัก"
 
 #. module: account
 #: model:ir.actions.server,name:account.action_move_switch_invoice_to_credit_note
-msgid "Switch into refund/credit note"
-msgstr "เปลี่ยนเป็นการคืนเงิน/ใบลดหนี้"
+msgid "Switch into invoice/credit note"
+msgstr "เปลี่ยนเป็น ใบแจ้งหนี้/ใบลดหนี้"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account_tag__name
@@ -16093,6 +16093,12 @@ msgid ""
 msgstr ""
 "You cannot switch an account to prevent the reconciliation if some partial "
 "reconciliations are still pending."
+
+#. module: account
+#: code:addons/account/models/account_account.py:0
+#, python-format
+msgid "You cannot switch the type of a posted document."
+msgstr "คุณไม่สามารถเปลี่ยนประเภทของเอกสารที่ผ่านรายการได้"
 
 #. module: account
 #: code:addons/account/models/account_move.py:0

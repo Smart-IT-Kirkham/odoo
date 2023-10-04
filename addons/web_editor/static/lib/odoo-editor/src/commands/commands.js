@@ -45,8 +45,8 @@ import {
     getCursorDirection,
 } from '../utils/utils.js';
 
-const TEXT_CLASSES_REGEX = /\btext-[^\s]*\b/g;
-const BG_CLASSES_REGEX = /\bbg-[^\s]*\b/g;
+const TEXT_CLASSES_REGEX = /\btext-[^\s]*\b/;
+const BG_CLASSES_REGEX = /\bbg-[^\s]*\b/;
 
 function insert(editor, data, isText = true) {
     if (!data) {
@@ -415,11 +415,21 @@ export const editorCommands = {
         }
     },
     removeFormat: editor => {
+        const textAlignStyles = new Map();
+        getTraversedNodes(editor.editable).forEach((element) => {
+            const block = closestBlock(element);
+            if (block.style.textAlign) {
+                textAlignStyles.set(block, block.style.textAlign);
+            }
+        });
         editor.document.execCommand('removeFormat');
         for (const node of getTraversedNodes(editor.editable)) {
             // The only possible background image on text is the gradient.
             closestElement(node).style.backgroundImage = '';
         }
+        textAlignStyles.forEach((textAlign, block) => {
+            block.style.setProperty('text-align', textAlign);
+        });
     },
 
     // Align
@@ -623,7 +633,7 @@ export const editorCommands = {
         const fontsSet = new Set(fonts);
         for (const font of fontsSet) {
             colorElement(font, color, mode);
-            if (!hasColor(font, mode) && !font.hasAttribute('style')) {
+            if ((!hasColor(font, 'color') && !hasColor(font,'backgroundColor')) && (!font.hasAttribute('style') || !color)) {
                 for (const child of [...font.childNodes]) {
                     font.parentNode.insertBefore(child, font);
                 }

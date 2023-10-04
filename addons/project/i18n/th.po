@@ -753,7 +753,7 @@ msgstr "ทั้งหมด"
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_project__privacy_visibility__employees
 msgid "All employees"
-msgstr ""
+msgstr "พนักงานทั้งหมด"
 
 #. module: project
 #: model:ir.model.fields.selection,name:project.selection__project_task__recurrence_update__all
@@ -1053,7 +1053,7 @@ msgstr "บล็อค"
 #: model:ir.model.fields,field_description:project.field_project_task__depend_on_ids
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "Blocked By"
-msgstr ""
+msgstr "ถูกบล็อคโดย"
 
 #. module: project
 #. openerp-web
@@ -2412,7 +2412,7 @@ msgstr "ล่าสุด"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.rating_rating_view_search_project
 msgid "Last 30 Days"
-msgstr ""
+msgstr "30 วันที่ผ่านมา"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_collaborator____last_update
@@ -2694,7 +2694,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__milestone_count
 msgid "Milestone Count"
-msgstr ""
+msgstr "จำนวนเหตุการณ์สำคัญ"
 
 #. module: project
 #. openerp-web
@@ -2702,7 +2702,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:project.project_milestone_all
 #, python-format
 msgid "Milestones"
-msgstr ""
+msgstr "เหตุการณ์สำคัญ"
 
 #. module: project
 #. openerp-web
@@ -3428,7 +3428,7 @@ msgstr "ผู้จัดการโปรเจค"
 #. module: project
 #: model:ir.model,name:project.model_project_milestone
 msgid "Project Milestone"
-msgstr ""
+msgstr "เหตุการณ์สำคัญของโปรเจกต์"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.edit_project
@@ -3899,7 +3899,7 @@ msgstr "งานวิจัย"
 #. module: project
 #: model:project.project,name:project.project_project_2
 msgid "Research & Development"
-msgstr ""
+msgstr "การวิจัยและพัฒนา"
 
 #. module: project
 #. openerp-web
@@ -4310,7 +4310,7 @@ msgstr ""
 #. module: project
 #: model:ir.model.constraint,message:project.constraint_project_tags_name_uniq
 msgid "Tag name already exists!"
-msgstr ""
+msgstr "มีชื่อแท็กแล้ว!"
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_tags_action
@@ -5155,7 +5155,7 @@ msgstr ""
 #: code:addons/project/models/project.py:0
 #, python-format
 msgid "You cannot create cyclic dependency."
-msgstr ""
+msgstr "คุณไม่สามารถสร้างการขึ้นต่อกันแบบวนรอบได้"
 
 #. module: project
 #: code:addons/project/models/project.py:0
