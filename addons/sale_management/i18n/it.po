@@ -279,7 +279,7 @@ msgstr ""
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_digest_digest__kpi_all_sale_total_value
 msgid "Kpi All Sale Total Value"
-msgstr ""
+msgstr "ICP - Valore totale vendite"
 
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_digest_digest____last_update

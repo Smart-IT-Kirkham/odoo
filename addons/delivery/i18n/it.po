@@ -1039,7 +1039,7 @@ msgstr "Peso totale dei prodotti presenti nel prelievo."
 #. module: delivery
 #: model_terms:ir.ui.view,arch_db:delivery.delivery_tracking_url_warning_form
 msgid "Trackers URL"
-msgstr "URL monitoraggi"
+msgstr "URL tracciabilità"
 
 #. module: delivery
 #: model_terms:ir.ui.view,arch_db:delivery.view_picking_withcarrier_out_form
@@ -1049,7 +1049,7 @@ msgstr "Tracciabilità"
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_stock_picking__carrier_tracking_ref
 msgid "Tracking Reference"
-msgstr "Codice tracciabilità"
+msgstr "Riferimento tracciabilità"
 
 #. module: delivery
 #: model:ir.model.fields,field_description:delivery.field_stock_picking__carrier_tracking_url
@@ -1165,7 +1165,9 @@ msgstr ""
 #. module: delivery
 #: model_terms:ir.ui.view,arch_db:delivery.delivery_tracking_url_warning_form
 msgid "You have multiple tracker links, they are available in the chatter."
-msgstr "Ci sono link di tracciatura multipli, sono disponibili nelle voci."
+msgstr ""
+"Sono presenti più link di tracciabilità, sono disponibili nel registro "
+"comunicazioni."
 
 #. module: delivery
 #: code:addons/delivery/models/stock_picking.py:0

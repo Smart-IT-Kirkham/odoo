@@ -114,7 +114,7 @@ msgstr ""
 #: model:event.quiz.answer,comment:website_event_track_quiz.event_7_track_13_question_0_0
 #: model:event.quiz.answer,comment:website_event_track_quiz.event_7_track_5_question_1_1
 msgid "Correct!"
-msgstr ""
+msgstr "Zgadza się!"
 
 #. module: website_event_track_quiz
 #: model:event.quiz.answer,comment:website_event_track_quiz.event_7_track_5_question_0_1
@@ -227,7 +227,7 @@ msgstr ""
 #: model:event.quiz.answer,comment:website_event_track_quiz.event_7_track_13_question_0_1
 #: model:event.quiz.answer,comment:website_event_track_quiz.event_7_track_13_question_0_2
 msgid "Incorrect!"
-msgstr ""
+msgstr "Nieprawidłowo!"
 
 #. module: website_event_track_quiz
 #: model:event.quiz.answer,comment:website_event_track_quiz.event_7_track_5_question_1_0
@@ -447,7 +447,7 @@ msgstr "Zabezpieczanie drewna podczas transportu"
 #: model:ir.model.fields,field_description:website_event_track_quiz.field_event_quiz_answer__sequence
 #: model:ir.model.fields,field_description:website_event_track_quiz.field_event_quiz_question__sequence
 msgid "Sequence"
-msgstr "Numeracja"
+msgstr "Sekwencja"
 
 #. module: website_event_track_quiz
 #: model:event.quiz.answer,text_value:website_event_track_quiz.event_7_track_13_question_0_1

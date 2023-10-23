@@ -4,11 +4,11 @@
 # 
 # Translators:
 # Jan Dziurz <jan.dziurzynski@openglobe.pl>, 2020
+# Andrzej Wiśniewski <a.wisniewski@hadron.eu.com>, 2020
 # Slawomir Adamus <melthalion@gmail.com>, 2020
 # Maciej Wichowski <maciej.wichowski@openglobe.pl>, 2020
 # Mariusz, 2020
 # Maja Stawicka <mjstwck@wp.pl>, 2020
-# Andrzej Wiśniewski <a.wisniewski@hadron.eu.com>, 2020
 # Martin Trigaux, 2020
 # Dariusz Żbikowski <darek@krokus.com.pl>, 2020
 # Judyta Kaźmierczak <judyta.kazmierczak@openglobe.pl>, 2020
@@ -31,9 +31,9 @@
 # Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2022
 # IT WEDOO, 2022
 # Jacek Michalski <michalski.jck@gmail.com>, 2022
+# Tadeusz Karpiński, 2023
+# Tadeusz Karpiński <tadeusz.karpinski@braintec.com>, 2023
 # Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2023
-# Tadeusz Karpiński, 2023
-# Tadeusz Karpiński, 2023
 # 
 msgid ""
 msgstr ""
@@ -41,7 +41,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-08-16 09:00+0000\n"
 "PO-Revision-Date: 2020-09-07 08:19+0000\n"
-"Last-Translator: Tadeusz Karpiński, 2023\n"
+"Last-Translator: Tadeusz Karpiński <tadeuszkarpinski@gmail.com>, 2023\n"
 "Language-Team: Polish (https://app.transifex.com/odoo/teams/41243/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1160,7 +1160,7 @@ msgstr "Anuluj następny ruch"
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking__state__cancel
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
 msgid "Cancelled"
-msgstr "Anulowano"
+msgstr "Anulowane"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
@@ -3164,16 +3164,16 @@ msgid "Invalid domain left operand %s"
 msgstr "Niepoprawny operator opuszczenia domeny %s"
 
 #. module: stock
-#: code:addons/stock/models/product.py:0
+#: code:addons/stock/models/product.py:0 code:addons/stock/models/product.py:0
 #, python-format
 msgid "Invalid domain operator %s"
 msgstr "Nieprawidłowy operator domeny %s"
 
 #. module: stock
-#: code:addons/stock/models/product.py:0
+#: code:addons/stock/models/product.py:0 code:addons/stock/models/product.py:0
 #, python-format
-msgid "Invalid domain right operand %s"
-msgstr "Nieprawidłowy prawy operand domeny %s"
+msgid "Invalid domain right operand '%s'. It must be of type Integer/Float"
+msgstr ""
 
 #. module: stock
 #: code:addons/stock/models/product.py:0
@@ -3300,7 +3300,7 @@ msgstr "Zapasy na dzień"
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_inventory_line__is_editable
 msgid "Is Editable"
-msgstr ""
+msgstr "Jest edytowalny"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_inventory__message_is_follower
@@ -4027,7 +4027,7 @@ msgstr "Ujemny stan"
 #: model:ir.model.fields.selection,name:stock.selection__stock_package_level__state__new
 #, python-format
 msgid "New"
-msgstr "Nowa"
+msgstr "Nowe"
 
 #. module: stock
 #: code:addons/stock/models/stock_move_line.py:0
@@ -4454,7 +4454,7 @@ msgstr "Wychodząca"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.report_product_product_replenishment
 msgid "Outgoing Draft Transfer"
-msgstr ""
+msgstr "Przelew wychodzący"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse__delivery_steps
@@ -5214,6 +5214,8 @@ msgid ""
 "Quants are auto-deleted when appropriate. If you must manually delete them, "
 "please ask a stock manager to do it."
 msgstr ""
+"Kwanty są automatycznie usuwane, gdy jest to właściwe. Jeśli musisz usunąć "
+"je ręcznie, poproś o to menedżera ds. zapasów."
 
 #. module: stock
 #: code:addons/stock/models/stock_quant.py:0
@@ -6013,7 +6015,7 @@ msgstr "Wyślij towary na wyjście, a następnie dostarcz (2 kroki)"
 #: model_terms:ir.ui.view,arch_db:stock.view_stock_rule_form
 #, python-format
 msgid "Sequence"
-msgstr "Numeracja"
+msgstr "Sekwencja"
 
 #. module: stock
 #: code:addons/stock/models/stock_warehouse.py:0
@@ -6244,12 +6246,12 @@ msgstr "Data drzemki"
 #. module: stock
 #: model:ir.model,name:stock.model_stock_orderpoint_snooze
 msgid "Snooze Orderpoint"
-msgstr ""
+msgstr "Punkt zlecenia drzemki"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_orderpoint_snooze__predefined_date
 msgid "Snooze for"
-msgstr ""
+msgstr "Drzemka dla"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint__snoozed_until
@@ -7265,7 +7267,7 @@ msgstr "Pozycja śledząca"
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
 msgid "Transfer"
-msgstr "Pobranie"
+msgstr "Przekaz"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move__picking_partner_id
@@ -7278,7 +7280,7 @@ msgstr "Adres docelowy przesunięcia"
 #: model_terms:ir.ui.view,arch_db:stock.procurement_group_form_view
 #: model_terms:ir.ui.view,arch_db:stock.stock_picking_type_kanban
 msgid "Transfers"
-msgstr "Pobrania"
+msgstr "Przekazy"
 
 #. module: stock
 #: code:addons/stock/models/stock_picking.py:0
@@ -8187,10 +8189,8 @@ msgstr ""
 #. module: stock
 #: code:addons/stock/models/stock_move.py:0
 #, python-format
-msgid "You cannot split a stock move that has been set to 'Done'."
+msgid "You cannot split a stock move that has been set to 'Done' or 'Cancel'."
 msgstr ""
-"Nie można podzielić przesunięcia magazynowego, które zostało ustawione na "
-"„Gotowe”."
 
 #. module: stock
 #: code:addons/stock/models/stock_quant.py:0
@@ -8467,7 +8467,7 @@ msgstr "przetworzony zamiast"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_report_view_graph
 msgid "report_stock_quantity_graph"
-msgstr ""
+msgstr "report_stock_quantity_graph"
 
 #. module: stock
 #. openerp-web

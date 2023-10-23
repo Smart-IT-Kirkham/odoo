@@ -328,6 +328,8 @@ Or send your receipts at <a href="mailto:%(email)s?subject=Lunch%%20with%%20cust
             raise UserError(_("You cannot report expenses for different employees in the same report."))
         if any(not expense.product_id for expense in self):
             raise UserError(_("You can not create report without product."))
+        if len(self.company_id) != 1:
+            raise UserError(_("You cannot report expenses for different companies in the same report."))
 
         todo = self.filtered(lambda x: x.payment_mode=='own_account') or self.filtered(lambda x: x.payment_mode=='company_account')
         sheet = self.env['hr.expense.sheet'].create({
@@ -766,7 +768,13 @@ class HrExpenseSheet(models.Model):
         return self.env['account.journal'].search([('type', 'in', ['cash', 'bank']), ('company_id', '=', default_company_id)], limit=1)
 
     name = fields.Char('Expense Report Summary', required=True, tracking=True)
-    expense_line_ids = fields.One2many('hr.expense', 'sheet_id', string='Expense Lines', copy=False)
+    expense_line_ids = fields.One2many(
+        comodel_name='hr.expense',
+        inverse_name='sheet_id',
+        string='Expense Lines',
+        copy=False,
+        states={'post': [('readonly', True)], 'done': [('readonly', True)], 'cancel': [('readonly', True)]}
+    )
     state = fields.Selection([
         ('draft', 'Draft'),
         ('submit', 'Submitted'),
