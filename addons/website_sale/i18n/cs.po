@@ -755,7 +755,7 @@ msgstr ""
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_template__rating_avg
 msgid "Average Rating"
-msgstr ""
+msgstr "Průměrné hodnocení"
 
 #. module: website_sale
 #. odoo-python
@@ -2597,7 +2597,7 @@ msgstr "Možnosti spojené"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment_confirmation_status
 msgid "Or scan me with your banking app."
-msgstr "Nebo mě skenujte pomocí bankovní aplikace."
+msgstr "Nebo mě naskenujte pomocí vaší bankovní aplikace."
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.sale_report_view_search_website
@@ -2884,7 +2884,7 @@ msgstr "Produktové fotografie"
 #: model_terms:ir.ui.view,arch_db:website_sale.product
 #: model_terms:ir.ui.view,arch_db:website_sale.product_product_view_form_add
 msgid "Product Name"
-msgstr "Název výrobku"
+msgstr "Název produktu"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.snippet_options

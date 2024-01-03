@@ -312,6 +312,11 @@ class Task(models.Model):
             elif task.state not in CLOSED_STATES:
                 task.state = '01_in_progress'
 
+    @property
+    def OPEN_STATES(self):
+        """ Return a list of the technical names complementing the CLOSED_STATES, a.k.a the open states """
+        return list(set(self._fields['state'].get_values(self.env)) - set(CLOSED_STATES))
+
     @api.onchange('project_id')
     def _onchange_project_id(self):
         if self.state != '04_waiting_normal':
@@ -1532,7 +1537,9 @@ class Task(models.Model):
                 return self.parent_id.get_portal_url()
             # The portal user has no access to the parent task, so normally the button should be invisible.
             return {}
-        action = self.action_open_parent_task()
+        action = self.with_context({
+            'search_view_ref': 'project.project_sharing_project_task_view_search',
+        }).action_open_parent_task()
         action['views'] = [(self.env.ref('project.project_sharing_project_task_view_form').id, 'form')]
         return action
 

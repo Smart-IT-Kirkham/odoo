@@ -8,8 +8,8 @@
 # Ivana Bartonkova, 2023
 # Jakub Smolka, 2023
 # Wil Odoo, 2023
-# Tomáš Píšek, 2023
 # Jiří Podhorecký, 2023
+# Tomáš Píšek, 2023
 # Aleš Fiala <f.ales1@seznam.cz>, 2023
 # 
 msgid ""
@@ -1866,7 +1866,7 @@ msgstr "Společnost"
 #: model:ir.model.fields,field_description:web.field_base_document_layout__company_details
 #: model_terms:ir.ui.view,arch_db:web.view_base_document_layout
 msgid "Company Details"
-msgstr ""
+msgstr "Detaily společnosti"
 
 #. module: web
 #: model:ir.model,name:web.model_base_document_layout
@@ -1912,6 +1912,8 @@ msgid ""
 "Company tagline, which is included in a printed document's header or footer "
 "(depending on the selected layout)."
 msgstr ""
+"Motto společnosti, které je vloženo do hlavičky nebo patičky tištěných "
+"dokumentů (v závislosti na zvoleném rozložení)."
 
 #. module: web
 #. odoo-javascript
@@ -2561,7 +2563,7 @@ msgstr "Zobrazovací název"
 #: code:addons/web/static/src/views/fields/radio/radio_field.js:0
 #, python-format
 msgid "Display horizontally"
-msgstr ""
+msgstr "Zobrazit vodorovně"
 
 #. module: web
 #. odoo-javascript
@@ -3713,7 +3715,7 @@ msgstr ""
 #. module: web
 #: model:ir.model.fields,field_description:web.field_base_document_layout__is_company_details_empty
 msgid "Is Company Details Empty"
-msgstr ""
+msgstr "Detaily společnosti jsou prázdné"
 
 #. module: web
 #. odoo-javascript
@@ -3990,7 +3992,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/jsonb/jsonb.js:0
 #, python-format
 msgid "Json"
-msgstr ""
+msgstr "Json"
 
 #. module: web
 #. odoo-javascript
@@ -6913,6 +6915,8 @@ msgid ""
 "country format. You can use '/' to indicate that the partner is not subject "
 "to tax."
 msgstr ""
+"Daňové identifikační číslo. Hodnoty zde budou ověřeny na základě formátu "
+"země. Pomocí '/' můžete označit, že partner nepodléhá dani."
 
 #. module: web
 #. odoo-python
@@ -12689,7 +12693,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "cover"
-msgstr ""
+msgstr "obálka"
 
 #. module: web
 #. odoo-javascript
@@ -22414,7 +22418,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "multiply"
-msgstr ""
+msgstr "násobit"
 
 #. module: web
 #. odoo-javascript
@@ -22896,7 +22900,7 @@ msgstr ""
 #: code:addons/web/static/src/core/tree_editor/tree_editor.xml:0
 #, python-format
 msgid "none"
-msgstr ""
+msgstr "žádný"
 
 #. module: web
 #. odoo-javascript
@@ -33175,7 +33179,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "write"
-msgstr ""
+msgstr "psát"
 
 #. module: web
 #. odoo-javascript

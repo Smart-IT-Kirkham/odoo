@@ -3,8 +3,8 @@
 # 	* hr
 # 
 # Translators:
-# Jolien De Paepe, 2023
 # Wil Odoo, 2023
+# Jolien De Paepe, 2023
 # 
 msgid ""
 msgstr ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-26 21:55+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Wil Odoo, 2023\n"
+"Last-Translator: Jolien De Paepe, 2023\n"
 "Language-Team: French (https://app.transifex.com/odoo/teams/41243/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1729,13 +1729,13 @@ msgstr "Description du poste"
 #: model_terms:ir.ui.view,arch_db:hr.view_employee_form
 #: model_terms:ir.ui.view,arch_db:hr.view_job_filter
 msgid "Job Position"
-msgstr "Poste de travail"
+msgstr "Poste"
 
 #. module: hr
 #: model:ir.actions.act_window,name:hr.action_hr_job
 #: model:ir.ui.menu,name:hr.menu_view_hr_job
 msgid "Job Positions"
-msgstr "Offres d'emploi"
+msgstr "Postes"
 
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.view_hr_job_form
@@ -2665,7 +2665,7 @@ msgstr "Employés associés"
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.view_employee_form
 msgid "Related User"
-msgstr "Utilisateur lié"
+msgstr "Utilisateur associé"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_res_users__employee_ids
@@ -3323,7 +3323,7 @@ msgid ""
 msgstr ""
 "D'un simple coup d’œil sur l'écran de l'employé d'Odoo, vous\n"
 "pouvez facilement trouver toutes les informations dont vous avez besoin sur chaque personne ;\n"
-"coordonnées, poste de travail, disponibilité, etc."
+"coordonnées, poste, disponibilité, etc."
 
 #. module: hr
 #: model_terms:ir.actions.act_window,help:hr.hr_employee_public_action
@@ -3334,7 +3334,7 @@ msgid ""
 msgstr ""
 "D'un simple coup d’œil sur l'écran de l'employé d'Odoo, vous pouvez aisément"
 " trouver toutes les informations dont vous avez besoin sur chaque personne ;"
-" informations de contact, poste de travail, disponibilité, etc."
+" informations de contact, poste, disponibilité, etc."
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee__address_id

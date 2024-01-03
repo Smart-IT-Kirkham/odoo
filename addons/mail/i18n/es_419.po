@@ -4758,7 +4758,7 @@ msgstr "Dirección de correo electrónico no válida"
 #: code:addons/mail/models/mail_blacklist.py:0
 #, python-format
 msgid "Invalid email address %r"
-msgstr "Dirección de correo electrónico inválida %r"
+msgstr "Dirección de correo electrónico no válida %r"
 
 #. module: mail
 #. odoo-python
@@ -8108,7 +8108,7 @@ msgstr "Programar actividad en registros seleccionados"
 #: code:addons/mail/static/src/core/web/activity_list_popover.xml:0
 #, python-format
 msgid "Schedule activities to help you get things done."
-msgstr "Programar actividades que le ayuden a terminar sus pendientes."
+msgstr "Programe actividades que le ayuden a terminar sus pendientes."
 
 #. module: mail
 #. odoo-javascript

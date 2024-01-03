@@ -890,7 +890,7 @@ msgstr "Přiřazeno k"
 #: model_terms:ir.ui.view,arch_db:project.view_task_search_form_base
 #, python-format
 msgid "Assignees"
-msgstr ""
+msgstr "Nabyvatelé"
 
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.view_task_search_form_base
@@ -975,7 +975,7 @@ msgstr "Avatar"
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__rating_avg
 #, python-format
 msgid "Average Rating"
-msgstr ""
+msgstr "Průměrné hodnocení"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_project__rating_avg_percentage
@@ -1342,6 +1342,8 @@ msgid ""
 "Create projects to organize your tasks and define a different workflow for "
 "each project."
 msgstr ""
+"Vytvářejte projekty pro uspořádání úkolů a definujte pro každý projekt jiný "
+"pracovní postup."
 
 #. module: project
 #: model_terms:ir.actions.act_window,help:project.open_view_project_all
@@ -1566,7 +1568,7 @@ msgstr "Dny"
 #. module: project
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__delay_endings_days
 msgid "Days to Deadline"
-msgstr ""
+msgstr "Dny po termínu"
 
 #. module: project
 #. odoo-python
@@ -2509,7 +2511,7 @@ msgstr ""
 #: model:project.task.type,name:project.project_personal_stage_demo_4
 #, python-format
 msgid "Later"
-msgstr ""
+msgstr "Později"
 
 #. module: project
 #. odoo-javascript
@@ -3241,7 +3243,7 @@ msgstr "Procento šťastných hodnocení"
 #: model_terms:ir.ui.view,arch_db:project.view_task_calendar
 #: model_terms:ir.ui.view,arch_db:project.view_task_form2
 msgid "Personal Stage"
-msgstr ""
+msgstr "Osobní fáze"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__personal_stage_id
@@ -3667,7 +3669,7 @@ msgstr "Hodnocení"
 #: model:ir.model.fields,field_description:project.field_report_project_task_user__rating_last_value
 #: model_terms:ir.ui.view,arch_db:project.view_project_task_graph
 msgid "Rating (/5)"
-msgstr ""
+msgstr "Hodnocení (/5)"
 
 #. module: project
 #: model:ir.model.fields,field_description:project.field_project_task__rating_avg_text
@@ -3848,7 +3850,7 @@ msgstr "Průzkum"
 #: model:account.analytic.account,name:project.analytic_research_development
 #: model:project.project,name:project.project_project_2
 msgid "Research & Development"
-msgstr ""
+msgstr "Výzkum & Vývoj"
 
 #. module: project
 #. odoo-javascript
@@ -4081,6 +4083,8 @@ msgid ""
 "Set this template on a project's stage to automate email when tasks reach "
 "stages"
 msgstr ""
+"Nastavte tuto šablonu na fázi projektu, abyste automatizovali e-mail, když "
+"úkoly dosáhnou fází"
 
 #. module: project
 #: model:ir.actions.act_window,name:project.project_config_settings_action
@@ -4395,7 +4399,7 @@ msgstr "Úkol byl vytvořen"
 #: model:ir.model.fields,field_description:project.field_project_task__allow_task_dependencies
 #: model:ir.model.fields,field_description:project.field_res_config_settings__group_project_task_dependencies
 msgid "Task Dependencies"
-msgstr ""
+msgstr "Závislosti úkolů"
 
 #. module: project
 #: model:mail.message.subtype,name:project.mt_project_task_done

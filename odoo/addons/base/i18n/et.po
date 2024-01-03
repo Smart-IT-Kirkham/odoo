@@ -22,12 +22,13 @@
 # JanaAvalah, 2023
 # Rivo Zängov <eraser@eraser.ee>, 2023
 # Triine Aavik <triine@avalah.ee>, 2023
-# Eneli Õigus <enelioigus@gmail.com>, 2023
 # Piia Paurson <piia@avalah.ee>, 2023
-# Anna, 2023
-# Leaanika Randmets, 2023
 # Martin Talts <martin.t@avalah.ee>, 2023
 # Katrin Kampura, 2023
+# Mihkel avalah, 2023
+# Eneli Õigus <enelioigus@gmail.com>, 2023
+# Leaanika Randmets, 2023
+# Anna, 2023
 # 
 msgid ""
 msgstr ""
@@ -35,7 +36,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2023-10-26 21:55+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Katrin Kampura, 2023\n"
+"Last-Translator: Anna, 2023\n"
 "Language-Team: Estonian (https://app.transifex.com/odoo/teams/41243/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -8096,6 +8097,11 @@ msgid ""
 "- Private: Private addresses are only visible by authorized users and contain sensitive data (employee home addresses, ...).\n"
 "- Other: Other address for the company (e.g. subsidiary, ...)"
 msgstr ""
+"- Kontakt: antud ettevõttega seotud kontaktid  (nt. Tegevjuht, müügijuht, raamatupidaja, ...).\n"
+"- Arve aadress : Eelistatud aadress kõikidele arvetele. Vaikimisi valitud, kui esitate sellele ettevõttele arve.\n"
+"- Tarneaadress : Eelistatud aadress kõikide tarnete jaoks. Vaikimisi valitud, kui tarnite sellele ettevõttele kuuluva tellimuse.\n"
+"- Privaatne aadress: privaatset kontakti näevad ainult volitatud kasutajad, kuna need sisaldavad delikaatseid isikuandmeid (töötaja kodune aadress, ...).\n"
+"- Muu aadress: teised ettevõttega seotud kontaktid (nt. tütarettevõtted, ...)"
 
 #. module: base
 #. odoo-python
@@ -8442,7 +8448,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_partner_kanban_view
 msgid "<span class=\"text-bg-danger\">Archived</span>"
-msgstr ""
+msgstr "<span class=\"text-bg-danger\">Arhiveeritud</span>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.demo_force_install_form
@@ -10098,7 +10104,7 @@ msgstr "Riigi haldusüksused nt Fed. State, Departement, Canton"
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_N
 msgid "Administrative/Utilities"
-msgstr ""
+msgstr "Administratiivsed/Kommunaalteenused"
 
 #. module: base
 #. odoo-python
@@ -10258,7 +10264,7 @@ msgstr "Kõik, mida vajate, tegemaks finantskonsolideerimist."
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_holidays
 msgid "Allocate PTOs and follow leaves requests"
-msgstr ""
+msgstr "Määra puudumisi ja jälgi puudumiste taotlusi"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_helpdesk_fsm
@@ -10299,7 +10305,7 @@ msgstr "Lubatud ettevõtted"
 #: model:ir.model.fields,field_description:base.field_ir_actions_server__groups_id
 #: model:ir.model.fields,field_description:base.field_ir_cron__groups_id
 msgid "Allowed Groups"
-msgstr ""
+msgstr "Lubatud grupid"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mail_plugin
@@ -11047,7 +11053,7 @@ msgstr "Automatiseerimine"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_automation
 msgid "Automation Rules"
-msgstr ""
+msgstr "Automatiseeritud reeglid"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_automation_hr_contract
@@ -12578,7 +12584,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 msgid "Choose a value..."
-msgstr ""
+msgstr "Vali väärtus..."
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_mail_server__smtp_encryption
@@ -12651,7 +12657,7 @@ msgstr "Sulge"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_cf_turnstile
 msgid "Cloudflare Turnstile"
-msgstr ""
+msgstr "Cloudflare Turnstile"
 
 #. module: base
 #: model:res.country,name:base.cc
@@ -12776,7 +12782,7 @@ msgstr ""
 #: model_terms:res.partner,website_description:base.res_partner_10
 #: model_terms:res.partner,website_description:base.res_partner_12
 msgid "Come see us live, we hope to meet you!"
-msgstr ""
+msgstr "Tule meid vaatama!"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__report_paperformat__format__comm10e
@@ -13505,7 +13511,7 @@ msgstr "Loo menüü viisard"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_server__state__object_create
 msgid "Create Record"
-msgstr ""
+msgstr "Loo kirje"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_industry_fsm_report
@@ -14323,7 +14329,7 @@ msgstr "päevad"
 #: model:ir.module.module,shortdesc:base.module_account_debit_note
 #: model:ir.module.module,summary:base.module_account_debit_note
 msgid "Debit Notes"
-msgstr ""
+msgstr "Deebet"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_mail_server__smtp_debug
@@ -17022,13 +17028,13 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_management
 msgid "From quotations to invoices"
-msgstr "Müügipakkumisest arveks"
+msgstr "Müügipakkumisest arveni"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_human_resources_frontdesk
 #: model:ir.module.module,shortdesc:base.module_frontdesk
 msgid "Frontdesk"
-msgstr ""
+msgstr "Vastuvõtt"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_access_view_search
@@ -19060,6 +19066,7 @@ msgstr "Integreerige oma postkast projektidega"
 #: model:ir.module.module,summary:base.module_whatsapp
 msgid "Integrates Odoo with WhatsApp to use WhatsApp messaging service"
 msgstr ""
+"Integreeri Odoo WhatsApp'iga, et saaksid kasutada WhatsAppi sõnumiteenuseid"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_payroll_fleet
@@ -19286,6 +19293,8 @@ msgid ""
 "Invalid server name!\n"
 " %s"
 msgstr ""
+"Vigane serveri nimi!\n"
+" %s"
 
 #. module: base
 #. odoo-python
@@ -20653,7 +20662,7 @@ msgstr "Hooldus - materjali nõuete planeerimine"
 #. module: base
 #: model:ir.module.module,summary:base.module_voip
 msgid "Make and receive phone calls from within Odoo."
-msgstr ""
+msgstr "Helista ja võta telefonikõnesid vastu Odoos"
 
 #. module: base
 #: model:res.country,name:base.mw
@@ -20931,7 +20940,7 @@ msgstr "Halda oma allkirjastatavaid dokumente lepingute all"
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_payroll
 msgid "Manage your employee payroll records"
-msgstr "Hallake oma töötajate palgaarvestust."
+msgstr "Halda töötajate palgaarvestust"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_planning
@@ -21151,7 +21160,7 @@ msgstr "Mayotte"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_room
 msgid "Meeting Rooms"
-msgstr ""
+msgstr "Koosolekuruumid"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_membership
@@ -21391,7 +21400,7 @@ msgstr ""
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_B
 msgid "Mining"
-msgstr ""
+msgstr "Genereerija"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_cron__interval_type__minutes
@@ -25155,7 +25164,7 @@ msgstr "Privaatsus"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_partner_view_form_private
 msgid "Private Address Form"
-msgstr "Koduse aadressi vorm"
+msgstr "Privaatse aadressi vorm"
 
 #. module: base
 #. odoo-python
@@ -25959,7 +25968,7 @@ msgstr "Kursid"
 #: model:ir.model.fields,field_description:base.field_ir_rule__perm_read
 #: model_terms:ir.ui.view,arch_db:base.view_rule_search
 msgid "Read"
-msgstr ""
+msgstr "Loe"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_access__perm_read
@@ -26520,7 +26529,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,name:base.module_category_services_room
 msgid "Room"
-msgstr ""
+msgstr "Jututuba"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__root_id
@@ -29035,7 +29044,7 @@ msgstr "Tehniline määr"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 msgid "Technical Settings"
-msgstr ""
+msgstr "Tehnilised seaded"
 
 #. module: base
 #: model:ir.actions.report,name:base.ir_module_reference_print
@@ -30557,6 +30566,8 @@ msgstr ""
 msgid ""
 "This module integrates Odoo with WhatsApp to use WhatsApp messaging service"
 msgstr ""
+"Antud moodul integreerib Odoo WhatsApp'iga, et oleks võimalik kasutada "
+"WhatsAppi sõnumiteenuseid"
 
 #. module: base
 #: model:ir.module.module,description:base.module_whatsapp_pos
@@ -30791,7 +30802,7 @@ msgstr "Tegevuse tagasivõtmiseks määra: <code>action = {...}</code>"
 #: model:ir.module.category,name:base.module_category_productivity_to-do
 #: model:ir.module.module,shortdesc:base.module_project_todo
 msgid "To-Do"
-msgstr ""
+msgstr "Tegemiseks"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_actions_todo_tree
@@ -30880,7 +30891,7 @@ msgstr "Jälgi töötaja kohalolekut"
 #: model:ir.module.module,summary:base.module_hr_timesheet
 #: model:ir.module.module,summary:base.module_timesheet_grid
 msgid "Track employee time on tasks"
-msgstr "Jälgi töötaja aega ülesannetel"
+msgstr "Logi aega tööülesannetel"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_maintenance
@@ -30890,12 +30901,12 @@ msgstr "Jälgige seadmeid ja hallake hooldustaotlusi"
 #. module: base
 #: model:ir.module.module,summary:base.module_crm
 msgid "Track leads and close opportunities"
-msgstr "Jälgige müügivihjeid ja sulgege võimalusi"
+msgstr "Jälgi, liiguta ja sulge müügivihjeid"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_recruitment
 msgid "Track your recruitment pipeline"
-msgstr "Jälgige oma värbamistoru"
+msgstr "Jälgi oma värbamistoru"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_helpdesk
@@ -32844,7 +32855,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:base.field_ir_rule__perm_write
 #: model_terms:ir.ui.view,arch_db:base.view_rule_search
 msgid "Write"
-msgstr ""
+msgstr "Kirjuta"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_access__perm_write
@@ -33486,7 +33497,7 @@ msgstr "nt. Euroopa"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 msgid "e.g. Follow-up"
-msgstr ""
+msgstr "nt. Järelkontroll"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_lang_form
@@ -33539,7 +33550,7 @@ msgstr "nt müügijuht"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_mail_server_form
 msgid "e.g. email@domain.com, domain.com"
-msgstr ""
+msgstr "nt. email@domain.com, domain.com"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form
@@ -33555,7 +33566,7 @@ msgstr "nt. et_EE"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 msgid "e.g. https://maker.ifttt.com/use/..."
-msgstr ""
+msgstr "nt. https://maker.ifttt.com/use/..."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_company_form

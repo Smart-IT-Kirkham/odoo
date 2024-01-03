@@ -136,7 +136,6 @@ export class LivechatService {
                 await this.rpc("/im_livechat/visitor_leave_session", { uuid: session.uuid });
             }
         } finally {
-            localStorage.removeItem(this.GUEST_TOKEN_STORAGE_KEY);
             cookie.delete(this.SESSION_COOKIE);
             this.state = SESSION_STATE.NONE;
             this.sessionInitialized = false;
@@ -184,6 +183,7 @@ export class LivechatService {
      */
     async getOrCreateThread({ persist = false } = {}) {
         let threadData = this.sessionCookie;
+        let isNewlyCreated = false;
         if (!threadData || (!threadData.uuid && persist)) {
             const chatbotScriptId = this.sessionCookie
                 ? this.sessionCookie.chatbot_script_id
@@ -199,6 +199,7 @@ export class LivechatService {
                 },
                 { shadow: true }
             );
+            isNewlyCreated = true;
         }
         if (!threadData?.operator_pid) {
             this.notificationService.add(_t("No available collaborator, please try again later."));
@@ -213,9 +214,10 @@ export class LivechatService {
         const thread = this.store.Thread.insert({
             ...threadData,
             id: threadData.id ?? this.TEMPORARY_ID,
-            isLoaded: !threadData.id,
+            isLoaded: !threadData.id || isNewlyCreated,
             model: "discuss.channel",
             type: "livechat",
+            isNewlyCreated,
         });
         this.state = thread.uuid ? SESSION_STATE.PERSISTED : SESSION_STATE.CREATED;
         if (this.state === SESSION_STATE.PERSISTED && !this.sessionInitialized) {
@@ -226,17 +228,7 @@ export class LivechatService {
     }
 
     async initializePersistedSession() {
-        if (this.guestToken) {
-            await this.busService.updateContext({
-                ...this.busService.context,
-                guest_token: this.guestToken,
-            });
-        }
-        if (this.busService.isActive) {
-            this.busService.forceUpdateChannels();
-        } else {
-            await this.busService.start();
-        }
+        await this.busService.addChannel(`mail.guest_${this.guestToken}`);
         await this.env.services["mail.messaging"].initialize();
     }
 
