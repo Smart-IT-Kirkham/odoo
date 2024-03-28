@@ -21,6 +21,7 @@ from . import test_ir_http
 from . import test_ir_filters
 from . import test_ir_mail_server
 from . import test_ir_model
+from . import test_ir_module
 from . import test_ir_sequence
 from . import test_ir_sequence_date_range
 from . import test_ir_default
@@ -40,6 +41,7 @@ from . import test_translate
 from . import test_user_has_group
 from . import test_views
 from . import test_xmlrpc
+from . import test_res_country
 from . import test_res_partner
 from . import test_res_partner_bank
 from . import test_res_users
@@ -51,3 +53,4 @@ from . import test_cloc
 from . import test_profiler
 from . import test_pdf
 from . import test_config_parameter
+from . import test_ir_module_category

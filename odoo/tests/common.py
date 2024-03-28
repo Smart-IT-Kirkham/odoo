@@ -907,6 +907,20 @@ class SingleTransactionCase(BaseCase):
 class ChromeBrowserException(Exception):
     pass
 
+def save_test_file(test_name, content, prefix, extension='png', logger=_logger, document_type='Screenshot', date_format="%Y%m%d_%H%M%S_%f"):
+    assert re.fullmatch(r'\w*_', prefix)
+    assert re.fullmatch(r'[a-z]+', extension)
+    assert re.fullmatch(r'\w+', test_name)
+    now = datetime.now().strftime(date_format)
+    screenshots_dir = pathlib.Path(odoo.tools.config['screenshots']) / get_db_name() / 'screenshots'
+    screenshots_dir.mkdir(parents=True, exist_ok=True)
+    fname = f'{prefix}{now}_{test_name}.{extension}'
+    full_path = screenshots_dir / fname
+
+    with full_path.open('wb') as f:
+        f.write(content)
+    logger.runbot(f'{document_type} in: {full_path}')
+
 
 class ChromeBrowser():
     """ Helper object to control a Chrome headless process. """
@@ -1317,7 +1331,11 @@ class ChromeBrowser():
                     duration = end_time - self.screencast_frames[i]['timestamp']
                     concat_file.write("file '%s'\nduration %s\n" % (frame_file_path, duration))
                 concat_file.write("file '%s'" % frame_file_path)  # needed by the concat plugin
-            r = subprocess.run([ffmpeg_path, '-intra', '-f', 'concat','-safe', '0', '-i', concat_script_path, '-pix_fmt', 'yuv420p', outfile])
+            try:
+                subprocess.run([ffmpeg_path, '-f', 'concat', '-safe', '0', '-i', concat_script_path, '-pix_fmt', 'yuv420p', '-g', '0', outfile], check=True)
+            except subprocess.CalledProcessError:
+                self._logger.error('Failed to encode screencast.')
+                return
             self._logger.log(25, 'Screencast in: %s', outfile)
         else:
             outfile = outfile.strip('.mp4')
@@ -1342,7 +1360,8 @@ class ChromeBrowser():
         _id = self._websocket_send('Network.deleteCookies', params=params)
         return self._websocket_wait_id(_id)
 
-    def _wait_ready(self, ready_code, timeout=60):
+    def _wait_ready(self, ready_code=None, timeout=60):
+        ready_code = ready_code or "document.readyState === 'complete'"
         self._logger.info('Evaluate ready code "%s"', ready_code)
         awaited_result = {'type': 'boolean', 'value': True}
         # catch errors in ready code to prevent opening error dialogs
@@ -1715,7 +1734,6 @@ class HttpCase(TransactionCase):
 
             # Needed because tests like test01.js (qunit tests) are passing a ready
             # code = ""
-            ready = ready or "document.readyState === 'complete'"
             self.assertTrue(self.browser._wait_ready(ready), 'The ready "%s" code was always falsy' % ready)
 
             error = False

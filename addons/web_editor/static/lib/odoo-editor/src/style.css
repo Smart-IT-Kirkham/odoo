@@ -1,4 +1,4 @@
-a.o_link_in_selection:not(.btn) {
+.odoo-editor-editable a.o_link_in_selection:not(.btn) {
     background-color: #a6e3e2;
     color: black !important;
     border: 1px dashed #008f8c;
@@ -92,11 +92,11 @@ a.o_link_in_selection:not(.btn) {
     width: 19px;
     height: 19px;
     padding: 0;
-    margin-right: 3px;
+    margin-inline-end: 3px;
     margin-bottom: 3px;
 }
 .oe-tablepicker .oe-tablepicker-row .oe-tablepicker-cell:last-of-type {
-    margin-right: 0;
+    margin-inline-end: 0;
 }
 .oe-tablepicker .oe-tablepicker-row .oe-tablepicker-cell.active {
     background: #d3d1cb;

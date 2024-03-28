@@ -3,7 +3,7 @@
 # 	* im_livechat
 # 
 # Translators:
-# Jumshud Sultanov <cumshud@gmail.com>, 2022
+# Jumshud Sultanov <cumshud@gmail.com>, 2023
 # erpgo translator <jumshud@erpgo.az>, 2023
 # 
 msgid ""
@@ -1011,7 +1011,7 @@ msgstr ""
 #: code:addons/im_livechat/static/src/legacy/public_livechat.xml:0
 #, python-format
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #. module: im_livechat
 #: model_terms:ir.ui.view,arch_db:im_livechat.livechat_email_template
@@ -1335,6 +1335,13 @@ msgstr ""
 #, python-format
 msgid "Seen by:"
 msgstr ""
+
+#. module: im_livechat
+#. openerp-web
+#: code:addons/im_livechat/static/src/legacy/public_livechat.xml:0
+#, python-format
+msgid "Send"
+msgstr "Göndərin"
 
 #. module: im_livechat
 #. openerp-web

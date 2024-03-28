@@ -11,9 +11,9 @@
 # Vo Thanh Thuy, 2022
 # Hoàng Đình Hiếu, 2022
 # Thin Tran <trvathin@gmail.com>, 2022
-# Thi Huong Nguyen, 2023
 # Nancy Momoland <thanh.np2502@gmail.com>, 2023
 # Wil Odoo, 2023
+# Thi Huong Nguyen, 2024
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-24 09:03+0000\n"
 "PO-Revision-Date: 2021-09-14 12:18+0000\n"
-"Last-Translator: Wil Odoo, 2023\n"
+"Last-Translator: Thi Huong Nguyen, 2024\n"
 "Language-Team: Vietnamese (https://app.transifex.com/odoo/teams/41243/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -14719,7 +14719,7 @@ msgstr "Tính toán"
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Compute method cannot depend on field 'id'"
-msgstr ""
+msgstr "Phương thức tính toán không thể phụ thuộc vào trường 'id'"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_subscription_taxcloud
@@ -17273,6 +17273,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Lỗi khi phân tích cú pháp chế độ xem:\n"
+"\n"
+"%s"
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -20600,10 +20603,16 @@ msgid "Invalid 'group by' parameter"
 msgstr "Tham số 'group by' không hợp lệ"
 
 #. module: base
+#: code:addons/template_inheritance.py:0
+#, python-format
+msgid "Invalid Expression while parsing xpath %r"
+msgstr "Biểu thức không hợp lệ khi phân tích cú pháp xpath %r"
+
+#. module: base
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid JSON format in Default Value field."
-msgstr ""
+msgstr "Định dạng JSON không hợp lệ trong trường Giá trị mặc định."
 
 #. module: base
 #: code:addons/models.py:0
@@ -21102,7 +21111,7 @@ msgstr "LGPL Version 3"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lt_reports
 msgid "Lithuania - Accounting Reports"
-msgstr ""
+msgstr "Lithuania - Báo cáo kế toán"
 
 #. module: base
 #: code:addons/base/models/ir_ui_view.py:0
@@ -23605,9 +23614,9 @@ msgid ""
 "supposed to do\n"
 "    "
 msgstr ""
-"Các tiện ích thử nghiệm không tầm thường có thể yêu cầu mô hình & tất cả\n"
+"Các tiện ích thử nghiệm lớn có thể yêu cầu mô hình & tất cả\n"
 "    \n"
-"Module này ở đây rất hữu ích để xác thực rằng họ đang làm những gì họ đang làm\n"
+"Phân hệ này rất hữu ích để xác thực rằng chúng đang thực hiện đúng những gì\n"
 "phải làm\n"
 "    "
 
@@ -28866,7 +28875,7 @@ msgstr "Chạy"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_cron_view_form
 msgid "Run Manually"
-msgstr "Chạy bằng tay"
+msgstr "Chạy thủ công"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
@@ -29348,6 +29357,12 @@ msgid "Scheduled Actions Triggers"
 msgstr "Trình kích hoạt hành động đã lên lịch"
 
 #. module: base
+#: code:addons/base/models/ir_cron.py:0
+#, python-format
+msgid "Scheduled action disabled"
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__user_id
 msgid "Scheduler User"
 msgstr "Người lập kế hoạch"
@@ -29633,6 +29648,14 @@ msgstr "Giao hàng của bạn thông qua Fedex và theo dõi chúng trực tuy�
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_ups
+msgid ""
+"This is the legacy integration with UPS that is no longer supported. Please "
+"install the new \"UPS Shipping\" module and uninstall this one as soon as "
+"possible. This integration will stop working in 2024."
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,summary:base.module_delivery_ups_rest
 msgid "Send your shippings through UPS and track them online"
 msgstr "Giao hàng của bạn thông qua UPS và theo dõi chúng trực tuyến"
 
@@ -31026,7 +31049,7 @@ msgstr "Thái Lan - Kế toán"
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "The \"%s\" action cannot be selected as home action."
-msgstr ""
+msgstr "Không thể chọn hành động \"%s\" làm hành động trang chủ."
 
 #. module: base
 #: code:addons/base/models/res_users.py:0
@@ -31117,7 +31140,7 @@ msgstr ""
 #: code:addons/base/models/ir_module.py:0
 #, python-format
 msgid "Those modules cannot be uninstalled: %s"
-msgstr ""
+msgstr "Không thể gỡ cài đặt các module này: %s"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner_category__active
@@ -31145,6 +31168,8 @@ msgid ""
 "The name for the current rate is empty.\n"
 "Please set it."
 msgstr ""
+"Tên tỷ giá hiện tại đang trống.\n"
+"Vui lòng đặt tên."
 
 #. module: base
 #: model:ir.model.constraint,message:base.constraint_res_country_code_uniq
@@ -32054,6 +32079,14 @@ msgstr ""
 "%s"
 
 #. module: base
+#: code:addons/base/models/ir_cron.py:0
+#, python-format
+msgid ""
+"This scheduled action has been disabled because its interval number is not a"
+" strictly positive value."
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__thousands_sep
 msgid "Thousands Separator"
 msgstr "Dấu phân cách phần Nghìn"
@@ -32635,6 +32668,11 @@ msgstr "UNSPSC mã sản phẩm"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
+msgid "UPS Shipping (Legacy)"
+msgstr "Vận chuyển UPS (Cũ)"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_delivery_ups_rest
 msgid "UPS Shipping"
 msgstr "Vận chuyển UPS"
 
@@ -34290,6 +34328,16 @@ msgstr ""
 "Người dùng đang hoạt động được liên kết: %(names)s"
 
 #. module: base
+#: code:addons/base/models/res_lang.py:0
+#, python-format
+msgid ""
+"You cannot archive the language in which Odoo was setup as it is used by "
+"automated processes."
+msgstr ""
+"Bạn không thể lưu trữ ngôn ngữ dùng để thiết lập Odoo vì ngôn ngữ này được "
+"sử dụng cho các quy trình tự động."
+
+#. module: base
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "You cannot create recursive Partner hierarchies."
@@ -34317,7 +34365,7 @@ msgstr "Bạn không thể vô hiệu tài khoản mà bạn hiện tại đang 
 #: code:addons/base/models/res_users.py:0
 #, python-format
 msgid "You cannot delete a group linked with a settings field."
-msgstr ""
+msgstr "Bạn không thể xóa nhóm liên kết với một trường cài đặt."
 
 #. module: base
 #: code:addons/base/models/res_partner.py:0
@@ -34353,6 +34401,14 @@ msgstr ""
 #: code:addons/base/models/ir_config_parameter.py:0
 #, python-format
 msgid "You cannot delete the %s record."
+msgstr "Bạn không thể xóa tập dữ liệu %s."
+
+#. module: base
+#: code:addons/base/models/res_users.py:0
+#, python-format
+msgid ""
+"You cannot delete the admin user because it is utilized in various places "
+"(such as security configurations,...). Instead, archive it."
 msgstr ""
 
 #. module: base
@@ -34390,7 +34446,7 @@ msgstr ""
 #: code:addons/base/models/ir_config_parameter.py:0
 #, python-format
 msgid "You cannot rename config parameters with keys %s"
-msgstr ""
+msgstr "Bạn không thể đổi tên các tham số cấu hình với khóa %s"
 
 #. module: base
 #: code:addons/models.py:0
@@ -35175,3 +35231,5 @@ msgstr "Quần đảo Åland"
 #, python-format
 msgid "This currency is set on a company and therefore cannot be deactivated."
 msgstr ""
+"Không thể vô hiệu hóa đơn vị tiền tệ này vì nó được thiết lập trên một công "
+"ty."

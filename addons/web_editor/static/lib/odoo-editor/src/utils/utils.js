@@ -938,7 +938,11 @@ export const formatSelection = (editor, formatName, {applyStyle, formatProps} = 
 
         // Remove the format on all inline ancestors until a block or an element
         // with a class (in case the formating comes from the class).
-        while (parentNode && (!isBlock(parentNode) && !(parentNode.classList && parentNode.classList.length))) {
+        while (
+            parentNode && !isBlock(parentNode) &&
+            !(parentNode.classList && parentNode.classList.length) &&
+            !isUnbreakable(parentNode) && !isUnbreakable(currentNode)
+        ) {
             const isUselessZws = parentNode.tagName === 'SPAN' &&
                 parentNode.hasAttribute('oe-zws-empty-inline') &&
                 parentNode.getAttributeNames().length === 1;
@@ -1732,6 +1736,9 @@ export function splitAroundUntil(elements, limitAncestor) {
 }
 
 export function insertText(sel, content) {
+    if (!content) {
+        return;
+    }
     if (sel.anchorNode.nodeType === Node.TEXT_NODE) {
         const pos = [sel.anchorNode.parentElement, splitTextNode(sel.anchorNode, sel.anchorOffset)];
         setSelection(...pos, ...pos, false);
@@ -1824,19 +1831,28 @@ export function setTagName(el, newTagName) {
     if (el.tagName === newTagName) {
         return el;
     }
-    var n = document.createElement(newTagName);
-    var attr = el.attributes;
-    for (var i = 0, len = attr.length; i < len; ++i) {
-        n.setAttribute(attr[i].name, attr[i].value);
+    const n = document.createElement(newTagName);
+    if (el.nodeName !== 'LI') {
+        const attributes = el.attributes;
+        for (const attr of attributes) {
+            n.setAttribute(attr.name, attr.value);
+        }
     }
     while (el.firstChild) {
         n.append(el.firstChild);
     }
-    const closestLi = el.closest('li');
-    if (el.tagName === 'LI' && newTagName !== 'p') {
+    // If the element or its parent is a <li>, do not wrap said <li> in a <p>
+    // when converting it to normal text.
+    const containerEl = el.tagName === 'LI' ? el : el.parentElement;
+    if (el.tagName === 'LI' && (newTagName !== 'p' || el.classList.contains('nav-item'))) {
         el.append(n);
-    } else if (closestLi && newTagName === 'p') {
-        closestLi.replaceChildren(...n.childNodes);
+    } else if (
+        containerEl &&
+        containerEl.tagName === 'LI' &&
+        newTagName === 'p' &&
+        !containerEl.classList.contains('nav-item')
+    ) {
+        containerEl.replaceChildren(...n.childNodes);
     } else {
         el.parentNode.replaceChild(n, el);
     }
@@ -2391,7 +2407,8 @@ export function enforceWhitespace(el, offset, direction, rule) {
         if (
             spaceVisibility &&
             !foundVisibleSpaceTextNode &&
-            getState(...rightPos(spaceNode), DIRECTIONS.RIGHT).cType & CTGROUPS.BLOCK
+            getState(...rightPos(spaceNode), DIRECTIONS.RIGHT).cType & CTGROUPS.BLOCK &&
+            getState(...leftPos(spaceNode), DIRECTIONS.LEFT).cType !== CTYPES.CONTENT
         ) {
             spaceVisibility = false;
         }
@@ -2411,10 +2428,25 @@ export function rgbToHex(rgb = '') {
     );
 }
 
+/**
+ * Returns position of a range in form of object (end
+ * position of a range in case of non-collapsed range).
+ *
+ * @param {HTMLElement} el element for which range postion will be calculated
+ * @param {Document} document
+ * @param {Object} [options]
+ * @param {Number} [options.marginRight] right margin to be considered
+ * @param {Number} [options.marginBottom] bottom margin to be considered
+ * @param {Number} [options.marginTop] top margin to be considered
+ * @param {Number} [options.marginLeft] left margin to be considered
+ * @param {Function} [options.getContextFromParentRect] to get context rect from parent
+ * @returns {Object | undefined}
+ */
 export function getRangePosition(el, document, options = {}) {
     const selection = document.getSelection();
-    if (!selection.isCollapsed || !selection.rangeCount) return;
+    if (!selection.rangeCount) return;
     const range = selection.getRangeAt(0);
+    const isRtl = options.direction === 'rtl';
 
     const marginRight = options.marginRight || 20;
     const marginBottom = options.marginBottom || 20;
@@ -2431,7 +2463,7 @@ export function getRangePosition(el, document, options = {}) {
         clonedRange.detach();
     }
 
-    if (!offset || offset.heigh === 0) {
+    if (!offset || offset.height === 0) {
         const clonedRange = range.cloneRange();
         const shadowCaret = document.createTextNode('|');
         clonedRange.insertNode(shadowCaret);
@@ -2440,6 +2472,18 @@ export function getRangePosition(el, document, options = {}) {
         offset = { height: rect.height, left: rect.left, top: rect.top };
         shadowCaret.remove();
         clonedRange.detach();
+    }
+
+    if (isRtl) {
+        // To handle the RTL case we shift the elelement to the left by its size
+        // and handle it the same as left.
+        offset.right = offset.left - el.offsetWidth;
+        const leftMove = Math.max(0, offset.right + el.offsetWidth + marginLeft - window.innerWidth);
+        if (leftMove && offset.right - leftMove > marginRight) {
+            offset.right -= leftMove;
+        } else if (offset.right - leftMove < marginRight) {
+            offset.right = marginRight;
+        }
     }
 
     const leftMove = Math.max(0, offset.left + el.offsetWidth + marginRight - window.innerWidth);
@@ -2453,6 +2497,9 @@ export function getRangePosition(el, document, options = {}) {
         const parentContextRect = options.getContextFromParentRect();
         offset.left += parentContextRect.left;
         offset.top += parentContextRect.top;
+        if (isRtl) {
+            offset.right += parentContextRect.left;
+        }
     }
 
     if (
@@ -2467,6 +2514,13 @@ export function getRangePosition(el, document, options = {}) {
     if (offset) {
         offset.top += window.scrollY;
         offset.left += window.scrollX;
+        if (isRtl) {
+            offset.right += window.scrollX;
+        }
+    }
+    if (isRtl) {
+        // Get the actual right value.
+        offset.right = window.innerWidth - offset.right - el.offsetWidth;
     }
 
     return offset;

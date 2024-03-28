@@ -31,7 +31,10 @@ class StockMove(models.Model):
 
     @api.model
     def _prepare_merge_negative_moves_excluded_distinct_fields(self):
-        return super()._prepare_merge_negative_moves_excluded_distinct_fields() + ['created_purchase_line_id']
+        excluded_fields = super()._prepare_merge_negative_moves_excluded_distinct_fields() + ['created_purchase_line_id']
+        if self.env['ir.config_parameter'].sudo().get_param('purchase_stock.merge_different_procurement'):
+            excluded_fields += ['procure_method']
+        return excluded_fields
 
     def _get_price_unit(self):
         """ Returns the unit price for the move"""
@@ -146,12 +149,7 @@ class StockMove(models.Model):
 
     def _is_purchase_return(self):
         self.ensure_one()
-        return self.location_dest_id.usage == "supplier" or (
-                self.location_dest_id.usage == "internal"
-                and self.location_id.usage != "supplier"
-                and self.warehouse_id
-                and self.location_dest_id not in self.env["stock.location"].search([("id", "child_of", self.warehouse_id.view_location_id.id)])
-        )
+        return self.location_dest_id.usage == "supplier"
 
 
 class StockWarehouse(models.Model):

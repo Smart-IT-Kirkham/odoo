@@ -196,7 +196,7 @@ class AccountMove(models.Model):
     partner_id = fields.Many2one('res.partner', readonly=True, tracking=True,
         states={'draft': [('readonly', False)]},
         check_company=True,
-        string='Partner', change_default=True, ondelete='restrict')
+        string='Partner', index=True, change_default=True, ondelete='restrict')
     commercial_partner_id = fields.Many2one('res.partner', string='Commercial Entity', store=True, readonly=True,
         compute='_compute_commercial_partner_id', ondelete='restrict')
     country_code = fields.Char(related='company_id.account_fiscal_country_id.code', readonly=True)
@@ -419,7 +419,7 @@ class AccountMove(models.Model):
         :return (datetime.date):
         """
         lock_dates = self._get_violated_lock_dates(invoice_date, has_tax)
-        today = fields.Date.today()
+        today = fields.Date.context_today(self)
         highest_name = self.highest_name or self._get_last_sequence(relaxed=True, lock=False)
         number_reset = self._deduce_sequence_number_reset(highest_name)
         if lock_dates:
@@ -469,8 +469,9 @@ class AccountMove(models.Model):
             accounting_date = self.invoice_date
             if not self.is_sale_document(include_receipts=True):
                 accounting_date = self._get_accounting_date(self.invoice_date, self._affect_tax_report())
-            if accounting_date != self.date:
-                self.date = accounting_date
+            if self._context.get('force_onchange_currency') or accounting_date != self.date:
+                if accounting_date != self.date:
+                    self.date = accounting_date
                 self._onchange_currency()
             else:
                 self._onchange_recompute_dynamic_lines()
@@ -1243,6 +1244,9 @@ class AccountMove(models.Model):
 
         # Group the moves by journal and month
         for move in self:
+            if move.state == 'cancel':
+                continue
+
             move_has_name = move.name and move.name != '/'
             if move_has_name or move.state != 'posted':
                 try:
@@ -1649,7 +1653,7 @@ class AccountMove(models.Model):
     @api.depends('currency_id')
     def _compute_display_inactive_currency_warning(self):
         for move in self.with_context(active_test=False):
-            move.display_inactive_currency_warning = move.currency_id and not move.currency_id.active
+            move.display_inactive_currency_warning = move.state == 'draft' and move.currency_id and not move.currency_id.active
 
     def _compute_payments_widget_to_reconcile_info(self):
         for move in self:
@@ -1757,6 +1761,7 @@ class AccountMove(models.Model):
             else:
                 move.invoice_payments_widget = json.dumps(False)
 
+    @api.depends_context('lang')
     @api.depends('line_ids.amount_currency', 'line_ids.tax_base_amount', 'line_ids.tax_line_id', 'partner_id', 'currency_id', 'amount_total', 'amount_untaxed')
     def _compute_tax_totals_json(self):
         """ Computed field used for custom widget's rendering.
@@ -2808,7 +2813,7 @@ class AccountMove(models.Model):
                 'credit': balance < 0.0 and -balance or 0.0,
             })
 
-            if not is_refund or self.tax_cash_basis_origin_move_id or self._context.get('reverse_move_type'):
+            if not is_refund or self.tax_cash_basis_origin_move_id or self._context.get('reverse_move_type') or self.move_type == 'entry':
                 # We don't map tax repartition for non-refund operations, for cash basis entries,
                 # nor when reversing the move_type
                 # Indeed, cancelling a cash basis entry usually happens when unreconciling and invoice,
@@ -2999,11 +3004,11 @@ class AccountMove(models.Model):
 
         # Search for partners in copy.
         cc_mail_addresses = email_split(msg_dict.get('cc', ''))
-        followers = [partner for partner in self._mail_find_partner_from_emails(cc_mail_addresses, extra_domain) if partner]
+        followers = [partner for partner in self._mail_find_partner_from_emails(cc_mail_addresses, extra_domain=extra_domain) if partner]
 
         # Search for partner that sent the mail.
         from_mail_addresses = email_split(msg_dict.get('from', ''))
-        senders = partners = [partner for partner in self._mail_find_partner_from_emails(from_mail_addresses, extra_domain) if partner]
+        senders = partners = [partner for partner in self._mail_find_partner_from_emails(from_mail_addresses, extra_domain=extra_domain) if partner]
 
         # Search for partners using the user.
         if not senders:
@@ -3016,7 +3021,7 @@ class AccountMove(models.Model):
                 body_mail_addresses = set(email_re.findall(msg_dict.get('body')))
                 partners = [
                     partner
-                    for partner in self._mail_find_partner_from_emails(body_mail_addresses, extra_domain)
+                    for partner in self._mail_find_partner_from_emails(body_mail_addresses, extra_domain=extra_domain)
                     if not is_internal_partner(partner) and partner.company_id.id in (False, company.id)
                 ]
 
@@ -3113,7 +3118,7 @@ class AccountMove(models.Model):
             if not move.invoice_date:
                 if move.is_sale_document(include_receipts=True):
                     move.invoice_date = fields.Date.context_today(self)
-                    move.with_context(check_move_validity=False)._onchange_invoice_date()
+                    move.with_context(check_move_validity=False, force_onchange_currency=True)._onchange_invoice_date()
                 elif move.is_purchase_document(include_receipts=True):
                     raise UserError(_("The Bill/Refund date is required to validate this document."))
 
@@ -3704,12 +3709,25 @@ class AccountMove(models.Model):
 
         self.ensure_one()
         if self.move_type != 'entry':
+            access_link = None
             for group_name, _group_method, group_data in groups:
-                if group_name in ('portal_customer', 'customer'):
+                if group_name == 'portal_customer':
                     group_data['has_button_access'] = True
+                    access_link = group_data['button_access']['url']
 
-                    # 'notification_is_customer' is used to determine whether the group should be sent the access_token
-                    group_data['notification_is_customer'] = True
+            # create a new group for partners that have been manually added as recipients
+            # those partners should have access to the invoice
+            button_access = {'url': access_link} if access_link else {}
+            recipient_group = (
+                'additional_intended_recipient',
+                lambda pdata: pdata['id'] in msg_vals.get('partner_ids', []) and pdata['id'] != self.partner_id.id,
+                {
+                    'has_button_access': True,
+                    'button_access': button_access,
+                    'notification_is_customer': True,
+                }
+            )
+            groups.insert(0, recipient_group)
 
         return groups
 
@@ -3824,7 +3842,7 @@ class AccountMoveLine(models.Model):
         help="Tags assigned to this line by the tax creating it, if any. It determines its impact on financial reports.", tracking=True)
     tax_audit = fields.Char(string="Tax Audit String", compute="_compute_tax_audit", store=True,
         help="Computed field, listing the tax grids impacted by this line, and the amount it applies to each of them.")
-    tax_tag_invert = fields.Boolean(string="Invert Tags", compute='_compute_tax_tag_invert', store=True, readonly=False,
+    tax_tag_invert = fields.Boolean(string="Invert Tags", compute='_compute_tax_tag_invert', store=True, readonly=False, copy=False,
         help="Technical field. True if the balance of this move line needs to be "
              "inverted when computing its total for each tag (for sales invoices, for example).")
 
@@ -4551,6 +4569,9 @@ class AccountMoveLine(models.Model):
                     tax_type = record.tax_ids[0].type_tax_use
                     is_refund = (tax_type == 'sale' and record.debit) or (tax_type == 'purchase' and record.credit)
 
+                if record.tax_ids and record.move_id.reversed_entry_id:
+                    is_refund = not is_refund
+
                 record.tax_tag_invert = (tax_type == 'purchase' and is_refund) or (tax_type == 'sale' and not is_refund)
 
             else:
@@ -4602,10 +4623,15 @@ class AccountMoveLine(models.Model):
             if account in (journal.default_account_id, journal.suspense_account_id):
                 continue
 
-            is_account_control_ok = not journal.account_control_ids or account in journal.account_control_ids
-            is_type_control_ok = not journal.type_control_ids or account.user_type_id in journal.type_control_ids
+            failed_check = False
+            if journal.type_control_ids or journal.account_control_ids:
+                failed_check = True
+                if journal.type_control_ids:
+                    failed_check = account.user_type_id not in journal.type_control_ids
+                if failed_check and journal.account_control_ids:
+                    failed_check = account not in journal.account_control_ids
 
-            if not is_account_control_ok or not is_type_control_ok:
+            if failed_check:
                 raise UserError(_("You cannot use this account (%s) in this journal, check the section 'Control-Access' under "
                                   "tab 'Advanced Settings' on the related journal.", account.display_name))
 
@@ -4728,6 +4754,10 @@ class AccountMoveLine(models.Model):
                 })
             else:
                 vals['amount_currency'] = vals.get('amount_currency', 0.0)
+                if not move.is_invoice(include_receipts=True) and vals.get('debit') is False and vals.get('credit') is False:
+                    vals['balance'] = move.currency_id._convert(vals['amount_currency'], move.company_id.currency_id, move.company_id, move.date)
+                    vals['debit'] = vals['balance'] if vals['balance'] > 0.0 else 0.0
+                    vals['credit'] = -vals['balance'] if vals['balance'] < 0.0 else 0.0
 
             if move.is_invoice(include_receipts=True):
                 currency = move.currency_id

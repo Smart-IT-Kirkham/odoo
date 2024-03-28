@@ -1169,7 +1169,11 @@ const UnitUserValueWidget = UserValueWidget.extend({
         if (!params.unit) {
             return isSuperActive;
         }
-        return isSuperActive && this._floatToStr(parseFloat(this._value)) !== '0';
+        return isSuperActive && (
+            this._floatToStr(parseFloat(this._value)) !== '0'
+            // Or is a composite value.
+            || !!this._value.match(/\d+\s+\d+/)
+        );
     },
     /**
      * @override
@@ -1311,16 +1315,26 @@ const InputUserValueWidget = UnitUserValueWidget.extend({
             case $.ui.keyCode.UP:
             case $.ui.keyCode.DOWN: {
                 const input = ev.currentTarget;
-                let value = parseFloat(input.value || input.placeholder);
-                if (isNaN(value)) {
-                    value = 0.0;
+                let parts = (input.value || input.placeholder).match(/-?\d+\.\d+|-?\d+/g);
+                if (!parts) {
+                    parts = [input.value || input.placeholder];
                 }
-                let step = parseFloat(params.step);
-                if (isNaN(step)) {
-                    step = 1.0;
-                }
-                value += (ev.which === $.ui.keyCode.UP ? step : -step);
-                input.value = this._floatToStr(value);
+                input.value = parts.map(part => {
+                    let value = parseFloat(part);
+                    if (isNaN(value)) {
+                        value = 0.0;
+                    }
+                    let step = parseFloat(params.step);
+                    if (isNaN(step)) {
+                        step = 1.0;
+                    }
+                    value += (ev.which === $.ui.keyCode.UP ? step : -step);
+                    if (parts.length > 1 && value < 0) {
+                        // No negative for composite values.
+                        value = 0.0;
+                    }
+                    return this._floatToStr(value);
+                }).join(" ");
                 // We need to know if the change event will be triggered or not.
                 // Change is triggered if there has been a "natural" input event
                 // from the user. Since we are triggering a "fake" input event,
@@ -3009,7 +3023,8 @@ const SnippetOptionWidget = Widget.extend({
      */
     isTopFirstOption: false,
     /**
-     * Forces the target to not be possible to remove.
+     * Forces the target to not be possible to remove. It will also hide the
+     * clone button.
      *
      * @type {boolean}
      */
@@ -3352,10 +3367,14 @@ const SnippetOptionWidget = Widget.extend({
         }
 
         let hasUserValue = false;
-        for (let i = cssProps.length - 1; i > 0; i--) {
-            hasUserValue = applyCSS.call(this, cssProps[i], values.pop(), styles) || hasUserValue;
+        const applyAllCSS = (values) => {
+            for (let i = cssProps.length - 1; i > 0; i--) {
+                hasUserValue = applyCSS.call(this, cssProps[i], values.pop(), styles) || hasUserValue;
+            }
+            hasUserValue = applyCSS.call(this, cssProps[0], values.join(' '), styles) || hasUserValue;
         }
-        hasUserValue = applyCSS.call(this, cssProps[0], values.join(' '), styles) || hasUserValue;
+
+        applyAllCSS([...values]);
 
         function applyCSS(cssProp, cssValue, styles) {
             const forceStyle = (typeof params.forceStyle !== 'undefined');
@@ -3370,6 +3389,13 @@ const SnippetOptionWidget = Widget.extend({
 
         if (params.extraClass) {
             this.$target.toggleClass(params.extraClass, hasUserValue);
+            if (hasUserValue) {
+                // Might have changed because of the class.
+                for (const cssProp of cssProps) {
+                    this.$target[0].style.removeProperty(cssProp);
+                }
+                applyAllCSS(values);
+            }
         }
 
         _restoreTransitions();
@@ -3782,11 +3808,17 @@ const SnippetOptionWidget = Widget.extend({
      * @returns {Promise<boolean>|boolean}
      */
     _computeWidgetVisibility: async function (widgetName, params) {
-        if (widgetName === 'move_up_opt' || widgetName === 'move_left_opt') {
-            return !this.$target.is(':first-child');
-        }
-        if (widgetName === 'move_down_opt' || widgetName === 'move_right_opt') {
-            return !this.$target.is(':last-child');
+        const moveUpOrLeft = widgetName === 'move_up_opt' || widgetName === 'move_left_opt';
+        const moveDownOrRight = widgetName === 'move_down_opt' || widgetName === 'move_right_opt';
+
+        if (moveUpOrLeft || moveDownOrRight) {
+            // Consider only visible elements.
+            const direction = moveUpOrLeft ? "previousElementSibling" : "nextElementSibling";
+            let siblingEl = this.$target[0][direction];
+            while (siblingEl && window.getComputedStyle(siblingEl).display === "none") {
+                siblingEl = siblingEl[direction];
+            }
+            return !!siblingEl;
         }
         return true;
     },
@@ -4250,7 +4282,6 @@ registry.sizing = SnippetOptionWidget.extend({
         var resizeValues = this._getSize();
         this.$handles.on('mousedown', function (ev) {
             ev.preventDefault();
-            self.options.wysiwyg.odooEditor.automaticStepUnactive('resizing');
 
             // First update size values as some element sizes may not have been
             // initialized on option start (hidden slides, etc)
@@ -4292,6 +4323,7 @@ registry.sizing = SnippetOptionWidget.extend({
             var beginClass = self.$target.attr('class');
             var regClass = new RegExp('\\s*' + resize[0][begin].replace(/[-]*[0-9]+/, '[-]*[0-9]+'), 'g');
 
+            self.options.wysiwyg.odooEditor.automaticStepUnactive("resizing");
             var cursor = $handle.css('cursor') + '-important';
             var $body = $(this.ownerDocument.body);
             $body.addClass(cursor);
@@ -4336,14 +4368,13 @@ registry.sizing = SnippetOptionWidget.extend({
                     $handlers.removeClass('o_active').dequeue();
                 });
 
+                self.options.wysiwyg.odooEditor.automaticStepActive("resizing");
                 if (begin === current) {
                     return;
                 }
                 setTimeout(function () {
                     self.options.wysiwyg.odooEditor.historyStep();
                 }, 0);
-
-                self.options.wysiwyg.odooEditor.automaticStepActive('resizing');
             };
             $body.on('mousemove', bodyMouseMove);
             $body.on('mouseup', bodyMouseUp);
@@ -4834,18 +4865,30 @@ registry.SnippetMove = SnippetOptionWidget.extend({
         const isNavItem = this.$target[0].classList.contains('nav-item');
         const $tabPane = isNavItem ? $(this.$target.find('.nav-link')[0].hash) : null;
         switch (widgetValue) {
-            case 'prev':
-                this.$target.prev().before(this.$target);
+            case 'prev': {
+                // Consider only visible elements.
+                let prevEl = this.$target[0].previousElementSibling;
+                while (prevEl && window.getComputedStyle(prevEl).display === "none") {
+                    prevEl = prevEl.previousElementSibling;
+                }
+                prevEl && prevEl.insertAdjacentElement("beforebegin", this.$target[0]);
                 if (isNavItem) {
                     $tabPane.prev().before($tabPane);
                 }
                 break;
-            case 'next':
-                this.$target.next().after(this.$target);
+            }
+            case 'next': {
+                // Consider only visible elements.
+                let nextEl = this.$target[0].nextElementSibling;
+                while (nextEl && window.getComputedStyle(nextEl).display === "none") {
+                    nextEl = nextEl.nextElementSibling;
+                }
+                nextEl && nextEl.insertAdjacentElement("afterend", this.$target[0]);
                 if (isNavItem) {
                     $tabPane.next().after($tabPane);
                 }
                 break;
+            }
         }
         if (!this.$target.is(this.data.noScroll)
                 && (params.name === 'move_up_opt' || params.name === 'move_down_opt')) {
@@ -5411,7 +5454,6 @@ registry.ImageTools = ImageHandlerOption.extend({
      * @see this.selectClass for parameters
      */
     async crop() {
-        this.trigger_up('hide_overlay');
         this.trigger_up('disable_loading_effect');
         new weWidgets.ImageCropWidget(this, this.$target[0]).appendTo(this.options.wysiwyg.odooEditor.document.body);
 
@@ -6264,7 +6306,11 @@ registry.BackgroundImage = SnippetOptionWidget.extend({
             this.$target.addClass('oe_img_bg o_bg_img_center');
         } else {
             delete parts.url;
-            this.$target.removeClass('oe_img_bg o_bg_img_center');
+            this.$target[0].classList.remove(
+                "oe_img_bg",
+                "o_bg_img_center",
+                "o_modified_image_to_save",
+            );
         }
         const combined = backgroundImagePartsToCss(parts);
         this.$target.css('background-image', combined);

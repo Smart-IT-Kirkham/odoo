@@ -13,9 +13,10 @@
 # karolína schusterová <karolina.schusterova@vdp.sk>, 2021
 # Jiří Podhorecký, 2023
 # Wil Odoo, 2023
-# Jakub Smolka, 2023
 # Jakub Krkoška, 2023
-# Aleš Fiala <f.ales1@seznam.cz>, 2023
+# Tomáš Píšek, 2023
+# Aleš Fiala <f.ales1@seznam.cz>, 2024
+# Jakub Smolka, 2024
 # 
 msgid ""
 msgstr ""
@@ -23,7 +24,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2022-01-10 06:07+0000\n"
 "PO-Revision-Date: 2021-09-14 12:27+0000\n"
-"Last-Translator: Aleš Fiala <f.ales1@seznam.cz>, 2023\n"
+"Last-Translator: Jakub Smolka, 2024\n"
 "Language-Team: Czech (https://app.transifex.com/odoo/teams/41243/cs/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2320,7 +2321,7 @@ msgstr "Blok"
 #: code:addons/website/static/src/js/menu/edit.js:0
 #, python-format
 msgid "Blockquote"
-msgstr ""
+msgstr "Bloková citace"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_big_icons_subtitles
@@ -3908,7 +3909,18 @@ msgstr "Zobrazit tuto webovou stránku, když uživatelé navštíví tuto domé
 #: code:addons/website/static/src/js/backend/res_config_settings.js:0
 #, python-format
 msgid "Do not activate"
+msgstr "Neaktivovat"
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/xml/website.editor.xml:0
+#, python-format
+msgid ""
+"Do not copy/paste code you do not understand, this could put your data at "
+"risk."
 msgstr ""
+"Nekopírujte/nevkládejte kód, kterému nerozumíte, mohlo by to ohrozit vaše "
+"data."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_cards
@@ -3963,7 +3975,7 @@ msgstr "Nebojte se, můžete přepnout později."
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.external_snippets
 msgid "Donation"
-msgstr ""
+msgstr "Dar"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.external_snippets
@@ -4215,14 +4227,14 @@ msgstr "Povolit funkci Tvůrce formulářů pro tento model."
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Enable the right google map APIs in your google account"
-msgstr ""
+msgstr "Povolte správná rozhraní API pro mapy Google ve svém účtu Google"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Enter an API Key"
-msgstr ""
+msgstr "Zadejte klíč API"
 
 #. module: website
 #. openerp-web
@@ -4987,6 +4999,21 @@ msgid ""
 "will be possible only up to mid 2023. After that, those services won't work "
 "anymore, at all."
 msgstr ""
+"Společnost Google ukončila podporu rozhraní API „Universal Analytics“ a "
+"„Google Sign-In“. To znamená, že pouze účty a klíče vytvořené před rokem "
+"2020 budou moci integrovat svůj panel Analytics do Odoo (nebo jakéhokoli "
+"jiného webu). To bude možné pouze do poloviny roku 2023. Poté již tyto "
+"služby nebudou fungovat vůbec."
+
+#. module: website
+#. openerp-web
+#: code:addons/website/static/src/js/backend/res_config_settings.js:0
+#: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
+#, python-format
+msgid ""
+"Google doesn't need to be pinged anymore. It will automatically fetch your "
+"/sitemap.xml."
+msgstr "Google už nemusí být pingován. Automaticky načte váš /sitemap.xml."
 
 #. module: website
 #: model:ir.model.fields,help:website.field_res_config_settings__google_search_console
@@ -5493,6 +5520,17 @@ msgstr ""
 
 #. module: website
 #. openerp-web
+#: code:addons/website/static/src/snippets/s_embed_code/options.js:0
+#, python-format
+msgid ""
+"If you need to add analytics or marketing tags, inject code in your <head> "
+"or <body> instead. The option is in the \"Theme\" tab."
+msgstr ""
+"Pokud potřebujete přidat analytické nebo marketingové značky, vložte kód do "
+"vaší <head> nebo <body>. Možnost je v záložce \"Šablona\"."
+
+#. module: website
+#. openerp-web
 #: code:addons/website/static/src/snippets/s_image_gallery/options.js:0
 #: model:ir.model.fields,field_description:website.field_website_visitor__partner_image
 #: model_terms:ir.ui.view,arch_db:website.searchbar_input_snippet_options
@@ -5796,7 +5834,7 @@ msgstr "Intuitivní systém"
 #: code:addons/website/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Invalid API Key. The following error was returned by Google:"
-msgstr ""
+msgstr "Neplatný klíč API. Google vrátil následující chybu:"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_company_team
@@ -6508,7 +6546,7 @@ msgstr "Hlavní akce"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Make sure billing is enabled"
-msgstr ""
+msgstr "Ujistěte se, že je povolena fakturace"
 
 #. module: website
 #. openerp-web
@@ -6518,13 +6556,15 @@ msgid ""
 "Make sure to wait if errors keep being shown: sometimes enabling an API "
 "allows to use it immediately but Google keeps triggering errors for a while"
 msgstr ""
+"Určitě počkejte, pokud se chyby budou nadále zobrazovat: někdy povolení "
+"rozhraní API umožňuje jeho okamžité použití, ale Google stále spouští chyby"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Make sure your settings are properly configured:"
-msgstr ""
+msgstr "Ujistěte se, že jsou vaše nastavení správně nakonfigurována:"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.user_navbar
@@ -6551,14 +6591,14 @@ msgstr "Správa této stránky"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Maps JavaScript API"
-msgstr ""
+msgstr "Mapy JavaScript API"
 
 #. module: website
 #. openerp-web
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Maps Static API"
-msgstr ""
+msgstr "Statické mapy API"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_website_form_options
@@ -7026,6 +7066,8 @@ msgid ""
 "New Google Analytics accounts and keys are now using Google Analytics 4 "
 "which, for now, can't be integrated/embed in external websites."
 msgstr ""
+"Nové účty a klíče Google Analytics nyní využívají službu Google Analytics 4,"
+" kterou zatím nelze integrovat/vkládat na externí weby."
 
 #. module: website
 #. openerp-web
@@ -7251,7 +7293,7 @@ msgstr "Počet jazyků"
 #: code:addons/website/static/src/components/configurator/configurator.xml:0
 #, python-format
 msgid "OR"
-msgstr ""
+msgstr "NEBO"
 
 #. module: website
 #. openerp-web
@@ -7759,7 +7801,7 @@ msgstr "Zástupce"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Places API"
-msgstr ""
+msgstr "Místa API"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -7820,7 +7862,7 @@ msgstr "Předvolby"
 #. module: website
 #: model:ir.model.fields.selection,name:website.selection__theme_ir_asset__directive__prepend
 msgid "Prepend"
-msgstr ""
+msgstr "Připojit na začátek"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
@@ -8710,7 +8752,7 @@ msgstr "Číselná řada"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Serve font from Google servers"
-msgstr ""
+msgstr "Poskytovat fonty ze serverů Google"
 
 #. module: website
 #: model:ir.model,name:website.model_ir_actions_server
@@ -9784,7 +9826,7 @@ msgstr ""
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "This font is hosted and served to your visitors by Google servers"
-msgstr ""
+msgstr "Tento font je hostován a poskytován návštěvníkům na serverech Google."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
@@ -9870,6 +9912,8 @@ msgid ""
 "Those accounts should now check their Analytics dashboard in the Google "
 "platform directly."
 msgstr ""
+"Tyto účty by si měly přímo nyní zkontrolovat dashboard Analytics na "
+"platformě Google."
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_image_gallery_options
@@ -11417,6 +11461,17 @@ msgstr "Váš e-mail"
 
 #. module: website
 #. openerp-web
+#: code:addons/website/static/src/snippets/s_embed_code/000.js:0
+#, python-format
+msgid ""
+"Your Embed Code snippet doesn't have anything to display. Click on Edit to "
+"modify it."
+msgstr ""
+"Váš vložený kódový úryvek nemá nic k zobrazení. Klikněte na Upravit pro jeho"
+" úpravu."
+
+#. module: website
+#. openerp-web
 #: code:addons/website/static/src/xml/website.backend.xml:0
 #, python-format
 msgid "Your Measurement ID:"
@@ -11778,7 +11833,7 @@ msgstr "galerie, kolotoč"
 #: code:addons/website/static/src/components/configurator/configurator.js:0
 #, python-format
 msgid "get leads"
-msgstr "získat potenciální zákazníky"
+msgstr "získat prospekty"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.res_config_settings_view_form
@@ -12263,4 +12318,4 @@ msgstr "⌙ Šířka"
 #: code:addons/website/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "└ Height"
-msgstr ""
+msgstr "└ Výška"
