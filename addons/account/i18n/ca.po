@@ -27,12 +27,12 @@
 # Quim - eccit <quim@eccit.com>, 2022
 # martioodo hola, 2023
 # Martin Trigaux, 2023
-# Josep Anton Belchi, 2023
 # Óscar Fonseca <tecnico@pyming.com>, 2023
 # Ivan Espinola, 2023
 # Víctor Martínez <victor.martinez@tecnativa.com>, 2023
 # xean, 2023
 # PaolaEras, 2024
+# Josep Anton Belchi, 2024
 # Santiago Payà <santiagopim@gmail.com>, 2024
 # 
 msgid ""
@@ -16452,6 +16452,8 @@ msgid ""
 "You cannot delete this account tag (%s), it is used on the chart of account "
 "definition."
 msgstr ""
+"No podeu eliminar aquesta etiqueta de compte (%s), és utilitzada en la "
+"definició del pla de comptes."
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -16471,6 +16473,8 @@ msgid ""
 "You cannot delete this report (%s), it is used by the accounting PDF "
 "generation engine."
 msgstr ""
+"No podeu eliminar aquest informe (%s) Es fa servir pel motor de generació de"
+" PDFs comptables."
 
 #. module: account
 #: code:addons/account/models/res_config_settings.py:0

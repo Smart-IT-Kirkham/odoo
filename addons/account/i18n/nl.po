@@ -16443,6 +16443,8 @@ msgid ""
 "You cannot delete this account tag (%s), it is used on the chart of account "
 "definition."
 msgstr ""
+"Je kunt dit rekeninglabel (%s) niet verwijderen; deze wordt gebruikt in het "
+"grootboekschema."
 
 #. module: account
 #: code:addons/account/models/account_move.py:0
@@ -16462,6 +16464,8 @@ msgid ""
 "You cannot delete this report (%s), it is used by the accounting PDF "
 "generation engine."
 msgstr ""
+"Je kunt dit rapport niet verwijderen (%s), het wordt gebruikt door de "
+"boekhoudkundige PDF-generatie-engine."
 
 #. module: account
 #: code:addons/account/models/res_config_settings.py:0

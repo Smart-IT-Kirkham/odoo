@@ -16,6 +16,10 @@ import {
     getUrlsInfosInString,
     isVoidElement,
     unwrapContents,
+    padLinkWithZws,
+    getTraversedNodes,
+    ZERO_WIDTH_CHARS_REGEX,
+    setSelection,
 } from './utils.js';
 
 const NOT_A_NUMBER = /[^\d]/g;
@@ -129,10 +133,10 @@ class Sanitize {
             }
 
             const sel = this.root.ownerDocument.getSelection();
-            const anchor = sel && this.root.ownerDocument.getSelection().anchorNode;
+            const anchor = sel && sel.anchorNode;
             const anchorEl = anchor && closestElement(anchor);
             // Remove zero-width spaces added by `fillEmpty` when there is
-            // content and the selection is not next to it.
+            // content.
             if (
                 node.nodeType === Node.TEXT_NODE &&
                 node.textContent.includes('\u200B') &&
@@ -149,14 +153,21 @@ class Sanitize {
                             sibling.length > 0
                     )
                 ) &&
-                !isBlock(node.parentElement) &&
-                anchor !== node
+                !isBlock(node.parentElement)
             ) {
                 const restoreCursor = shouldPreserveCursor(node, this.root) && preserveCursor(this.root.ownerDocument);
+                const shouldAdaptAnchor = anchor === node && sel.anchorOffset > node.textContent.indexOf('\u200B');
+                const shouldAdaptFocus = sel.focusNode === node && sel.focusOffset > node.textContent.indexOf('\u200B');
                 node.textContent = node.textContent.replace('\u200B', '');
                 node.parentElement.removeAttribute("oe-zws-empty-inline");
                 if (restoreCursor) {
                     restoreCursor();
+                }
+                if (shouldAdaptAnchor || shouldAdaptFocus) {
+                    setSelection(
+                        sel.anchorNode, shouldAdaptAnchor ? sel.anchorOffset - 1 : sel.anchorOffset,
+                        sel.focusNode, shouldAdaptFocus ? sel.focusOffset - 1 : sel.focusOffset,
+                    );
                 }
             }
 
@@ -219,13 +230,45 @@ class Sanitize {
                 this._parse(firstChild);
             }
 
-            // Update link URL if label is a new valid link.
-            if (node.nodeName === 'A' && anchorEl === node) {
-                const linkLabel = node.innerText.replace(/\u200B/g, '');
-                const urlInfo = getUrlsInfosInString(linkLabel);
-                if (urlInfo.length && urlInfo[0].label === linkLabel && !node.href.startsWith('mailto:')) {
-                    node.setAttribute('href', urlInfo[0].url);
+            // Remove link ZWNBSP not in selection
+            if (
+                node.nodeType === Node.TEXT_NODE &&
+                node.textContent.includes('\uFEFF') &&
+                !closestElement(node, 'a') &&
+                !getTraversedNodes(this.root).includes(node)
+            ) {
+                const startsWithLegitZws = node.textContent.startsWith('\uFEFF') && node.previousSibling && node.previousSibling.nodeName === 'A';
+                const endsWithLegitZws = node.textContent.endsWith('\uFEFF') && node.nextSibling && node.nextSibling.nodeName === 'A';
+                let newText = node.textContent.replace(/\uFEFF/g, '');
+                if (startsWithLegitZws) {
+                    newText = '\uFEFF' + newText;
                 }
+                if (endsWithLegitZws) {
+                    newText = newText + '\uFEFF';
+                }
+                if (newText !== node.textContent) {
+                    // We replace the text node with a new text node with the
+                    // update text rather than just changing the text content of
+                    // the node because these two methods create different
+                    // mutations and at least the tour system breaks if all we
+                    // send here is a text content change.
+                    const newTextNode = document.createTextNode(newText);
+                    node.before(newTextNode);
+                    node.remove();
+                    node = newTextNode;
+                }
+            }
+
+            // Update link URL if label is a new valid link.
+            if (node.nodeName === 'A') {
+                if (anchorEl === node) {
+                    const linkLabel = node.innerText.replace(ZERO_WIDTH_CHARS_REGEX, '');
+                    const urlInfo = getUrlsInfosInString(linkLabel);
+                    if (urlInfo.length && urlInfo[0].label === linkLabel && !node.href.startsWith('mailto:') && urlInfo[0].url !== node.href) {
+                        node.setAttribute('href', urlInfo[0].url);
+                    }
+                }
+                padLinkWithZws(this.root, node);
             }
             node = node.nextSibling;
         }

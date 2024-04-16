@@ -9,7 +9,7 @@
 # Lucia Pacheco, 2023
 # Wil Odoo, 2023
 # Iran Villalobos López, 2023
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2023
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -10445,7 +10445,7 @@ msgid ""
 "<code>timezone</code>: useful Python libraries"
 msgstr ""
 "<code>time</code>, <code>datetime</code>, <code>dateutil</code>, "
-"<code>timezone</code>: useful Python libraries"
+"<code>timezone</code>: bibliotecas útiles de Python"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_res_company_kanban
@@ -20157,7 +20157,7 @@ msgstr "Importar extracto bancario QIF"
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Import Template for Customers"
-msgstr "Importar plantillas para clientes"
+msgstr "Plantilla de importación para clientes"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_view_base_import_language
@@ -20860,7 +20860,7 @@ msgstr "Facturación"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hw_posbox_homepage
 msgid "IoT Box Homepage"
-msgstr "Página de caja de IoT "
+msgstr "Página de inicio de la caja IoT"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mrp_workorder_iot
@@ -27279,7 +27279,7 @@ msgstr "Planifique sus recursos en las tareas del proyecto"
 #: model:ir.module.category,name:base.module_category_human_resources_planning
 #: model:ir.module.module,shortdesc:base.module_planning
 msgid "Planning"
-msgstr "Planificación"
+msgstr "Planeación"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_planning_hr_skills
@@ -27567,12 +27567,12 @@ msgstr "Prioridad"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_partner__type__private
 msgid "Private Address"
-msgstr "Dirección Privada"
+msgstr "Dirección particular"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_partner_view_form_private
 msgid "Private Address Form"
-msgstr "Formulario de domicilio privado"
+msgstr "Formulario de dirección particular"
 
 #. module: base
 #: code:addons/models.py:0
@@ -28125,7 +28125,7 @@ msgstr "Compra"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_purchase_requisition
 msgid "Purchase Agreements"
-msgstr "Acuerdos de compra"
+msgstr "Contratos de compra"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_purchase_intrastat
@@ -32844,7 +32844,7 @@ msgstr "Código UNSPSC de productos"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping (Legacy)"
-msgstr "UPS Shipping (sistema heredado)"
+msgstr "Envíos por UPS (heredado)"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups_rest
@@ -34586,6 +34586,8 @@ msgid ""
 "You cannot delete the admin user because it is utilized in various places "
 "(such as security configurations,...). Instead, archive it."
 msgstr ""
+"No puede eliminar al usuario administrador, pues se usa en muchos lugares "
+"(como en configuraciones de seguridad). Mejor archívelo."
 
 #. module: base
 #: code:addons/base/models/res_lang.py:0

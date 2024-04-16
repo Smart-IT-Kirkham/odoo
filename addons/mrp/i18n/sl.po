@@ -2903,7 +2903,7 @@ msgstr "Običajno"
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "Not Available"
-msgstr ""
+msgstr "Ni na voljo"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_scrap__workorder_id
@@ -3810,6 +3810,12 @@ msgstr "Odgovoren"
 #: model:ir.model.fields,field_description:mrp.field_mrp_unbuild__activity_user_id
 msgid "Responsible User"
 msgstr "Odgovorni uporabnik"
+
+#. module: mrp
+#: code:addons/mrp/models/stock_quant.py:0
+#, python-format
+msgid "Return to Inventory"
+msgstr ""
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
@@ -5368,7 +5374,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp.oee_pivot_view
 #: model_terms:ir.ui.view,arch_db:mrp.oee_tree_view
 msgid "Workcenter Productivity"
-msgstr ""
+msgstr "Produktivnost delovnega centra"
 
 #. module: mrp
 #: model:ir.model,name:mrp.model_mrp_workcenter_productivity
@@ -5611,6 +5617,14 @@ msgstr ""
 #: code:addons/mrp/models/mrp_unbuild.py:0
 #, python-format
 msgid "You should provide a lot number for the final product."
+msgstr ""
+
+#. module: mrp
+#: code:addons/mrp/models/stock_quant.py:0
+#, python-format
+msgid ""
+"You should update the components quantity instead of directly updating the "
+"quantity of the kit product."
 msgstr ""
 
 #. module: mrp
