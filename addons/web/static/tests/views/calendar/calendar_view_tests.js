@@ -1241,8 +1241,8 @@ QUnit.module("Views", ({ beforeEach }) => {
     });
 
     QUnit.test(`week numbering`, async (assert) => {
-        // The week is now calculated by FullCalendar (ISO week). If it's start a sunday it
-        // returns the week of the monday.
+        // Using ISO week calculation, get the ISO week number of
+        // the Monday nearest to the start of the week.
 
         patchWithCleanup(localization, { weekStart: 7 });
 
@@ -4214,7 +4214,7 @@ QUnit.module("Views", ({ beforeEach }) => {
         );
         assert.strictEqual(
             target.querySelector(".fc-head .fc-week-number").textContent,
-            "Week 36",
+            "Week 37",
             "The number of the week should be correct"
         );
     });
@@ -5425,5 +5425,113 @@ QUnit.module("Views", ({ beforeEach }) => {
             target.querySelector(".o_calendar_filter_items").textContent,
             "00 - bazar0 - chouette1 - brol10 - machin11 - chose100 - bidule1011000 - trucEdên@Hello#HelloJean-Paul 1Jean-Paul 2JeremyKévinRomelüThibaùltZoooroUndefined"
         );
+    });
+
+    QUnit.test(
+        "sample data are not removed when switching back from calendar view",
+        async function (assert) {
+            serverData.models.event.records = [];
+            serverData.actions = {
+                1: {
+                    id: 1,
+                    name: "Partners",
+                    res_model: "event",
+                    type: "ir.actions.act_window",
+                    views: [
+                        [false, "list"],
+                        [false, "calendar"],
+                    ],
+                },
+            };
+
+            serverData.views = {
+                "event,false,calendar": `<calendar date_start="start" date_stop="stop" mode="day"/>`,
+                "event,false,list": `<tree sample="1">
+                    <field name="start"/>
+                    <field name="stop"/>
+                </tree>`,
+
+                "event,false,search": `<search />`,
+            };
+
+            const webClient = await createWebClient({
+                serverData,
+                async mockRPC(route, args) {
+                    if (args.method === "check_access_rights") {
+                        return true;
+                    }
+                    if (route.endsWith("/has_group")) {
+                        return true;
+                    }
+                },
+            });
+
+            await doAction(webClient, 1);
+
+            assert.containsOnce(target, ".o_list_view", "should have rendered a list view");
+            assert.containsOnce(target, ".o_view_sample_data", "should have sample data");
+
+            await click(target, ".o_cp_switch_buttons .o_calendar");
+            assert.containsOnce(
+                target,
+                ".o_calendar_container",
+                "should have rendered a calendar view"
+            );
+
+            await click(target, ".o_cp_switch_buttons .o_list");
+
+            assert.containsOnce(target, ".o_list_view", "should have rendered a list view");
+            assert.containsOnce(target, ".o_view_sample_data", "should have sample data");
+        }
+    );
+
+    QUnit.test("Retaining the 'all' filter value on re-rendering", async (assert) => {
+        serverData.actions = {
+            1: {
+                id: 1,
+                name: "Partners",
+                res_model: "event",
+                type: "ir.actions.act_window",
+                views: [
+                    [false, "calendar"],
+                    [false, "list"],
+                ],
+            },
+        };
+
+        serverData.views = {
+            "event,false,calendar": `<calendar date_start="start" date_stop="stop" all_day="allday" mode="week" event_open_popup="1" attendee="partner_ids" color="partner_id">
+                <filter name="user_id" avatar_field="image" />
+                <field name="partner_ids" write_model="filter_partner" write_field="partner_id" />
+                <field name="partner_id" filters="1" invisible="1" />
+            </calendar>`,
+            "event,false,list": `<tree sample="1">
+                <field name="start"/>
+                <field name="stop"/>
+            </tree>`,
+            "event,false,search": `<search />`,
+        };
+
+        const webClient = await createWebClient({
+            serverData,
+            async mockRPC(route, args) {
+                if (args.method === "check_access_rights") {
+                    return true;
+                }
+                if (route.endsWith("/has_group")) {
+                    return true;
+                }
+            },
+        });
+
+        await doAction(webClient, 1);
+
+        await click(target, ".o_calendar_filter_item[data-value='all'] input");
+        assert.ok(document.querySelector(".o_calendar_filter_item[data-value='all'] input").checked, "Check if the value of the 'all' filter is set to true")
+
+        await click(target, ".o_cp_switch_buttons .o_list");
+        await click(target, ".o_cp_switch_buttons .o_calendar");
+
+        assert.ok(document.querySelector(".o_calendar_filter_item[data-value='all'] input").checked, "The value of the 'all' filter should remain the same as it was before re-rendering")
     });
 });

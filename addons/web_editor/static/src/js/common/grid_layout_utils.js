@@ -2,7 +2,7 @@
 
 import { renderToElement } from "@web/core/utils/render";
 import {descendants, preserveCursor} from "@web_editor/js/editor/odoo-editor/src/utils/utils";
-const rowSize = 50; // 50px.
+export const rowSize = 50; // 50px.
 // Maximum number of rows that can be added when dragging a grid item.
 export const additionalRowLimit = 10;
 
@@ -326,8 +326,7 @@ export function _checkIfImageColumn(columnEl) {
 }
 /**
  * Removes the line breaks and textnodes of the column, adds the grid class and
- * sets the image width to default so it can be displayed as expected. Also
- * blocks the edition of the column.
+ * sets the image width to default so it can be displayed as expected.
  *
  * @private
  * @param {Element} columnEl a column containing only an image.

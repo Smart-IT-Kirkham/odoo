@@ -5,9 +5,10 @@ from collections import defaultdict
 from datetime import timedelta
 from itertools import groupby
 from markupsafe import Markup, escape
+from operator import itemgetter
 
 from odoo import api, fields, models, _, Command
-from odoo.exceptions import AccessError, UserError, ValidationError
+from odoo.exceptions import AccessDenied, AccessError, UserError, ValidationError
 from odoo.tools import float_is_zero, float_compare, convert
 from odoo.service.common import exp_version
 from odoo.osv.expression import AND
@@ -799,7 +800,8 @@ class PosSession(models.Model):
                     stock_moves = self.env['stock.move'].sudo().search([
                         ('picking_id', 'in', order.picking_ids.ids),
                         ('company_id.anglo_saxon_accounting', '=', True),
-                        ('product_id.categ_id.property_valuation', '=', 'real_time')
+                        ('product_id.categ_id.property_valuation', '=', 'real_time'),
+                        ('product_id.type', '=', 'product'),
                     ])
                     for move in stock_moves:
                         exp_key = move.product_id._get_product_accounts()['expense']
@@ -829,6 +831,7 @@ class PosSession(models.Model):
                     ('picking_id', 'in', global_session_pickings.ids),
                     ('company_id.anglo_saxon_accounting', '=', True),
                     ('product_id.categ_id.property_valuation', '=', 'real_time'),
+                    ('product_id.type', '=', 'product'),
                 ])
                 for move in stock_moves:
                     exp_key = move.product_id._get_product_accounts()['expense']
@@ -955,6 +958,7 @@ class PosSession(models.Model):
             'ref': _('Combine %s POS payments from %s', payment_method.name, self.name),
             'pos_payment_method_id': payment_method.id,
             'pos_session_id': self.id,
+            'company_id': self.company_id.id,
         })
 
         diff_amount_compare_to_zero = self.currency_id.compare_amounts(diff_amount, 0)
@@ -1660,6 +1664,18 @@ class PosSession(models.Model):
         """
         This is where we need to process the data if we can't do it in the loader/getter
         """
+        def filter_taxes_on_company(product_taxes, taxes_by_company):
+            """
+            Filter the list of tax ids on a single company starting from the current one.
+            If there is no tax in the result, it's filtered on the parent company and so
+            on until a non empty result is found.
+            """
+            taxes, comp = None, self.company_id
+            while not taxes and comp:
+                taxes = list(set(product_taxes) & set(taxes_by_company[comp.id]))
+                comp = comp.parent_id
+            return taxes
+
         loaded_data['version'] = exp_version()
 
         loaded_data['units_by_id'] = {unit['id']: unit for unit in loaded_data['uom.uom']}
@@ -1667,6 +1683,24 @@ class PosSession(models.Model):
         loaded_data['taxes_by_id'] = {tax['id']: tax for tax in loaded_data['account.tax']}
         for tax in loaded_data['taxes_by_id'].values():
             tax['children_tax_ids'] = [loaded_data['taxes_by_id'][id] for id in tax['children_tax_ids']]
+
+        taxes_by_company = defaultdict(set)
+        # If the current company is a branch company, the taxes of the products can come
+        # from the branch and its parents.
+        # We have to make sure to not mix them together and only use the taxes from the
+        # parent if there is no tax from the branch.
+        if self.company_id.parent_id:
+            # group all taxes by company in a dict where:
+            # - key: ID of the company
+            # - values: list of tax ids
+            key_company_id = itemgetter('company_id')
+            key_id = itemgetter('id')
+            for key, group in groupby(loaded_data['account.tax'], key=key_company_id):
+                taxes_by_company[key[0]] = list(map(key_id, group))
+        if len(taxes_by_company) > 1:
+            for product in loaded_data['product.product']:
+                if len(product['taxes_id']) > 1:
+                    product['taxes_id'] = filter_taxes_on_company(product['taxes_id'], taxes_by_company)
 
         if self.config_id.use_pricelist:
             default_pricelist = next(
@@ -1687,6 +1721,8 @@ class PosSession(models.Model):
         loaded_data['pos_special_products_ids'] = self.env['pos.config']._get_special_products().ids
         loaded_data['open_orders'] = self.env['pos.order'].search([('session_id', '=', self.id), ('state', '=', 'draft')]).export_for_ui()
         loaded_data['partner_commercial_fields'] = self.env['res.partner']._commercial_fields()
+        loaded_data['show_product_images'] = self.env['ir.config_parameter'].sudo().get_param('point_of_sale.show_product_images', 'yes')
+        loaded_data['show_category_images'] = self.env['ir.config_parameter'].sudo().get_param('point_of_sale.show_category_images', 'yes')
 
     @api.model
     def _pos_ui_models_to_load(self):
@@ -1810,7 +1846,7 @@ class PosSession(models.Model):
                 'domain': self.env['account.tax']._check_company_domain(self.company_id),
                 'fields': [
                     'name', 'price_include', 'include_base_amount', 'is_base_affected',
-                    'amount_type', 'children_tax_ids', 'amount', 'id'
+                    'amount_type', 'children_tax_ids', 'amount', 'company_id', 'id'
                 ],
             },
         }
@@ -2239,15 +2275,21 @@ class PosSession(models.Model):
 
     @api.model
     def _load_onboarding_data(self):
+        if not self.env.user.has_group("point_of_sale.group_pos_user"):
+            raise AccessDenied()
         convert.convert_file(self.env, 'point_of_sale', 'data/point_of_sale_onboarding.xml', None, mode='init', kind='data')
         shop_config = self.env.ref('point_of_sale.pos_config_main', raise_if_not_found=False)
         if shop_config and shop_config.active:
-            convert.convert_file(self.env, 'point_of_sale', 'data/point_of_sale_onboarding_main_config.xml', None, mode='init', kind='data')
-            if len(shop_config.session_ids.filtered(lambda s: s.state == 'opened')) == 0:
-                self.env['pos.session'].create({
-                    'config_id': shop_config.id,
-                    'user_id': self.env.ref('base.user_admin').id,
-                })
+            self._load_onboarding_main_config_data(shop_config)
+
+    @api.model
+    def _load_onboarding_main_config_data(self, shop_config):
+        convert.convert_file(self.env, 'point_of_sale', 'data/point_of_sale_onboarding_main_config.xml', None, mode='init', kind='data')
+        if len(shop_config.session_ids.filtered(lambda s: s.state == 'opened')) == 0:
+            self.env['pos.session'].create({
+                'config_id': shop_config.id,
+                'user_id': self.env.ref('base.user_admin').id,
+            })
 
     def _after_load_onboarding_data(self):
         config = self.env.ref('point_of_sale.pos_config_main', raise_if_not_found=False)

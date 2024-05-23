@@ -5,6 +5,7 @@
 # Translators:
 # Wil Odoo, 2023
 # Iran Villalobos López, 2023
+# Lucia Pacheco, 2024
 # Fernanda Alvarez, 2024
 # 
 msgid ""
@@ -24,7 +25,7 @@ msgstr ""
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_view_form_inherit_org_chart
 msgid "<span class=\"o_stat_text\">Org Chart</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Organigrama</span>"
 
 #. module: hr_org_chart
 #: model_terms:ir.actions.act_window,help:hr_org_chart.action_hr_employee_org_chart
@@ -79,7 +80,7 @@ msgstr "Empleados"
 #, python-format
 msgid "In order to get an organigram, set a manager and save the record."
 msgstr ""
-"Para obtener un organigrama, establezca un gerente y guarde el registro."
+"Establezca un gerente y guarde el registro para obtener un organigrama."
 
 #. module: hr_org_chart
 #: model:ir.model.fields,field_description:hr_org_chart.field_hr_employee__child_all_count
@@ -127,7 +128,7 @@ msgstr "Operación no compatible"
 #: model:ir.actions.act_window,name:hr_org_chart.action_hr_employee_org_chart
 #: model:ir.ui.menu,name:hr_org_chart.menu_hr_employee_org_chart
 msgid "Org Chart"
-msgstr "Gráfico de org"
+msgstr "Organigrama"
 
 #. module: hr_org_chart
 #: model_terms:ir.ui.view,arch_db:hr_org_chart.hr_employee_public_view_form_inherit_org_chart

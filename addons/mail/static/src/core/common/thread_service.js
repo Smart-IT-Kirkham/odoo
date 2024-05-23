@@ -10,7 +10,6 @@ import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
 import { memoize } from "@web/core/utils/functions";
 import { url } from "@web/core/utils/urls";
-import { escape } from "@web/core/utils/strings";
 import { compareDatetime } from "@mail/utils/common/misc";
 
 const FETCH_LIMIT = 30;
@@ -100,7 +99,7 @@ export class ThreadService {
      * @param {import("models").Thread} thread
      */
     markAsRead(thread) {
-        const newestPersistentMessage = thread.newestPersistentNotEmptyOfAllMessage;
+        const newestPersistentMessage = thread.newestPersistentOfAllMessage;
         if (!newestPersistentMessage && !thread.isLoaded) {
             thread.isLoadedDeferred
                 .then(() => new Promise(setTimeout))
@@ -132,7 +131,7 @@ export class ThreadService {
         }
     }
 
-    updateSeen(thread, lastSeenId = thread.newestPersistentNotEmptyOfAllMessage?.id) {
+    updateSeen(thread, lastSeenId = thread.newestPersistentOfAllMessage?.id) {
         const lastReadIndex = thread.messages.findIndex((message) => message.id === lastSeenId);
         let newNeedactionCounter = 0;
         let newUnreadCounter = 0;
@@ -642,7 +641,10 @@ export class ThreadService {
      * @param {import("models").Thread} thread
      * @param {boolean} pushState
      */
-    setDiscussThread(thread, pushState = true) {
+    setDiscussThread(thread, pushState) {
+        if (pushState === undefined) {
+            pushState = thread.localId !== this.store.discuss.thread?.localId;
+        }
         this.store.discuss.thread = thread;
         const activeId =
             typeof thread.id === "string"
@@ -656,9 +658,6 @@ export class ThreadService {
                 : "channel";
         if (pushState) {
             this.router.pushState({ active_id: activeId });
-        }
-        if (!thread.is_pinned) {
-            thread.isLocallyPinned = true;
         }
     }
 
@@ -776,14 +775,18 @@ export class ThreadService {
               })
             : undefined;
         const partner_ids = validMentions?.partners.map((partner) => partner.id);
-        let recipientEmails = [];
+        const recipientEmails = [];
+        const recipientAdditionalValues = {};
         if (!isNote) {
             const recipientIds = thread.suggestedRecipients
                 .filter((recipient) => recipient.persona && recipient.checked)
                 .map((recipient) => recipient.persona.id);
-            recipientEmails = thread.suggestedRecipients
+            thread.suggestedRecipients
                 .filter((recipient) => recipient.checked && !recipient.persona)
-                .map((recipient) => recipient.email);
+                .forEach((recipient) => {
+                    recipientEmails.push(recipient.email);
+                    recipientAdditionalValues[recipient.email] = recipient.defaultCreateValues;
+                });
             partner_ids?.push(...recipientIds);
         }
         return {
@@ -799,6 +802,7 @@ export class ThreadService {
                 partner_ids,
                 subtype_xmlid: subtype,
                 partner_emails: recipientEmails,
+                partner_additional_values: recipientAdditionalValues,
             },
             thread_id: thread.id,
             thread_model: thread.model,
@@ -953,13 +957,9 @@ export class ThreadService {
      * @param {Message} message
      */
     notifyMessageToUser(thread, message) {
-        if (
-            thread.type === "channel" &&
-            message.recipients?.includes(this.store.user) &&
-            message.notIn(thread.needactionMessages)
-        ) {
-            thread.needactionMessages.add(message);
-            thread.message_needaction_counter++;
+        let notify = thread.type !== "channel";
+        if (thread.type === "channel" && message.recipients?.includes(this.store.user)) {
+            notify = true;
         }
         if (
             thread.chatPartner?.eq(this.store.odoobot) ||
@@ -970,8 +970,10 @@ export class ThreadService {
         ) {
             return;
         }
-        this.store.ChatWindow.insert({ thread });
-        this.outOfFocusService.notify(message, thread);
+        if (notify) {
+            this.store.ChatWindow.insert({ thread });
+            this.outOfFocusService.notify(message, thread);
+        }
     }
 
     /**
@@ -1005,7 +1007,7 @@ export class ThreadService {
     async search(searchTerm, thread, before = false) {
         const { messages, count } = await this.rpc(this.getFetchRoute(thread), {
             ...this.getFetchParams(thread),
-            search_term: escape(searchTerm),
+            search_term: await prettifyMessageContent(searchTerm), // formatted like message_post
             before,
         });
         return {

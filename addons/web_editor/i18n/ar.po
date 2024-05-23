@@ -5,15 +5,15 @@
 # Translators:
 # Mustafa Rawi <mustafa@cubexco.com>, 2023
 # Wil Odoo, 2023
-# Malaz Abuidris <msea@odoo.com>, 2023
+# Malaz Abuidris <msea@odoo.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 12:32+0000\n"
+"POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Malaz Abuidris <msea@odoo.com>, 2023\n"
+"Last-Translator: Malaz Abuidris <msea@odoo.com>, 2024\n"
 "Language-Team: Arabic (https://app.transifex.com/odoo/teams/41243/ar/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -251,7 +251,7 @@ msgstr "<span>تخصيص</span> "
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "ACCESS OPTIONS ANYWAY"
-msgstr ""
+msgstr "الوصول إلى الخيارات بأي حال "
 
 #. module: web_editor
 #. odoo-javascript
@@ -298,6 +298,7 @@ msgstr "إضافة صف "
 
 #. module: web_editor
 #. odoo-javascript
+#: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
 #: code:addons/web_editor/static/src/components/media_dialog/image_selector.js:0
 #, python-format
 msgid "Add URL"
@@ -337,13 +338,6 @@ msgstr "إضافة رابط "
 #, python-format
 msgid "Add an emoji"
 msgstr "إضافة رمز تعبيري"
-
-#. module: web_editor
-#. odoo-javascript
-#: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
-#, python-format
-msgid "Add document"
-msgstr "إضافة مستند "
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -1398,14 +1392,14 @@ msgstr "قم بإنشاء أو تحويل المحتوى باستخدام الذ
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_alternatives_dialog.xml:0
 #, python-format
 msgid "Generating"
-msgstr ""
+msgstr "جاري إنشاء "
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_alternatives_dialog.xml:0
 #, python-format
 msgid "Generating an alternative..."
-msgstr ""
+msgstr "جاري إنشاء بديل... "
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -2373,6 +2367,13 @@ msgid "Primary"
 msgstr "الرئيسي"
 
 #. module: web_editor
+#. odoo-javascript
+#: code:addons/web_editor/static/src/components/upload_progress_toast/upload_progress_toast.xml:0
+#, python-format
+msgid "Progress bar"
+msgstr "شريط التقدم "
+
+#. module: web_editor
 #: model:ir.model.fields.selection,name:web_editor.selection__web_editor_converter_test__selection_str__c
 msgid "Qu'est-ce qu'il fout ce maudit pancake, tabernacle ?"
 msgstr "Qu'est-ce qu'il fout ce maudit pancake, tabernacle ?"
@@ -2485,7 +2486,7 @@ msgstr "حقل Qweb من النوع qweb"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "REPLACE BY NEW VERSION"
-msgstr ""
+msgstr "الاستبدال بالنسخة الجديدة "
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
@@ -3212,7 +3213,7 @@ msgstr "رابط URL هذا غير صالح. تعذر تحديث المعاين�
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "This block is outdated."
-msgstr ""
+msgstr "هذه الكتلة الإنشائية قديمة. "
 
 #. module: web_editor
 #. odoo-javascript
@@ -3606,6 +3607,8 @@ msgstr "نعم"
 #, python-format
 msgid "You can still access the block options but it might be ineffective."
 msgstr ""
+"لا يزال بوسعك الوصول إلى خيارات الكتلة الإنشائية، ولكن قد لا يجدي ذلك نفعاً."
+" "
 
 #. module: web_editor
 #. odoo-javascript
@@ -3621,7 +3624,7 @@ msgstr "بإمكانك رفع المستندات باستخدام الزر ال�
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "You might not be able to customize it anymore."
-msgstr ""
+msgstr "قد لا تكون قادراً على التخصيص بعد الآن. "
 
 #. module: web_editor
 #. odoo-python
@@ -3683,7 +3686,7 @@ msgstr "إضافة"
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_alternatives_dialog.xml:0
 #, python-format
 msgid "alternatives..."
-msgstr ""
+msgstr "بدائل... "
 
 #. module: web_editor
 #. odoo-javascript

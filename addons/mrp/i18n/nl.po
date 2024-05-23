@@ -5,8 +5,8 @@
 # Translators:
 # Yenthe Van Ginneken <yenthespam@gmail.com>, 2023
 # Martin Trigaux, 2023
-# Jolien De Paepe, 2023
-# Erwin van der Ploeg <erwin@odooexperts.nl>, 2023
+# Jolien De Paepe, 2024
+# Erwin van der Ploeg <erwin@odooexperts.nl>, 2024
 # Wil Odoo, 2024
 # 
 msgid ""
@@ -804,6 +804,11 @@ msgid "Archived"
 msgstr "Gearchiveerd"
 
 #. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid "Are you sure you want to cancel this manufacturing order?"
+msgstr "Weet je zeker dat je deze productieorder wilt annuleren?"
+
+#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
 msgid "Assembling"
 msgstr "Assembleren"
@@ -1312,7 +1317,7 @@ msgstr "Capaciteit moet een positief getal zijn."
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__qty_reported_from_previous_wo
 msgid "Carried Quantity"
-msgstr "Vervoerde hoeveelheid"
+msgstr "Overgedragen hoeveelheid"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__product_uom_category_id
@@ -1808,7 +1813,7 @@ msgstr "Maakt een nieuw serie of partijnummer"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_document_form
 msgid "Creation"
-msgstr "Creatie"
+msgstr "Aanmaken"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__currency_id
@@ -2067,7 +2072,7 @@ msgstr "Geeft de verbruikte partij/serienummers weer."
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Displays the produced Lot/Serial Numbers."
-msgstr ""
+msgstr "Toont de geproduceerde partij/serienummers."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.stock_warn_insufficient_qty_unbuild_form_view
@@ -2154,12 +2159,12 @@ msgstr "Duur (minuten)"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__time_mode
 msgid "Duration Computation"
-msgstr "Duur berekening"
+msgstr "Berekeningswijze"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__duration_percent
 msgid "Duration Deviation (%)"
-msgstr "Duur verschil (%)"
+msgstr "Tijdsduurverschil (%)"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__duration_unit
@@ -3070,7 +3075,7 @@ msgstr ""
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Lock"
-msgstr "Vergrendelen"
+msgstr "Blokkeren"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -4438,7 +4443,7 @@ msgstr "Productsjabloon"
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__product_uom_id
 #: model:ir.model.fields,field_description:mrp.field_mrp_production_split__product_uom_id
 msgid "Product Unit of Measure"
-msgstr "Maateenheid product"
+msgstr "Maateenheid onderdeel"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter_capacity__product_uom_id
@@ -4695,7 +4700,7 @@ msgstr "Grondstofverplaatsingen"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_production_workorder_form_view_filter
 #, python-format
 msgid "Ready"
-msgstr "Klaar om te starten"
+msgstr "Gereed"
 
 #. module: mrp
 #. odoo-javascript
@@ -4890,6 +4895,12 @@ msgstr "Route"
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
 msgid "Routing"
 msgstr "Productieroute"
+
+#. module: mrp
+#: code:addons/mrp/models/stock_quant.py:0
+#, python-format
+msgid "Return to Inventory"
+msgstr "Terug naar voorraad"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
@@ -5208,15 +5219,6 @@ msgid ""
 msgstr ""
 "Sommige van je onderdelen worden getraceerd, je moet een productieorder "
 "opgeven om de juiste onderdelen op te halen."
-
-#. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid ""
-"Some product moves have already been confirmed, this manufacturing order "
-"can't be completely cancelled. Are you still sure you want to process?"
-msgstr ""
-"Sommige productverplaatsingen zijn al bevestigd, deze productieorder kan "
-"niet volledig worden geannuleerd. Weet je zeker dat je wilt verwerken?"
 
 #. module: mrp
 #. odoo-python
@@ -5540,7 +5542,7 @@ msgstr "Tekst"
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__is_outdated_bom
 msgid "The BoM has been updated since creation of the MO"
-msgstr "De stuklijst werd bijgewerkt sinds de creatie van de productieorder"
+msgstr "De stuklijst werd bijgewerkt sinds het aanmaken van de productieorder"
 
 #. module: mrp
 #. odoo-python
@@ -7081,6 +7083,7 @@ msgstr "Je dient een partijnummer in te voeren voor het eindproduct."
 #, python-format
 msgid "You need to supply Lot/Serial Number for products and 'consume' them:"
 msgstr ""
+"Je moet een partij/serienummer opgeven voor producten en ze 'verbruiken':"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_mrp_production_backorder
@@ -7093,6 +7096,17 @@ msgstr "Je produceerde minder dan de aanvankelijke vraag"
 #, python-format
 msgid "You should provide a lot number for the final product."
 msgstr "Je dient een partijnummer in te geven voor het eindproduct."
+
+#. module: mrp
+#. odoo-python
+#: code:addons/mrp/models/stock_quant.py:0
+#, python-format
+msgid ""
+"You should update the components quantity instead of directly updating the "
+"quantity of the kit product."
+msgstr ""
+"Je moet het aantal componenten bijwerken in plaats van rechtstreeks het "
+"aantal van het kitproduct bij te werken."
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__done_mrp_lot_label_to_print__zpl
@@ -7115,7 +7129,7 @@ msgstr "dagen"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_assign_serial_numbers_production
 msgid "e.g. SN0000001"
-msgstr ""
+msgstr "bijv. SN0000001"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit

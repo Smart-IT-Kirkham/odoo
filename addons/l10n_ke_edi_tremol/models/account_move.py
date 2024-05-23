@@ -80,6 +80,16 @@ class AccountMove(models.Model):
 
         return errors
 
+    def _l10n_ke_fiscal_device_details_filled(self):
+        self.ensure_one()
+        return all([
+            self.country_code == 'KE',
+            self.l10n_ke_cu_invoice_number,
+            self.l10n_ke_cu_serial_number,
+            self.l10n_ke_cu_qrcode,
+            self.l10n_ke_cu_datetime,
+        ])
+
     # -------------------------------------------------------------------------
     # SERIALISERS
     # -------------------------------------------------------------------------
@@ -172,16 +182,17 @@ class AccountMove(models.Model):
             item_code = line.tax_ids[0].l10n_ke_item_code_id
             for tax in tax_details['tax_details_per_record'][line]['tax_details']:
                 if tax['tax'].amount in (16, 8, 0): # This should only occur once
-                    tax_details = tax_details['tax_details_per_record'][line]['tax_details'][tax]
-                    price_total = abs(tax_details['base_amount_currency']) + abs(tax_details['tax_amount_currency'])
+                    line_tax_details = tax_details['tax_details_per_record'][line]['tax_details'][tax]
+                    price_total = abs(line_tax_details['base_amount_currency']) + abs(line_tax_details['tax_amount_currency'])
                     percentage = tax['tax'].amount
             price = round(price_total / abs(line.quantity) * 100 / (100 - line.discount), 2) * currency_rate
+            price = ('%.5f' % price).rstrip('0').rstrip('.')
             uom = line.product_uom_id and line.product_uom_id.name or ''
 
             line_data = b';'.join([
                 self._l10n_ke_fmt(line.name, 36),                       # 36 symbols for the article's name
                 self._l10n_ke_fmt(item_code.tax_rate or 'A', 1),        # 1 symbol for article's vat class ('A', 'B', 'C', 'D', or 'E')
-                str(price)[:13].encode('cp1251'),                       # 1 to 13 symbols for article's price
+                price[:15].encode('cp1251'),                    # 1 to 15 symbols for article's price with up to 5 digits after decimal point
                 self._l10n_ke_fmt(uom, 3),                              # 3 symbols for unit of measure
                 (item_code.code or '').ljust(10).encode('cp1251'),      # 10 symbols for KRA item code in the format xxxx.xx.xx (can be empty)
                 self._l10n_ke_fmt(item_code.description or '', 20),     # 20 symbols for KRA item code description (can be empty)

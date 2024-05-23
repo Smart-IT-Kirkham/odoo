@@ -9,6 +9,7 @@ import time
 from ast import literal_eval
 from collections import defaultdict
 from contextlib import contextmanager
+from freezegun import freeze_time
 from functools import partial
 from lxml import html
 from unittest.mock import patch
@@ -43,6 +44,19 @@ class MockEmail(common.BaseCase, MockSmtplibCase):
     def setUpClass(cls):
         super(MockEmail, cls).setUpClass()
         cls._mc_enabled = False
+
+    # ------------------------------------------------------------
+    # UTILITY MOCKS
+    # ------------------------------------------------------------
+
+    @contextmanager
+    def mock_datetime_and_now(self, mock_dt):
+        """ Used when synchronization date (using env.cr.now()) is important
+        in addition to standard datetime mocks. Used mainly to detect sync
+        issues. """
+        with freeze_time(mock_dt), \
+             patch.object(self.env.cr, 'now', lambda: mock_dt):
+            yield
 
     # ------------------------------------------------------------
     # GATEWAY MOCK
@@ -386,11 +400,11 @@ class MockEmail(common.BaseCase, MockSmtplibCase):
                 break
         else:
             debug_info = '\n'.join(
-                f'From: {mail.author_id} ({mail.email_from}) - Model{mail.model} / ResId {mail.res_id} (State: {mail.state})'
+                f'From: {mail.author_id} ({mail.email_from}) - Model {mail.model} / ResId {mail.res_id} (State: {mail.state})'
                 for mail in self._new_mails
             )
             raise AssertionError(
-                f'mail.mail not found for message {mail_message} / status {status} / record {record.model}, {record.id} / author {author}\n{debug_info}'
+                f'mail.mail not found for message {mail_message} / status {status} / record {record._name}, {record.id} / author {author}\n{debug_info}'
             )
         return mail
 
@@ -1245,6 +1259,7 @@ class MailCommon(common.TransactionCase, MailCase):
         cls.partner_admin = cls.env.ref('base.partner_admin')
         cls.company_admin = cls.user_admin.company_id
         cls.company_admin.write({
+            'country_id': cls.env.ref("base.be").id,
             'email': 'your.company@example.com',  # ensure email for various fallbacks
             'name': 'YourTestCompany',  # force for reply_to computation
         })

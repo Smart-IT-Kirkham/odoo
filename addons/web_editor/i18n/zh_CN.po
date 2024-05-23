@@ -4,16 +4,19 @@
 # 
 # Translators:
 # Wil Odoo, 2023
-# Jeffery CHEN <jeffery9@gmail.com>, 2023
 # 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2024
+# qilong zhong <zhongqilong001@gmail.com>, 2024
+# 湘子 南 <1360857908@qq.com>, 2024
+# Chloe Wang, 2024
+# Jeffery CHEN <jeffery9@gmail.com>, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 12:32+0000\n"
+"POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: 山西清水欧度(QQ:54773801) <54773801@qq.com>, 2024\n"
+"Last-Translator: Jeffery CHEN <jeffery9@gmail.com>, 2024\n"
 "Language-Team: Chinese (China) (https://app.transifex.com/odoo/teams/41243/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -190,22 +193,22 @@ msgstr "90"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"flex-grow-0 ms-1 text-white-50\">%</span>"
-msgstr "<span class=\"flex-grow-0 ml-1 text-white-50\">%</span>"
+msgstr "<span class=\"flex-grow-0 ms-1 text-white-50\">%</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"flex-grow-0 ms-1 text-white-50\">deg</span>"
-msgstr "<span class=\"flex-grow-0 ml-1 text-white-50\">度</span>"
+msgstr "<span class=\"flex-grow-0 ms-1 text-white-50\">度</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"me-2 ms-3\">Y</span>"
-msgstr "<span class=\"mr-2 ml-3\">Y</span>"
+msgstr "<span class=\"me-2 ms-3\">Y</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"me-2\">X</span>"
-msgstr "<span class=\"mr-2\">X</span>"
+msgstr "<span class=\"me-2\">X</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -248,7 +251,7 @@ msgstr "<span>定制</span>"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "ACCESS OPTIONS ANYWAY"
-msgstr ""
+msgstr "无论如何访问选项"
 
 #. module: web_editor
 #. odoo-javascript
@@ -295,6 +298,7 @@ msgstr "添加行"
 
 #. module: web_editor
 #. odoo-javascript
+#: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
 #: code:addons/web_editor/static/src/components/media_dialog/image_selector.js:0
 #, python-format
 msgid "Add URL"
@@ -334,13 +338,6 @@ msgstr "添加链接"
 #, python-format
 msgid "Add an emoji"
 msgstr "添加表情"
-
-#. module: web_editor
-#. odoo-javascript
-#: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
-#, python-format
-msgid "Add document"
-msgstr "添加文档"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -766,7 +763,7 @@ msgstr "协同编辑"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Collaborative trigger"
-msgstr "协同触发"
+msgstr "协同触发器"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2366,6 +2363,13 @@ msgid "Primary"
 msgstr "主要"
 
 #. module: web_editor
+#. odoo-javascript
+#: code:addons/web_editor/static/src/components/upload_progress_toast/upload_progress_toast.xml:0
+#, python-format
+msgid "Progress bar"
+msgstr "进度条"
+
+#. module: web_editor
 #: model:ir.model.fields.selection,name:web_editor.selection__web_editor_converter_test__selection_str__c
 msgid "Qu'est-ce qu'il fout ce maudit pancake, tabernacle ?"
 msgstr "Qu'est-ce qu'il fout ce maudit pancake, tabernacle ?"
@@ -2478,7 +2482,7 @@ msgstr "Qweb qweb字段"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "REPLACE BY NEW VERSION"
-msgstr ""
+msgstr "更换为新版本"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
@@ -3198,7 +3202,7 @@ msgstr "这个URL是无效的。预览不能被更新。"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "This block is outdated."
-msgstr ""
+msgstr "该块已过时。"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3583,7 +3587,7 @@ msgstr "是"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "You can still access the block options but it might be ineffective."
-msgstr ""
+msgstr "您仍然可以访问阻止选项，但它可能无效。"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3599,7 +3603,7 @@ msgstr "您可以使用屏幕左上方的按钮上传文档。"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "You might not be able to customize it anymore."
-msgstr ""
+msgstr "您可能无法再自定义它。"
 
 #. module: web_editor
 #. odoo-python

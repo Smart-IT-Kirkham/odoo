@@ -113,7 +113,7 @@ msgid ""
 "href=\"%s\">onboarding plan?</a>"
 msgstr ""
 "<b>Glückwunsch!</b> Darf ich Ihnen vorschlagen, einen <a "
-"href=\"%s\">Einführungsplan</a>aufzusetzen?"
+"href=\"%s\">Einführungsplan</a> aufzusetzen?"
 
 #. module: hr
 #: model_terms:ir.ui.view,arch_db:hr.hr_department_view_kanban
@@ -380,6 +380,8 @@ msgid ""
 "Additional Information: \n"
 " %(description)s"
 msgstr ""
+"Weitere Informationen:\n"
+" %(description)s"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee__additional_note
@@ -1567,7 +1569,7 @@ msgstr "Eingestellte Mitarbeiter"
 #. module: hr
 #: model:ir.model.fields.selection,name:hr.selection__hr_work_location__location_type__home
 msgid "Home"
-msgstr "Home"
+msgstr "Zuhause"
 
 #. module: hr
 #: model:ir.model.fields,field_description:hr.field_hr_employee__km_home_work
@@ -3023,6 +3025,10 @@ msgid ""
 "              He defines the products and customers portfolio according to the marketing plan.\n"
 "              This mission requires strong collaboration with Technical Service and Sales."
 msgstr ""
+"Der Marketing-Manager definiert die mittel- bis langfristige Marketingstrategie für die von ihm abgedeckten Marktsegmente in der Welt.\n"
+"              Er entwickelt und überwacht das Jahresbudget in Zusammenarbeit mit dem Vertrieb.\n"
+"              Er definiert das Produkt- und Kundenportfolio gemäß dem Marketingplan.\n"
+"              Diese Aufgabe erfordert eine enge Zusammenarbeit mit dem technischen Service und dem Vertrieb."
 
 #. module: hr
 #. odoo-python
@@ -3301,6 +3307,8 @@ msgstr "Warnung"
 msgid ""
 "We are currently looking for someone like that to join our Consultant team."
 msgstr ""
+"Wir sind derzeit auf der Suche nach einer solchen Person, um unser "
+"Beraterteam zu verstärken."
 
 #. module: hr
 #: model_terms:hr.job,description:hr.job_developer
@@ -3308,6 +3316,8 @@ msgid ""
 "We are currently looking for someone like that to join our Web team.\n"
 "                Someone who can snap out of coding and perform analysis or meet clients to explain the technical possibilities that can meet their needs."
 msgstr ""
+"Wir sind derzeit auf der Suche nach einer solchen Person für unser Webteam.\n"
+"                Jemanden, der aus der Programmierung aussteigen und Analysen durchführen oder sich mit Kunden treffen kann, um ihnen die technischen Möglichkeiten zu erläutern, die ihre Bedürfnisse erfüllen können."
 
 #. module: hr
 #: model_terms:hr.job,website_description:hr.job_ceo
@@ -3400,7 +3410,7 @@ msgstr "Arbeits-E-Mail"
 #: model_terms:ir.ui.view,arch_db:hr.res_users_view_form_profile
 #: model_terms:ir.ui.view,arch_db:hr.view_employee_form
 msgid "Work Information"
-msgstr "Arbeitsinformation"
+msgstr "Arbeitsinformationen"
 
 #. module: hr
 #: model:ir.model,name:hr.model_hr_work_location

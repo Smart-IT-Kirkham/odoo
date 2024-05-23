@@ -16,6 +16,7 @@ const BLACKLISTED_MENUS = [
     "hr_attendance.menu_hr_attendance_kiosk_no_user_mode", // same here (tablet mode)
     "mrp_workorder.menu_mrp_workorder_root", // same here (tablet mode)
     "account.menu_action_account_bank_journal_form", // Modal in an iFrame
+    "pos_preparation_display.menu_point_kitchen_display_root", // conditional menu that may leads to frontend
 ];
 // If you change this selector, adapt Studio test "Studio icon matches the clickbot selector"
 const STUDIO_SYSTRAY_ICON_SELECTOR = ".o_web_studio_navbar_item:not(.o_disabled) i";
@@ -23,6 +24,7 @@ const STUDIO_SYSTRAY_ICON_SELECTOR = ".o_web_studio_navbar_item:not(.o_disabled)
 let isEnterprise;
 let appsMenusOnly = false;
 let calledRPC;
+let errorRPC;
 let actionCount;
 let env;
 let studioCount;
@@ -46,6 +48,7 @@ function setup() {
     env.bus.addEventListener("RPC:RESPONSE", onRPCResponse);
     actionCount = 0;
     calledRPC = {};
+    errorRPC = undefined;
     studioCount = 0;
     testedApps = [];
     testedMenus = [];
@@ -63,6 +66,9 @@ function onRPCRequest({ detail }) {
 
 function onRPCResponse({ detail }) {
     delete calledRPC[detail.data.id];
+    if (detail.error) {
+        errorRPC = { ...detail };
+    }
 }
 
 function uiUpdate() {
@@ -128,11 +134,22 @@ async function waitForCondition(stopCondition) {
         }
         return size > 0;
     }
-
-    while (!stopCondition() || hasPendingRPC() || hasScheduledTask()) {
+    function errorDialog() {
         if (document.querySelector(".o_error_dialog")) {
-            throw new Error("Error dialog detected");
+            if (errorRPC) {
+                browser.console.error(
+                    "A RPC in error was detected, maybe it's related to the error dialog : " +
+                        JSON.stringify(errorRPC)
+                );
+            }
+            throw new Error(
+                "Error dialog detected" + document.querySelector(".o_error_dialog").innerHTML
+            );
         }
+        return false;
+    }
+
+    while (errorDialog() || !stopCondition() || hasPendingRPC() || hasScheduledTask()) {
         if (timeLimit <= 0) {
             let msg = `Timeout, the clicked element took more than ${
                 initialTime / 1000
@@ -164,7 +181,7 @@ async function waitForCondition(stopCondition) {
  * Make sure the home menu is open (enterprise only)
  */
 async function ensureHomeMenu() {
-    const homeMenu = document.querySelector(".o_home_menu");
+    const homeMenu = document.querySelector("div.o_home_menu");
     if (!homeMenu) {
         let menuToggle = document.querySelector("nav.o_main_navbar > a.o_menu_toggle");
         if (!menuToggle) {
@@ -174,7 +191,7 @@ async function ensureHomeMenu() {
             menuToggle = document.querySelector(".o_stock_barcode_menu");
         }
         await triggerClick(menuToggle, "home menu toggle button");
-        await waitForCondition(() => document.querySelector(".o_home_menu"));
+        await waitForCondition(() => document.querySelector("div.o_home_menu"));
     }
 }
 
@@ -245,9 +262,6 @@ async function getNextApp() {
     } else {
         await ensureAppsMenu();
         apps = document.querySelectorAll(".o_navbar_apps_menu .dropdown-item");
-    }
-    if (apps.length === 0) {
-        throw new Error("No app found, it's possible that we are not on the home menu/app menu");
     }
     const app = apps[appIndex];
     appIndex++;

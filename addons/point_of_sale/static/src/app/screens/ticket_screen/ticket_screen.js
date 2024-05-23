@@ -93,15 +93,15 @@ export class TicketScreen extends Component {
             { value: "1" },
             { value: "2" },
             { value: "3" },
-            { value: "quantity", text: "Qty", class: "active border-primary" },
+            { value: "quantity", text: _t("Qty"), class: "active border-primary" },
             { value: "4" },
             { value: "5" },
             { value: "6" },
-            { value: "discount", text: "% Disc", disabled: true },
+            { value: "discount", text: _t("% Disc"), disabled: true },
             { value: "7" },
             { value: "8" },
             { value: "9" },
-            { value: "price", text: "Price", disabled: true },
+            { value: "price", text: _t("Price"), disabled: true },
             { value: "-", text: "+/-", disabled: true },
             { value: "0" },
             { value: this.env.services.localization.decimalPoint },
@@ -150,7 +150,7 @@ export class TicketScreen extends Component {
                 ),
             });
             if (!confirmed) {
-                return;
+                return confirmed;
             }
         }
         if (order && (await this._onBeforeDeleteOrder(order))) {
@@ -172,6 +172,7 @@ export class TicketScreen extends Component {
         if (this.pos.isOpenOrderShareable()) {
             this.pos._removeOrdersFromServer();
         }
+        return true;
     }
     async onNextPage() {
         if (this._state.syncedOrders.currentPage < this._getLastPage()) {
@@ -270,6 +271,20 @@ export class TicketScreen extends Component {
         const allToRefundDetails = this._getRefundableDetails(partner);
         if (allToRefundDetails.length == 0) {
             this._state.ui.highlightHeaderNote = !this._state.ui.highlightHeaderNote;
+            return;
+        }
+
+        const invoicedOrderIds = new Set(
+            allToRefundDetails
+                .filter(detail => this._state.syncedOrders.cache[detail.orderline.orderBackendId]?.state === "invoiced")
+                .map(detail => detail.orderline.orderBackendId)
+        );
+
+        if (invoicedOrderIds.size > 1) {
+            this.popup.add(ErrorPopup, {
+                title: _t('Multiple Invoiced Orders Selected'),
+                body: _t('You have selected orderlines from multiple invoiced orders. To proceed refund, please select orderlines from the same invoiced order.')
+            });
             return;
         }
 
@@ -390,7 +405,7 @@ export class TicketScreen extends Component {
     }
     getStatus(order) {
         if (order.locked) {
-            return _t("Paid");
+            return order.state === 'invoiced' ? _t('Invoiced') : _t("Paid");
         } else {
             const screen = order.get_screen_data();
             return this._getOrderStates().get(this._getScreenToStatusMap()[screen.name]).text;

@@ -171,7 +171,21 @@ class Channel(models.Model):
 
     def _search_is_member(self, operator, operand):
         is_in = (operator == '=' and operand) or (operator == '!=' and not operand)
-        return [('channel_member_ids', "any" if is_in else "not any", [('is_self', '=', True)])]
+        # Separate query to fetch candidate channels because the sub-select that _search would
+        # generate leads psql query plan to take bad decisions. When candidate ids are explicitly
+        # given it doesn't need to make (incorrect) guess, at the cost of one extra but fast query.
+        # It is expected to return hundreds of channels, a thousand at most, which is acceptable.
+        # A "join" would be ideal, but the ORM is currently not able to generate it from the domain.
+        current_partner, current_guest = self.env["res.partner"]._get_current_persona()
+        if current_guest:
+            # sudo: discuss.channel - sudo for performance, just checking existence
+            channels = current_guest.sudo().channel_ids
+        elif current_partner:
+            # sudo: discuss.channel - sudo for performance, just checking existence
+            channels = current_partner.sudo().channel_ids
+        else:
+            channels = self.env["discuss.channel"]
+        return [('id', "in" if is_in else "not in", channels.ids)]
 
     @api.depends('channel_member_ids')
     def _compute_member_count(self):
@@ -257,33 +271,25 @@ class Channel(models.Model):
             failing_channels = self.filtered(lambda channel: channel.channel_type != vals.get('channel_type'))
             if failing_channels:
                 raise UserError(_('Cannot change the channel type of: %(channel_names)s', channel_names=', '.join(failing_channels.mapped('name'))))
+        old_vals = {channel: channel._channel_basic_info() for channel in self}
+        result = super().write(vals)
         notifications = []
         for channel in self:
-            current_val = channel.read(vals.keys())[0]
+            info = channel._channel_basic_info()
             diff = {}
-            for key in vals.keys():
-                if current_val.get(key) != vals.get(key) and key != "image_128":
-                    diff[key] = vals[key]
+            for key, value in info.items():
+                if value != old_vals[channel][key]:
+                    diff[key] = value
             if diff:
                 notifications.append([channel, "mail.record/insert", {
                     "Thread": {
-                        "id": current_val["id"],
+                        "id": channel.id,
                         "model": "discuss.channel",
                         **diff
                     }
                 }])
-        result = super().write(vals)
         if vals.get('group_ids'):
             self._subscribe_users_automatically()
-        if 'image_128' in vals:
-            for channel in self:
-                notifications.append([channel, 'mail.record/insert', {
-                    'Thread': {
-                        'avatarCacheKey': channel._get_avatar_cache_key(),
-                        'id': channel.id,
-                        'model': "discuss.channel",
-                    }
-                }])
         self.env['bus.bus']._sendmany(notifications)
         return result
 
@@ -484,21 +490,19 @@ class Channel(models.Model):
         # notify only user input (comment or incoming / outgoing emails)
         if message_type not in ('comment', 'email', 'email_outgoing'):
             return []
-        # notify only mailing lists or if mentioning recipients
-        if not pids:
-            return []
-
-        email_from = tools.email_normalize(msg_vals.get('email_from') or message.email_from)
-        author_id = msg_vals.get('author_id') or message.author_id.id
 
         recipients_data = []
         if pids:
+            email_from = tools.email_normalize(msg_vals.get('email_from') or message.email_from)
+            author_id = msg_vals.get('author_id') or message.author_id.id
             self.env['res.partner'].flush_model(['active', 'email', 'partner_share'])
             self.env['res.users'].flush_model(['notification_type', 'partner_id'])
             sql_query = """
                 SELECT DISTINCT ON (partner.id) partner.id,
+                       partner.lang,
                        partner.partner_share,
-                       users.notification_type
+                       COALESCE(users.notification_type, 'email') as notif,
+                       COALESCE(users.share, FALSE) as ushare
                   FROM res_partner partner
              LEFT JOIN res_users users on partner.id = users.partner_id
                  WHERE partner.active IS TRUE
@@ -508,16 +512,42 @@ class Channel(models.Model):
                 sql_query,
                 (email_from or '', list(pids), [author_id] if author_id else [], )
             )
-            for partner_id, partner_share, notif in self._cr.fetchall():
+            for partner_id, lang, partner_share, notif, ushare in self._cr.fetchall():
                 # ocn_client: will add partners to recipient recipient_data. more ocn notifications. We neeed to filter them maybe
                 recipients_data.append({
-                    'id': partner_id,
-                    'share': partner_share,
                     'active': True,
-                    'notif': notif or 'email',
-                    'type': 'user' if not partner_share and notif else 'customer',
                     'groups': [],
+                    'id': partner_id,
+                    'is_follower': False,
+                    'lang': lang,
+                    'notif': notif,
+                    'share': partner_share,
+                    'type': 'user' if not partner_share and notif else 'customer',
+                    'uid': False,
+                    'ushare': ushare,
                 })
+
+        if self.is_chat or self.channel_type == "group":
+            already_in_ids = [r['id'] for r in recipients_data]
+            recipients_data += [
+                {
+                    'active': partner.active,
+                    'groups': [],
+                    'id': partner.id,
+                    'is_follower': False,
+                    'lang': partner.lang,
+                    'notif': 'web_push',
+                    'share': partner.partner_share,
+                    'type': 'customer',
+                    'uid': False,
+                    'ushare': False,
+                } for partner in self.sudo().channel_member_ids.filtered(
+                    lambda member: (
+                        not member.mute_until_dt and
+                        member.partner_id.id not in already_in_ids
+                    )
+                ).partner_id
+            ]
 
         return recipients_data
 
@@ -543,15 +573,16 @@ class Channel(models.Model):
         # Last interest and is_pinned are updated for a channel when posting a message.
         # So a notification is needed to update UI, and it should come before the
         # notification of the message itself to ensure the channel automatically opens.
-        payload = {"id": self.id, "is_pinned": True, "last_interest_dt": fields.Datetime.now()}
+        payload = {"id": self.id, "last_interest_dt": fields.Datetime.now()}
         bus_notifications = [
+            ((self, "members"), "mail.record/insert", {
+                "Thread": {"id": self.id, "is_pinned": True, "model": "discuss.channel"}
+            }),
             (self, "discuss.channel/last_interest_dt_changed", payload),
             (self, "discuss.channel/new_message", {"id": self.id, "message": message_format}),
         ]
         # sudo: bus.bus - sending on safe channel (discuss.channel)
         self.env["bus.bus"].sudo()._sendmany(bus_notifications)
-        if self.is_chat or self.channel_type == "group":
-            self._notify_thread_by_web_push(message, rdata, msg_vals, **kwargs)
         return rdata
 
     def _message_receive_bounce(self, email, partner):
@@ -738,6 +769,24 @@ class Channel(models.Model):
             self.add_members(guest_ids=guest.ids, post_joined_message=post_joined_message)
         return self.env.user.partner_id if not guest else self.env["res.partner"], guest
 
+    def _channel_basic_info(self):
+        self.ensure_one()
+        return {
+            'avatarCacheKey': self._get_avatar_cache_key(),
+            'channel_type': self.channel_type,
+            'memberCount': self.member_count,
+            'id': self.id,
+            'name': self.name,
+            'defaultDisplayMode': self.default_display_mode,
+            'description': self.description,
+            'uuid': self.uuid,
+            'group_based_subscription': bool(self.group_ids),
+            'create_uid': self.create_uid.id,
+            'authorizedGroupFullName': self.group_public_id.full_name,
+            'allow_public_upload': self.allow_public_upload,
+            'model': "discuss.channel",
+        }
+
     def _channel_info(self):
         """ Get the informations header for the current channels
             :returns a list of channels values
@@ -781,24 +830,8 @@ class Channel(models.Model):
             if (current_partner and member.partner_id == current_partner) or (current_guest and member.guest_id == current_guest):
                 member_of_current_user_by_channel[member.channel_id] = member
         for channel in self:
-            info = {
-                'avatarCacheKey': channel._get_avatar_cache_key(),
-                'channel_type': channel.channel_type,
-                'memberCount': channel.member_count,
-                'id': channel.id,
-                'name': channel.name,
-                'defaultDisplayMode': channel.default_display_mode,
-                'description': channel.description,
-                'uuid': channel.uuid,
-                'state': 'open',
-                'is_editable': channel.is_editable,
-                'is_minimized': False,
-                'group_based_subscription': bool(channel.group_ids),
-                'create_uid': channel.create_uid.id,
-                'authorizedGroupFullName': channel.group_public_id.full_name,
-                'allow_public_upload': channel.allow_public_upload,
-                'model': "discuss.channel",
-            }
+            info = channel._channel_basic_info()
+            info["is_editable"] = channel.is_editable
             # find the channel member state
             if current_partner or current_guest:
                 info['message_needaction_counter'] = channel.message_needaction_counter
@@ -1006,6 +1039,8 @@ class Channel(models.Model):
             ])
         ])
         member = self.env['discuss.channel.member'].search(channel_member_domain)
+        if not member:
+            return
         member.write({
             'fetched_message_id': max(member.fetched_message_id.id, last_message.id),
             'seen_message_id': last_message.id,
@@ -1264,28 +1299,6 @@ class Channel(models.Model):
             msg = _("Users in this channel: %(members)s %(dots)s and you.", members=", ".join(members), dots=dots)
 
         self._send_transient_message(self.env.user.partner_id, msg)
-
-    def _notify_thread_by_web_push(self, message, recipients_data, msg_vals=False, **kwargs):
-        """ Specifically handle channel members. """
-        chat_channels = self.filtered(lambda channel: channel.channel_type == 'chat')
-        if chat_channels:
-            # modify rdata only for calling super. Do not deep copy as we only
-            # add data into list but we do not modify item content
-            channel_rdata = recipients_data.copy()
-            channel_rdata += [
-                {'id': partner.id,
-                 'share': partner.partner_share,
-                 'active': partner.active,
-                 'notif': 'web_push',
-                 'type': 'customer',
-                 'groups': [],
-                 }
-                for partner in chat_channels.channel_member_ids.filtered(lambda member: not member.mute_until_dt).partner_id
-            ]
-        else:
-            channel_rdata = recipients_data
-
-        return super()._notify_thread_by_web_push(message, channel_rdata, msg_vals=msg_vals, **kwargs)
 
     def _notify_by_web_push_prepare_payload(self, message, msg_vals=False):
         payload = super()._notify_by_web_push_prepare_payload(message, msg_vals=msg_vals)

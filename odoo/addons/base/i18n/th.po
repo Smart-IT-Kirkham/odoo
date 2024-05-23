@@ -3,15 +3,15 @@
 # 	* base
 # 
 # Translators:
-# Wichanon Jamwutthipreecha, 2023
-# Wil Odoo, 2023
+# Wil Odoo, 2024
+# Wichanon Jamwutthipreecha, 2024
 # Rasareeyar Lappiam, 2024
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 13:31+0000\n"
+"POT-Creation-Date: 2024-02-26 12:42+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Rasareeyar Lappiam, 2024\n"
 "Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
@@ -528,7 +528,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"This addon is already installed on your system"
+"Addon นี้ได้รับการติดตั้งในระบบของคุณแล้ว"
 
 #. module: base
 #: model:ir.module.module,description:base.module_pos_sale
@@ -969,6 +969,15 @@ msgstr ""
 "    สร้างขึ้นใหม่ได้  จากนั้นจะสามารถอัปโหลดไฟล์นี้ไปที่ธนาคารได้\n"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_ec_reports_ats
+msgid ""
+"\n"
+"ATS Report for Ecuador\n"
+msgstr ""
+"\n"
+"รายงาน ATS สำหรับประเทศเอกวาดอร์\n"
+
+#. module: base
 #: model:ir.module.module,description:base.module_account_auto_transfer
 msgid ""
 "\n"
@@ -1268,17 +1277,6 @@ msgstr ""
 "แผนภูมิการบัญชีและการประยุกต์ใช้สำหรับประเทศฮังการี\n"
 
 #. module: base
-#: model:ir.module.module,description:base.module_l10n_dk_edi
-msgid ""
-"\n"
-"Accounting invoicing for Denmark\n"
-"=================================\n"
-msgstr ""
-"\n"
-"การออกใบแจ้งหนี้ทางบัญชีสำหรับประเทศเดนมาร์ก\n"
-"=================================\n"
-
-#. module: base
 #: model:ir.module.module,description:base.module_l10n_dz_reports
 msgid ""
 "\n"
@@ -1335,6 +1333,17 @@ msgid ""
 msgstr ""
 "\n"
 "รายงานทางบัญชีสำหรับประเทศโครเอเชีย\n"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_cz_reports
+msgid ""
+"\n"
+"Accounting reports for Czech Republic\n"
+"=====================================\n"
+msgstr ""
+"\n"
+"รายงานทางบัญชีสำหรับสาธารณรัฐเช็ก\n"
+"=====================================\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_dk_reports
@@ -1403,7 +1412,7 @@ msgstr ""
 "โมดูลนี้ยังอนุญาตให้ส่งออกรายงานภาษีมูลค่าเพิ่มของประเทศฝรั่งเศสและส่งไปยัง DGFiP, OGA หรือนักบัญชีผู้เชี่ยวชาญ\n"
 "\n"
 "โดยจะเพิ่มปุ่มใหม่ \"EDI VAT\" ในรายงานภาษีมูลค่าเพิ่มของประเทศฝรั่งเศส และรายการเมนูใหม่ \"การส่งออก EDI\" (ด้านล่าง \"การรายงาน\"\n"
-"ในส่วน \"รายงานใบแจ้งยอด\")\n"
+"ในหมวด \"รายงานใบแจ้งยอด\")\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_de_reports
@@ -1746,6 +1755,17 @@ msgstr ""
 "รายงานทางบัญชีสำหรับสหรัฐอเมริกา\n"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_ph_reports
+msgid ""
+"\n"
+"Accounting reports for the Philippines\n"
+"    "
+msgstr ""
+"\n"
+"รายงานทางบัญชีสำหรับประเทศฟิลิปปินส์\n"
+"    "
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_account_customer_statements
 msgid ""
 "\n"
@@ -2027,10 +2047,10 @@ msgid ""
 "The wizard to launch the report has several options to help you get the data you need.\n"
 msgstr ""
 "\n"
-"Adds a reporting menu in products that computes sales, purchases, margins and other interesting indicators based on invoices.\n"
-"=============================================================================================================================\n"
+"เพิ่มเมนูการรายงานในผลิตภัณฑ์ที่คำนวณยอดขาย การซื้อ อัตรากำไร และตัวชี้วัดที่น่าสนใจอื่นๆ ตามใบแจ้งหนี้\n"
+"================================================== ================================================== =========================\n"
 "\n"
-"The wizard to launch the report has several options to help you get the data you need.\n"
+"ตัวช่วยสร้างในการเปิดรายงานมีหลายตัวเลือกที่จะช่วยให้คุณได้รับข้อมูลที่คุณต้องการ\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_documents_project_sign
@@ -2227,7 +2247,7 @@ msgid ""
 "=============================================\n"
 msgstr ""
 "\n"
-"Allow users to login through OAuth2 Provider.\n"
+"อนุญาตให้ผู้ใช้เข้าสู่ระบบผ่านผู้ให้บริการ OAuth2\n"
 "=============================================\n"
 
 #. module: base
@@ -2509,13 +2529,13 @@ msgid ""
 "and print the report from Print button in header area.\n"
 msgstr ""
 "\n"
-"Asserts on accounting.\n"
+"ตรวจสอบบัญชี\n"
 "======================\n"
-"With this module you can manually check consistencies and inconsistencies of accounting module from menu Reporting/Accounting/Accounting Tests.\n"
+"ด้วยโมดูลนี้คุณสามารถตรวจสอบความสอดคล้องและความไม่สอดคล้องของโมดูลระบบบัญชีจากเมนู รายงาน/บัญชี/การทดสอบบัญชี\n"
 "\n"
-"You can write a query in order to create Consistency Test and you will get the result of the test \n"
-"in PDF format which can be accessed by Menu Reporting -> Accounting Tests, then select the test \n"
-"and print the report from Print button in header area.\n"
+"คุณสามารถเขียนคำสั่งเพื่อสร้างการทดสอบความสอดคล้องและคุณจะได้รับผลลัพธ์ของการทดสอบในรูปแบบ PDF \n"
+"ซึ่งสามารถเข้าถึงได้โดยเลือกเมนู รายงาน -> การทดสอบบัญชี จากนั้นเลือกการทดสอบ \n"
+"และพิมพ์รายงานจากปุ่มพิมพ์ในส่วนหัว\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_asset
@@ -3113,6 +3133,10 @@ msgid ""
 "========================\n"
 "Provides electronic invoicing for Brazil through Avatax.\n"
 msgstr ""
+"\n"
+"การบัญชี EDI สำหรับประเทศบราซิล\n"
+"========================\n"
+"จัดทำใบแจ้งหนี้อิเล็กทรอนิกส์สำหรับประเทศบราซิลผ่าน Avatax\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_br_edi_sale
@@ -3122,6 +3146,10 @@ msgid ""
 "=================================\n"
 "Adds some fields to sale orders that will be carried over the invoice.\n"
 msgstr ""
+"\n"
+"การขาย EDI การบัญชีสำหรับประเทศบราซิล\n"
+"=================================\n"
+"เพิ่มบางฟิลด์ให้กับใบสั่งขายที่จะยกยอดไปบนใบแจ้งหนี้\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_livechat
@@ -3279,6 +3307,17 @@ msgstr ""
 msgid ""
 "\n"
 "Bridge module to add a new payment term - Days end of month on the\n"
+msgstr ""
+"\n"
+"โมดูลเชื่อมต่อเพื่อเพิ่มเงื่อนไขการชำระเงินใหม่ - วันสิ้นเดือนบน\n"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_mx_edi_stock_extended_30
+msgid ""
+"\n"
+"Bridge module to extend Version 3.0 of the delivery guide (Complemento XML Carta de Porte).\n"
+"- Exported goods (COMEX).\n"
+"- Extended address fields.\n"
 msgstr ""
 
 #. module: base
@@ -3602,6 +3641,15 @@ msgstr ""
 "ประกอบด้วยฟีเจอร์ขั้นสูงสำหรับ CRM เช่น มุมมองใหม่\n"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_it_edi_website_sale
+msgid ""
+"\n"
+"Contains features for Italian eCommerce eInvoicing\n"
+msgstr ""
+"\n"
+"ประกอบด้วยฟีเจอร์สำหรับ eInvoicing อีคอมเมิร์ซของประเทศอิตาลี\n"
+
+#. module: base
 #: model:ir.module.module,description:base.module_stock_account_enterprise
 msgid ""
 "\n"
@@ -3785,7 +3833,7 @@ msgid ""
 "Coupon & promotion programs can be edited in the Catalog menu of the Website app.\n"
 msgstr ""
 "\n"
-"สร้างคูปอง รหัสส่งเสริมการขาย บัตรของขวัญ และโปรแกรมสะสมคะแนนเพื่อเพิ่มยอดขายของคุณ (สินค้าฟรี ส่วนลด และอื่นๆ) นักช้อปสามารถใช้มันในการชำระเงินอีคอมเมิร์ซได้\n"
+"สร้างคูปอง รหัสส่งเสริมการขาย บัตรของขวัญ และโปรแกรมสะสมคะแนนเพื่อเพิ่มยอดขายของคุณ (สินค้าฟรี ส่วนลด และอื่นๆ) ผู้ซื้อสามารถใช้มันในการชำระเงินอีคอมเมิร์ซได้\n"
 "\n"
 "โปรแกรมคูปองและโปรโมชั่นสามารถแก้ไขได้ในเมนูแค็ตตาล็อกของแอปเว็บไซต์\n"
 
@@ -3973,6 +4021,10 @@ msgid ""
 "========================\n"
 "This is help to show case the documents OCR for India.\n"
 msgstr ""
+"\n"
+"เอกสารสาธิตสำหรับประเทศอินเดีย\n"
+"========================\n"
+"สิ่งนี้เป็นการช่วยในการแสดงเอกสาร OCR สำหรับประเทศอินเดีย\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_mass_mailing_themes
@@ -4014,7 +4066,7 @@ msgid ""
 "Disallowed Expenses Fleet Data for Belgium\n"
 msgstr ""
 "\n"
-"ข้อมูลค่าใช้จ่ายของขนส่งที่ไม่ได้รับอนุญาตสำหรับประเทศเบลเยียม\n"
+"ข้อมูลค่าใช้จ่ายของระบบขนส่งที่ไม่ได้รับอนุญาตสำหรับประเทศเบลเยียม\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_helpdesk_fsm_report
@@ -4540,7 +4592,7 @@ msgid ""
 "Enable management of UTM trackers: campaign, medium, source.\n"
 msgstr ""
 "\n"
-"เปิดใช้งานการจัดการตัวติดตาม UTM: แคมเปญ สื่อ แหล่งที่มา\n"
+"เปิดใช้งานการจัดการตัวติดตาม UTM: แคมเปญ วิธีที่เข้ามา แหล่งที่มา\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_be_reports_post_wizard
@@ -4817,7 +4869,7 @@ msgstr ""
 "\n"
 "การกำหนดค่า:\n"
 "\n"
-"1. ไปที่การตั้งค่าบัญชี > ส่วนของการประยุกต์ใช้สำหรับประเทศอาร์เจนตินา\n"
+"1. ไปที่การตั้งค่าบัญชี > หมวดของการประยุกต์ใช้สำหรับประเทศอาร์เจนตินา\n"
 "\n"
 "    1.1. กำหนดโหมดเว็บเซอร์วิส AFIP:\n"
 "\n"
@@ -5290,6 +5342,17 @@ msgstr ""
 "เพิ่มความสามารถในการระบุประเทศต้นกำเนิดของสินค้าและภาษีมูลค่าเพิ่มของพาร์ทเนอร์ในรายงาน XML Intrastat\n"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_lt_intrastat
+msgid ""
+"\n"
+"Generates Intrastat XML report for declaration.\n"
+"Adds the possibility to specify the origin country of goods and the partner VAT in the Intrastat XML report.\n"
+msgstr ""
+"\n"
+"สร้างรายงานอินทราสแทต XML สำหรับการแจ้ง\n"
+"เพิ่มความเป็นไปได้ในการระบุประเทศต้นทางของสินค้าและ VAT ของคู่ค้าในรายงาน XML ของอินทราสแทต\n"
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_nl_intrastat
 msgid ""
 "\n"
@@ -5304,6 +5367,8 @@ msgid ""
 "\n"
 "Generates a new website in Odoo, with the goal of recreating an external website as close as possible.\n"
 msgstr ""
+"\n"
+"สร้างเว็บไซต์ใหม่ใน Odoo โดยมีเป้าหมายเพื่อสร้างเว็บไซต์ภายนอกใหม่ให้ใกล้เคียงกับเว็บไซต์เดิมมากที่สุด\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_payroll_account
@@ -5463,11 +5528,11 @@ msgid ""
 "for customization purpose.\n"
 msgstr ""
 "\n"
-"Import a custom data module\n"
+"นำเข้าโมดูลข้อมูลแบบกำหนดเอง\n"
 "===========================\n"
 "\n"
-"This module allows authorized users to import a custom data module (.xml files and static assests)\n"
-"for customization purpose.\n"
+"โมดูลนี้อนุญาตให้ผู้ใช้ที่ได้รับอนุญาตนำเข้าโมดูลข้อมูลที่กำหนดเอง (ไฟล์ .xml และเนื้อหาแบบคงที่)\n"
+"สำหรับวัตถุประสงค์ในการปรับแต่ง\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_sale_amazon
@@ -5539,6 +5604,28 @@ msgid ""
 "print the amount in words (special Chinese characters for numbers)\n"
 "correctly when the cn2an library is installed. (e.g. with pip3 install cn2an)\n"
 msgstr ""
+"\n"
+"\n"
+"รวมข้อมูลต่อไปนี้สำหรับการแปลภาษาจีน\n"
+"========================================================\n"
+"\n"
+"ประเภทบัญชี/科目类型\n"
+"\n"
+"ข้อมูลสถานะ/省份数据\n"
+"\n"
+"    科目类型\\会计科目表模板\\增值税\\辅助核算类别\\管理会计凭证簿\\财务会计凭证簿\n"
+"\n"
+"    添加中文省份数据\n"
+"\n"
+"    增加小企业会计科目表\n"
+"\n"
+"    修改小企业会计科目表\n"
+"\n"
+"    修改小企业会计税率\n"
+"\n"
+"เราเพิ่มตัวเลือกในการพิมพ์ใบสำคัญซึ่งจะ\n"
+"พิมพ์เงินจำนวนเป็นคำ (อักขระจีนพิเศษสำหรับตัวเลข)\n"
+"ให้ถูกต้องเมื่อติดตั้งไลบรารี cn2an (เช่น pip3 ติดตั้ง cn2an)\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_cn_city
@@ -6573,6 +6660,13 @@ msgid ""
 "https://erhvervsstyrelsen.dk/sites/default/files/2023-01/Technical-description-SAFT-Financial-data-version-1-0-nov2022_U.pdf\n"
 "\n"
 msgstr ""
+"\n"
+"โมดูลสำหรับการนำเข้าไฟล์ SAF-T สำหรับประเทศเดนมาร์ก มีประโยชน์สำหรับการนำเข้าประวัติของบัญชี\n"
+"เพิ่มข้อมูลเฉพาะสำหรับ SAF-T ของประเทศเดนมาร์ก\n"
+"\n"
+"ข้อกำหนดทางเทคนิคอย่างเป็นทางการ\n"
+"https://erhvervsstyrelsen.dk/sites/default/files/2023-01/Technical-description-SAFT-Financial-data-version-1-0-nov2022_U.pdf\n"
+"\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_lt_saft_import
@@ -6582,6 +6676,10 @@ msgid ""
 "Adds specificities for the Lithuanian SAF-T\n"
 "\n"
 msgstr ""
+"\n"
+"โมดูลสำหรับการนำเข้าไฟล์ SAF-T สำหรับประเทศลิทัวเนีย มีประโยชน์สำหรับการนำเข้าประวัติของบัญชี\n"
+"เพิ่มข้อมูลเฉพาะสำหรับ SAF-T ของประเทศลิทัวเนีย\n"
+"\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ro_saft_import
@@ -6591,6 +6689,10 @@ msgid ""
 "Adds specificities for the Romanian SAF-T\n"
 "\n"
 msgstr ""
+"\n"
+"โมดูลสำหรับการนำเข้าไฟล์ SAF-T สำหรับประเทศโรมาเนีย มีประโยชน์สำหรับการนำเข้าประวัติของบัญชี\n"
+"เพิ่มข้อมูลเฉพาะสำหรับ SAF-T ของประเทศโรมาเนีย\n"
+"\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_saft_import
@@ -6601,6 +6703,11 @@ msgid ""
 "SAF-T files are the standard accounting reports that businesses in some countries have to submit to the tax authorities.\n"
 "This module allows the import of accounts, journals, partners, taxes and moves from these files.\n"
 msgstr ""
+"\n"
+"โมดูลสำหรับการนำเข้าไฟล์ SAF-T ซึ่งมีประโยชน์สำหรับการนำเข้าประวัติของบัญชี\n"
+"\n"
+"ไฟล์ SAF-T เป็นรายงานทางบัญชีมาตรฐานที่ธุรกิจในบางประเทศต้องส่งไปยังหน่วยงานด้านภาษี\n"
+"โมดูลนี้อนุญาตให้นำเข้าบัญชี สมุดรายวัน พาร์ทเนอร์ ภาษี และการเคลื่อนไหวจากไฟล์เหล่านี้\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_se_sie_import
@@ -7085,8 +7192,8 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Openerp Web Diagram view.\n"
-"=========================\n"
+"Odoo เว็บทัวร์\n"
+"========================\n"
 "\n"
 
 #. module: base
@@ -7251,11 +7358,20 @@ msgstr ""
 "========================\n"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_es_edi_facturae_invoice_period
+msgid ""
+"\n"
+"Patch module to add the missing Invoice Period in the Facturae EDI.\n"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_es_edi_facturae_adm_centers
 msgid ""
 "\n"
 "Patch module to fix the missing Administrative Centers in the Facturae EDI.\n"
 msgstr ""
+"\n"
+"โมดูลแพทช์เพื่อแก้ไขศูนย์การบริหารที่ขาดหายไปใน Facturae EDI\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_appraisal
@@ -7538,7 +7654,7 @@ msgstr ""
 "* บริการการตรวจสอบสถานะการส่งของและสถานะของเอกสารจะแตกต่างกัน\n"
 "* ได้รับโทเค็นการตรวจสอบสิทธิ์\n"
 "* แบบแผน XML สำหรับการส่ง boletas อิเล็กทรอนิกส์ได้รับการอัปเดตด้วยการรวมแท็กใหม่\n"
-"* การวินิจฉัยการตรวจสอบ boletas อิเล็กทรอนิกส์จะถูกส่งผ่านเว็บเซอร์วิส \"REST\" ที่มี track-id ของการส่งเป็นอินพุต ใบแจ้งหนี้อิเล็กทรอนิกส์จะยังคงได้รับการวินิจฉัยผ่านทางอีเมล\n"
+"* การวินิจฉัยการตรวจสอบ boletas อิเล็กทรอนิกส์จะถูกส่งผ่านเว็บเซอร์วิส \"REST\" ที่มี track-id ของการส่งเป็นข้อมูล ใบแจ้งหนี้อิเล็กทรอนิกส์จะยังคงได้รับการวินิจฉัยผ่านทางอีเมล\n"
 "* track-id (\"identificador de envío\") ที่เกี่ยวข้องกับ boletas อิเล็กทรอนิกส์จะมีความยาว 15 หลัก (ใบแจ้งหนี้อิเล็กทรอนิกส์มี 10 หลัก)\n"
 "\n"
 "จุดเด่นจากคู่มือ SII นี้:\n"
@@ -7737,6 +7853,27 @@ msgstr ""
 "\n"
 "ส่งสรุป KPI เป็นระยะๆ\n"
 "=============================\n"
+
+#. module: base
+#: model:ir.module.module,description:base.module_delivery_starshipit
+msgid ""
+"\n"
+"Send your shippings through Starshipit and track them online\n"
+"=======================================================\n"
+"\n"
+"Starshipit is the leading provider of integrated shipping and tracking solutions for growing e-commerce businesses.\n"
+"Seamlessly integrating with a large range of couriers and platforms,\n"
+"you can streamline every step of your fulfilment process,\n"
+"reduce handling time and improve customer experience.\n"
+msgstr ""
+"\n"
+"ส่งการจัดส่งของคุณผ่าน Starshipit และติดตามพัสดุทางออนไลน์\n"
+"=======================================================\n"
+"\n"
+"Starshipit เป็นผู้ให้บริการชั้นนำด้านโซลูชันการจัดส่งและการติดตามแบบครบวงจรสำหรับธุรกิจอีคอมเมิร์ซที่กำลังเติบโต\n"
+"ผสานการใช้งานอย่างไร้รอยต่อกับผู้ให้บริการจัดส่งและแพลตฟอร์มที่หลากหลาย\n"
+"คุณสามารถพัฒนาทุกขั้นตอนของคำสั่งซื้อ\n"
+"ลดเวลาในการจัดการ และปรับปรุงประสบการณ์ของลูกค้า\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_bpost
@@ -8099,6 +8236,8 @@ msgid ""
 "\n"
 "The UBL PINT e-invoicing format for Japan is based on the Peppol International (PINT) model for Billing.\n"
 msgstr ""
+"\n"
+"รูปแบบใบแจ้งหนี้อิเล็กทรอนิกส์ UBL PINT สำหรับประเทศญี่ปุ่นจะขึ้นอยู่กับแบบจำลอง Peppol International (PINT) สำหรับการเรียกเก็บเงิน\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_repair
@@ -8708,6 +8847,27 @@ msgstr ""
 "\n"
 "นี่คือโมดูลพื้นฐานในการจัดการแผนภูมิการบัญชีสำหรับไต้หวันใน Odoo\n"
 "==============================================================================\n"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_ug
+msgid ""
+"\n"
+"This is the basic Ugandian localisation necessary to run Odoo in UG:\n"
+"================================================================================\n"
+"    - Chart of accounts\n"
+"    - Taxes\n"
+"    - Fiscal positions\n"
+"    - Default settings\n"
+"    - Tax report\n"
+msgstr ""
+"\n"
+"นี่คือการประยุกต์ใช้สำหรับประเทศอูกันดาขั้นพื้นฐานที่จำเป็นในการเรียกใช้ Odoo ใน UG:\n"
+"================================================================================\n"
+"    - ผังบัญชี\n"
+"    - ภาษี\n"
+"    - สถานะการเงิน\n"
+"    - การตั้งค่าเริ่มต้น\n"
+"    - รายงานภาษี\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_id
@@ -9649,6 +9809,17 @@ msgstr ""
 "\n"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_pe_pos
+msgid ""
+"\n"
+"This module brings the technical requirement for the Peruvian regulation.\n"
+"Install this if you are using the Point of Sale app in Peru.\n"
+msgstr ""
+"\n"
+"โมดูลนี้นำเสนอข้อกำหนดทางเทคนิคสำหรับกฎระเบียบของประเทศเปรู\n"
+"ติดตั้งสิ่งนี้หากคุณใช้แอประบบขายหน้าร้านในประเทศเปรู\n"
+
+#. module: base
 #: model:ir.module.module,description:base.module_l10n_de_pos_cert
 msgid ""
 "\n"
@@ -9680,6 +9851,8 @@ msgid ""
 "\n"
 "This module contains all that is needed for the Bookkeeping Act\n"
 msgstr ""
+"\n"
+"โมดูลนี้ประกอบด้วยทุกสิ่งที่จำเป็นสำหรับพระราชบัญญัติการทำบัญชี\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_sale
@@ -9709,6 +9882,12 @@ msgid ""
 "\n"
 "for more informations, see https://www.facturae.gob.es/face/Paginas/FACE.aspx\n"
 msgstr ""
+"\n"
+"โมดูลนี้สร้างไฟล์ Facturae ที่จำเป็นในการส่งข้อมูลใบแจ้งหนี้ไปยังฝ่ายการบริหารงานทั่วไปของรัฐ\n"
+"อนุญาตให้ส่งออกและลงนามการลงนามไฟล์ Factorurae\n"
+"Factorae เวอร์ชันปัจจุบันที่รองรับคือ 3.2.2\n"
+"\n"
+"สำหรับข้อมูลเพิ่มเติม โปรดดูที่ https://www.facturae.gob.es/face/Paginas/FACE.aspx\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_bacs
@@ -9798,6 +9977,15 @@ msgstr ""
 "ใบแจ้งหนี้ที่ได้รับการตรวจสอบสำหรับลูกค้าที่มีการมอบอำนาจจะถูกตั้งค่าอัตโนมัติในสถานะ 'ชำระเงินแล้ว' และจะสร้างการชำระเงิน จะมีตัวเลือกในแดชบอร์ดที่จะช่วยให้คุณดูการชำระเงินทั้งหมดที่สร้างขึ้นผ่าน SDD และสร้างไฟล์สำหรับการเก็บเงิน XML สำหรับการชำระเงินเหล่านั้นๆ โดยจัดกลุ่มตามที่คุณต้องการ\n"
 "\n"
 "วิธีการชำระเงิน 'SEPA Direct Debit' ที่ได้รับการจัดสรรเฉพาะสำหรับใบแจ้งหนี้ที่ยังไม่ได้ชำระเงิน โดยเลือกบัญชีธนาคารในโปรแกรม 'ลงทะเบียนการชำระเงิน' ใช้เพื่อสร้างการชำระเงิน SDD สำหรับใบแจ้งหนี้หากคุณเพิ่มการมอบอำนาจสำหรับเจ้าของหลังจากการตรวจสอบ คุณจะเห็นข้อความผิดพลาดหากคุณพยายามใช้วิธีนี้ในใบแจ้งหนี้ที่ไม่สามารถใช้การมอบอำนาจได้\n"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_in_qr_code_bill_scan
+msgid ""
+"\n"
+"This module enables the qrcode scanning feature for the vendor bills for india.\n"
+msgstr ""
+"\n"
+"โมดูลนี้เปิดใช้งานฟีเจอร์การสแกน QRcode สำหรับใบเรียกเก็บเงินของผู้ขายในประเทศอินเดีย\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_sms
@@ -9975,6 +10163,21 @@ msgid ""
 msgstr ""
 "\n"
 "โมดูลนี้จะทำงานร่วมกับอุปกรณ์หน่วยควบคุม Tremol ของประเทศเคนยา G03 เข้ากับ KRA ผ่านทาง TIMS\n"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_dk_audit_trail
+msgid ""
+"\n"
+"This module is a bridge to be able to have audit trail module with Denmark\n"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,description:base.module_stock_landed_costs_company
+msgid ""
+"\n"
+"This module is a patch that stores the company_id field on the landed cost model.\n"
+"That way, it is possible to create/use landed costs from a branch.\n"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_crm_full
@@ -11138,11 +11341,88 @@ msgid ""
 "See https://razorpay.com/docs/payments/payments/test-card-upi-details/ and\n"
 "https://razorpay.com/docs/payments/payments/test-upi-details/ for the list of test payment details.\n"
 msgstr ""
+"# Razorpay\n"
+"\n"
+"## รายละเอียดการดำเนินการ\n"
+"\n"
+"### ฟีเจอร์ที่รองรับ\n"
+"\n"
+"- กระแสการชำระเงินโดยตรง\n"
+"- โทเค็น\n"
+"- การจับภาพด้วยตนเอง\n"
+"- การคืนเงินบางส่วน\n"
+"- วิธีการชำระเงินหลายวิธี เช่น บัตรเดบิต/เครดิต ธนาคารทางอินเทอร์เน็ต UPI และ [อื่นๆ](https://razorpay.com/docs/Payments/Payment-methods/)\n"
+"- [เว็บฮุค](https://razorpay.com/docs/webhooks)\n"
+"\n"
+"### API และเกตเวย์\n"
+"\n"
+"เราเลือกที่จะผสานการใช้งานด้วย\n"
+"[การชำระเงินเป็นงวดของ Razorpay](https://razorpay.com/docs/api/Payments/recurring-Payments/)\n"
+"ซึ่งมีความซับซ้อนในการจัดการมากกว่า\n"
+"[การชำระเงินที่โฮสต์โดย Razorpay](https://razorpay.com/docs/Payments/Payment-gateway/web-integration/hosted)\n"
+"เพราะเป็นการทำงานที่เป็นขั้นตอนการชำระเงินโดยตรง \n"
+"เพราะอนุญาตให้มีโทเค็นได้ และเกตเวย์อื่นจะถูกตัดออกไป ดูบันทึกการพัฒนาของงานต้นฉบับสำหรับรายละเอียดเกี่ยวกับเกตเวย์อื่นๆ\n"
+"\n"
+"เวอร์ชันของ API ที่ใช้งานโดยโมดูลนี้คือเวอร์ชันที่ 1\n"
+"\n"
+"## ประวัติโมดูล\n"
+"\n"
+"- ระบุเวอร์ชันแรกของโมดูลในงาน\n"
+"[2800823](https://www.odoo.com/web#id=2800823&model=project.task) และรวมเข้ากับ PR\n"
+"odoo/odoo#92848 ใน `saas-15.5`\n"
+"- API ถูกเปลี่ยนเป็น API การชำระเงินที่เกิดซ้ำเพื่อรองรับโทเค็นด้วย PR odoo/odoo#143525 ใน `17.0`\n"
+"\n"
+"## คำแนะนำในการทดสอบ\n"
+"\n"
+"- หมายเลขโทรศัพท์ของพาร์ทเนอร์ต้องเป็นหมายเลขโทรศัพท์ของประเทศอินเดียที่ถูกต้อง เช่น: +911234567890\n"
+"- ประเทศของพาร์ทเนอร์ต้องเป็นประเทศอินเดียและสกุลเงินการชำระเงิน INR เพื่อเปิดใช้วิธีการชำระเงินสำหรับประเทศอินเดีย\n"
+"\n"
+"ดู https://razorpay.com/docs/Payments/Payments/test-card-upi-details/ และ\n"
+"https://razorpay.com/docs/Payments/Payments/test-upi-details/ เพื่อดูรายการรายละเอียดการชำระเงินทดสอบ\n"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__rules_count
 msgid "# Record Rules"
-msgstr "# Record Rules"
+msgstr "# กฎการบันทึก"
+
+#. module: base
+#: model:ir.module.module,description:base.module_payment_xendit
+msgid ""
+"# Xendit\n"
+"\n"
+"## Implementation details\n"
+"\n"
+"### Supported features\n"
+"\n"
+"- [Payment with redirection flow](https://developers.xendit.co/api-reference/#create-invoice)\n"
+"- Several payment methods such as credit cards, bank transfers, eWallets, pay later, and\n"
+"  [others](https://docs.xendit.co/payment-link/payment-channels).\n"
+"- [Webhook](https://developers.xendit.co/api-reference/#invoice-callback).\n"
+"\n"
+"In addition, Xendit also allows to implement tokenization.\n"
+"\n"
+"### API and gateway\n"
+"\n"
+"We choose to integrate with the\n"
+"[Invoices API](https://developer.flutterwave.com/docs/collecting-payments/standard/) as it\n"
+"is the gateway that covers the best our needs: it is a payment with redirection flow and is\n"
+"compatible with `payment`'s form-based implementation of that flow.\n"
+"\n"
+"The [Payments API](https://developers.xendit.co/api-reference/#payments-api) was considered too, but\n"
+"it requires implementing a more complex direct payment flow and linking the customer account. \n"
+"\n"
+"The version of the API implemented by this module is v2.\n"
+"\n"
+"## Merge details\n"
+"\n"
+"The first version of the module was specified in task\n"
+"[2946329](https://www.odoo.com/web#id=2759117&model=project.task) and merged with PR\n"
+"odoo/odoo#141661 in branch `17.0`.\n"
+"\n"
+"## Testing instructions\n"
+"\n"
+"https://developers.xendit.co/api-reference/#test-scenarios"
+msgstr ""
 
 #. module: base
 #. odoo-python
@@ -11319,7 +11599,7 @@ msgstr "&amp;nbsp;"
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a number for field '%%(field)s'"
-msgstr "'%s' does not seem to be a number for field '%%(field)s'"
+msgstr "'%s' ดูเหมือนจะไม่ใช่ตัวเลขสำหรับฟิลด์ '%%(field)s'"
 
 #. module: base
 #. odoo-python
@@ -11333,21 +11613,21 @@ msgstr "'%s' ดูเหมือนจะไม่ใช่ JSON ที่ถ�
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a valid date for field '%%(field)s'"
-msgstr "'%s' does not seem to be a valid date for field '%%(field)s'"
+msgstr "'%s' ดูเหมือนจะไม่ใช่วันที่ที่ถูกต้องสำหรับฟิลด์ '%%(field)s'"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be a valid datetime for field '%%(field)s'"
-msgstr "'%s' does not seem to be a valid datetime for field '%%(field)s'"
+msgstr "'%s' ดูเหมือนจะไม่ใช่วันที่และเวลาที่ถูกต้องสำหรับฟิลด์ '%%(field)s'"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "'%s' does not seem to be an integer for field '%%(field)s'"
-msgstr "'%s' does not seem to be an integer for field '%%(field)s'"
+msgstr "'%s' ดูเหมือนจะไม่ใช่จำนวนเต็มสำหรับฟิลด์ '%%(field)s'"
 
 #. module: base
 #. odoo-python
@@ -11364,12 +11644,12 @@ msgstr "), คุณแน่ใจที่จะสร้างรายชื
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.wizard_lang_export
 msgid ", or your preferred text editor"
-msgstr ", or your preferred text editor"
+msgstr "หรือโปรแกรมแก้ไขข้อความที่คุณต้องการ"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodulereference
 msgid ", readonly"
-msgstr "Readonly"
+msgstr ", อ่านเท่านั้น"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodulereference
@@ -11401,8 +11681,16 @@ msgid ""
 "- Contact: Use this to organize the contact details of employees of a given company (e.g. CEO, CFO, ...).\n"
 "- Invoice Address: Preferred address for all invoices. Selected by default when you invoice an order that belongs to this company.\n"
 "- Delivery Address: Preferred address for all deliveries. Selected by default when you deliver an order that belongs to this company.\n"
+"- Private: Private addresses are only visible by authorized users and contain sensitive data (employee home addresses, ...).\n"
+"- Follow-up Address: Preferred address for follow-up reports. Selected by default when you send reminders about overdue invoices.\n"
 "- Other: Other address for the company (e.g. subsidiary, ...)"
 msgstr ""
+"- ติดต่อ: ใช้สิ่งนี้เพื่อจัดระเบียบรายละเอียดรายชื่อผู้ติดต่อของพนักงานของบริษัทที่กำหนด (เช่น CEO, CFO, ...)\n"
+"- ที่อยู่ใบแจ้งหนี้: ที่อยู่ที่ต้องการสำหรับใบแจ้งหนี้ทั้งหมด เลือกตามค่าเริ่มต้นเมื่อคุณออกใบแจ้งหนี้ตามคำสั่งซื้อที่เป็นของบริษัทนี้\n"
+"- ที่อยู่สำหรับจัดส่ง: ที่อยู่ที่ต้องการสำหรับการจัดส่งทั้งหมด เลือกตามค่าเริ่มต้นเมื่อคุณจัดส่งคำสั่งซื้อที่เป็นของบริษัทนี้\n"
+"- ส่วนตัว: ที่อยู่ส่วนตัวจะแสดงขึ้นโดยผู้ใช้ที่ได้รับอนุญาตเท่านั้นและมีข้อมูลที่ละเอียดอ่อน (ที่อยู่บ้านของพนักงาน ... )\n"
+"- ที่อยู่ติดตามผล: ที่อยู่ที่ต้องการสำหรับรายงานติดตามผล เลือกไว้ตามค่าเริ่มต้นเมื่อคุณส่งการแจ้งเตือนเกี่ยวกับใบแจ้งหนี้ที่เกินกำหนด\n"
+"- อื่นๆ: ที่อยู่อื่นๆ ของบริษัท (เช่น บริษัทในเครือ ...)"
 
 #. module: base
 #. odoo-python
@@ -11553,7 +11841,7 @@ msgstr "8. %S              ==&gt; 20"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_lang_form
 msgid "9. %w              ==&gt; 5 ( Friday is the 6th day)"
-msgstr "9. %w              ==&gt; 5 ( Friday is the 6th day)"
+msgstr "9. %w              ==&gt; 5 (วันศุกร์เป็นวันที่ 6)"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
@@ -11586,13 +11874,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:base.view_model_fields_form
 #: model_terms:ir.ui.view,arch_db:base.view_model_form
 msgid "<code>datetime</code> (Python module)"
-msgstr "<code>dateutil</code> (Python module)"
+msgstr "<code>วันที่และเวลา</code> (โมดูล Python)"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_fields_form
 #: model_terms:ir.ui.view,arch_db:base.view_model_form
 msgid "<code>dateutil</code> (Python module)"
-msgstr "<code>dateutil</code> (Python module)"
+msgstr "<code>dateutil</code> (โมดูล Python)"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
@@ -11666,7 +11954,7 @@ msgstr "<code>ด้วยตนเอง</code> (ชุดบันทึกท
 #: model_terms:ir.ui.view,arch_db:base.view_model_fields_form
 #: model_terms:ir.ui.view,arch_db:base.view_model_form
 msgid "<code>time</code> (Python module)"
-msgstr "<code>time</code> (Python module)"
+msgstr "<code>เวลา</code> (โมดูล Python)"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
@@ -11940,7 +12228,7 @@ msgstr "<strong>แอพ</strong>"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
 msgid "<strong>Attribute</strong>"
-msgstr "<strong>Attribute</strong>"
+msgstr "<strong>คุณลักษณะ</strong>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
@@ -11981,7 +12269,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
 msgid "<strong>Inherited</strong>"
-msgstr "<strong>Inherited</strong>"
+msgstr "<strong>รับการถ่ายทอด</strong>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
@@ -12302,12 +12590,11 @@ msgid ""
 "to see. Whether they can have a read, write, create and delete access right "
 "can be managed from here."
 msgstr ""
-"A group is a set of functional areas that will be assigned to the user in "
-"order to give them access and rights to specific applications and tasks in "
-"the system. You can create custom groups or edit the ones existing by "
-"default in order to customize the view of the menu that users will be able "
-"to see. Whether they can have a read, write, create and delete access right "
-"can be managed from here."
+"กลุ่มคือชุดของขอบเขตการทำงานที่จะกำหนดให้กับผู้ใช้เพื่อให้สิทธิ์ในการเข้าถึงและสิทธิ์ในแอปพลิเคชันและงานเฉพาะในระบบ"
+" "
+"คุณสามารถสร้างกลุ่มที่กำหนดเองหรือแก้ไขกลุ่มที่มีอยู่ตามค่าเริ่มต้นเพื่อปรับแต่งมุมมองของเมนูที่ผู้ใช้จะสามารถมองเห็นได้"
+" ไม่ว่าพวกเขาจะมีสิทธิ์การเข้าถึงแบบอ่าน เขียน สร้าง หรือลบก็ตาม "
+"สามารถจัดการได้จากที่นี่"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_posbox_homepage
@@ -12318,7 +12605,7 @@ msgstr "หน้าแรกของกล่อง IoT"
 #: model:ir.module.module,description:base.module_test_exceptions
 #: model:ir.module.module,description:base.module_test_mimetypes
 msgid "A module to generate exceptions."
-msgstr "A module to generate exceptions."
+msgstr "โมดูลสำหรับสร้างข้อยกเว้น"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_http
@@ -12333,7 +12620,7 @@ msgstr "โมดูลสำหรับทดสอบโค้ด Odoo ด้
 #. module: base
 #: model:ir.module.module,description:base.module_test_impex
 msgid "A module to test import/export."
-msgstr "A module to test import/export."
+msgstr "โมดูลสำหรับทดสอบการนำเข้า/ส่งออก"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_populate
@@ -12343,7 +12630,7 @@ msgstr "โมดูลที่จะทดสอบเติมข้อมู
 #. module: base
 #: model:ir.module.module,description:base.module_test_new_api
 msgid "A module to test the API."
-msgstr "A module to test the API."
+msgstr "โมดูลสำหรับทดสอบ API"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_rpc
@@ -12353,12 +12640,12 @@ msgstr "โมดูลสำหรับทดสอบคำขอ RPC"
 #. module: base
 #: model:ir.module.module,description:base.module_test_uninstall
 msgid "A module to test the uninstall feature."
-msgstr "A module to test the uninstall feature."
+msgstr "โมดูลสำหรับทดสอบฟีเจอร์การถอนการติดตั้ง"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_translation_import
 msgid "A module to test translation import."
-msgstr "A module to test import/export."
+msgstr "โมดูลสำหรับทดสอบการนำเข้า/ส่งออก"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_xlsx_export
@@ -12384,17 +12671,17 @@ msgstr "โมดูลสำหรับตรวจสอบการสืบ
 #. module: base
 #: model:ir.module.module,description:base.module_test_inherits
 msgid "A module to verify the inheritance using _inherits."
-msgstr "A module to verify the inheritance using _inherits."
+msgstr "โมดูลสำหรับตรวจสอบการสืบทอดโดยใช้ _inherits"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_inherit
 msgid "A module to verify the inheritance."
-msgstr "A module to verify the inheritance."
+msgstr "โมดูลเพื่อตรวจสอบการสืบทอด"
 
 #. module: base
 #: model:ir.module.module,description:base.module_test_limits
 msgid "A module with dummy methods."
-msgstr "A module with dummy methods."
+msgstr "โมดูลที่มีวิธีการจำลอง"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
@@ -12423,6 +12710,11 @@ msgstr "ผู้ให้บริการการชำระเงินท
 #: model:ir.module.module,summary:base.module_payment_mercado_pago
 msgid "A payment provider covering several countries in Latin America."
 msgstr "ผู้ให้บริการการชำระเงินที่ครอบคลุมหลายประเทศในละตินอเมริกา"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_payment_xendit
+msgid "A payment provider for Indonesian and the Philippines."
+msgstr "ผู้ให้บริการชำระเงินสำหรับประเทศอินโดนีเซียและฟิลิปปินส์"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_payment_custom
@@ -12565,7 +12857,7 @@ msgstr ""
 #: code:addons/fields.py:0
 #, python-format
 msgid "ASCII characters are required for %s in %s"
-msgstr "Missing required value for the field '%s' (%s)"
+msgstr "ไม่มีค่าที่จำเป็นสำหรับฟิลด์นี้ '%s' (%s)"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_title__shortcut
@@ -12575,7 +12867,7 @@ msgstr "คำย่อ"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__user_ids
 msgid "Accepted Users"
-msgstr "Accepted Users"
+msgstr "ผู้ใช้ที่ได้รับการยอมรับ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model__access_ids
@@ -12655,7 +12947,7 @@ msgstr "การเข้าถึงบริษัทที่ไม่ได
 #: model:ir.module.module,shortdesc:base.module_account_audit_trail
 #: model:ir.module.module,summary:base.module_account_audit_trail
 msgid "Account Audit Trail"
-msgstr ""
+msgstr "เส้นทางการตรวจสอบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_auto_transfer
@@ -12730,7 +13022,7 @@ msgstr "เลขที่บัญชี"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_account_taxcloud
 msgid "Account TaxCloud - Ecommerce"
-msgstr "Account TaxCloud - Ecommerce"
+msgstr "บัญชี TaxCloud - อีคอมเมิร์ซ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_account_taxcloud
@@ -12761,7 +13053,9 @@ msgstr "ชื่อเจ้าของบัญชีในกรณีที
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting
+#: model:ir.module.category,name:base.module_category_accounting_accounting
 #: model:ir.module.module,shortdesc:base.module_account_accountant
+#: model_terms:ir.ui.view,arch_db:base.user_groups_view
 msgid "Accounting"
 msgstr "การบัญชี"
 
@@ -12779,7 +13073,7 @@ msgstr "การบัญชี - การรับเหมาช่วง MR
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_test
 msgid "Accounting Consistency Tests"
-msgstr "Accounting Consistency Tests"
+msgstr "การทดสอบความสอดคล้องทางบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_account_customer_statements
@@ -12849,7 +13143,7 @@ msgstr "รายงานทางบัญชีสำหรับประเ
 #: model:ir.module.module,shortdesc:base.module_account_accountant_fleet
 #: model:ir.module.module,shortdesc:base.module_account_fleet
 msgid "Accounting/Fleet bridge"
-msgstr "การเชื่อมต่อระหว่าง ระบบบัญชี/การขนส่ง"
+msgstr "การเชื่อมต่อระหว่าง ระบบบัญชี/ระบบขนส่ง"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window_view__act_window_id
@@ -13452,8 +13746,7 @@ msgstr "ผู้ดูแลระบบ"
 #: model:ir.model.fields,help:base.field_res_country_state__name
 msgid ""
 "Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
-msgstr ""
-"Administrative divisions of a country. E.g. Fed. State, Departement, Canton"
+msgstr "เขตการปกครองของประเทศ เช่น. สหพันธรัฐ, กรม, แคนตัน"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_N
@@ -13466,7 +13759,7 @@ msgstr "ธุรการ/สาธารณูปโภค"
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Administrator access is required to uninstall a module"
-msgstr "Administrator access is required to uninstall a module"
+msgstr "จำเป็นต้องเข้าถึงผู้ดูแลระบบเพื่อถอนการติดตั้งโมดูล"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_country_form
@@ -13481,7 +13774,7 @@ msgstr "การจัดการติดตามกิจกรรมขั
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_event_track
 msgid "Advanced Events"
-msgstr "Advanced Events"
+msgstr "กิจกรรมขั้นสูง"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.act_report_xml_view
@@ -13493,7 +13786,7 @@ msgstr "คุณสมบัติขั้นสูง"
 #. module: base
 #: model:ir.module.module,summary:base.module_crm_enterprise
 msgid "Advanced features for CRM"
-msgstr "CRM"
+msgstr "ฟีเจอร์ขั้นสูงสำหรับ CRM"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_enterprise
@@ -13508,7 +13801,7 @@ msgstr "ตัวเลือกขั้นสูง"
 #. module: base
 #: model:ir.module.module,summary:base.module_stock_account_enterprise
 msgid "Advanced features for stock_account"
-msgstr "CRM"
+msgstr "ฟีเจอร์ขั้นสูงสำหรับ stock_account"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mrp_subonctracting_landed_costs
@@ -13688,7 +13981,7 @@ msgstr "อนุญาตให้ลิงก์ฟอรั่มในหล
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ar_withholding
 msgid "Allows to register withholdings during the payment of an invoice."
-msgstr ""
+msgstr "อนุญาตให้ลงทะเบียนการหัก ณ ที่จ่ายระหว่างการชำระเงินตามใบแจ้งหนี้"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_sms
@@ -13733,13 +14026,6 @@ msgid "Allows website customers to choose delivery pick-up points"
 msgstr "ช่วยให้ลูกค้าเว็บไซต์สามารถเลือกจุดรับสินค้าได้"
 
 #. module: base
-#: model_terms:ir.actions.act_window,help:base.action_attachment
-msgid ""
-"Also you will find here all the related documents and download it by "
-"clicking on any individual document."
-msgstr ""
-
-#. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_amazon
 msgid "Amazon Connector"
 msgstr "Amazon Connector"
@@ -13757,13 +14043,13 @@ msgid ""
 "Ambiguous specification for field '%(field)s', only provide one of name, "
 "external id or database id"
 msgstr ""
-"Ambiguous specification for field '%(field)s', only provide one of name, "
-"external id or database id"
+"ข้อกำหนดที่ไม่ชัดเจนสำหรับฟิลด์ '%(field)s' ระบุเพียงชื่อ รหัสภายนอก "
+"หรือรหัสฐานข้อมูล"
 
 #. module: base
 #: model:res.country,name:base.as
 msgid "American Samoa"
-msgstr "American Samoa"
+msgstr "อเมริกันซามัว"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_currency__rounding
@@ -13817,8 +14103,8 @@ msgid ""
 "An arbitrary string, interpreted by the client according to its own needs "
 "and wishes. There is no central tag repository across clients."
 msgstr ""
-"An arbitrary string, interpreted by the client according to its own needs "
-"and wishes. There is no central tag repository across clients."
+"สตริงที่กำหนดเอง ซึ่งลูกค้าตีความตามความต้องการและความปรารถนาของตนเอง "
+"ไม่มีพื้นที่เก็บข้อมูลแท็กส่วนกลางระหว่างไคลเอ็นต์"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_module_module__auto_install
@@ -13827,9 +14113,8 @@ msgid ""
 " its dependencies are satisfied. If the module has no dependency, it is "
 "always installed."
 msgstr ""
-"An auto-installable module is automatically installed by the system when all"
-" its dependencies are satisfied. If the module has no dependency, it is "
-"always installed."
+"โมดูลที่ติดตั้งอัตโนมัติจะถูกติดตั้งโดยอัตโนมัติโดยระบบเมื่อเป็นไปตามการขึ้นต่อกันทั้งหมด"
+" หากโมดูลไม่มีการขึ้นต่อกัน โมดูลนั้นจะถูกติดตั้งเสมอ"
 
 #. module: base
 #. odoo-python
@@ -13912,7 +14197,7 @@ msgstr "แอนตาร์กติกา"
 #. module: base
 #: model:res.country,name:base.ag
 msgid "Antigua and Barbuda"
-msgstr "Antigua and Barbuda"
+msgstr "แอนติกาและบาร์บูดา"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_asset__directive__append
@@ -14060,7 +14345,7 @@ msgstr "Arch Blob"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__arch_fs
 msgid "Arch Filename"
-msgstr "Arch Filename"
+msgstr "ชื่อไฟล์ Arch"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_reset_view_arch_wizard__arch_to_compare
@@ -14120,7 +14405,7 @@ msgstr "อาร์เจนตินา  - การบัญชี"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ar_withholding
 msgid "Argentina - Payment Withholdings"
-msgstr ""
+msgstr "ประเทศอาร์เจนตินา - การหักภาษี ณ ที่จ่าย"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ar_pos
@@ -14165,7 +14450,7 @@ msgstr "บุคลากร"
 #. module: base
 #: model:ir.model,name:base.model_ir_asset
 msgid "Asset"
-msgstr "Asset"
+msgstr "สินทรัพย์"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_asset
@@ -14211,6 +14496,11 @@ msgstr "รายงานที่เกี่ยวข้อง"
 #, python-format
 msgid "At least one language must be active."
 msgstr "ต้องมีอย่างน้อยหนึ่งภาษาที่ใช้งานอยู่"
+
+#. module: base
+#: model_terms:ir.actions.act_window,help:base.action_attachment
+msgid "Attach a new document"
+msgstr "แนบเอกสารใหม่"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_attachment_form
@@ -14272,6 +14562,11 @@ msgid "Attract visitors to subscribe to mailing lists"
 msgstr "ดึงดูดผู้เยี่ยมชมให้สมัครรับรายชื่ออีเมล"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_dk_audit_trail
+msgid "Audit trail"
+msgstr ""
+
+#. module: base
 #: model:res.country,name:base.au
 msgid "Australia"
 msgstr "ออสเตรเลีย"
@@ -14304,7 +14599,7 @@ msgstr "ออสเตรีย"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_at
 msgid "Austria - Accounting"
-msgstr "Austria - Accounting"
+msgstr "ประเทศออสเตรีย - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_at_reports
@@ -14350,7 +14645,7 @@ msgstr "ข้อมูลการรับรองความถูกต้
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_auth_ldap
 msgid "Authentication via LDAP"
-msgstr "Authentication via LDAP"
+msgstr "การรับรองความถูกต้องผ่าน LDAP"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__author
@@ -14381,7 +14676,7 @@ msgstr "การติดตั้งอัตโนมัติ"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.base_partner_merge_automatic_wizard_form
 msgid "Automatic Merge Wizard"
-msgstr "Wizard"
+msgstr "โปรแกรมการผสานอัตโนมัติ"
 
 #. module: base
 #: model:ir.model,name:base.model_ir_autovacuum
@@ -14551,7 +14846,7 @@ msgstr "B6  20  125 x 176 มม."
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__report_paperformat__format__b7
 msgid "B7  21  88 x 125 mm"
-msgstr "B7  21  88 x 125 mm"
+msgstr "B7 21 88 x 125 มม."
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__report_paperformat__format__b8
@@ -14736,7 +15031,7 @@ msgstr "การทดสอบระบบอัตโนมัติพื้
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__state__base
 msgid "Base Field"
-msgstr "Base Field"
+msgstr "ฟิลด์ฐาน"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_test_base_import
@@ -14753,7 +15048,7 @@ msgstr "ภาษาพื้นฐาน 'en_US' ไม่สามารถล
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model__state__base
 msgid "Base Object"
-msgstr "Base Object"
+msgstr "ออบเจ็กต์ฐาน"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_fields_form
@@ -14769,12 +15064,12 @@ msgstr "สถาปัตยกรรมของ Base View"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_import
 msgid "Base import"
-msgstr "Base import"
+msgstr "นำเข้าฐาน"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_import_module
 msgid "Base import module"
-msgstr "Base import module"
+msgstr "โมดูลการนำเข้าฐาน"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_si_reports
@@ -14784,7 +15079,7 @@ msgstr "โมดูลพื้นฐานสำหรับรายงาน
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_ui_view__mode__primary
 msgid "Base view"
-msgstr "Base view"
+msgstr "มุมมองฐาน"
 
 #. module: base
 #: model:ir.actions.server,name:base.autovacuum_job_ir_actions_server
@@ -14841,6 +15136,11 @@ msgstr ""
 "ในแบบฟอร์มการชำระเงินอีคอมเมิร์ซ"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_pe_website_sale
+msgid "Be able to see Identification Type in ecommerce checkout form."
+msgstr "สามารถดูประเภทการระบุตัวตนในแบบฟอร์มการชำระเงินอีคอมเมิร์ซ"
+
+#. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_view_form
 msgid ""
 "Be aware that editing the architecture of a standard view is not advised, since the changes will be overwritten during future module updates.<br/>\n"
@@ -14872,7 +15172,7 @@ msgstr "เบลารุส"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_intrastat
 msgid "Belgian Intrastat Declaration"
-msgstr "Belgian Intrastat Declaration"
+msgstr "คำประกาศอินทราสแทตของเบลเยียม"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_attendance
@@ -14892,12 +15192,12 @@ msgstr "เบลเยียม"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be
 msgid "Belgium - Accounting"
-msgstr "Belgium - Accounting"
+msgstr "ประเทศเบลเยียม - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_reports
 msgid "Belgium - Accounting Reports"
-msgstr "Belgium - Accounting"
+msgstr "ประเทศเบลเยียม - รายงานด้านบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_reports_post_wizard
@@ -14917,12 +15217,12 @@ msgstr "ประเทศเบลเยี่ยม - ข้อมูลค่
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_account_disallowed_expenses_fleet
 msgid "Belgium - Disallowed Expenses Fleet"
-msgstr "ประเทสเบลเยียม - ค่าใช้จ่ายที่ไม่ได้รับอนุญาตในขนส่ง"
+msgstr "ประเทสเบลเยียม - ค่าใช้จ่ายที่ไม่ได้รับอนุญาตในระบบขนส่ง"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_coda
 msgid "Belgium - Import Bank CODA Statements"
-msgstr "Belgium - Import Bank CODA Statements"
+msgstr "ประเทศเบลเยี่ยม - นำเข้าใบแจ้งยอด CODA ของธนาคาร"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_soda
@@ -14932,7 +15232,7 @@ msgstr "ประเทศเบลเยียม - การนำเข้า
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll
 msgid "Belgium - Payroll"
-msgstr "Belgium - Payroll"
+msgstr "ประเทศเบลเยียม - บัญชีเงินเดือน"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_dimona
@@ -14947,12 +15247,12 @@ msgstr "ประเทศเบลเยี่ยม - การจ่ายเ
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_fleet
 msgid "Belgium - Payroll - Fleet"
-msgstr "Belgium - Payroll"
+msgstr "ประเทศเบลเยี่ยม - บัญชีเงินเดือน - ระบบขนส่ง"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_hr_payroll_account
 msgid "Belgium - Payroll with Accounting"
-msgstr "Belgium - Payroll with Accounting"
+msgstr "ประเทศเบลเยียม - บัญชีเงินเดือนพร้อมระบบบัญชี"
 
 #. module: base
 #: model:res.country,name:base.bz
@@ -14982,7 +15282,7 @@ msgstr "เรียกเก็บเงินไปยังหมายเล
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_property__type__binary
 msgid "Binary"
-msgstr "Binary"
+msgstr "ไบนารี"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_url__binding_model_id
@@ -15062,17 +15362,17 @@ msgstr "ประเทศโบลิเวีย - รายงานด้า
 #. module: base
 #: model:res.country,name:base.bq
 msgid "Bonaire, Sint Eustatius and Saba"
-msgstr "Bonaire, Sint Eustatius and Saba"
+msgstr "Bonaire, Sint Eustatius และ Saba"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_dk_bookkeeping
 msgid "Bookkeeping Act"
-msgstr ""
+msgstr "พระราชบัญญัติการทำบัญชี"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_property__type__boolean
 msgid "Boolean"
-msgstr "Boolean"
+msgstr "บูลีน"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_server__update_boolean_value
@@ -15137,22 +15437,22 @@ msgstr "ประเทศบราซิล - การขาย"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_br_website_sale
 msgid "Brazil - Website Sale"
-msgstr ""
+msgstr "ประเทศบราซิล - การขายของเว็บไซต์"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_br
 msgid "Brazilian - Accounting"
-msgstr "Brazilian - Accounting"
+msgstr "ประเทศบราซิล - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_br_edi
 msgid "Brazilian Accounting EDI"
-msgstr ""
+msgstr "ระบบบัญชี EDI สำหรับประเทศบราซิล"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_br_edi_sale
 msgid "Brazilian Accounting EDI For Sale"
-msgstr ""
+msgstr "ระบบบัญชี EDI สำหรับประเทศบราซิลของการขาย"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_renting_sign
@@ -15162,7 +15462,7 @@ msgstr "ฟังก์ชัน Bridge Sign พร้อมแอปพลิ�
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_br_website_sale
 msgid "Bridge Website Sale for Brazil"
-msgstr ""
+msgstr "การขายเว็บไซต์เชื่อมต่อสำหรับบราซิล"
 
 #. module: base
 #: model:ir.module.module,description:base.module_iap_crm
@@ -15433,7 +15733,7 @@ msgstr "ตามค่าเริ่มต้น วิดเจ็ตจะ�
 #. module: base
 #: model:res.groups,name:base.group_sanitize_override
 msgid "Bypass HTML Field Sanitize"
-msgstr "ข้ามช่อง HTML ฆ่าเชื้อ"
+msgstr "ข้ามช่อง ทำความสะอาด HTML"
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_C
@@ -15464,7 +15764,7 @@ msgstr "การขจัดความซ้ำซ้อนของลูก
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_gamification_sale_crm
 msgid "CRM Gamification"
-msgstr "CRM Gamification"
+msgstr "การเล่นเกม CRM"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_crm_livechat
@@ -15479,7 +15779,7 @@ msgstr "ปลั๊กอินจดหมายลูกค้าสัมพ
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_crm_enterprise
 msgid "CRM enterprise"
-msgstr "CRM"
+msgstr "องค์กร CRM"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_crm_in_marketing_automation
@@ -15499,8 +15799,8 @@ msgid ""
 "CSV format: you may edit it directly with your favorite spreadsheet software,\n"
 "                                the rightmost column (value) contains the translations"
 msgstr ""
-"CSV format: you may edit it directly with your favorite spreadsheet software,\n"
-"                                the rightmost column (value) contains the translations"
+"รูปแบบ CSV: คุณสามารถแก้ไขได้โดยตรงด้วยซอฟต์แวร์สเปรดชีตที่คุณชื่นชอบ\n"
+"                                คอลัมน์ขวาสุด (ค่า) ประกอบด้วยคำแปล"
 
 #. module: base
 #: model:res.country,vat_label:base.ar
@@ -15541,8 +15841,7 @@ msgstr "แคเมอรูน"
 #, python-format
 msgid ""
 "Can not create Many-To-One records indirectly, import the field separately"
-msgstr ""
-"Can not create Many-To-One records indirectly, import the field separately"
+msgstr "ไม่สามารถสร้างบันทึกแบบหลายต่อหนึ่งโดยอ้อมได้ ให้นำเข้าฟิลด์แยกกัน"
 
 #. module: base
 #. odoo-python
@@ -15660,7 +15959,7 @@ msgstr "ไม่สามารถปิดใช้งานภาษาที
 #: code:addons/base/models/res_config.py:0
 #, python-format
 msgid "Cannot duplicate configuration!"
-msgstr "Cannot duplicate configuration!"
+msgstr "ไม่สามารถทำซ้ำการกำหนดค่าได้!"
 
 #. module: base
 #. odoo-python
@@ -15747,7 +16046,7 @@ msgstr "เปลี่ยนรหัสผ่าน"
 #. module: base
 #: model:ir.model,name:base.model_change_password_wizard
 msgid "Change Password Wizard"
-msgstr "Change Password Wizard"
+msgstr "โปรแกรมการเปลี่ยนรหัสผ่าน"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form_simple_modif
@@ -15769,17 +16068,17 @@ msgid ""
 "a new contact should be created under that new company. You can use the "
 "\"Discard\" button to abandon this change."
 msgstr ""
-"Changing the company of a contact should only be done if it was never "
-"correctly set. If an existing contact starts working for a new company then "
-"a new contact should be created under that new company. You can use the "
-"\"Discard\" button to abandon this change."
+"การเปลี่ยนบริษัทของผู้ติดต่อควรต่อเมื่อไม่ได้ตั้งค่าอย่างถูกต้องเท่านั้น "
+"หากผู้ติดต่อที่มีอยู่เริ่มทำงานให้กับบริษัทใหม่ "
+"ควรสร้างผู้ติดต่อใหม่ภายใต้บริษัทใหม่นั้น คุณสามารถใช้ปุ่ม \"ยกเลิก\" "
+"เพื่อละทิ้งการเปลี่ยนแปลงนี้ได้"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Changing the model of a field is forbidden!"
-msgstr "Changing the model of a field is forbidden!"
+msgstr "ห้ามเปลี่ยนโมเดลฟิลด์!"
 
 #. module: base
 #. odoo-python
@@ -15827,7 +16126,7 @@ msgstr "พื้นฐาน"
 #: model:ir.model.fields,help:base.field_res_partner__is_company
 #: model:ir.model.fields,help:base.field_res_users__is_company
 msgid "Check if the contact is a company, otherwise it is a person"
-msgstr "Check if the contact is a company, otherwise it is a person"
+msgstr "ตรวจสอบว่าผู้ติดต่อเป็นบริษัทหรือไม่ ไม่เช่นนั้นจะเป็นบุคคล"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_account_check_printing
@@ -15854,17 +16153,17 @@ msgstr "ตรวจสอบ/SHA1"
 #: model:ir.model.fields,field_description:base.field_ir_actions_server__child_ids
 #: model:ir.model.fields,field_description:base.field_ir_cron__child_ids
 msgid "Child Actions"
-msgstr "Child Actions"
+msgstr "การดำเนินการย่อย"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_category__child_ids
 msgid "Child Applications"
-msgstr "Child Applications"
+msgstr "แอปพลิเคชันย่อย"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_menu__child_id
 msgid "Child IDs"
-msgstr "Child IDs"
+msgstr "รหัสย่อย"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_category__child_ids
@@ -15959,10 +16258,10 @@ msgid ""
 "- TLS (STARTTLS): TLS encryption is requested at start of SMTP session (Recommended)\n"
 "- SSL/TLS: SMTP sessions are encrypted with SSL/TLS through a dedicated port (default: 465)"
 msgstr ""
-"Choose the connection encryption scheme:\n"
-"- None: SMTP sessions are done in cleartext.\n"
-"- TLS (STARTTLS): TLS encryption is requested at start of SMTP session (Recommended)\n"
-"- SSL/TLS: SMTP sessions are encrypted with SSL/TLS through a dedicated port (default: 465)"
+"เลือกรูปแบบการเข้ารหัสการเชื่อมต่อ:\n"
+"- ไม่มี: เซสชัน SMTP เสร็จสิ้นในรูปแบบข้อความธรรมดา\n"
+"- TLS (STARTTLS): มีการร้องขอการเข้ารหัส TLS เมื่อเริ่มต้นเซสชัน SMTP (แนะนำ)\n"
+"- SSL/TLS: เซสชัน SMTP ถูกเข้ารหัสด้วย SSL/TLS ผ่านพอร์ตเฉพาะ (ค่าเริ่มต้น: 465)"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_documents
@@ -16001,7 +16300,7 @@ msgstr "ลูกค้า"
 #: model:ir.model,name:base.model_ir_actions_client
 #: model_terms:ir.ui.view,arch_db:base.view_client_action_form
 msgid "Client Action"
-msgstr "Client Action"
+msgstr "การดำเนินการย่อย"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.ir_client_actions_report
@@ -16013,7 +16312,7 @@ msgstr "การดำเนินการของลูกค้า"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_client__tag
 msgid "Client action tag"
-msgstr "Client action tag"
+msgstr "แท็กการกระทำของลูกค้า"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.base_partner_merge_automatic_wizard_form
@@ -16035,13 +16334,18 @@ msgstr "หมู่เกาะ (คีลิง) โคโคส"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_codabox
-msgid "Codabox"
-msgstr "Codabox"
+msgid "CodaBox"
+msgstr "CodaBox"
 
 #. module: base
-#: model:ir.module.module,description:base.module_l10n_be_codabox
-msgid "Codabox integration to retrieve your CODA and SODA files."
-msgstr "การรวม Codabox เพื่อดึงไฟล์ CODA และ SODA ของคุณ"
+#: model:ir.module.module,shortdesc:base.module_l10n_be_codabox_bridge
+msgid "CodaBox Bridge"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_be_codabox_bridge_wizard
+msgid "CodaBox Bridge Wizard"
+msgstr ""
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_import_language
@@ -16102,7 +16406,7 @@ msgstr "โคลอมเบีย - จุดขาย"
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_co
 msgid "Colombian Accounting and Tax Preconfiguration"
-msgstr "Colombian Accounting and Tax Preconfiguration"
+msgstr "การบัญชีและการกำหนดค่าภาษีล่วงหน้าของประเทศโคลอมเบีย"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_co_edi
@@ -16125,7 +16429,7 @@ msgstr "ดัชนีสี"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__column1
 msgid "Column 1"
-msgstr "Use '1' for yes and '0' for no"
+msgstr "คอลัมน์ 1"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__column2
@@ -16169,8 +16473,8 @@ msgid ""
 "Comma-separated list of allowed view modes, such as 'form', 'tree', "
 "'calendar', etc. (Default: tree,form)"
 msgstr ""
-"Comma-separated list of allowed view modes, such as 'form', 'tree', "
-"'calendar', etc. (Default: tree,form)"
+"รายการที่คั่นด้วยเครื่องหมายจุลภาคของโหมดมุมมองที่อนุญาต เช่น 'form', "
+"'tree', 'calendar' ฯลฯ (ค่าเริ่มต้น: tree,form)"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_mail_server__smtp_authentication__cli
@@ -16217,6 +16521,15 @@ msgstr "บริษัท"
 #: model_terms:ir.ui.view,arch_db:base.view_users_form
 msgid "Companies count"
 msgstr "บริษัท"
+
+#. module: base
+#. odoo-python
+#: code:addons/base/models/res_company.py:0
+#, python-format
+msgid ""
+"Companies that have associated branches cannot be deleted. Consider "
+"archiving them instead."
+msgstr ""
 
 #. module: base
 #. odoo-python
@@ -16291,12 +16604,12 @@ msgstr "ชื่อบริษัท..."
 #: model:ir.actions.act_window,name:base.ir_property_form
 #: model:ir.ui.menu,name:base.menu_ir_property_form_all
 msgid "Company Properties"
-msgstr "Company Properties"
+msgstr "คุณสมบัติของบริษัท"
 
 #. module: base
 #: model:ir.model,name:base.model_ir_property
 msgid "Company Property"
-msgstr "On delete property for many2one fields"
+msgstr "คุณสมบัติของบริษัท"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_currency_rate__company_rate
@@ -16363,7 +16676,7 @@ msgstr "ที่อยู่แบบเต็ม"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_data__complete_name
 msgid "Complete ID"
-msgstr "Complete ID"
+msgstr "รหัสประจำตัวที่สมบูรณ์"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__complete_name
@@ -16426,7 +16739,7 @@ msgstr "กำหนดค่า"
 #. module: base
 #: model:ir.model,name:base.model_res_config_installer
 msgid "Config Installer"
-msgstr "Configuration Installer"
+msgstr "ตัวติดตั้งการกำหนดค่า"
 
 #. module: base
 #: model:ir.model,name:base.model_res_config_settings
@@ -16452,14 +16765,14 @@ msgstr "การกำหนดค่า"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_config_installer
 msgid "Configuration Installer"
-msgstr "Configuration Installer"
+msgstr "ตัวติดตั้งการกำหนดค่า"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.act_ir_actions_todo_form
 #: model:ir.model,name:base.model_ir_actions_todo
 #: model:ir.ui.menu,name:base.menu_ir_actions_todo_form
 msgid "Configuration Wizards"
-msgstr "Configuration Wizards"
+msgstr "โปรแกรมการกำหนดค่า"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_event_twitter_wall
@@ -16499,7 +16812,7 @@ msgstr "คองโก"
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_drivers
 msgid "Connect the Web Client to Hardware Peripherals"
-msgstr "Connect the Web Client to Hardware Peripherals"
+msgstr "เชื่อมต่อเว็บไคลเอ็นต์กับอุปกรณ์ต่อพ่วงฮาร์ดแวร์"
 
 #. module: base
 #. odoo-python
@@ -16548,7 +16861,7 @@ msgstr "การรวบรวม"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_constraint__name
 msgid "Constraint"
-msgstr "Constraint"
+msgstr "ข้อจำกัด"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_constraint__type
@@ -16568,7 +16881,7 @@ msgstr "ข้อจำกัด"
 #. module: base
 #: model:ir.model.constraint,message:base.constraint_ir_model_constraint_module_name_uniq
 msgid "Constraints with the same name are unique per module."
-msgstr "Constraints with the same name are unique per module."
+msgstr "ข้อจำกัดที่มีชื่อเดียวกันจะไม่ซ้ำกันในแต่ละโมดูล"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_F
@@ -16674,7 +16987,7 @@ msgstr "บริบท"
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__context
 #: model:ir.model.fields,field_description:base.field_ir_actions_client__context
 msgid "Context Value"
-msgstr "Context Value"
+msgstr "ค่าบริบท"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_window__context
@@ -16682,7 +16995,8 @@ msgstr "Context Value"
 msgid ""
 "Context dictionary as Python expression, empty by default (Default: {})"
 msgstr ""
-"Context dictionary as Python expression, empty by default (Default: {})"
+"พจนานุกรมบริบทเป็นตัวสั่งงาน Python ว่างเปล่าตามค่าเริ่มต้น (ค่าเริ่มต้น: "
+"{})"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_contract_sign
@@ -16737,7 +17051,7 @@ msgstr "คอสตาริกา"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_cr
 msgid "Costa Rica - Accounting"
-msgstr "Costa Rica - Accounting"
+msgstr "ประเทศคอสตาริกา - ระบบบัญชี"
 
 #. module: base
 #. odoo-python
@@ -16756,7 +17070,7 @@ msgstr ""
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "Couldn't create contact without email address!"
-msgstr "Couldn't create contact without email address!"
+msgstr "ไม่สามารถสร้างที่อยู่ติดต่อได้หากไม่มีที่อยู่อีเมล!"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model__count
@@ -16944,11 +17258,6 @@ msgid "Create a new customer in your address book"
 msgstr "สร้างลูกค้าใหม่ในสมุดรายชื่อ"
 
 #. module: base
-#: model_terms:ir.actions.act_window,help:base.action_attachment
-msgid "Create a new document"
-msgstr ""
-
-#. module: base
 #: model_terms:ir.actions.act_window,help:base.action_partner_supplier_form
 msgid "Create a new vendor in your address book"
 msgstr "สร้างผู้ขายใหม่ในสมุดรายชื่อของคุณ"
@@ -16969,8 +17278,8 @@ msgid ""
 "Create and manage the companies that will be managed by Odoo from here. "
 "Shops or subsidiaries can be created and maintained from here."
 msgstr ""
-"Create and manage the companies that will be managed by Odoo from here. "
-"Shops or subsidiaries can be created and maintained from here."
+"สร้างและจัดการบริษัทที่จะจัดการโดย Odoo จากที่นี่ "
+"สามารถสร้างและบำรุงรักษาร้านค้าหรือบริษัทในเครือได้จากที่นี่"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_res_users
@@ -17308,7 +17617,7 @@ msgstr "สกุลเงิน"
 #. module: base
 #: model:ir.model.fields,help:base.field_res_currency__name
 msgid "Currency Code (ISO 4217)"
-msgstr "Currency Code (ISO 4217)"
+msgstr "รหัสสกุลเงิน (ISO 4217)"
 
 #. module: base
 #: model:ir.model,name:base.model_res_currency_rate
@@ -17320,7 +17629,7 @@ msgstr "อัตราแลกเปลี่ยน"
 #: model_terms:ir.ui.view,arch_db:base.view_currency_rate_search
 #: model_terms:ir.ui.view,arch_db:base.view_currency_rate_tree
 msgid "Currency Rates"
-msgstr "Rates"
+msgstr "อัตราสกุลเงิน"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_currency__currency_subunit_label
@@ -17361,7 +17670,7 @@ msgstr "ฟิลด์สกุลเงินควรมีความสั
 #. module: base
 #: model:ir.model.fields,help:base.field_res_currency__symbol
 msgid "Currency sign, to be used when printing amounts."
-msgstr "Currency sign, to be used when printing amounts."
+msgstr "เครื่องหมายสกุลเงิน สำหรับใช้ในการพิมพ์จำนวนเงิน"
 
 #. module: base
 #. odoo-python
@@ -17373,7 +17682,7 @@ msgstr "อาร์คปัจจุบัน"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__current_line_id
 msgid "Current Line"
-msgstr "Line"
+msgstr "รายการปัจจุบัน"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_currency__rate
@@ -17397,12 +17706,12 @@ msgstr "กำหนดเอง"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__state__manual
 msgid "Custom Field"
-msgstr "Custom Field"
+msgstr "ฟิลด์ที่กำหนดเอง"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model__state__manual
 msgid "Custom Object"
-msgstr "Custom Object"
+msgstr "ออบเจ็กต์ที่กำหนดเอง"
 
 #. module: base
 #: model:ir.ui.menu,name:base.menu_administration_shortcut
@@ -17435,7 +17744,7 @@ msgstr "ลูกค้า"
 #: model:ir.module.module,shortdesc:base.module_portal
 #: model:ir.module.module,summary:base.module_portal
 msgid "Customer Portal"
-msgstr "Portal"
+msgstr "พอร์ทัลลูกค้า"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_rating
@@ -17490,6 +17799,11 @@ msgstr "สาธารณรัฐเช็ก - การบัญชี"
 #: model:res.country,name:base.cz
 msgid "Czech Republic"
 msgstr "สาธารณรัฐเช็ก"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_cz_reports
+msgid "Czech Republic- Accounting Reports"
+msgstr "สาธารณรัฐเช็ก- รายงานการบัญชี"
 
 #. module: base
 #: model:res.country,name:base.ci
@@ -17561,7 +17875,7 @@ msgstr "แดช"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_board
 msgid "Dashboards"
-msgstr "Dashboards"
+msgstr "แดชบอร์ด"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_productivity_data_cleaning
@@ -17582,7 +17896,7 @@ msgstr "รีไซเคิลข้อมูล"
 #. module: base
 #: model:ir.module.module,description:base.module_test_convert
 msgid "Data for xml conversion tests"
-msgstr "Data for xml conversion tests"
+msgstr "ข้อมูลสำหรับการทดสอบการแปลง xml"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_logging_search_view
@@ -17600,8 +17914,8 @@ msgid ""
 "Database ID of record to open in form view, when ``view_mode`` is set to "
 "'form' only"
 msgstr ""
-"Database ID of record to open in form view, when ``view_mode`` is set to "
-"'form' only"
+"รหัสฐานข้อมูลของบันทึกที่จะเปิดในมุมมองแบบฟอร์ม เมื่อตั้งค่า ``view_mode`` "
+"เป็น 'form' เท่านั้น"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_logging__dbname
@@ -17780,7 +18094,7 @@ msgstr "ค่าเริ่มต้น"
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_window__limit
 msgid "Default limit for the list view"
-msgstr "Default limit for the list view"
+msgstr "ขีดจำกัดเริ่มต้นสำหรับมุมมองรายการ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat__default
@@ -17795,7 +18109,7 @@ msgstr "ธีม"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_tax_python
 msgid "Define Taxes as Python Code"
-msgstr "Python Code"
+msgstr "กำหนดภาษีเป็นรหัส Python"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.module_form
@@ -17879,7 +18193,7 @@ msgstr "ตัวอย่าง ข้อมูล"
 #. module: base
 #: model:ir.model,name:base.model_ir_demo_failure_wizard
 msgid "Demo Failure wizard"
-msgstr "Wizard"
+msgstr "โปรแกรมการล้มเหลวของการสาธิต"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_demo_failure_wizard__failure_ids
@@ -17923,7 +18237,7 @@ msgstr "เดนมาร์ก - รายงานด้านบัญชี
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_dk_bookkeeping
 msgid "Denmark - Bookkeeping Act"
-msgstr ""
+msgstr "ประเทศเดนมาร์ก - พระราชบัญญัติการทำบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_dk_oioubl
@@ -17931,13 +18245,18 @@ msgid "Denmark - E-invoicing"
 msgstr "ประเทศเดนมาร์ก - ใบแจ้งหนี้อิเล็กทรอนิกส์"
 
 #. module: base
-#: model:ir.module.module,shortdesc:base.module_l10n_dk_edi
-msgid "Denmark - Electronic invoicing"
-msgstr "ประเทศเดนมาร์ก - การออกใบแจ้งหนี้อิเล็กทรอนิกส์"
-
-#. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_dk_saft_import
 msgid "Denmark - SAF-T Import"
+msgstr "ประเทศเดนมาร์ก - การนำเข้า SAF-T"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk_edi
+msgid "Denmark - UNSPSC product code"
+msgstr ""
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_dk_audit_trail
+msgid "Denmark - audit trail"
 msgstr ""
 
 #. module: base
@@ -17977,12 +18296,12 @@ msgstr "คำอธิบาย"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_module_module__description_html
 msgid "Description HTML"
-msgstr "Description HTML"
+msgstr "คำอธิบาย HTML"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mass_mailing_themes
 msgid "Design gorgeous mails"
-msgstr "Design, send and track emails"
+msgstr "ออกแบบจดหมายที่สวยงาม"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mass_mailing_sms
@@ -17992,7 +18311,7 @@ msgstr "ออกแบบ ส่ง และติดตาม SMS"
 #. module: base
 #: model:ir.module.module,summary:base.module_mass_mailing
 msgid "Design, send and track emails"
-msgstr "Design, send and track emails"
+msgstr "ออกแบบ ส่ง และติดตามอีเมล"
 
 #. module: base
 #: model:res.partner.category,name:base.res_partner_category_14
@@ -18013,16 +18332,14 @@ msgstr "โมเดลปลายทาง"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_rule_form
 msgid "Detailed algorithm:"
-msgstr "Detailed algorithm:"
+msgstr "อัลกอริธึมโดยละเอียด:"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_currency__position
 msgid ""
 "Determines where the currency symbol should be placed after or before the "
 "amount."
-msgstr ""
-"Determines where the currency symbol should be placed after or before the "
-"amount."
+msgstr "กำหนดตำแหน่งที่ควรวางสัญลักษณ์สกุลเงินไว้หลังหรือก่อนจำนวนเงิน"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_country__name_position
@@ -18076,7 +18393,7 @@ msgid ""
 "Disabling this option will also uninstall the following modules \n"
 "%s"
 msgstr ""
-"Disabling this option will also uninstall the following modules \n"
+"การปิดใช้งานตัวเลือกนี้จะถอนการติดตั้งโมดูลต่อไปนี้ด้วย\n"
 "%s"
 
 #. module: base
@@ -18087,7 +18404,7 @@ msgstr "รายจ่ายต้องห้าม"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_disallowed_expenses_fleet
 msgid "Disallowed Expenses on Fleets"
-msgstr "ค่าใช้จ่ายที่ไม่ได้รับอนุญาตในขนส่ง"
+msgstr "ค่าใช้จ่ายที่ไม่ได้รับอนุญาตในระบบขนส่ง"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_uninstall
@@ -18222,7 +18539,7 @@ msgstr "แสดงตัวเลือกในเอกสารที่เ
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_pricer
 msgid "Display and change your products information on electronic Pricer tags"
-msgstr ""
+msgstr "แสดงและเปลี่ยนแปลงข้อมูลผลิตภัณฑ์ของคุณบนแท็กราคาอิเล็กทรอนิกส์"
 
 #. module: base
 #. odoo-python
@@ -18335,7 +18652,7 @@ msgstr "เอกสาร"
 #: code:addons/models.py:0
 #, python-format
 msgid "Document type:"
-msgstr "Document type:"
+msgstr "ประเภทเอกสาร:"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_productivity_documents
@@ -18376,7 +18693,7 @@ msgstr "เอกสาร - FSM"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_documents_fleet
 msgid "Documents - Fleet"
-msgstr "เอกสาร - กองเรือ"
+msgstr "เอกสาร - ระบบขนส่ง"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_documents_hr
@@ -18460,7 +18777,7 @@ msgstr "โดเมน"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__domain
 msgid "Domain Value"
-msgstr "Domain Value"
+msgstr "ค่าโดเมน"
 
 #. module: base
 #. odoo-python
@@ -18485,7 +18802,7 @@ msgstr "สาธารณรัฐโดมินิกัน"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_do
 msgid "Dominican Republic - Accounting"
-msgstr "Dominican Republic - Accounting"
+msgstr "สาธารณรัฐโดมินิกัน - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_do_reports
@@ -18524,7 +18841,7 @@ msgstr "ดร."
 #: model:ir.module.module,shortdesc:base.module_stock_dropshipping
 #: model:ir.module.module,summary:base.module_stock_dropshipping
 msgid "Drop Shipping"
-msgstr "Drop Shipping"
+msgstr "ดรอปชิปปิ้ง"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mrp_subcontracting_dropshipping
@@ -18583,7 +18900,7 @@ msgstr "EDI"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_mx_edi
 msgid "EDI for Mexico"
-msgstr "เม็กซิโก"
+msgstr "EDI สำหรับประเทศแม็กซิโก"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_extended
@@ -18598,7 +18915,7 @@ msgstr "EDI สำหรับประเทศเปรู"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hw_escpos
 msgid "ESC/POS Hardware Driver"
-msgstr "ESC/POS Hardware Driver"
+msgstr "ไดรเวอร์ฮาร์ดแวร์ ESC/POS"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_eu_oss
@@ -18649,6 +18966,11 @@ msgid "Ecuador"
 msgstr "เอกวาดอร์"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_ec_reports_ats
+msgid "Ecuador - ATS Report"
+msgstr "ประเทศเอกวาดอร์ - รายงาน ATS"
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ec
 msgid "Ecuadorian Accounting"
 msgstr "การบัญชีสำหรับประเทศเอกวาดอร์"
@@ -18662,6 +18984,11 @@ msgstr "การบัญชี EDI สำหรับประเทศเอ�
 #: model:ir.module.module,shortdesc:base.module_l10n_ec_reports
 msgid "Ecuadorian Accounting Reports"
 msgstr "รายงานด้านบัญชีสำหรับประเทศเอกวาดอร์"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_ec_website_sale
+msgid "Ecuadorian Website"
+msgstr "เว็บไซต์เอกวาดอร์"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_P
@@ -18702,7 +19029,7 @@ msgstr ""
 #. module: base
 #: model:res.country,name:base.sv
 msgid "El Salvador"
-msgstr "El Salvador"
+msgstr "ประเทศเอลซัลวาดอร์"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_pe_edi_stock
@@ -18738,7 +19065,7 @@ msgstr "ไม่สามารถวางองค์ประกอบ %r �
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Element '%s' cannot be located in parent view"
-msgstr "Element '%s' cannot be located in parent view"
+msgstr "องค์ประกอบ '%s' ไม่สามารถอยู่ในมุมมองหลักได้"
 
 #. module: base
 #. odoo-python
@@ -18852,7 +19179,7 @@ msgstr "การจ้างงาน Hero บัญชีเงินเดื
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Empty dependency in %r"
-msgstr "Empty dependency in %r"
+msgstr "การขึ้นต่อกันว่างเปล่าใน %r"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_appointment_sale
@@ -18933,8 +19260,8 @@ msgid ""
 "Enter Python code here. Help about Python expression is available in the "
 "help tab of this document."
 msgstr ""
-"Enter Python code here. Help about Python expression is available in the "
-"help tab of this document."
+"ป้อนรหัส Python ที่นี่ วิธีใช้เกี่ยวกับตัวสั่งงาน Python "
+"มีอยู่ในแท็บวิธีใช้ของเอกสารนี้"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.form_res_users_key_description
@@ -19027,6 +19354,13 @@ msgid "Error"
 msgstr "ผิดพลาด"
 
 #. module: base
+#. odoo-python
+#: code:addons/base/models/ir_module.py:0
+#, python-format
+msgid "Error ! You cannot create recursive categories."
+msgstr "ข้อผิดพลาด ! คุณไม่สามารถสร้างหมวดหมู่แบบเรียกซ้ำได้"
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_model_constraint__message
 msgid "Error message returned when the constraint is violated."
 msgstr "ข้อความแสดงข้อผิดพลาดที่ส่งคืนเมื่อมีการละเมิดข้อจำกัด"
@@ -19090,7 +19424,7 @@ msgstr ""
 #: code:addons/base/models/ir_ui_menu.py:0
 #, python-format
 msgid "Error! You cannot create recursive menus."
-msgstr "You cannot create recursive Partner hierarchies."
+msgstr "คุณไม่สามารถสร้างลำดับชั้นของพาร์ทเนอร์แบบเรียกซ้ำได้"
 
 #. module: base
 #: model:res.country,name:base.ee
@@ -19120,7 +19454,7 @@ msgstr "เอธิโอเปีย"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_et
 msgid "Ethiopia - Accounting"
-msgstr "Ethiopia - Accounting"
+msgstr "ประเทศเอธิโอเปีย - ระบบบัญชี"
 
 #. module: base
 #: model:res.country.group,name:base.eurasian_economic_union
@@ -19212,7 +19546,7 @@ msgstr "เหตการณ์"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_event_sale
 msgid "Events Sales"
-msgstr "Events Sales"
+msgstr "การขายกิจกรรม"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_event_booth
@@ -19235,8 +19569,7 @@ msgid ""
 "Example of goal definitions and challenges that can be used related to the "
 "usage of the CRM Sale module."
 msgstr ""
-"Example of goal definitions and challenges that can be used related to the "
-"usage of the CRM Sale module."
+"ตัวอย่างคำจำกัดความเป้าหมายและความท้าทายที่สามารถนำมาใช้ที่เกี่ยวข้องกับการใช้งานโมดูลการขายและลูกค้าสัมพันธ์"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_rule_form
@@ -19244,7 +19577,7 @@ msgid ""
 "Example: GLOBAL_RULE_1 AND GLOBAL_RULE_2 AND ( (GROUP_A_RULE_1 OR "
 "GROUP_A_RULE_2) OR (GROUP_B_RULE_1 OR GROUP_B_RULE_2) )"
 msgstr ""
-"Example: GLOBAL_RULE_1 AND GLOBAL_RULE_2 AND ( (GROUP_A_RULE_1 OR "
+"ตัวอย่าง: GLOBAL_RULE_1 AND GLOBAL_RULE_2 AND ( (GROUP_A_RULE_1 OR "
 "GROUP_A_RULE_2) OR (GROUP_B_RULE_1 OR GROUP_B_RULE_2) )"
 
 #. module: base
@@ -19305,7 +19638,7 @@ msgstr "ดำเนินการรหัส"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_cron_view_form
 msgid "Execute Every"
-msgstr "Execute several actions"
+msgstr "ดำเนินการทุก"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_server__state__multi
@@ -19432,12 +19765,12 @@ msgstr "ส่งออกการชำระเงินเป็นไฟล
 #. module: base
 #: model:ir.model,name:base.model_ir_exports
 msgid "Exports"
-msgstr "Line"
+msgstr "การส่งออก"
 
 #. module: base
 #: model:ir.model,name:base.model_ir_exports_line
 msgid "Exports Line"
-msgstr "Line"
+msgstr "รายการส่งออก"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
@@ -19452,7 +19785,7 @@ msgstr "ตัวกรองเพิ่มเติม"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_ui_view__mode__extension
 msgid "Extension View"
-msgstr "Extension View"
+msgstr "มุมมองส่วนขยาย"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_snailmail_account_followup
@@ -19484,7 +19817,7 @@ msgstr "รหัสภายนอกไม่สามารถมีช่อ
 #: model:ir.model.fields,field_description:base.field_ir_model_data__name
 #: model_terms:ir.ui.view,arch_db:base.view_model_data_search
 msgid "External Identifier"
-msgstr "External Identifier"
+msgstr "ตัวระบุภายนอก"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_model_data
@@ -19493,16 +19826,14 @@ msgstr "External Identifier"
 #: model_terms:ir.ui.view,arch_db:base.view_model_data_list
 #: model_terms:ir.ui.view,arch_db:base.view_model_data_search
 msgid "External Identifiers"
-msgstr "External Identifiers"
+msgstr "ตัวระบุภายนอก"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_data__name
 msgid ""
 "External Key/Identifier that can be used for data integration with third-"
 "party systems"
-msgstr ""
-"External Key/Identifier that can be used for data integration with third-"
-"party systems"
+msgstr "คีย์/ตัวระบุภายนอกที่สามารถใช้สำหรับการรวมข้อมูลกับระบบของบุคคลที่สาม"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_subscription_external_tax
@@ -19608,6 +19939,11 @@ msgstr "หมู่เกาะฟอร์คแลนด์"
 #: model:res.country,name:base.fo
 msgid "Faroe Islands"
 msgstr "หมู่เกาะแฟโร"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_l10n_it_edi_website_sale
+msgid "Features for Italian eCommerce eInvoicing"
+msgstr "ฟีเจอร์สำหรับ eInvoicing อีคอมเมิร์ซของประเทศอิตาลี"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_bank__state
@@ -19907,7 +20243,7 @@ msgstr "ช่องข้อมูล"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_form
 msgid "Fields Description"
-msgstr "Fields Description"
+msgstr "คำอธิบายฟิลด์"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_model_fields_selection
@@ -20016,7 +20352,7 @@ msgstr "ชื่อตัวกรอง"
 #. module: base
 #: model:ir.model.constraint,message:base.constraint_ir_filters_name_model_uid_unique
 msgid "Filter names must be unique"
-msgstr "Filter names must be unique"
+msgstr "ชื่อตัวกรองต้องไม่ซ้ำกัน"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_attachment_search
@@ -20035,17 +20371,17 @@ msgstr "ตัวกรอง"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_filters_view_search
 msgid "Filters created by myself"
-msgstr "Filters created by myself"
+msgstr "ฟิลเตอร์ที่สร้างเอง"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_filters_view_search
 msgid "Filters shared with all users"
-msgstr "Filters shared with all users"
+msgstr "ตัวกรองที่แชร์กับผู้ใช้ทั้งหมด"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_filters_view_search
 msgid "Filters visible only for one user"
-msgstr "Filters visible only for one user"
+msgstr "ตัวกรองมองเห็นได้สำหรับผู้ใช้คนเดียวเท่านั้น"
 
 #. module: base
 #: model:res.partner.industry,name:base.res_partner_industry_K
@@ -20138,7 +20474,7 @@ msgstr "ตั้งค่าสถานะ URL รูปภาพ"
 #: model:ir.module.category,name:base.module_category_human_resources_fleet
 #: model:ir.module.module,shortdesc:base.module_fleet
 msgid "Fleet"
-msgstr "การขนส่ง"
+msgstr "ระบบขนส่ง"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_fleet
@@ -20148,7 +20484,7 @@ msgstr "ประวัติการขนส่ง"
 #. module: base
 #: model:ir.module.module,summary:base.module_documents_fleet
 msgid "Fleet from documents"
-msgstr "การขนส่งจากเอกสาร"
+msgstr "ระบบขนส่งจากเอกสาร"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_property__type__float
@@ -20176,6 +20512,13 @@ msgid "Footer text displayed at the bottom of all reports."
 msgstr "ข้อความส่วนท้ายแสดงอยู่ด้านล่างของรายงานทั้งหมด"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_be_codabox
+#: model:ir.module.module,summary:base.module_l10n_be_codabox_bridge
+#: model:ir.module.module,summary:base.module_l10n_be_codabox_bridge_wizard
+msgid "For Accounting Firms"
+msgstr "สำหรับสำนักงานบัญชี"
+
+#. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_server__value
 #: model:ir.model.fields,help:base.field_ir_cron__value
 msgid ""
@@ -20201,13 +20544,13 @@ msgid ""
 "For one2many fields, the field on the target model that implement the "
 "opposite many2one relationship"
 msgstr ""
-"For one2many fields, the field on the target model that implement the "
-"opposite many2one relationship"
+"สำหรับฟิลด์ one2many คือฟิลด์ในโมเดลเป้าหมายที่ใช้ความสัมพันธ์ many2one "
+"ที่ตรงกันข้าม"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields__relation
 msgid "For relationship fields, the technical name of the target model"
-msgstr "For relationship fields, the technical name of the target model"
+msgstr "สำหรับฟิลด์ความสัมพันธ์ ชื่อทางเทคนิคของโมเดลเป้าหมาย"
 
 #. module: base
 #. odoo-python
@@ -20316,12 +20659,12 @@ msgstr "ฝรั่งเศส"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr
 msgid "France - Accounting"
-msgstr "France - Accounting"
+msgstr "ประเทศฝรั่งเศส - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr_reports
 msgid "France - Accounting Reports"
-msgstr "France - Accounting"
+msgstr "ประเทศฝรั่งเศส - รายงานด้านบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr_fec
@@ -20364,17 +20707,17 @@ msgstr "ประเทศฝรั่งเศส - ระบบการลา
 #. module: base
 #: model:res.country,name:base.gf
 msgid "French Guiana"
-msgstr "French Payroll"
+msgstr "ประเทศเฟรนช์เกียน่า"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr_hr_payroll
 msgid "French Payroll"
-msgstr "French Payroll"
+msgstr "ประเทศฝรั่งเศส - บัญชีเงินเดือน"
 
 #. module: base
 #: model:res.country,name:base.pf
 msgid "French Polynesia"
-msgstr "French Payroll"
+msgstr "ประเทศเฟรนช์โปลินีเซีย"
 
 #. module: base
 #: model:res.country,name:base.tf
@@ -20457,22 +20800,22 @@ msgstr "G.C.C. - ใบแจ้งหนี้ภาษาอาหรับ/�
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__gpl-2
 msgid "GPL Version 2"
-msgstr "GPL Version 2"
+msgstr "GPL เวอร์ชัน 2"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__gpl-3
 msgid "GPL Version 3"
-msgstr "GPL Version 3"
+msgstr "GPL เวอร์ชัน 3"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__gpl-2_or_any_later_version
 msgid "GPL-2 or later version"
-msgstr "GPL-2 or later version"
+msgstr "GPL-2 หรือเวอร์ชันที่ใหม่กว่า"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__gpl-3_or_any_later_version
 msgid "GPL-3 or later version"
-msgstr "GPL-3 or later version"
+msgstr "GPL-3 หรือเวอร์ชันที่ใหม่กว่า"
 
 #. module: base
 #: model:res.country,vat_label:base.sg
@@ -20522,7 +20865,7 @@ msgstr "แกมเบีย"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_gamification
 msgid "Gamification"
-msgstr "Gamification"
+msgstr "การเล่นเกม"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_act_window_view__view_mode__gantt
@@ -20809,12 +21152,12 @@ msgstr "กราฟ"
 #. module: base
 #: model:res.country,name:base.gr
 msgid "Greece"
-msgstr "Greece"
+msgstr "กรีซ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_gr
 msgid "Greece - Accounting"
-msgstr "Greece - Accounting"
+msgstr "ประเทศกรีซ - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_gr_reports
@@ -20924,7 +21267,7 @@ msgstr "กลุ่ม"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_rule_form
 msgid "Groups (no group = global)"
-msgstr "Groups (no group = global)"
+msgstr "กลุ่ม (ไม่มีกลุ่ม = ส่วนกลาง)"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_server__groups_id
@@ -20953,7 +21296,7 @@ msgstr "กัวเตมาลา"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_gt
 msgid "Guatemala - Accounting"
-msgstr "Guatemala - Accounting"
+msgstr "ประเทศกัวเตมาลา - ระบบบัญชี"
 
 #. module: base
 #: model:res.country,name:base.gg
@@ -20968,7 +21311,7 @@ msgstr "กินี"
 #. module: base
 #: model:res.country,name:base.gw
 msgid "Guinea-Bissau"
-msgstr "Guinea-Bissau"
+msgstr "กินี-บิสเซา"
 
 #. module: base
 #: model:res.country.group,name:base.gulf_cooperation_council
@@ -21008,12 +21351,12 @@ msgstr "การเข้างานในวันหยุดของ HR"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_gamification
 msgid "HR Gamification"
-msgstr "HR Gamification"
+msgstr "การเล่นเกมทรัพยากรบุคคล"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_org_chart
 msgid "HR Org Chart"
-msgstr "HR Gamification"
+msgstr "การเล่นเกมทรัพยากรบุคคล"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_report__report_type__qweb-html
@@ -21048,12 +21391,12 @@ msgstr "จัดการออเดอร์อาหารกลางวั
 #. module: base
 #: model:ir.module.module,summary:base.module_hw_escpos
 msgid "Hardware Driver for ESC/POS Printers and Cashdrawers"
-msgstr "Hardware Driver for ESC/POS Printers and Cashdrawers"
+msgstr "ไดรเวอร์ฮาร์ดแวร์สำหรับเครื่องพิมพ์ ESC/POS และลิ้นชักเก็บเงิน"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hw_drivers
 msgid "Hardware Proxy"
-msgstr "Hardware Proxy"
+msgstr "พร็อกซีฮาร์ดแวร์"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_reset_view_arch_wizard__has_diff
@@ -21211,6 +21554,15 @@ msgid "Helpdesk: Help Center"
 msgstr "Helpdesk: ศูนย์ช่วยเหลือ"
 
 #. module: base
+#: model:ir.module.category,description:base.module_category_accounting_accounting
+msgid ""
+"Helps you handle your accounting needs, if you are not an accountant, we "
+"suggest you to install only the Invoicing."
+msgstr ""
+"Helps you handle your accounting needs, if you are not an accountant, we "
+"suggest you to install only the Invoicing."
+
+#. module: base
 #: model:ir.module.category,description:base.module_category_user_type
 msgid "Helps you manage users."
 msgstr "ช่วยคุณจัดการผู้ใช้"
@@ -21246,7 +21598,7 @@ msgstr "ซ่อนเหรียญรางวัล"
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Hide seconds"
-msgstr "Hide seconds"
+msgstr "ซ่อนวินาที"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_attachment_form
@@ -21276,7 +21628,7 @@ msgstr "ฮอนดูรัส"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_hn
 msgid "Honduras - Accounting"
-msgstr "Honduras - Accounting"
+msgstr "ประเทศฮอนดูรัส - ระบบบัญชี"
 
 #. module: base
 #: model:res.country,name:base.hk
@@ -21301,7 +21653,7 @@ msgstr "เขตปกครองพิเศษฮ่องกง - บัญ
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_mail_server__smtp_host
 msgid "Hostname or IP of SMTP server"
-msgstr "Hostname or IP of SMTP server"
+msgstr "ชื่อโฮสต์หรือ IP ของเซิร์ฟเวอร์ SMTP"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_cron__interval_type__hours
@@ -21319,8 +21671,8 @@ msgid ""
 "How many times the method is called,\n"
 "a negative number indicates no limit."
 msgstr ""
-"How many times the method is called,\n"
-"a negative number indicates no limit."
+"มีการเรียกเมธอดกี่ครั้ง\n"
+"ตัวเลขติดลบแสดงว่าไม่มีขีดจำกัด"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_fields_form
@@ -21358,7 +21710,7 @@ msgstr "Html"
 #: code:addons/base/models/ir_qweb_fields.py:0
 #, python-format
 msgid "Human Readable"
-msgstr "Human Readable"
+msgstr "มนุษย์สามารถอ่านได้"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_human_resources
@@ -21522,7 +21874,7 @@ msgstr "ไอดี"
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_data__res_id
 msgid "ID of the target record in the database"
-msgstr "ID of the target record in the database"
+msgstr "ID ของบันทึกเป้าหมายในฐานข้อมูล"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_ui_view__xml_id
@@ -21628,12 +21980,12 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_rule__global
 msgid "If no group is specified the rule is global and applied to everyone"
-msgstr "If no group is specified the rule is global and applied to everyone"
+msgstr "หากไม่มีการระบุกลุ่ม กฎจะเป็นสากลและนำไปใช้กับทุกคน"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_property__res_id
 msgid "If not set, acts as a default value for new resources"
-msgstr "If not set, acts as a default value for new resources"
+msgstr "หากไม่ได้ตั้งค่า จะทำหน้าที่เป็นค่าเริ่มต้นสำหรับทรัพยากรใหม่"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_window_view__multi
@@ -21642,18 +21994,18 @@ msgid ""
 "If set to true, the action will not be displayed on the right toolbar of a "
 "form view."
 msgstr ""
-"If set to true, the action will not be displayed on the right toolbar of a "
-"form view."
+"หากตั้งค่าเป็นจริง "
+"การดำเนินการจะไม่ปรากฏบนแถบเครื่องมือด้านขวาของมุมมองแบบฟอร์ม"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_default__company_id
 msgid "If set, action binding only applies for this company"
-msgstr "If set, action binding only applies for this company"
+msgstr "หากตั้งค่าไว้ การเชื่อมโยงการดำเนินการจะมีผลกับบริษัทนี้เท่านั้น"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_default__user_id
 msgid "If set, action binding only applies for this user."
-msgstr "If set, action binding only applies for this user."
+msgstr "หากตั้งค่าไว้ การเชื่อมโยงการดำเนินการจะใช้กับผู้ใช้รายนี้เท่านั้น"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_default__condition
@@ -21675,8 +22027,8 @@ msgid ""
 "If specified, this action will be opened at log on for this user, in "
 "addition to the standard menu."
 msgstr ""
-"If specified, this action will be opened at log on for this user, in "
-"addition to the standard menu."
+"หากระบุไว้ การดำเนินการนี้จะถูกเปิดเมื่อเข้าสู่ระบบสำหรับผู้ใช้รายนี้ "
+"นอกเหนือจากเมนูมาตรฐาน"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_ui_view__groups_id
@@ -21724,8 +22076,8 @@ msgid ""
 "If you enable this option, existing translations (including custom ones) "
 "will be overwritten and replaced by those in this file"
 msgstr ""
-"If you enable this option, existing translations (including custom ones) "
-"will be overwritten and replaced by those in this file"
+"หากคุณเปิดใช้งานตัวเลือกนี้ คำแปลที่มีอยู่ (รวมถึงคำแปลที่กำหนดเอง) "
+"จะถูกเขียนทับและแทนที่ด้วยคำแปลในไฟล์นี้"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_ui_menu__groups_id
@@ -21734,9 +22086,8 @@ msgid ""
 "groups. If this field is empty, Odoo will compute visibility based on the "
 "related object's read access."
 msgstr ""
-"If you have groups, the visibility of this menu will be based on these "
-"groups. If this field is empty, Odoo will compute visibility based on the "
-"related object's read access."
+"หากคุณมีกลุ่ม การมองเห็นเมนูนี้จะอิงตามกลุ่มเหล่านี้ หากฟิลด์นี้ว่างเปล่า "
+"Odoo จะคำนวณการมองเห็นตามการเข้าถึงการอ่านของออบเจ็กต์ที่เกี่ยวข้อง"
 
 #. module: base
 #. odoo-python
@@ -21772,7 +22123,7 @@ msgstr ""
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_upgrade
 msgid "If you wish to cancel the process, press the cancel button below"
-msgstr "If you wish to cancel the process, press the cancel button below"
+msgstr "หากคุณต้องการยกเลิกขั้นตอน ให้กดปุ่มยกเลิกด้านล่าง"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_avatar_mixin__image_1920
@@ -21900,7 +22251,7 @@ msgstr "นำเข้าข้อมูลการบัญชีจากไ
 #: model:ir.module.module,summary:base.module_l10n_lt_saft_import
 #: model:ir.module.module,summary:base.module_l10n_ro_saft_import
 msgid "Import Accounting Data from SAF-T files"
-msgstr ""
+msgstr "นำเข้าข้อมูลการบัญชีจากไฟล์ SAF-T"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_se_sie_import
@@ -21954,7 +22305,7 @@ msgstr "นำเข้าการแปล"
 #. module: base
 #: model:ir.module.module,summary:base.module_website_generator
 msgid "Import a pre-existing website"
-msgstr ""
+msgstr "นำเข้าเว็บไซต์ที่มีอยู่แล้ว"
 
 #. module: base
 #: model:ir.module.module,description:base.module_currency_rate_live
@@ -22040,7 +22391,7 @@ msgstr "อินเดีย"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_in_documents
 msgid "India - Documents"
-msgstr ""
+msgstr "ประเทศอินเดีย - เอกสาร"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_in_hr_payroll_account
@@ -22060,12 +22411,12 @@ msgstr "การจัดการการขายและคลังสิ
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_in
 msgid "Indian - Accounting"
-msgstr "Indian - Accounting"
+msgstr "ประเทศอินเดีย - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_in_reports
 msgid "Indian - Accounting Reports"
-msgstr "Indian - Accounting"
+msgstr "ประเทศอินเดีย - รายงานด้านบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_in_edi
@@ -22110,7 +22461,7 @@ msgstr "ประเทศอินเดีย - รายงานสินค
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_in_hr_payroll
 msgid "Indian Payroll"
-msgstr "Indian Payroll"
+msgstr "ประเทศอินเดีย - บัญชีเงินเดือน"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_partner__company_type__person
@@ -22165,7 +22516,7 @@ msgstr "สืบทอด"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_groups_form
 msgid "Inherited"
-msgstr "Inherited"
+msgstr "สืบทอด"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__inherit_id
@@ -22175,7 +22526,7 @@ msgstr "สืบทอดมุมมอง"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_view_form
 msgid "Inherited Views"
-msgstr "Inherited Views"
+msgstr "มุมมองที่สืบทอดมา"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model__inherited_model_ids
@@ -22196,12 +22547,12 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_groups__implied_ids
 msgid "Inherits"
-msgstr "Inherits"
+msgstr "สืบทอด"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_setup
 msgid "Initial Setup Tools"
-msgstr "Initial Setup Tools"
+msgstr "เครื่องมือการตั้งค่าเริ่มต้น"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_profile__init_stack_trace
@@ -22211,7 +22562,7 @@ msgstr "การติดตามสแต็กเริ่มต้น"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_act_window__target__inline
 msgid "Inline Edit"
-msgstr "Inline Edit"
+msgstr "แก้ไขแบบอินไลน์"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__address_view_id
@@ -22257,14 +22608,15 @@ msgstr "เวอร์ชันที่ติดตั้ง"
 #. module: base
 #: model:ir.module.module,description:base.module_bus
 msgid "Instant Messaging Bus allow you to send messages to users, in live."
-msgstr "Instant Messaging Bus allow you to send messages to users, in live."
+msgstr ""
+"Instant Messaging Bus ช่วยให้คุณสามารถส่งข้อความถึงผู้ใช้ได้แบบเรียลไทม์"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "Insufficient fields for Calendar View!"
-msgstr "Insufficient fields for Calendar View!"
+msgstr "ฟิลด์ไม่เพียงพอสำหรับมุมมองปฏิทิน!"
 
 #. module: base
 #. odoo-python
@@ -22274,8 +22626,8 @@ msgid ""
 "Insufficient fields to generate a Calendar View for %s, missing a date_stop "
 "or a date_delay"
 msgstr ""
-"Insufficient fields to generate a Calendar View for %s, missing a date_stop "
-"or a date_delay"
+"ฟิลด์ไม่เพียงพอที่จะสร้างมุมมองปฏิทินสำหรับ %s ไม่มี date_stop หรือ "
+"date_delay"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_property__type__integer
@@ -22340,7 +22692,7 @@ msgstr "ผสานการใช้งาน POS ของคุณเข้�
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_viva_wallet
 msgid "Integrate your POS with a Viva Wallet payment terminal"
-msgstr ""
+msgstr "ผสานรวม POS ของคุณเข้ากับเครื่องชำระเงิน Viva Wallet"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_adyen
@@ -22376,7 +22728,7 @@ msgstr "การโต้ตอบระหว่างแอปการขา
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_rule_form
 msgid "Interaction between rules"
-msgstr "Interaction between rules"
+msgstr "การโต้ตอบระหว่างกฎเกณฑ์"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_account_inter_company_rules
@@ -22423,7 +22775,7 @@ msgstr "Internet of Things (IoT)"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__interval_number
 msgid "Interval Number"
-msgstr "Interval Number"
+msgstr "หมายเลขช่วงเวลา"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__interval_type
@@ -22438,7 +22790,7 @@ msgstr "รายงาน"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodulereference
 msgid "Introspection report on objects"
-msgstr "Introspection report on objects"
+msgstr "รายงานการสำรวจบนออบเจ็กต์"
 
 #. module: base
 #. odoo-python
@@ -22502,13 +22854,16 @@ msgid ""
 "\n"
 " %(e)s"
 msgstr ""
+"บริบทไม่ถูกต้อง: %(expr)r ไม่ใช่ตัวสั่งงาน Python ที่ถูกต้อง\n"
+"\n"
+" %(e)s"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Invalid database id '%s' for the field '%%(field)s'"
-msgstr "Invalid database id '%s' for the field '%%(field)s'"
+msgstr "รหัสฐานข้อมูล '%s' ไม่ถูกต้องสำหรับฟิลด์ '%%(field)s'"
 
 #. module: base
 #. odoo-python
@@ -22518,15 +22873,22 @@ msgid ""
 "Invalid date/time format directive specified. Please refer to the list of "
 "allowed directives, displayed when you edit a language."
 msgstr ""
-"Invalid date/time format directive specified. Please refer to the list of "
-"allowed directives, displayed when you edit a language."
+"ระบุคำสั่งรูปแบบวันที่/เวลาไม่ถูกต้อง "
+"โปรดดูรายการคำสั่งที่อนุญาตซึ่งจะแสดงขึ้นเมื่อคุณแก้ไขภาษา"
+
+#. module: base
+#. odoo-python
+#: code:addons/base/models/ir_rule.py:0
+#, python-format
+msgid "Invalid domain: %s"
+msgstr "โดเมนไม่ถูกต้อง: %s"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid field %s.%s"
-msgstr "Invalid field %s.%s"
+msgstr "ฟิลด์ไม่ถูกต้อง %s.%s"
 
 #. module: base
 #. odoo-python
@@ -22541,8 +22903,8 @@ msgid ""
 "Invalid inheritance mode: if the mode is 'extension', the view must extend "
 "an other view"
 msgstr ""
-"Invalid inheritance mode: if the mode is 'extension', the view must extend "
-"an other view"
+"โหมดการสืบทอดไม่ถูกต้อง: หากโหมดนั้นเป็น 'ส่วนขยาย' "
+"มุมมองจะต้องขยายมุมมองอื่น"
 
 #. module: base
 #: model:ir.model.constraint,message:base.constraint_ir_ui_view_qweb_required_key
@@ -22569,7 +22931,7 @@ msgstr "ชื่อโมเดล %r ไม่ถูกต้องในค�
 #: code:addons/template_inheritance.py:0
 #, python-format
 msgid "Invalid position attribute: '%s'"
-msgstr "Invalid position attribute: '%s'"
+msgstr "แอตทริบิวต์ตำแหน่งไม่ถูกต้อง: '%s'"
 
 #. module: base
 #. odoo-python
@@ -22629,7 +22991,7 @@ msgstr "ประเภท"
 #: code:addons/base/models/ir_default.py:0
 #, python-format
 msgid "Invalid value for %s.%s: %s"
-msgstr "Invalid value for %s.%s: %s"
+msgstr "ค่าไม่ถูกต้องสำหรับ %s.%s: %s"
 
 #. module: base
 #. odoo-python
@@ -22666,7 +23028,7 @@ msgstr "คลังสินค้า"
 #. module: base
 #: model:ir.module.module,summary:base.module_stock_account
 msgid "Inventory, Logistic, Valuation, Accounting"
-msgstr "Inventory, Logistic, Valuation, Accounting"
+msgstr "สินค้าคงคลัง, ลอจิสติกส์, การประเมินค่า, ระบบบัญชี"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_currency_rate__inverse_company_rate
@@ -22694,7 +23056,6 @@ msgid "Invoices from Documents"
 msgstr "เอกสาร"
 
 #. module: base
-#: model:ir.module.category,name:base.module_category_accounting_accounting
 #: model:ir.module.module,shortdesc:base.module_account
 msgid "Invoicing"
 msgstr "ออกใบแจ้งหนี้"
@@ -22718,6 +23079,11 @@ msgstr "IoT สำหรับการจัดส่ง"
 #: model:ir.module.module,shortdesc:base.module_pos_iot
 msgid "IoT for PoS"
 msgstr "IoT สำหรับ PoS"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_pos_self_order_iot
+msgid "IoT in PoS Kiosk"
+msgstr "IoT ใน PoS Kiosk"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_menu_ir_profile
@@ -22819,7 +23185,7 @@ msgstr "อิตาลี"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_it
 msgid "Italy - Accounting"
-msgstr "Italy - Accounting"
+msgstr "ประเทศอิตาลี - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_it_reports
@@ -22842,6 +23208,11 @@ msgid "Italy - Stock DDT"
 msgstr "ประเทศอิตาลี - สต็อก DDT"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_it_edi_website_sale
+msgid "Italy eCommerce eInvoicing"
+msgstr "ใบแจ้งหนี้อิเล็กทรอนิกส์อีคอมเมิร์ซของประเทศอิตาลี"
+
+#. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_J
 msgid "J - INFORMATION AND COMMUNICATION"
 msgstr "J - ข้อมูลและการสื่อสาร"
@@ -22859,12 +23230,12 @@ msgstr "ญี่ปุ่น"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_jp
 msgid "Japan - Accounting"
-msgstr "Japan - Accounting"
+msgstr "ประเทศญี่ปุ่น - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_jp_ubl_pint
 msgid "Japan - UBL PINT"
-msgstr ""
+msgstr "ประเทศญี่ปุ่น - UBL PINT"
 
 #. module: base
 #: model:res.country,name:base.je
@@ -23055,7 +23426,7 @@ msgstr "ฐานการประยุกต์ใช้ LATAM"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__license__lgpl-3
 msgid "LGPL Version 3"
-msgstr "LGPL Version 3"
+msgstr "LGPL เวอร์ชัน 3"
 
 #. module: base
 #. odoo-python
@@ -23072,7 +23443,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_stock_landed_costs
 msgid "Landed Costs"
-msgstr "Landed Costs"
+msgstr "ปันส่วนต้นทุนสินค้า"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mrp_landed_costs
@@ -23083,6 +23454,11 @@ msgstr "ปันส่วนต้นทุนสินค้าใน MO"
 #: model:ir.module.module,shortdesc:base.module_mrp_subonctracting_landed_costs
 msgid "Landed Costs With Subcontracting order"
 msgstr "ปันส่วนต้นทุนสินค้าด้วยคำสั่งรับเหมาช่วง"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_stock_landed_costs_company
+msgid "Landed Costs for company's branches"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mrp_landed_costs
@@ -23122,7 +23498,7 @@ msgstr "ชื่อภาษา"
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid "Language code cannot be modified."
-msgstr "Language code cannot be modified."
+msgstr "รหัสภาษาไม่สามารถแก้ไขได้"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.res_lang_act_window
@@ -23426,7 +23802,7 @@ msgstr "กฎหมาย    3   8.5 x 14 inches, 215.9 x 355.6 มม."
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.sequence_view
 msgid "Legend (for prefix, suffix)"
-msgstr "Legend (for prefix, suffix)"
+msgstr "คำอธิบาย (สำหรับคำนำหน้า, คำต่อท้าย)"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_lang_form
@@ -23561,6 +23937,11 @@ msgid "Link module between pos_hr and pos_restaurant"
 msgstr "โมดูลเชื่อมโยงระหว่าง pos_hr และ pos_restaurant"
 
 #. module: base
+#: model:ir.module.module,summary:base.module_l10n_be_pos_sale
+msgid "Link module between pos_sale and l10n_be"
+msgstr "เชื่อมโยงโมดูลระหว่าง pos_sale และ l10n_be"
+
+#. module: base
 #: model:ir.module.module,summary:base.module_pos_sale_loyalty
 msgid "Link module between pos_sale and pos_loyalty"
 msgstr "โมดูลเชื่อมโยงระหว่าง pos_sale และ pos_loyalty"
@@ -23575,12 +23956,12 @@ msgstr "รายการฟิลด์ผู้ติดต่อที่จ
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_fields__modules
 msgid "List of modules in which the field is defined"
-msgstr "List of modules in which the field is defined"
+msgstr "รายการโมดูลที่มีการกำหนดฟิลด์"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model__modules
 msgid "List of modules in which the object is defined or inherited"
-msgstr "List of modules in which the object is defined or inherited"
+msgstr "รายการโมดูลที่มีการกำหนดหรือสืบทอดอ็อบเจ็กต์"
 
 #. module: base
 #: model:res.country,name:base.lt
@@ -23610,7 +23991,12 @@ msgstr "ประเทศลิทัวเนีย - บัญชีเงิ
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lt_saft_import
 msgid "Lithuania - SAF-T Import"
-msgstr ""
+msgstr "ประเทศลิทัวเนีย - การนำเข้า SAF-T"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_lt_intrastat
+msgid "Lithuanian Intrastat Declaration"
+msgstr "คำประกาศอินทราสแทตประเทศลิทัวเนีย"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lt_saft
@@ -23678,7 +24064,7 @@ msgstr "ต้องการออกจากระบบจากอุปก
 #: model:ir.model,name:base.model_ir_logging
 #: model:ir.ui.menu,name:base.ir_logging_all_menu
 msgid "Logging"
-msgstr "Logging"
+msgstr "การบันทึก"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_logging_form_view
@@ -23700,7 +24086,7 @@ msgstr "โลโก้เว็บไซต์"
 #: model_terms:ir.ui.view,arch_db:base.ir_logging_search_view
 #: model_terms:ir.ui.view,arch_db:base.ir_logging_tree_view
 msgid "Logs"
-msgstr "Logs"
+msgstr "บันทึก"
 
 #. module: base
 #. odoo-python
@@ -23723,12 +24109,12 @@ msgstr "ลักเซมเบิร์ก"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lu
 msgid "Luxembourg - Accounting"
-msgstr "Luxembourg - Accounting"
+msgstr "ประเทศลักเซมเบิร์ก - ระบบบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lu_reports
 msgid "Luxembourg - Accounting Reports"
-msgstr "Luxembourg - Accounting"
+msgstr "ประเทศลักเซมเบิร์ก - รายงานด้านบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_lu_hr_payroll
@@ -23753,7 +24139,7 @@ msgstr "บาร์โค้ด MRP"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mrp_workorder
 msgid "MRP II"
-msgstr "MRP Byproducts"
+msgstr "MRP II"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mrp_workorder_expiry
@@ -23938,6 +24324,11 @@ msgstr "การบำรุงรักษา - MRP"
 #: model:ir.module.module,summary:base.module_voip
 msgid "Make and receive phone calls from within Odoo."
 msgstr "โทรออกและรับสายจากภายใน Odoo"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_ec_website_sale
+msgid "Make ecommerce work for Ecuador."
+msgstr "ทำให้อีคอมเมิร์ซใช้งานได้สำหรับประเทศเอกวาดอร์"
 
 #. module: base
 #: model:res.country,name:base.mw
@@ -24258,7 +24649,7 @@ msgstr "จัดการตารางเวลาของพนักงา
 #. module: base
 #: model:ir.module.module,summary:base.module_fleet
 msgid "Manage your fleet and track car costs"
-msgstr "จัดการค่าใช้จ่ายยานพาหนะและติดตามรถยนต์ของคุณ"
+msgstr "จัดการค่าใช้จ่ายของระบบขนส่งและติดตามรถยนต์ของคุณ"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_mail_group
@@ -24322,7 +24713,7 @@ msgstr "การดำเนินงาน Many2many"
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Many2one %s on model %s does not exist!"
-msgstr "Many2one %s on model %s does not exist!"
+msgstr "Many2one %s ในโมเดล %s ไม่มีอยู่!"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_model_relation
@@ -24330,12 +24721,12 @@ msgstr "Many2one %s on model %s does not exist!"
 #: model_terms:ir.ui.view,arch_db:base.view_model_relation_form
 #: model_terms:ir.ui.view,arch_db:base.view_model_relation_list
 msgid "ManyToMany Relations"
-msgstr "ManyToMany Relations"
+msgstr "ความสัมพันธ์แบบ ManyToMany"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_map
 msgid "Map View"
-msgstr "Map View"
+msgstr "มุมมองแผนที่"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_product_margin
@@ -24577,9 +24968,19 @@ msgid "Mexico - Electronic Delivery Guide"
 msgstr "ประเทศเม็กซิโก - คู่มือการจัดส่งทางอิเล็กทรอนิกส์"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_stock_30
+msgid "Mexico - Electronic Delivery Guide - Version 3.0"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_stock_extended
 msgid "Mexico - Electronic Delivery Guide Comex"
 msgstr "ประเทศเม็กซิโก - คู่มือการจัดส่งทางอิเล็กทรอนิกส์ Comex"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_mx_edi_stock_extended_30
+msgid "Mexico - Electronic Delivery Guide Comex - Version 3.0"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_mx_reports_closing
@@ -24647,12 +25048,9 @@ msgid ""
 "Chart of account:\n"
 "-----------------\n"
 "\n"
-"The tree of the CoA is done using account groups, all the accounts with move\n"
-"are available as groups but only the more common ones are available as actual\n"
-"accounts, if you want to create a new one use the group of accounts as\n"
-"reference.\n"
-"\n"
-"# TODO: Image showing what I am talking about.\n"
+"The tree of the CoA is done using account groups, the most common accounts \n"
+"are available within their group, if you want to create a new account use \n"
+"the groups as reference. \n"
 "\n"
 "Taxes:\n"
 "------\n"
@@ -24670,7 +25068,10 @@ msgid ""
 "We added on this module the 3 concepts in taxes (necessary for the EDI\n"
 "signature)\n"
 "\n"
-"# TODO: Describe new fields.\n"
+"EDI Peruvian Code: used to select the type of tax from the SUNAT\n"
+"EDI UNECE code: used to select the type of tax based on the United Nations\n"
+"Economic Commission\n"
+"EDI Affect. Reason: type of affectation to the IGV based on the Catalog 07\n"
 "\n"
 "Products:\n"
 "---------\n"
@@ -24698,28 +25099,27 @@ msgid ""
 "perspectiva contable íntegramente. Por lo tanto, este PCGE no debe ser considerado en ningún aspecto\n"
 "como una guía con propósitos distintos del contable.\n"
 msgstr ""
-"ชุดบัญชีขั้นต่ำที่จำเป็นในการทำงานในประเทศเปรู\n"
+"ชุดบัญชีขั้นต่ำสำหรับเริ่มทำงานในประเทศเปรู\n"
 "=================================================\n"
 "\n"
-"การใช้งานของ CoA นี้ต้องอ้างอิงตามเอกสารทางการจาก MEF\n"
+"การใช้ CoA นี้ต้องอ้างอิงถึงเอกสารอย่างเป็นทางการของ MEF\n"
 "\n"
 "https://www.mef.gob.pe/contenidos/conta_publ/documentac/VERSION_MODIFICADA_PCG_EMPRESARIAL.pdf\n"
 "https://www.mef.gob.pe/contenidos/conta_publ/documentac/PCGE_2019.pdf\n"
 "\n"
-"สามารถค้นหาข้อมูลอ้างอิงทางกฎหมายได้ที่นี่\n"
+"ข้อมูลอ้างอิงทางกฎหมายทั้งหมดอยู่ที่นี่\n"
 "\n"
 "http://www.sunat.gob.pe/legislacion/general/index.html\n"
 "\n"
-"ข้อคิดที่ควรพิจารณา\n"
+"ข้อควรพิจารณา\n"
 "===============\n"
 "\n"
-"แผนผังบัญชี:\n"
+"ผังบัญชี:\n"
 "-----------------\n"
 "\n"
-"การเติบโตของ CoA ถูกสร้างขึ้นโดยใช้กลุ่มบัญชี บัญชีทั้งหมดที่มีการเคลื่อนไหว\n"
-"สามารถใช้เป็นกลุ่มได้ แต่เพียงแค่บัญชีที่ใช้บ่อยที่สุดเท่านั้นที่มีอยู่ในรูปแบบของ\n"
-"บัญชีจริง หากคุณต้องการสร้างใหม่ให้ใช้กลุ่มบัญชีเป็น\n"
-"ข้อมูลอ้างอิง\n"
+"โครงสร้างของ CoA ดำเนินการโดยใช้กลุ่มบัญชี บัญชีทั่วไปส่วนใหญ่จะมีอยู่ภายในกลุ่ม \n"
+"หากคุณต้องการสร้างบัญชีใหม่ ให้ใช้กลุ่มดังกล่าว\n"
+"เป็นข้อมูลอ้างอิง\n"
 "\n"
 "ภาษี:\n"
 "------\n"
@@ -24734,13 +25134,17 @@ msgstr ""
 "'INA': {'name': 'FRE', 'code': 'O'},\n"
 "'OTHERS': {'name': 'OTH', 'code': 'S'},\n"
 "\n"
-"เราได้เพิ่ม 3 แนวคิดในภาษีในโมดูลนี้ (ที่จำเป็นสำหรับลายเซ็น EDI)\n"
+"เราได้เพิ่ม 3 แนวคิดด้านภาษีในโมดูลนี้ (ที่จำเป็นสำหรับลายเซ็น EDI)\n"
 "\n"
-"ผลิตภัณฑ์:\n"
+"รหัส EDI ประเทศเปรู: ใช้เพื่อเลือกประเภทภาษีจาก SUNAT\n"
+"รหัส EDI UNECE: ใช้เพื่อเลือกประเภทภาษีตามคณะกรรมาธิการเศรษฐกิจแห่งสหประชาชาติ\n"
+"EDI มีผลกระทบ เหตุผล: ประเภทของผลกระทบต่อ IGV ตามแค็ตตาล็อก 07\n"
+"\n"
+"สินค้า:\n"
 "---------\n"
 "\n"
-"รหัสสำหรับผลิตภัณฑ์ที่ใช้ใน EDI สามารถใช้ได้ที่นี่ เพื่อตัดสินใจ\n"
-"ว่าจะใช้ภาษีใดตามรหัสใด โดยใช้ข้อมูลอ้างอิงและรหัส Python ตามนี้:\n"
+"รหัสสำหรับผลิตภัณฑ์ที่จะใช้ใน EDI มีอยู่ที่นี่ เพื่อตัดสินใจว่าจะใช้\n"
+"ภาษีใดเนื่องจากรหัสใดที่ตามการอ้างอิงนี้และรหัส Python:\n"
 "\n"
 "https://docs.google.com/spreadsheets/d/1f1fxV8uGhA-Qz9-R1L1-dJirZ8xi3Wfg/edit#gid=662652969\n"
 "\n"
@@ -24794,7 +25198,7 @@ msgstr "นางสาว"
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid "Missing SMTP Server"
-msgstr "Missing SMTP Server"
+msgstr "ไม่มีเซิร์ฟเวอร์ SMTP"
 
 #. module: base
 #. odoo-python
@@ -25515,7 +25919,7 @@ msgstr "ประเทศไนจีเรีย"
 #. module: base
 #: model:res.country,name:base.nu
 msgid "Niue"
-msgstr "นีอูเอ"
+msgstr "Niue"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_server__update_boolean_value__false
@@ -28261,7 +28665,7 @@ msgstr "รองรับ Outlook สำหรับเซิร์ฟเวอ
 #. module: base
 #: model:ir.model.fields,field_description:base.field_report_paperformat__dpi
 msgid "Output DPI"
-msgstr "DPI"
+msgstr "เอาต์พุต DPI"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_base_language_import__overwrite
@@ -28368,7 +28772,7 @@ msgstr "POS PayTM"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_pos_pricer
 msgid "POS Pricer"
-msgstr ""
+msgstr "ราคา POS"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_pos_restaurant_adyen
@@ -28394,6 +28798,11 @@ msgstr "POS การสั่งซื้อด้วยตนเอง Adyen"
 #: model:ir.module.module,shortdesc:base.module_pos_self_order_epson_printer
 msgid "POS Self Order Epson Printer"
 msgstr "POS การสั่งซื้อด้วยตนเอง เครื่องพิมพ์ Epson"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_pos_self_order_iot
+msgid "POS Self Order IoT"
+msgstr "POS สั่งซื้อด้วยตนเอง IoT"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_pos_self_order_sale
@@ -28428,7 +28837,7 @@ msgstr "POS Stripe"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_pos_viva_wallet
 msgid "POS Viva Wallet"
-msgstr ""
+msgstr "POS Viva Wallet"
 
 #. module: base
 #. odoo-python
@@ -28853,6 +29262,11 @@ msgid "Payment Provider: Worldline SIPS"
 msgstr "ผู้ให้บริการชำระเงิน: Worldline SIPS"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_payment_xendit
+msgid "Payment Provider: Xendit"
+msgstr "ผู้ให้บริการชำระเงิน: Xendit"
+
+#. module: base
 #: model:ir.module.category,name:base.module_category_accounting_payment_providers
 msgid "Payment Providers"
 msgstr "ผู้ให้บริการชำระเงิน"
@@ -28860,7 +29274,7 @@ msgstr "ผู้ให้บริการชำระเงิน"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_payment_term
 msgid "Payment Term - Days end of month on the"
-msgstr ""
+msgstr "เงื่อนไขการชำระเงิน - วันสิ้นเดือนที่"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_payment
@@ -28924,6 +29338,16 @@ msgid "Peruvian - Electronic Delivery Note"
 msgstr "ประเทศเปรู - บันทึกการจัดส่งทางอิเล็กทรอนิกส์"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_pe_pos
+msgid "Peruvian - Point of Sale with Pe Doc"
+msgstr "ประเทศเปรู - จุดขายกับ Pe Doc"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_pe_website_sale
+msgid "Peruvian eCommerce"
+msgstr "อีคอมเมิร์ซของประเทศเปรู"
+
+#. module: base
 #: model:res.country,name:base.ph
 msgid "Philippines"
 msgstr "ประเทศฟิลิปปินส์"
@@ -28932,6 +29356,11 @@ msgstr "ประเทศฟิลิปปินส์"
 #: model:ir.module.module,shortdesc:base.module_l10n_ph
 msgid "Philippines - Accounting"
 msgstr "ประเทศฟิลิปปินส์ - ระบบบัญชี"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_ph_reports
+msgid "Philippines - Accounting Reports"
+msgstr "ฟิลิปปินส์ - รายงานการบัญชี"
 
 #. module: base
 #. odoo-python
@@ -30041,7 +30470,7 @@ msgstr "ฟิลด์ QWeb"
 #. module: base
 #: model:ir.model,name:base.model_ir_qweb_field_barcode
 msgid "Qweb Field Barcode"
-msgstr "QWeb"
+msgstr "บาร์โค้ดฟิลด์ Qweb"
 
 #. module: base
 #: model:ir.model,name:base.model_ir_qweb_field_contact
@@ -30122,7 +30551,7 @@ msgstr "Qweb ฟิลด์ qweb"
 #. module: base
 #: model:ir.model,name:base.model_ir_qweb_field_many2many
 msgid "Qweb field many2many"
-msgstr "QWeb"
+msgstr "many2many ฟิลด์ Qweb "
 
 #. module: base
 #: model:res.partner.industry,full_name:base.res_partner_industry_R
@@ -30633,7 +31062,7 @@ msgstr "รีเซ็ตเป็นเวอร์ชันไฟล์ (ฮ�
 #: code:addons/models.py:0
 #, python-format
 msgid "Resolve other errors first"
-msgstr "Resolve other errors first"
+msgstr "แก้ไขข้อผิดพลาดอื่นก่อน"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_exports__resource
@@ -30730,7 +31159,7 @@ msgstr "ประเทศโรมาเนีย - บัญชีเงิน
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ro_saft_import
 msgid "Romania - SAF-T Import"
-msgstr ""
+msgstr "ประเทศโรมาเนีย - การนำเข้า SAF-T"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ro_saft
@@ -30826,7 +31255,7 @@ msgstr "S - กิจกรรมการบริการอื่นๆ"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_saft_import
 msgid "SAF-T Import"
-msgstr ""
+msgstr "การนำเข้า SAF-T"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting_localizations_sbr
@@ -30995,7 +31424,7 @@ msgstr "แซงปีแยร์และมีเกอลง"
 #. module: base
 #: model:res.country,name:base.vc
 msgid "Saint Vincent and the Grenadines"
-msgstr "Saint Barthélémy"
+msgstr "Saint Vincent และ the Grenadines"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_contract_salary
@@ -31251,32 +31680,32 @@ msgstr "ซานมารีโน"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__sanitize
 msgid "Sanitize HTML"
-msgstr "Sanitize HTML"
+msgstr "ทำความสะอาด HTML"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__sanitize_attributes
 msgid "Sanitize HTML Attributes"
-msgstr "Sanitize คุณลักษณะของ HTML"
+msgstr "ทำความสะอาดคุณลักษณะของ HTML"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__sanitize_form
 msgid "Sanitize HTML Form"
-msgstr "Sanitize ฟอร์มของ HTML"
+msgstr "ทำความสะอาดฟอร์มของ HTML"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__sanitize_style
 msgid "Sanitize HTML Style"
-msgstr "Sanitize รูปแบบของ HTML"
+msgstr "ทำความสะอาดรูปแบบของ HTML"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__sanitize_tags
 msgid "Sanitize HTML Tags"
-msgstr "Sanitize แท็กของ HTML"
+msgstr "ทำความสะอาดแท็กของ HTML"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_model_fields__sanitize_overridable
 msgid "Sanitize HTML overridable"
-msgstr "Sanitize วิธี Overridable ของ HTML"
+msgstr "ทำความสะอาดวิธี Overridable ของ HTML"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__sanitized_acc_number
@@ -31317,6 +31746,11 @@ msgstr "บันทึก"
 #: model:ir.model.fields,field_description:base.field_ir_actions_report__attachment
 msgid "Save as Attachment Prefix"
 msgstr "บันทึกเป็นคำนำหน้าสิ่งที่แนบมา"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_in_qr_code_bill_scan
+msgid "Scan Vendor bills QRcode(India)"
+msgstr "สแกนบิลผู้ขาย QRcode (ประเทศอินเดีย)"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_barcodes
@@ -31379,6 +31813,12 @@ msgstr "การกระทำที่กำหนดไว้"
 #: model:ir.ui.menu,name:base.ir_cron_trigger_menu
 msgid "Scheduled Actions Triggers"
 msgstr "ทริกเกอร์การดำเนินการตามกำหนดการ"
+
+#. module: base
+#: code:addons/base/models/ir_cron.py:0
+#, python-format
+msgid "Scheduled action disabled"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_cron__user_id
@@ -31731,6 +32171,21 @@ msgid "Sendcould Locations for Website Delivery"
 msgstr "สถานที่ตั้งของ Sendcould สำหรับการจัดส่งเว็บไซต์"
 
 #. module: base
+#: model:ir.model.fields,help:base.field_res_partner_bank__allow_out_payment
+msgid ""
+"Sending fake invoices with a fraudulent account number is a common phishing "
+"practice. To protect yourself, always verify new bank account numbers, "
+"preferably by calling the vendor, as phishing usually happens when their "
+"emails are compromised. Once verified, you can activate the ability to send "
+"money."
+msgstr ""
+"ใบแจ้งหนี้ปลอมพร้อมหมายเลขบัญชีปลอมถือเป็นวิธีปฏิบัติในการหลอกลวง (Phishing)"
+" เพื่อการป้องกันสำหรับตัวคุณเองให้ตรวจสอบหมายเลขบัญชีธนาคารใหม่เสมอ "
+"ควรโทรปรึกษาผู้จำหน่ายโดยตรง "
+"เนื่องจากการหลอกลวงมักจะเกิดขึ้นเมื่ออีเมลของพวกเขาได้ถูกโจมตี "
+"เมื่อตรวจสอบแล้ว คุณสามารถเปิดใช้งานความสามารถในการส่งเงินได้"
+
+#. module: base
 #: model:res.country,name:base.sn
 msgid "Senegal"
 msgstr "เซเนกัล"
@@ -31818,6 +32273,7 @@ msgid "Server"
 msgstr "เซิร์ฟเวอร์"
 
 #. module: base
+#: model:ir.model,name:base.model_ir_actions_server
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_server__usage__ir_actions_server
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_form
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_search
@@ -31826,7 +32282,6 @@ msgstr "การดำเนินการเซิร์ฟเวอร์"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_server_action
-#: model:ir.model,name:base.model_ir_actions_server
 #: model:ir.ui.menu,name:base.menu_server_action
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_search
 #: model_terms:ir.ui.view,arch_db:base.view_server_action_tree
@@ -31869,7 +32324,7 @@ msgstr "วาระการขาย"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__on_delete__set_null
 msgid "Set NULL"
-msgstr "Set NULL"
+msgstr "ตั้งค่า NULL"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__new_password
@@ -31967,7 +32422,7 @@ msgstr "การจัดส่ง Shiprocket"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_wishlist
 msgid "Shopper's Wishlist"
-msgstr "รายการสินค้าที่อยากได้ของนักช้อป"
+msgstr "รายการสินค้าที่อยากได้ของผู้ซื้อ"
 
 #. module: base
 #. odoo-python
@@ -32351,6 +32806,11 @@ msgstr "ประเทศสเปน - Facturae EDI"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_es_edi_facturae_adm_centers
 msgid "Spain - Facturae EDI - Administrative Centers Patch"
+msgstr "ประเทศสเปน - Facturae EDI - แพทช์ของศูนย์บริหารจัดการ"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_es_edi_facturae_invoice_period
+msgid "Spain - Facturae EDI - Invoice Period"
 msgstr ""
 
 #. module: base
@@ -32660,6 +33120,13 @@ msgid "Spreadsheet dashboard for time sheets"
 msgstr "แดชบอร์ดสเปรดชีตสำหรับระบบบันทึกเวลา"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_in_reports_gstr_spreadsheet
+#: model:ir.module.module,shortdesc:base.module_l10n_in_reports_gstr_spreadsheet
+#: model:ir.module.module,summary:base.module_l10n_in_reports_gstr_spreadsheet
+msgid "Spreadsheet document for GSTR1 Report"
+msgstr "เอกสารสเปรดชีตสำหรับรายงาน GSTR1"
+
+#. module: base
 #: model:ir.model.fields,field_description:base.field_ir_profile__sql
 msgid "Sql"
 msgstr "Sql"
@@ -32678,6 +33145,11 @@ msgstr "มาตรฐาน"
 #: model:ir.module.module,shortdesc:base.module_account_saft
 msgid "Standard Audit File for Tax Base module"
 msgstr "ไฟล์การตรวจสอบมาตรฐานสำหรับโมดูลฐานภาษี"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_delivery_starshipit
+msgid "Starshipit Shipping"
+msgstr "การจัดส่ง Starshipit"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_upgrade_install
@@ -33107,6 +33579,11 @@ msgid "TGZ format: bundles multiple PO(T) files as a single archive"
 msgstr "รูปแบบ TGZ: รวมไฟล์ PO(T) หลายไฟล์เป็นไฟล์เก็บถาวรเดียว"
 
 #. module: base
+#: model:res.country,vat_label:base.ug
+msgid "TIN"
+msgstr "TIN"
+
+#. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_mail_server__smtp_encryption__starttls
 msgid "TLS (STARTTLS)"
 msgstr "TLS (STARTTLS)"
@@ -33216,6 +33693,7 @@ msgstr "TaxCloud ช่วยให้ธุรกิจปฏิบัติต
 #: model:ir.module.category,name:base.module_category_hidden
 #: model:ir.module.category,name:base.module_category_technical
 #: model:ir.ui.menu,name:base.menu_custom
+#: model_terms:ir.ui.view,arch_db:base.user_groups_view
 msgid "Technical"
 msgstr "ทางเทคนิค"
 
@@ -33376,7 +33854,7 @@ msgstr "ไฟล์แนบหลัก"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_performance
 msgid "Test Performance"
-msgstr "Test API"
+msgstr "ทดสอบประสิทธิภาพ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_rpc
@@ -34391,11 +34869,6 @@ msgid "This Window"
 msgstr "หน้าต่างนี้"
 
 #. module: base
-#: model:ir.model.fields,help:base.field_res_partner_bank__allow_out_payment
-msgid "This account can be used for outgoing payments"
-msgstr ""
-
-#. module: base
 #. odoo-python
 #: code:addons/base/models/ir_model.py:0
 #, python-format
@@ -34527,6 +35000,10 @@ msgid ""
 "         Please install the new \"UPS Shipping\" module and uninstall this "
 "one as soon as possible. This integration will stop working in 2024."
 msgstr ""
+"นี่คือการผสานการใช้งานแบบเดิมกับ UPS ที่ไม่ถูกรองรับอีกต่อไป "
+"โปรดติดตั้งโมดูล \"การจัดส่งสินค้าของ UPS\" "
+"ใหม่และถอนการติดตั้งโมดูลนี้โดยเร็วที่สุด การผสานการใช้งานนี้จะหยุดทำงานในปี"
+" 2024"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_no
@@ -34584,6 +35061,19 @@ msgid ""
 msgstr ""
 "โมดูลนี้จะเพิ่มสถานะ OdooBot "
 "และการแจ้งเตือนในแบบฟอร์มผู้ใช้ที่แก้ไขโดยชั่วโมง"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_be_codabox
+#: model:ir.module.module,description:base.module_l10n_be_codabox_bridge
+#: model:ir.module.module,description:base.module_l10n_be_codabox_bridge_wizard
+msgid ""
+"This module allows Accounting Firms to connect to CodaBox\n"
+"and automatically import CODA and SODA statements for their clients in Odoo.\n"
+"The connection must be done by the Accounting Firm.\n"
+msgstr ""
+"โมดูลนี้ช่วยให้สำนักงานบัญชีสามารถเชื่อมต่อกับ CodaBox\n"
+"และนำเข้าคำสั่ง CODA และ SODA ให้กับลูกค้าใน Odoo โดยอัตโนมัติ\n"
+"การเชื่อมต่อจะต้องดำเนินการโดยสำนักงานบัญชี\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_sale_fedex
@@ -34774,6 +35264,17 @@ msgstr ""
 "อย่างอิสระต่อลักษณะการทำงานของรุ่นอื่น"
 
 #. module: base
+#: model:ir.module.module,description:base.module_test_web_studio
+msgid ""
+"This module contains tests related to web studio. Those are\n"
+"present in a separate module as it contains models used only to perform\n"
+"tests independently to functional aspects of other models. "
+msgstr ""
+"โมดูลนี้มีการทดสอบที่เกี่ยวข้องกับเว็บสตูดิโอ สิ่งเหล่านั้นมีอยู่ใน\n"
+"โมดูลแยกต่างหากเนื่องจากมีโมเดลที่ใช้เฉพาะเพื่อทำการทดสอบ\n"
+"อย่างอิสระต่อลักษณะการทำงานของรุ่นอื่นๆ"
+
+#. module: base
 #: model:ir.module.module,description:base.module_test_website_modules
 msgid ""
 "This module contains tests related to website modules.\n"
@@ -34918,6 +35419,14 @@ msgstr ""
 #, python-format
 msgid "Those modules cannot be uninstalled: %s"
 msgstr "โมดูลเหล่านี้ไม่สามารถถอนการติดตั้งได้: %s"
+
+#. module: base
+#: code:addons/base/models/ir_cron.py:0
+#, python-format
+msgid ""
+"This scheduled action has been disabled because its interval number is not a"
+" strictly positive value."
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__thousands_sep
@@ -35427,6 +35936,11 @@ msgid "UK BACS Payment Files"
 msgstr "ไฟล์การชำระเงิน BACS ของสหราชอาณาจักร"
 
 #. module: base
+#: model:ir.module.module,description:base.module_l10n_dk_edi
+msgid "UNSPSC product code dependencies for Denmark"
+msgstr ""
+
+#. module: base
 #: model:ir.module.module,shortdesc:base.module_product_unspsc
 #: model:ir.module.module,summary:base.module_product_unspsc
 msgid "UNSPSC product codes"
@@ -35440,7 +35954,7 @@ msgstr "การจัดส่ง UPS"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_ups
 msgid "UPS Shipping (Legacy)"
-msgstr ""
+msgstr "การจัดส่งของ UPS (ดั้งเดิม)"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_ups
@@ -35523,6 +36037,11 @@ msgid "Uganda"
 msgstr "ยูกันดา"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_ug
+msgid "Uganda - Accounting"
+msgstr "ประเทศยูกันดา - ระบบบัญชี"
+
+#. module: base
 #. odoo-python
 #: code:addons/base/models/ir_rule.py:0
 #, python-format
@@ -35551,8 +36070,7 @@ msgstr "ประเทศยูเครน - ระบบบัญชี"
 #, python-format
 msgid ""
 "Unable to delete this document because it is used as a default property"
-msgstr ""
-"Unable to delete this document because it is used as a default property"
+msgstr "ไม่สามารถลบเอกสารนี้ได้เนื่องจากใช้เป็นคุณสมบัติเริ่มต้น"
 
 #. module: base
 #. odoo-python
@@ -35576,7 +36094,7 @@ msgid ""
 "Unable to install module \"%s\" because an external dependency is not met: "
 "%s"
 msgstr ""
-"Unable to install module \"%s\" because an external dependency is not met: "
+"ไม่สามารถติดตั้งโมดูล \"%s\" ได้ เนื่องจากไม่เป็นไปตามการขึ้นต่อกันภายนอก: "
 "%s"
 
 #. module: base
@@ -35598,7 +36116,7 @@ msgid ""
 "Unable to process module \"%s\" because an external dependency is not met: "
 "%s"
 msgstr ""
-"Unable to process module \"%s\" because an external dependency is not met: "
+"ไม่สามารถประมวลผลโมดูล \"%s\" ได้ เนื่องจากไม่เป็นไปตามการขึ้นต่อกันภายนอก: "
 "%s"
 
 #. module: base
@@ -35609,7 +36127,7 @@ msgid ""
 "Unable to upgrade module \"%s\" because an external dependency is not met: "
 "%s"
 msgstr ""
-"Unable to upgrade module \"%s\" because an external dependency is not met: "
+"ไม่สามารถอัปเกรดโมดูล \"%s\" ได้ เนื่องจากไม่เป็นไปตามการขึ้นต่อกันภายนอก: "
 "%s"
 
 #. module: base
@@ -35633,7 +36151,7 @@ msgstr "ถอนการติดตั้ง"
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_uninstall
 #, python-format
 msgid "Uninstall module"
-msgstr "Administrator access is required to uninstall a module"
+msgstr "ถอนการติดตั้งโมดูล"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__state__uninstallable
@@ -35729,14 +36247,14 @@ msgstr "ข้อผิดพลาดฐานข้อมูลที่ไม
 #: code:addons/models.py:0
 #, python-format
 msgid "Unknown database identifier '%s'"
-msgstr "Unknown database identifier '%s'"
+msgstr "ตัวระบุฐานข้อมูลที่ไม่รู้จัก '%s'"
 
 #. module: base
 #. odoo-python
 #: code:addons/models.py:0
 #, python-format
 msgid "Unknown error during import:"
-msgstr "Unknown error during import:"
+msgstr "ข้อผิดพลาดที่ไม่รู้จักระหว่างการนำเข้า:"
 
 #. module: base
 #. odoo-python
@@ -35759,7 +36277,7 @@ msgstr "ฟิลด์ที่ไม่รู้จัก \"%(model)s.%(field)
 #: code:addons/base/models/ir_model.py:0
 #, python-format
 msgid "Unknown field %r in dependency %r"
-msgstr "Unknown field %r in dependency %r"
+msgstr "ฟิลด์ที่ไม่รู้จัก %r ในการขึ้นต่อกัน %r"
 
 #. module: base
 #. odoo-python
@@ -35911,7 +36429,7 @@ msgstr "การใช้งาน"
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Use '1' for yes and '0' for no"
-msgstr "Use '1' for yes and '0' for no"
+msgstr "ใช้ '1' สำหรับใช่ และ '0' สำหรับไม่ใช่"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_loyalty
@@ -36062,7 +36580,7 @@ msgstr ""
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_window__usage
 msgid "Used to filter menu and home actions from the user form."
-msgstr "Used to filter menu and home actions from the user form."
+msgstr "ใช้เพื่อกรองเมนูและการดำเนินการภายในหน้าแรกจากแบบฟอร์มผู้ใช้"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_users__login
@@ -36155,7 +36673,7 @@ msgstr "ผู้ใช้ ตัวช่วยสร้างการเป�
 #: model_terms:ir.ui.view,arch_db:base.ir_default_search_view
 #: model_terms:ir.ui.view,arch_db:base.ir_default_tree_view
 msgid "User-defined Defaults"
-msgstr "User-defined Defaults"
+msgstr "ค่าเริ่มต้นที่ผู้ใช้กำหนด"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.actions_ir_filters_view
@@ -36225,13 +36743,12 @@ msgstr "ลงชื่อผู้ใช้"
 #: model_terms:ir.ui.view,arch_db:base.view_groups_form
 msgid ""
 "Users added to this group are automatically added in the following groups."
-msgstr ""
-"Users added to this group are automatically added in the following groups."
+msgstr "ผู้ใช้ที่เพิ่มในกลุ่มนี้จะถูกเพิ่มในกลุ่มต่อไปนี้โดยอัตโนมัติ"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_groups__implied_ids
 msgid "Users of this group automatically inherit those groups"
-msgstr "Users of this group automatically inherit those groups"
+msgstr "ผู้ใช้ของกลุ่มนี้จะสืบทอดกลุ่มเหล่านั้นโดยอัตโนมัติ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__uses_default_logo
@@ -36276,7 +36793,7 @@ msgstr "ภาษีมูลค่าเพิ่ม (VAT)"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_base_vat
 msgid "VAT Number Validation"
-msgstr "VAT Number Validation"
+msgstr "การตรวจสอบหมายเลข VAT"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_productivity_voip
@@ -36310,12 +36827,12 @@ msgstr "ค่า"
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "Value '%s' not found in selection field '%%(field)s'"
-msgstr "Value '%s' not found in selection field '%%(field)s'"
+msgstr "ไม่พบค่า '%s' ในช่องการเลือก '%%(field)s'"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_property__value_binary
 msgid "Value Binary"
-msgstr "Binary"
+msgstr "ค่าไบนารี่"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_property__value_datetime
@@ -36392,7 +36909,12 @@ msgstr "เวเนซูเอลา"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ve
 msgid "Venezuela - Accounting"
-msgstr "Venezuela - Accounting"
+msgstr "ประเทศเวเนซุเอลา - ระบบบัญชี"
+
+#. module: base
+#: model:ir.module.module,description:base.module_l10n_mx_edi_stock_30
+msgid "Version 3.0 of the delivery guide (Complemento XML Carta de Porte)."
+msgstr ""
 
 #. module: base
 #. odoo-python
@@ -36445,11 +36967,7 @@ msgstr "ดูสถาปัตยกรรม"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__view_mode
 msgid "View Mode"
-msgstr ""
-"This function field computes the ordered list of views that should be "
-"enabled when displaying the result of an action, federating view mode, views"
-" and reference view. The result is returned as an ordered list of pairs "
-"(view_id,view_mode)."
+msgstr "โหมดมุมมอง"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__name
@@ -36460,7 +36978,7 @@ msgstr "ชื่อมุมมอง"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__view_id
 msgid "View Ref."
-msgstr "View Ref."
+msgstr "ดูการอ้างอิง"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window_view__view_mode
@@ -36505,8 +37023,8 @@ msgid ""
 "Views allows you to personalize each view of Odoo. You can add new fields, "
 "move fields, rename them or delete the ones that you do not need."
 msgstr ""
-"Views allows you to personalize each view of Odoo. You can add new fields, "
-"move fields, rename them or delete the ones that you do not need."
+"มุมมองช่วยให้คุณปรับแต่งแต่ละมุมมองของ Odoo ได้ คุณสามารถเพิ่มฟิลด์ใหม่ "
+"ย้ายฟิลด์ เปลี่ยนชื่อหรือลบฟิลด์ที่คุณไม่ต้องการได้"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_view__inherit_children_ids
@@ -36516,12 +37034,12 @@ msgstr "มุมมองที่สืบทอดมาจากมุมม
 #. module: base
 #: model:res.country,name:base.vg
 msgid "Virgin Islands (British)"
-msgstr "Virgin Islands (British)"
+msgstr "หมู่เกาะเวอร์จิน (สหราชอาณาจักร)"
 
 #. module: base
 #: model:res.country,name:base.vi
 msgid "Virgin Islands (USA)"
-msgstr "Virgin Islands (USA)"
+msgstr "หมู่เกาะเวอร์จิน (สหรัฐอเมริกา)"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.act_report_xml_view
@@ -36563,7 +37081,7 @@ msgstr "การรวม VoIP กับโมดูล CRM"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_account
 msgid "WMS Accounting"
-msgstr "WMS Accounting"
+msgstr "การบัญชี WMS"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_data_merge_stock_account
@@ -36573,7 +37091,7 @@ msgstr "การรวมบัญชี WMS"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_stock_landed_costs
 msgid "WMS Landed Costs"
-msgstr "WMS Landed Costs"
+msgstr "ปันส่วนต้นทุนสินค้าของ WMS"
 
 #. module: base
 #: model:res.country,name:base.wf
@@ -36644,7 +37162,7 @@ msgstr "เว็บ"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_gantt
 msgid "Web Gantt"
-msgstr "Web Gantt"
+msgstr "เว็บแกนต์"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_web_gantt
@@ -36664,12 +37182,12 @@ msgstr "ลำดับชั้นของเว็บ"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_menu__web_icon
 msgid "Web Icon File"
-msgstr "Web Icon File"
+msgstr "ไฟล์ไอคอนเว็บ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_ui_menu__web_icon_data
 msgid "Web Icon Image"
-msgstr "Web Icon Image"
+msgstr "รูปภาพไอคอนเว็บ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_http_routing
@@ -36678,9 +37196,19 @@ msgid "Web Routing"
 msgstr "เว็บ"
 
 #. module: base
+#: model:ir.module.module,shortdesc:base.module_test_web_studio
+msgid "Web Studio Tests"
+msgstr "การทดสอบเว็บสตูดิโอ"
+
+#. module: base
 #: model:ir.module.module,summary:base.module_test_web_cohort
 msgid "Web cohort Test"
 msgstr "การทดสอบตามรุ่นบนเว็บ"
+
+#. module: base
+#: model:ir.module.module,summary:base.module_test_web_studio
+msgid "Web studio Test"
+msgstr "ทดสอบเว็บสตูดิโอ"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_server__webhook_field_ids
@@ -36741,7 +37269,7 @@ msgstr "CRM กิจกรรมบนเว็บไซต์"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_generator
 msgid "Website Generator"
-msgstr ""
+msgstr "เครื่องมือสร้างเว็บไซต์"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_helpdesk
@@ -36768,12 +37296,12 @@ msgstr "ลิงก์ของเว็บไซต์"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_livechat
 msgid "Website Live Chat"
-msgstr "Live Chat"
+msgstr "เว็บไซต์ไลฟ์แชท"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_mail
 msgid "Website Mail"
-msgstr "Website Mail"
+msgstr "จดหมายเว็บไซต์"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_mail_group
@@ -36783,7 +37311,7 @@ msgstr "กลุ่มจดหมายเว็บไซต์"
 #. module: base
 #: model:ir.module.module,summary:base.module_website_mail
 msgid "Website Module for Mail"
-msgstr "Website Module for Mail"
+msgstr "โมดูลเว็บไซต์สำหรับเมล"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_website_modules
@@ -36793,7 +37321,7 @@ msgstr "การทดสอบโมดูลเว็บไซต์"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_partner
 msgid "Website Partner"
-msgstr "Website Partner"
+msgstr "พาร์ทเนอร์เว็บไซต์"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_payment
@@ -36874,7 +37402,7 @@ msgstr "คีย์นี้มีไว้ทำอะไร?"
 #. module: base
 #: model:ir.module.category,name:base.module_category_whatsapp
 msgid "WhatsApp"
-msgstr ""
+msgstr "WhatsApp"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_test_whatsapp
@@ -36933,8 +37461,9 @@ msgid ""
 "When no specific mail server is requested for a mail, the highest priority "
 "one is used. Default priority is 10 (smaller number = higher priority)"
 msgstr ""
-"When no specific mail server is requested for a mail, the highest priority "
-"one is used. Default priority is 10 (smaller number = higher priority)"
+"เมื่อไม่มีการร้องขอเมลเซิร์ฟเวอร์เฉพาะสำหรับเมล "
+"ระบบจะใช้เซิร์ฟเวอร์ที่มีลำดับความสำคัญสูงสุด ลำดับความสำคัญเริ่มต้นคือ 10 "
+"(ตัวเลขน้อยกว่า = ลำดับความสำคัญสูงกว่า)"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner__tz
@@ -36988,8 +37517,7 @@ msgid ""
 "Whether values for this field can be translated (enables the translation "
 "mechanism for that field)"
 msgstr ""
-"Whether values for this field can be translated (enables the translation "
-"mechanism for that field)"
+"สามารถแปลค่าสำหรับฟิลด์นี้ได้หรือไม่ (เปิดใช้งานกลไกการแปลสำหรับฟิลด์นั้น)"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_sequence__implementation
@@ -37022,7 +37550,7 @@ msgstr "ความกว้าง"
 #: model:ir.actions.act_window,name:base.ir_action_window
 #: model:ir.ui.menu,name:base.menu_ir_action_window
 msgid "Window Actions"
-msgstr "Window Actions"
+msgstr "การดำเนินการของ Window"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_line__wizard_id
@@ -37034,7 +37562,7 @@ msgstr "ตัวช่วย"
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.config_wizard_step_view_search
 msgid "Wizards to be Launched"
-msgstr "Wizards to be Launched"
+msgstr "ตัวช่วยสร้างที่จะเปิดตัว"
 
 #. module: base
 #. odoo-python
@@ -37257,7 +37785,7 @@ msgstr ""
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "You can not create recursive tags."
-msgstr "You cannot create recursive Partner hierarchies."
+msgstr "คุณไม่สามารถสร้างลำดับชั้นของพาร์ทเนอร์แบบเรียกซ้ำได้"
 
 #. module: base
 #: model:ir.model.constraint,message:base.constraint_res_users_login_key
@@ -37280,8 +37808,9 @@ msgid ""
 "You can not remove the admin user as it is used internally for resources "
 "created by Odoo (updates, module installation, ...)"
 msgstr ""
-"You can not remove the admin user as it is used internally for resources "
-"created by Odoo (updates, module installation, ...)"
+"คุณไม่สามารถลบผู้ใช้ที่เป็นผู้ดูแลระบบได้ "
+"เนื่องจากถูกใช้เป็นการภายในสำหรับทรัพยากรที่สร้างโดย Odoo (อัปเดต "
+"การติดตั้งโมดูล ...)"
 
 #. module: base
 #. odoo-python
@@ -37335,6 +37864,17 @@ msgstr ""
 
 #. module: base
 #. odoo-python
+#: code:addons/base/models/res_lang.py:0
+#, python-format
+msgid ""
+"You cannot archive the language in which Odoo was setup as it is used by "
+"automated processes."
+msgstr ""
+"คุณไม่สามารถเก็บถาวรภาษาที่ Odoo ถูกตั้งค่าไว้ได้ "
+"เนื่องจากมีการใช้งานโดยกระบวนการอัตโนมัติ"
+
+#. module: base
+#. odoo-python
 #: code:addons/base/models/ir_mail_server.py:0
 #, python-format
 msgid ""
@@ -37360,14 +37900,14 @@ msgstr ""
 #: code:addons/base/models/res_partner.py:0
 #, python-format
 msgid "You cannot create recursive Partner hierarchies."
-msgstr "You cannot create recursive Partner hierarchies."
+msgstr "คุณไม่สามารถสร้างลำดับชั้นของพาร์ทเนอร์แบบเรียกซ้ำได้"
 
 #. module: base
 #. odoo-python
 #: code:addons/base/models/ir_ui_view.py:0
 #, python-format
 msgid "You cannot create recursive inherited views."
-msgstr "You cannot create recursive Partner hierarchies."
+msgstr "คุณไม่สามารถสร้างลำดับชั้นของพาร์ทเนอร์แบบเรียกซ้ำได้"
 
 #. module: base
 #. odoo-python
@@ -37424,14 +37964,25 @@ msgstr "คุณไม่สามารถลบบันทึก %s ได�
 
 #. module: base
 #. odoo-python
+#: code:addons/base/models/res_users.py:0
+#, python-format
+msgid ""
+"You cannot delete the admin user because it is utilized in various places "
+"(such as security configurations,...). Instead, archive it."
+msgstr ""
+"คุณไม่สามารถลบผู้ใช้ที่เป็นผู้ดูแลระบบได้เนื่องจากมีการใช้งานในหลายที่ (เช่น"
+" การกำหนดค่าความปลอดภัย...) ให้เก็บถาวรแทน"
+
+#. module: base
+#. odoo-python
 #: code:addons/base/models/res_lang.py:0
 #, python-format
 msgid ""
 "You cannot delete the language which is Active!\n"
 "Please de-activate the language first."
 msgstr ""
-"You cannot delete the language which is Active!\n"
-"Please de-activate the language first."
+"คุณไม่สามารถลบภาษาที่ใช้งานอยู่ได้!\n"
+"กรุณาปิดการใช้งานภาษาก่อน"
 
 #. module: base
 #. odoo-python
@@ -37524,8 +38075,8 @@ msgid ""
 "You try to upgrade the module %s that depends on the module: %s.\n"
 "But this module is not available in your system."
 msgstr ""
-"You try to install module '%s' that depends on module '%s'.\n"
-"But the latter module is not available in your system."
+"คุณพยายามติดตั้งโมดูล '%s' ที่ขึ้นอยู่กับโมดูล '%s'\n"
+"แต่โมดูลหลังไม่พร้อมใช้งานในระบบของคุณ"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_simple_form
@@ -37533,8 +38084,8 @@ msgid ""
 "You will be able to define additional access rights by editing the newly "
 "created user under the Settings / Users menu."
 msgstr ""
-"You will be able to define additional access rights by editing the newly "
-"created user under the Settings / Users menu."
+"คุณจะสามารถกำหนดสิทธิ์การเข้าถึงเพิ่มเติมได้โดยแก้ไขผู้ใช้ที่สร้างขึ้นใหม่ภายใต้เมนูการตั้งค่า"
+" / ผู้ใช้"
 
 #. module: base
 #. odoo-python
@@ -37557,8 +38108,7 @@ msgid ""
 "Your server does not seem to support SSL, you may want to try STARTTLS "
 "instead"
 msgstr ""
-"Your server does not seem to support SSL, you may want to try STARTTLS "
-"instead"
+"ดูเหมือนว่าเซิร์ฟเวอร์ของคุณไม่รองรับ SSL คุณอาจต้องการลองใช้ STARTTLS แทน"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.res_partner_view_form_private
@@ -37642,12 +38192,12 @@ msgstr "ที่"
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__binary
 msgid "binary"
-msgstr "binary"
+msgstr "ไบนารี"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__boolean
 msgid "boolean"
-msgstr "boolean"
+msgstr "บูลีน"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_bpost
@@ -37676,7 +38226,7 @@ msgstr "สร้าง"
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "database id"
-msgstr "database id"
+msgstr "รหัสฐานข้อมูล"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__date
@@ -37830,7 +38380,7 @@ msgstr "account_plaid"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale
 msgid "eCommerce"
-msgstr "eCommerce"
+msgstr "อีคอมเมิร์ซ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale_mondialrelay
@@ -37866,7 +38416,7 @@ msgstr "อีคอมเมิร์ซเกี่ยวกับการน
 #: model:ir.module.category,name:base.module_category_website_elearning
 #: model:ir.module.module,shortdesc:base.module_website_slides
 msgid "eLearning"
-msgstr "eLearning"
+msgstr "การอบรมออนไลน์"
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_services_expenses
@@ -37878,7 +38428,7 @@ msgstr "ค่าใช้จ่าย"
 #: code:addons/base/models/ir_fields.py:0
 #, python-format
 msgid "external id"
-msgstr "external id"
+msgstr "รหัสภายนอก"
 
 #. module: base
 #. odoo-python
@@ -37899,7 +38449,7 @@ msgid ""
 "for record in self:\n"
 "        record['size'] = len(record.name)"
 msgstr ""
-"for record in self:\n"
+"เพื่อบันทึกไว้ในตนเอง:\n"
 "        record['size'] = len(record.name)"
 
 #. module: base
@@ -37981,6 +38531,11 @@ msgstr "ir.actions.server"
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__json
 msgid "json"
 msgstr "json"
+
+#. module: base
+#: model:ir.module.module,shortdesc:base.module_l10n_be_pos_sale
+msgid "l10n_be_pos_sale"
+msgstr "l10n_be_pos_sale"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__many2many

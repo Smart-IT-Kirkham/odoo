@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-05 12:32+0000\n"
+"POT-Creation-Date: 2024-01-29 10:46+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Rasareeyar Lappiam, 2024\n"
 "Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
@@ -34,14 +34,14 @@ msgstr "%spx"
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "%spx (Original)"
-msgstr ""
+msgstr "%sพิกเซล (ต้นฉบับ)"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "%spx (Suggested)"
-msgstr ""
+msgstr "%sพิกเซล (แนะนำ)"
 
 #. module: web_editor
 #. odoo-javascript
@@ -132,14 +132,14 @@ msgstr "2x"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "3 Stars"
-msgstr ""
+msgstr "3 ดาว"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "3 columns"
-msgstr ""
+msgstr "3 คอลัมน์"
 
 #. module: web_editor
 #. odoo-javascript
@@ -154,7 +154,7 @@ msgstr "3x"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "4 columns"
-msgstr ""
+msgstr "4 คอลัมน์"
 
 #. module: web_editor
 #. odoo-javascript
@@ -169,7 +169,7 @@ msgstr "4x"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "5 Stars"
-msgstr ""
+msgstr "5 ดาว"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -192,48 +192,48 @@ msgstr "90"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"flex-grow-0 ms-1 text-white-50\">%</span>"
-msgstr ""
+msgstr "<span class=\"flex-grow-0 ms-1 text-white-50\">%</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"flex-grow-0 ms-1 text-white-50\">deg</span>"
-msgstr ""
+msgstr "<span class=\"flex-grow-0 ms-1 text-white-50\">องศา</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"me-2 ms-3\">Y</span>"
-msgstr ""
+msgstr "<span class=\"me-2 ms-3\">Y</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
 msgid "<span class=\"me-2\">X</span>"
-msgstr ""
+msgstr "<span class=\"me-2\">X</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "<span class=\"w-100\">Basic</span>"
-msgstr ""
+msgstr "<span class=\"w-100\">พื้นฐาน</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "<span class=\"w-100\">Creative</span>"
-msgstr ""
+msgstr "<span class=\"w-100\">สร้างสรรค์</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "<span class=\"w-100\">Decorative</span>"
-msgstr ""
+msgstr "<span class=\"w-100\">ตกแต่ง</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "<span class=\"w-100\">Devices</span>"
-msgstr ""
+msgstr "<span class=\"w-100\">อุปกรณ์</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "<span class=\"w-100\">Linear</span>"
-msgstr ""
+msgstr "<span class=\"w-100\">เชิงเส้น</span>"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippets
@@ -243,21 +243,21 @@ msgstr "<span>บล็อก</span>"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippets
 msgid "<span>Customize</span>"
-msgstr ""
+msgstr "<span>ปรับแต่ง</span>"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "ACCESS OPTIONS ANYWAY"
-msgstr ""
+msgstr "เข้าถึงตัวเลือกต่อไป"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "AI Tools"
-msgstr ""
+msgstr "เครื่องมือ AI"
 
 #. module: web_editor
 #. odoo-javascript
@@ -297,6 +297,7 @@ msgstr "เพิ่มแถว"
 
 #. module: web_editor
 #. odoo-javascript
+#: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
 #: code:addons/web_editor/static/src/components/media_dialog/image_selector.js:0
 #, python-format
 msgid "Add URL"
@@ -307,42 +308,35 @@ msgstr "เพิ่ม URL"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Add a blockquote section"
-msgstr ""
+msgstr "เพิ่มส่วน Blockquote"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Add a button"
-msgstr ""
+msgstr "เพิ่มปุ่ม"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Add a code section"
-msgstr ""
+msgstr "เพิ่มส่วนโค้ด"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Add a link"
-msgstr ""
+msgstr "เพิ่มลิงก์"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Add an emoji"
-msgstr ""
-
-#. module: web_editor
-#. odoo-javascript
-#: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
-#, python-format
-msgid "Add document"
-msgstr "เพิ่มเอกสาร"
+msgstr "เพิ่มอีโมจิ"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -357,7 +351,7 @@ msgstr "Airy & Zigs"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Airy &amp; Zigs"
-msgstr ""
+msgstr "Airy &amp; Zigs"
 
 #. module: web_editor
 #. odoo-javascript
@@ -398,7 +392,7 @@ msgstr "ทั้งหมด"
 #: code:addons/web_editor/static/src/components/media_dialog/document_selector.js:0
 #, python-format
 msgid "All documents have been loaded"
-msgstr ""
+msgstr "โหลดเอกสารทั้งหมดแล้ว"
 
 #. module: web_editor
 #. odoo-javascript
@@ -412,7 +406,7 @@ msgstr "โหลดรูปภาพทั้งหมดแล้ว"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Allow users to view and edit the field in HTML."
-msgstr ""
+msgstr "อนุญาตให้ผู้ใช้ดูและแก้ไขฟิลด์ในรูปแบบ HTML ได้"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -424,7 +418,7 @@ msgstr "แท็ก Alt"
 #: code:addons/web_editor/static/src/components/media_dialog/file_selector.js:0
 #, python-format
 msgid "An error occurred while fetching the entered URL."
-msgstr ""
+msgstr "เกิดข้อผิดพลาดขณะดึงข้อมูล URL ที่ป้อน"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
@@ -460,14 +454,14 @@ msgstr "นำไปใช้"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Are you sure you want to delete the snippet %s?"
-msgstr ""
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบข้อมูลโค้ด %s?"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/components/media_dialog/file_selector.js:0
 #, python-format
 msgid "Are you sure you want to delete this file?"
-msgstr ""
+msgstr "คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์นี้"
 
 #. module: web_editor
 #. odoo-javascript
@@ -479,7 +473,7 @@ msgstr "อัตราส่วนภาพ"
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_web_editor_assets
 msgid "Assets Utils"
-msgstr "Assets Utils"
+msgstr "การใช้สินทรัพย์"
 
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_attachment
@@ -511,7 +505,7 @@ msgstr "เล่นอัตโนมัติ"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Back to one column"
-msgstr ""
+msgstr "กลับไปที่คอลัมน์เดียว"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
@@ -534,35 +528,35 @@ msgstr "ตำแหน่งในพื้นหลัง"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Background Shapes"
-msgstr ""
+msgstr "รูปร่างพื้นหลัง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Banner Danger"
-msgstr ""
+msgstr "ป้ายความปลอดภัย"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Banner Info"
-msgstr ""
+msgstr "ข้อมูลป้าย"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Banner Success"
-msgstr ""
+msgstr "ป้ายความสำเร็จ"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Banner Warning"
-msgstr ""
+msgstr "ป้ายคำเตือน"
 
 #. module: web_editor
 #. odoo-javascript
@@ -570,7 +564,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Banners"
-msgstr ""
+msgstr "ป้าย"
 
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_base
@@ -582,7 +576,7 @@ msgstr "ฐาน"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Basic blocks"
-msgstr ""
+msgstr "บล็อกพื้นฐาน"
 
 #. module: web_editor
 #. odoo-javascript
@@ -596,7 +590,7 @@ msgstr "ด้านล่าง"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Big section heading"
-msgstr ""
+msgstr "ส่วนหัวของส่วนใหญ่"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
@@ -613,7 +607,7 @@ msgstr "บล็อก"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Block &amp; Rainy"
-msgstr ""
+msgstr "Block &amp; Rainy"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
@@ -671,14 +665,14 @@ msgstr "ความสว่าง"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Brushed"
-msgstr ""
+msgstr "แปรง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Bulleted list"
-msgstr ""
+msgstr "รายการหัวข้อย่อย"
 
 #. module: web_editor
 #. odoo-javascript
@@ -697,7 +691,7 @@ msgstr "ปุ่ม"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "CSS Edit"
-msgstr ""
+msgstr "แก้ไข CSS"
 
 #. module: web_editor
 #. odoo-javascript
@@ -718,14 +712,14 @@ msgstr "กลาง"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "ChatGPT"
-msgstr ""
+msgstr "ChatGPT"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Checklist"
-msgstr ""
+msgstr "รายการตรวจสอบ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -754,21 +748,21 @@ msgstr "โค้ด"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Codeview"
-msgstr ""
+msgstr "Codeview"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Collaborative edition"
-msgstr ""
+msgstr "ฉบับการทำงานร่วมกัน"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Collaborative trigger"
-msgstr ""
+msgstr "ทริกเกอร์การทำงานร่วมกัน"
 
 #. module: web_editor
 #. odoo-javascript
@@ -817,12 +811,12 @@ msgstr "การเปรียบเทียบ"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Composites"
-msgstr ""
+msgstr "ส่วนประกอบ"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Composition"
-msgstr ""
+msgstr "ส่วนประกอบ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -843,7 +837,7 @@ msgstr "เนื้อหา"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Content generated"
-msgstr ""
+msgstr "สร้างเนื้อหาแล้ว"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -855,21 +849,21 @@ msgstr "เปรียบต่าง"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Convert into 2 columns"
-msgstr ""
+msgstr "แปลงเป็น 2 คอลัมน์"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Convert into 3 columns"
-msgstr ""
+msgstr "แปลงเป็น 3 คอลัมน์"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Convert into 4 columns"
-msgstr ""
+msgstr "แปลงเป็น 4 คอลัมน์"
 
 #. module: web_editor
 #. odoo-javascript
@@ -883,10 +877,14 @@ msgstr "คัดลอกและวาง URL หรือโค้ดสำ�
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Could not install module %s"
-msgstr ""
+msgstr "ไม่สามารถติดตั้งโมดูล %s ได้"
 
 #. module: web_editor
+#. odoo-javascript
+#. module: web_editor
+#: code:addons/web_editor/static/src/components/upload_progress_toast/upload_service.js:0
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
+#, python-format
 msgid "Cover"
 msgstr "หน้าปก"
 
@@ -902,21 +900,21 @@ msgstr "สร้าง"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Create a list with numbering"
-msgstr ""
+msgstr "สร้างรายการที่มีการเรียงลำดับเลข"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Create a simple bulleted list"
-msgstr ""
+msgstr "สร้างรายการหัวข้อย่อยแบบง่าย"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Create an URL."
-msgstr ""
+msgstr "สร้าง URL"
 
 #. module: web_editor
 #: model:ir.model.fields,field_description:web_editor.field_web_editor_converter_test_sub__create_uid
@@ -960,7 +958,7 @@ msgstr "กำหนดเอง %s"
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Custom Button"
-msgstr ""
+msgstr "ปุ่มกำหนดเอง"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1055,34 +1053,36 @@ msgid ""
 "Discover a world of awesomeness in our copyright-free image haven. No legal "
 "drama, just nice images!"
 msgstr ""
+"ค้นพบคลังรูปภาพที่ปลอดลิขสิทธิ์ของเรา ไม่มีดราม่าทางกฎหมาย "
+"มีแต่ภาพสวยๆเท่านั้น!"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Display 1"
-msgstr ""
+msgstr "จอ 1"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Display 2"
-msgstr ""
+msgstr "จอ 2"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Display 3"
-msgstr ""
+msgstr "จอ 3"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Display 4"
-msgstr ""
+msgstr "จอ 4"
 
 #. module: web_editor
 #: model:ir.model.fields,field_description:web_editor.field_web_editor_converter_test_sub__display_name
@@ -1094,7 +1094,7 @@ msgstr "แสดงชื่อ"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Do you want to install %s App?"
-msgstr ""
+msgstr "คุณต้องการติดตั้งแอป %s หรือไม่"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1122,7 +1122,7 @@ msgstr "ดับเบิ้ลคลิกเพื่อแก้ไข"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Drag and drop the building block."
-msgstr ""
+msgstr "ลากและวางแบบเอกสารสำเร็จรูป"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1142,7 +1142,7 @@ msgstr "สีไดนามิก"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Dynamic Placeholder"
-msgstr ""
+msgstr "ตัวยึดตำแหน่งแบบไดนามิก"
 
 #. module: web_editor
 #. odoo-python
@@ -1173,28 +1173,28 @@ msgstr "แก้ไขคำอธิบายสื่อ"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Embed Image"
-msgstr ""
+msgstr "ฝังรูปภาพ"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Embed Youtube Video"
-msgstr ""
+msgstr "ฝังวิดีโอ Youtube"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Embed the image in the document."
-msgstr ""
+msgstr "ฝังรูปภาพในเอกสาร"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Embed the youtube video in the document."
-msgstr ""
+msgstr "ฝังวิดีโอ YouTube ลงในเอกสาร"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1208,7 +1208,7 @@ msgstr "อิโมจิ"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Empty quote"
-msgstr ""
+msgstr "ใบเสนอราคาที่ว่างเปล่า"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1240,7 +1240,7 @@ msgstr "ขยายออกไปด้านที่ไกลที่สุ
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_html_field_history_mixin
 msgid "Field html History"
-msgstr ""
+msgstr "ฟิลด์ประวัติ html"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1300,7 +1300,7 @@ msgstr "ยืดหยุ่นได้"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Flip"
-msgstr ""
+msgstr "พลิก"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1326,7 +1326,7 @@ msgstr "รูปร่างลอยตัว"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Focus"
-msgstr ""
+msgstr "โฟกัส"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1347,7 +1347,7 @@ msgstr "ขนาดฟอนต์"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "For technical reasons, this block cannot be dropped here"
-msgstr ""
+msgstr "สำหรับเหตุผลทางเทคนิค บล็อกนี้ไม่สามารถถูกวางที่นี่ได้"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1381,43 +1381,43 @@ msgstr "แบบเต็มหน้าจอ"
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Generate or transform content with AI"
-msgstr ""
+msgstr "สร้างหรือแปลงเนื้อหาด้วย AI"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Generate or transform content with AI."
-msgstr ""
+msgstr "สร้างหรือแปลงเนื้อหาด้วย AI"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_alternatives_dialog.xml:0
 #, python-format
 msgid "Generating"
-msgstr ""
+msgstr "สร้าง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_alternatives_dialog.xml:0
 #, python-format
 msgid "Generating an alternative..."
-msgstr ""
+msgstr "สร้างทางเลือกอื่น..."
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Geometrics"
-msgstr ""
+msgstr "เรขาคณิต"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Geometrics Panels"
-msgstr ""
+msgstr "แผงเรขาคณิต"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Geometrics Rounded"
-msgstr ""
+msgstr "เรขาคณิตโค้งมน"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1535,7 +1535,7 @@ msgstr "ส่วนหัว 3"
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Heading 4"
-msgstr ""
+msgstr "หัวเรื่อง 4"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1543,7 +1543,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Heading 5"
-msgstr ""
+msgstr "หัวเรื่อง 5"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1551,7 +1551,7 @@ msgstr ""
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Heading 6"
-msgstr ""
+msgstr "หัวเรื่อง 6"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1606,17 +1606,17 @@ msgstr "ประวัติ"
 #. module: web_editor
 #: model:ir.model.fields,field_description:web_editor.field_html_field_history_mixin__html_field_history
 msgid "History data"
-msgstr ""
+msgstr "ข้อมูลประวัติ"
 
 #. module: web_editor
 #: model:ir.model.fields,field_description:web_editor.field_html_field_history_mixin__html_field_history_metadata
 msgid "History metadata"
-msgstr ""
+msgstr "ข้อมูลเมตาของประวัติ"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Horizontal mirror"
-msgstr ""
+msgstr "กระจกแนวนอน"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1761,98 +1761,98 @@ msgstr "แทรก"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "Insert a Link / Button"
-msgstr ""
+msgstr "แทรกลิงค์ / ปุ่ม"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert a danger banner"
-msgstr ""
+msgstr "แทรกป้ายความปลอดภัย"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert a horizontal rule separator"
-msgstr ""
+msgstr "แทรกตัวคั่นกฎแนวนอน"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert a rating over 3 stars"
-msgstr ""
+msgstr "ใส่คะแนนมากกว่า 3 ดาว"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert a rating over 5 stars"
-msgstr ""
+msgstr "ใส่คะแนนมากกว่า 5 ดาว"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert a success banner"
-msgstr ""
+msgstr "แทรกป้ายความสำเร็จ"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert a table"
-msgstr ""
+msgstr "แทรกตาราง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert a video"
-msgstr ""
+msgstr "แทรกวิดีโอ"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert a warning banner"
-msgstr ""
+msgstr "แทรกป้ายคำเตือน"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert above"
-msgstr ""
+msgstr "แทรกด้านบน"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert an image"
-msgstr ""
+msgstr "แทรกรูปภาพ"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert an info banner"
-msgstr ""
+msgstr "แทรกป้ายข้อมูล"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert below"
-msgstr ""
+msgstr "แทรกด้านล่าง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert left"
-msgstr ""
+msgstr "แทรกด้านซ้าย"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1873,21 +1873,21 @@ msgstr "แทรกหรือแก้ไขลิงก์"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Insert personalized content"
-msgstr ""
+msgstr "แทรกเนื้อหาส่วนบุคคล"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Insert right"
-msgstr ""
+msgstr "แทรกด้านขวา"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Insert your signature"
-msgstr ""
+msgstr "แทรกลายเซ็นของคุณ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1908,7 +1908,7 @@ msgstr "ติดตั้ง %s"
 #: code:addons/web_editor/models/ir_ui_view.py:0
 #, python-format
 msgid "Invalid field value for %s: %s"
-msgstr ""
+msgstr "ค่าฟิลด์ไม่ถูกต้องสำหรับ%s: %s"
 
 #. module: web_editor
 #. odoo-javascript
@@ -1990,14 +1990,14 @@ msgstr "ป้ายลิงก์"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "Link Shape"
-msgstr ""
+msgstr "รูปร่างลิงค์"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "Link Size"
-msgstr ""
+msgstr "ขนาดลิงค์"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2054,7 +2054,7 @@ msgstr "สีหลัก"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Marketing Tools"
-msgstr ""
+msgstr "เครื่องมือทางการตลาด"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -2066,7 +2066,7 @@ msgstr "Maven"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Max height"
-msgstr ""
+msgstr "ความสูงที่สูงสุด"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2086,21 +2086,21 @@ msgstr "มีเดีย"
 #: code:addons/web_editor/static/src/xml/wysiwyg.xml:0
 #, python-format
 msgid "Medium"
-msgstr "สื่อกลาง"
+msgstr "วิธีที่เข้ามา"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Medium section heading"
-msgstr ""
+msgstr "ส่วนหัวของส่วนขนาดกลาง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Min height"
-msgstr ""
+msgstr "ความสูงขั้นต่ำ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2114,7 +2114,7 @@ msgstr "ข้อมูลเพิ่มเติมเกี่ยวกับ
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Move down"
-msgstr ""
+msgstr "เลื่อนลง"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2135,7 +2135,7 @@ msgstr "เลื่อนไปทางขวา"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Move up"
-msgstr ""
+msgstr "เลื่อนขึ้น"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2170,7 +2170,7 @@ msgstr "ไม่"
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/link_popover_widget.js:0
 #, python-format
 msgid "No URL specified"
-msgstr ""
+msgstr "ไม่ระบุ URL"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2184,7 +2184,7 @@ msgstr "ไม่พบเอกสาร"
 #: code:addons/web_editor/static/src/components/history_dialog/history_dialog.xml:0
 #, python-format
 msgid "No history"
-msgstr ""
+msgstr "ไม่มีประวัติ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2212,14 +2212,14 @@ msgstr "ไม่มีบันทึกเพิ่มเติม"
 #: code:addons/web_editor/static/src/components/media_dialog/icon_selector.xml:0
 #, python-format
 msgid "No pictograms found."
-msgstr ""
+msgstr "ไม่พบรูปภาพ"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "No videos"
-msgstr ""
+msgstr "ไม่มีวิดีโอ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2247,7 +2247,7 @@ msgstr "ปกติ"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Numbered list"
-msgstr ""
+msgstr "รายการที่มีเลข"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.tests
@@ -2259,7 +2259,7 @@ msgstr "การทดสอบตัวแก้ไข Odoo"
 #: code:addons/web_editor/controllers/main.py:0
 #, python-format
 msgid "Oops, it looks like our AI is unreachable!"
-msgstr ""
+msgstr "อุปส์ ดูเหมือนว่า AI ของเราไม่สามารถเชื่อมต่อได้!"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2308,7 +2308,7 @@ msgstr "เค้าโครง + โค้งมน"
 #: code:addons/web_editor/static/src/js/editor/snippets.options.js:0
 #, python-format
 msgid "Overlay"
-msgstr ""
+msgstr "ซ้อนทับ"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -2320,26 +2320,26 @@ msgstr "แพดดิ้ง"
 #: code:addons/web_editor/static/src/js/editor/snippets.editor.js:0
 #, python-format
 msgid "Page Options"
-msgstr ""
+msgstr "ตัวเลือกหน้า"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Panels"
-msgstr ""
+msgstr "แผง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Paragraph block"
-msgstr ""
+msgstr "ย่อหน้าบล็อก"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Paste as URL"
-msgstr ""
+msgstr "วางเป็น URL"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -2368,6 +2368,13 @@ msgstr "ตัวอย่าง"
 #, python-format
 msgid "Primary"
 msgstr "หลัก"
+
+#. module: web_editor
+#. odoo-javascript
+#: code:addons/web_editor/static/src/components/upload_progress_toast/upload_progress_toast.xml:0
+#, python-format
+msgid "Progress bar"
+msgstr "แถบความคืบหน้า"
 
 #. module: web_editor
 #: model:ir.model.fields.selection,name:web_editor.selection__web_editor_converter_test__selection_str__c
@@ -2475,14 +2482,14 @@ msgstr "ฟิลด์ข้อความ Qweb"
 #. module: web_editor
 #: model:ir.model,name:web_editor.model_ir_qweb_field_qweb
 msgid "Qweb Field qweb"
-msgstr "Qweb Field qweb"
+msgstr "ฟิลด์ Qweb qweb"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "REPLACE BY NEW VERSION"
-msgstr ""
+msgstr "แทนที่ด้วยเวอร์ชันใหม่"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.colorpicker
@@ -2533,7 +2540,7 @@ msgstr "ลบสีที่เลือก"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Remove columns"
-msgstr ""
+msgstr "ลบคอลัมน์"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2599,7 +2606,7 @@ msgstr "รีเซ็ตภาพ"
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Reset Size"
-msgstr ""
+msgstr "รีเซ็ตขนาด"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -2616,7 +2623,7 @@ msgstr "รีเซ็ตการเปลี่ยนแปลง"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Resizable"
-msgstr ""
+msgstr "ปรับขนาดได้"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2624,7 +2631,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 #, python-format
 msgid "Resize Default"
-msgstr ""
+msgstr "ปรับขนาดค่าเริ่มต้น"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2655,7 +2662,7 @@ msgstr "ปรับขนาดส่วน"
 #: code:addons/web_editor/static/src/components/history_dialog/history_dialog.xml:0
 #, python-format
 msgid "Restore history"
-msgstr ""
+msgstr "เรียกคืนประวัติ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2682,12 +2689,12 @@ msgstr "หมุนขวา"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Rotate left"
-msgstr ""
+msgstr "หมุนซ้าย"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Rotate right"
-msgstr ""
+msgstr "หมุนขวา"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2701,7 +2708,7 @@ msgstr "แถว"
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Sandboxed preview"
-msgstr ""
+msgstr "การแสดงตัวอย่างแบบแซนด์บ็อกซ์"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_image_optimization_widgets
@@ -2801,7 +2808,7 @@ msgstr "เลือกบล็อกบนเพจของคุณเพื
 #: code:addons/web_editor/static/src/components/media_dialog/media_dialog.js:0
 #, python-format
 msgid "Select a media"
-msgstr ""
+msgstr "เลือกสื่อ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2868,7 +2875,7 @@ msgstr "รูปร่าง: ภาพขนาดเล็ก"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Shapes"
-msgstr ""
+msgstr "รูปร่าง"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2880,7 +2887,7 @@ msgstr "แสดงภาพที่ปรับให้เหมาะสม
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
 msgid "Show/Hide on Mobile"
-msgstr ""
+msgstr "แสดง/ซ่อนบนมือถือ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2941,14 +2948,14 @@ msgstr "เล็ก"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Small section heading"
-msgstr ""
+msgstr "ส่วนหัวส่วนขนาดเล็ก"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/backend/html_field.js:0
 #, python-format
 msgid "Snippets"
-msgstr ""
+msgstr "ตัวอย่าง"
 
 #. module: web_editor
 #. odoo-javascript
@@ -2971,20 +2978,22 @@ msgid ""
 "Someone with escalated rights previously modified this area, you are "
 "therefore not able to modify it yourself."
 msgstr ""
+"ผู้ที่มีสิทธิ์ในการยกระดับได้แก้ไขพื้นที่นี้ไปแล้ว "
+"คุณไม่สามารถแก้ไขได้ด้วยตนเอง"
 
 #. module: web_editor
 #. odoo-python
 #: code:addons/web_editor/controllers/main.py:0
 #, python-format
 msgid "Sorry, we could not generate a response. Please try again later."
-msgstr ""
+msgstr "ขออภัย เราไม่สามารถตอบกลับได้ กรุณาลองใหม่อีกครั้งในภายหลัง"
 
 #. module: web_editor
 #. odoo-python
 #: code:addons/web_editor/controllers/main.py:0
 #, python-format
 msgid "Sorry, your prompt is too long. Try to say it in fewer words."
-msgstr ""
+msgstr "ขออภัย ข้อความของคุณยาวเกินไป พยายามลดให้น้อยลง"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -3000,6 +3009,10 @@ msgid ""
 "session when the user clicks inside the text field (default), 'Start' when "
 "the record is loaded (could impact performance if set)."
 msgstr ""
+"ระบุเวลาที่จะเริ่มการทำงานร่วมกัน 'โฟกัส' "
+"จะเริ่มเซสชันการทำงานร่วมกันเมื่อผู้ใช้คลิกภายในฟิลด์ข้อความ (ค่าเริ่มต้น) "
+"'เริ่มต้น' เมื่อโหลดบันทึก "
+"(อาจส่งผลกระทบต่อประสิทธิภาพการทำงานหากตั้งค่าไว้)"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3047,14 +3060,14 @@ msgstr "ข้อเสนอ"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Switch direction"
-msgstr ""
+msgstr "สลับทิศทาง"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Switch the text's direction"
-msgstr ""
+msgstr "สลับทิศทางของข้อความ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3119,7 +3132,7 @@ msgstr "URL ดูเหมือนถูกต้อง"
 #: code:addons/web_editor/models/ir_qweb_fields.py:0
 #, python-format
 msgid "The datetime %s does not match the format %s"
-msgstr ""
+msgstr "วันที่และเวลา %s ไม่ตรงกับรูปแบบ %s"
 
 #. module: web_editor
 #. odoo-python
@@ -3129,6 +3142,8 @@ msgid ""
 "The document was already saved from someone with a different history for "
 "model %r, field %r with id %r."
 msgstr ""
+"เอกสารได้รับการบันทึกแล้วจากบุคคลที่มีประวัติที่แตกต่างกันสำหรับรุ่น %r "
+"ฟิลด์ %r ด้วย id %r"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3142,7 +3157,7 @@ msgstr "URL ที่ให้มาไม่ได้อ้างอิงถ�
 #: code:addons/web_editor/tools.py:0
 #, python-format
 msgid "The provided url is invalid"
-msgstr ""
+msgstr "URL ที่ระบุไม่ถูกต้อง"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3159,6 +3174,8 @@ msgid ""
 "The version from the database will be used.\n"
 "                            If you need to keep your changes, copy the content below and edit the new document."
 msgstr ""
+"จะใช้เวอร์ชันจากฐานข้อมูล\n"
+"                            หากคุณต้องการเก็บการเปลี่ยนแปลง ให้คัดลอกเนื้อหาด้านล่างและแก้ไขเอกสารใหม่"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3179,14 +3196,14 @@ msgstr "ธีมสี"
 #: code:addons/web_editor/static/src/js/wysiwyg/conflict_dialog.xml:0
 #, python-format
 msgid "There is a conflict between your version and the one in the database."
-msgstr ""
+msgstr "มีข้อขัดแย้งระหว่างเวอร์ชันของคุณกับเวอร์ชันในฐานข้อมูล"
 
 #. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_prompt_dialog.xml:0
 #, python-format
 msgid "Thinking..."
-msgstr ""
+msgstr "กำลังคิดอยู่..."
 
 #. module: web_editor
 #. odoo-javascript
@@ -3200,7 +3217,7 @@ msgstr "URL นี้ไม่ถูกต้อง ไม่สามารถ�
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "This block is outdated."
-msgstr ""
+msgstr "บล็อกนี้ล้าสมัยแล้ว"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3319,7 +3336,7 @@ msgstr "สลับรายการที่เรียงลำดับ"
 #: code:addons/web_editor/static/src/xml/editor.xml:0
 #, python-format
 msgid "Toggle strikethrough"
-msgstr ""
+msgstr "สลับขีดทับ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3349,7 +3366,7 @@ msgstr "ทูลทิป"
 #: code:addons/web_editor/static/src/js/editor/odoo-editor/src/OdooEditor.js:0
 #, python-format
 msgid "Track tasks with a checklist"
-msgstr ""
+msgstr "ติดตามงานด้วยรายการตรวจสอบ"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
@@ -3388,7 +3405,7 @@ msgstr "สีโปร่งแสง"
 #: code:addons/web_editor/static/src/components/media_dialog/icon_selector.xml:0
 #, python-format
 msgid "Try searching with other keywords."
-msgstr ""
+msgstr "ลองค้นหาด้วยคำอื่นๆ"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3436,7 +3453,7 @@ msgstr "อัปโหลดภาพ"
 #: code:addons/web_editor/static/src/components/media_dialog/image_selector.js:0
 #, python-format
 msgid "Uploaded image's format is not supported. Try with: "
-msgstr ""
+msgstr "ไม่รองรับรูปแบบของรูปภาพที่อัปโหลด ให้ลองกับ:"
 
 #. module: web_editor
 #. odoo-python
@@ -3453,7 +3470,7 @@ msgstr "Valencia"
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options
 msgid "Vertical mirror"
-msgstr ""
+msgstr "กระจกแนวตั้ง"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3509,6 +3526,8 @@ msgid ""
 "Warning: after closing this dialog, the version you were working on will be "
 "discarded and will never be available anymore."
 msgstr ""
+"คำเตือน: หลังจากปิดกล่องโต้ตอบนี้ "
+"เวอร์ชันที่คุณกำลังทำงานอยู่จะถูกละทิ้งและจะไม่สามารถใช้ได้อีกต่อไป"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
@@ -3533,7 +3552,7 @@ msgstr "การทดสอบตัวแปลงแก้ไขเว็บ
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Widgets"
-msgstr ""
+msgstr "วิดเจ็ต"
 
 #. module: web_editor
 #: model_terms:ir.ui.view,arch_db:web_editor.snippet_options_background_options
@@ -3548,6 +3567,8 @@ msgid ""
 "With the option enabled, all content can only be viewed in a sandboxed "
 "iframe or in the code editor."
 msgstr ""
+"เมื่อเปิดใช้งานตัวเลือกนี้ เนื้อหาทั้งหมดสามารถดูได้ใน iframe "
+"แบบแซนด์บ็อกซ์หรือในตัวแก้ไขโค้ดเท่านั้น"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3556,7 +3577,7 @@ msgstr ""
 msgid ""
 "Wow, it feels a bit empty in here. Upload from the button in the top right "
 "corner!"
-msgstr ""
+msgstr "ว้าว มันรู้สึกว่างเปล่านิดหน่อยที่นี่ เริ่มอัปโหลดจากปุ่มมุมขวาบน!"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3589,7 +3610,7 @@ msgstr "ใช่"
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "You can still access the block options but it might be ineffective."
-msgstr ""
+msgstr "คุณยังคงสามารถเข้าถึงตัวเลือกการบล็อกได้ แต่อาจไม่ได้ผล"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3601,11 +3622,20 @@ msgid ""
 msgstr "คุณสามารถอัปโหลดเอกสารด้วยปุ่มที่อยู่ด้านบนซ้ายของหน้าจอ"
 
 #. module: web_editor
+#. odoo-python
+#: code:addons/web_editor/controllers/main.py:0
+#, python-format
+msgid ""
+"You have reached the maximum number of requests for this service. Try again "
+"later."
+msgstr "คุณมีคำขอถึงจำนวนสูงสุดสำหรับบริการนี้แล้ว ลองอีกครั้งในภายหลัง"
+
+#. module: web_editor
 #. odoo-javascript
 #: code:addons/web_editor/static/src/xml/snippets.xml:0
 #, python-format
 msgid "You might not be able to customize it anymore."
-msgstr ""
+msgstr "คุณอาจไม่สามารถปรับแต่งได้อีกต่อไป"
 
 #. module: web_editor
 #. odoo-python
@@ -3634,7 +3664,7 @@ msgstr "URL ของคุณ"
 #: code:addons/web_editor/static/src/js/wysiwyg/wysiwyg.js:0
 #, python-format
 msgid "Your content was successfully generated."
-msgstr ""
+msgstr "สร้างเนื้อหาของคุณสำเร็จแล้ว"
 
 #. module: web_editor
 #. odoo-javascript
@@ -3667,7 +3697,7 @@ msgstr "เพิ่ม"
 #: code:addons/web_editor/static/src/js/wysiwyg/widgets/chatgpt_alternatives_dialog.xml:0
 #, python-format
 msgid "alternatives..."
-msgstr ""
+msgstr "ทางเลือก..."
 
 #. module: web_editor
 #. odoo-javascript

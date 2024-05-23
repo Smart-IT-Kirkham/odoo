@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Bayu Indra Kusuma, 2023
-# Abe Manyo, 2023
+# Abe Manyo, 2024
 # Wil Odoo, 2024
 # 
 msgid ""
@@ -799,6 +799,11 @@ msgstr "Arsip Operasi"
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_workcenter_search
 msgid "Archived"
 msgstr "Diarsipkan"
+
+#. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
+msgid "Are you sure you want to cancel this manufacturing order?"
+msgstr "Apakah Anda yakin ingin membatalkan manufacturing order ini?"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrporder
@@ -2059,7 +2064,7 @@ msgstr "Tampilkan Nomor Seri/Lot yang dikonsumsi."
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Displays the produced Lot/Serial Numbers."
-msgstr ""
+msgstr "Menampilkan Nomor Seri/Lot yang dibuat."
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.stock_warn_insufficient_qty_unbuild_form_view
@@ -2406,7 +2411,7 @@ msgstr "Masalah yang Diforecast"
 #: code:addons/mrp/static/src/components/bom_overview_table/mrp_bom_overview_table.xml:0
 #, python-format
 msgid "Free to Use"
-msgstr "Bebas untuk Digunakan"
+msgstr "Gratis untuk Digunakan"
 
 #. module: mrp
 #. odoo-javascript
@@ -2414,7 +2419,7 @@ msgstr "Bebas untuk Digunakan"
 #: model_terms:ir.ui.view,arch_db:mrp.report_mrp_bom
 #, python-format
 msgid "Free to Use / On Hand"
-msgstr "Bebas Digunakan / Di Tangan"
+msgstr "Gratis Digunakan / Di Tangan"
 
 #. module: mrp
 #. odoo-javascript
@@ -2422,7 +2427,7 @@ msgstr "Bebas Digunakan / Di Tangan"
 #: model_terms:ir.ui.view,arch_db:mrp.mo_overview_content
 #, python-format
 msgid "Free to use / On Hand"
-msgstr "Bebas digunakan / Di Tangan"
+msgstr "Gratis digunakan / Di Tangan"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
@@ -4865,6 +4870,12 @@ msgid "Routing"
 msgstr "Routing"
 
 #. module: mrp
+#: code:addons/mrp/models/stock_quant.py:0
+#, python-format
+msgid "Return to Inventory"
+msgstr "Kembali ke Inventaris"
+
+#. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__routing_line_ids
 msgid "Routing Lines"
 msgstr "Routing Lines"
@@ -5183,15 +5194,6 @@ msgid ""
 msgstr ""
 "Beberapa komponen Anda dilacak, Anda harus menentukan manufacturing order "
 "untuk mengambil komponen yang tepat."
-
-#. module: mrp
-#: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
-msgid ""
-"Some product moves have already been confirmed, this manufacturing order "
-"can't be completely cancelled. Are you still sure you want to process?"
-msgstr ""
-"Beberapa pergerakan produk sudah dikonfirmasi, manufacturing order ini tidak"
-" dapat sepenuhnya dibatalkan. Apakah Anda yakin masih Anda ingin memproses?"
 
 #. module: mrp
 #. odoo-python
@@ -7039,6 +7041,7 @@ msgstr "Anda harus menyediakan lot untuk produk jadi."
 #, python-format
 msgid "You need to supply Lot/Serial Number for products and 'consume' them:"
 msgstr ""
+"Anda harus menyuplai Nomor Seri/Lot untuk produk dan 'konsumsi' mereka:"
 
 #. module: mrp
 #: model:ir.actions.act_window,name:mrp.action_mrp_production_backorder
@@ -7051,6 +7054,17 @@ msgstr "Anda menghasilkan lebih sedikit dari tuntutan awal"
 #, python-format
 msgid "You should provide a lot number for the final product."
 msgstr "Anda harus menyediakan nomor lot untuk produk final."
+
+#. module: mrp
+#. odoo-python
+#: code:addons/mrp/models/stock_quant.py:0
+#, python-format
+msgid ""
+"You should update the components quantity instead of directly updating the "
+"quantity of the kit product."
+msgstr ""
+"Anda harus mengupdate kuantitas komponen alih-alih langsung mengupdate "
+"kuantitas produk kit."
 
 #. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__stock_picking_type__done_mrp_lot_label_to_print__zpl
@@ -7073,7 +7087,7 @@ msgstr "hari"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_assign_serial_numbers_production
 msgid "e.g. SN0000001"
-msgstr ""
+msgstr "contoh SN0000001"
 
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit

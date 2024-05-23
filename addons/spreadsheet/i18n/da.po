@@ -6,11 +6,11 @@
 # Walther Barnett <walther@gundogpro.dk>, 2023
 # Mads Søndergaard, 2023
 # JonathanStein <jstein@image.dk>, 2023
-# lhmflexerp <lhm@flexerp.dk>, 2023
 # Ejner Sønniksen <ejner@vkdata.dk>, 2023
-# Sanne Kristensen <sanne@vkdata.dk>, 2023
 # Mads Søndergaard, 2023
 # Martin Trigaux, 2023
+# lhmflexerp <lhm@flexerp.dk>, 2024
+# Sanne Kristensen <sanne@vkdata.dk>, 2024
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-01-05 12:32+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Martin Trigaux, 2023\n"
+"Last-Translator: Sanne Kristensen <sanne@vkdata.dk>, 2024\n"
 "Language-Team: Danish (https://app.transifex.com/odoo/teams/41243/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -148,28 +148,28 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "1 column"
-msgstr ""
+msgstr "1 kolonne"
 
 #. module: spreadsheet
 #. odoo-javascript
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "1 row"
-msgstr ""
+msgstr "1 række"
 
 #. module: spreadsheet
 #. odoo-javascript
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "2 columns"
-msgstr ""
+msgstr "2 kolonner"
 
 #. module: spreadsheet
 #. odoo-javascript
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "2 rows"
-msgstr ""
+msgstr "2 rækker"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -584,7 +584,7 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "Additional text item(s)."
-msgstr ""
+msgstr "Yderligere varetekst(er)."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -5352,7 +5352,7 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.xml:0
 #, python-format
 msgid "Remove duplicates"
-msgstr ""
+msgstr "Fjern dubletter"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -5875,7 +5875,7 @@ msgstr "Del"
 #: code:addons/spreadsheet/static/src/components/share_button/share_button.xml:0
 #, python-format
 msgid "Share to web"
-msgstr ""
+msgstr "Del på nettet"
 
 #. module: spreadsheet
 #. odoo-javascript
