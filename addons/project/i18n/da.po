@@ -576,7 +576,7 @@ msgstr "<u>Milepæle</u>"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "=&gt;"
-msgstr ""
+msgstr "=&gt;"
 
 #. module: project
 #: model:ir.model.fields,help:project.field_project_project__alias_defaults
@@ -4173,7 +4173,7 @@ msgstr "Vis alle poster, hvor den næste aktivitetsdato er før i dag"
 #. module: project
 #: model_terms:ir.ui.view,arch_db:project.project_update_default_description
 msgid "Since"
-msgstr ""
+msgstr "Siden"
 
 #. module: project
 #. openerp-web

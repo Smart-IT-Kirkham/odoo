@@ -1670,10 +1670,7 @@ export class OdooEditor extends EventTarget {
      */
     _applyRawCommand(method, ...args) {
         const sel = this.document.getSelection();
-        if (
-            !this.editable.contains(sel.anchorNode) ||
-            (sel.anchorNode !== sel.focusNode && !this.editable.contains(sel.focusNode))
-        ) {
+        if (!this.isSelectionInEditable(sel)) {
             // Do not apply commands out of the editable area.
             return false;
         }
@@ -1716,6 +1713,7 @@ export class OdooEditor extends EventTarget {
      * @returns {?}
      */
     _applyCommand(...args) {
+        this._checkStepUnbreakable = true;
         this._recordHistorySelection(true);
         const result = this._protect(() => this._applyRawCommand(...args));
         this.historyStep();
@@ -2545,42 +2543,44 @@ export class OdooEditor extends EventTarget {
             ev.inputType === 'insertText' &&
             ev.data === null &&
             this._lastBeforeInputType === 'insertParagraph';
-        const isComposing =
+        const isCompositionEvent =
             ev.inputType === "insertCompositionText" ||
             (ev.inputType === "insertText" &&
-                this.keyboardType === KEYBOARD_TYPES.VIRTUAL);
-        if (isComposing) {
+                (this.keyboardType === KEYBOARD_TYPES.VIRTUAL ||
+                    this.isMobile));
+        if (isCompositionEvent) {
             this._fromCompositionText = true;
         }
         if (this.keyboardType === KEYBOARD_TYPES.PHYSICAL || !wasCollapsed) {
-            // Detect a prior selection across different blocks and change
-            // the behavior only in that case, since it is the only text
-            // insertion case that may cause problems.
+            // Most deletion cases in complex HTML like Bootstrap etc can end
+            // with a wrong result if done by the contenteditable itself.
+            // Intervene as soon as the selection was not collapsed, except
+            // while composing. In that case the composition should be left
+            // alone unless the selection was spanning different blocks.
             const anchorNode = this.idFind(anchorNodeOid);
             const focusNode = this.idFind(focusNodeOid);
             const wasSelectingAcrossDifferentBlocks =
                 anchorNode &&
                 focusNode &&
                 closestBlock(anchorNode) !== closestBlock(focusNode);
-            if (
-                ev.inputType === 'deleteContentBackward' &&
-                wasSelectingAcrossDifferentBlocks
-            ) {
+            const shouldInterveneForDeletion =
+                !this._fromCompositionText ||
+                wasSelectingAcrossDifferentBlocks;
+            if (ev.inputType === 'deleteContentBackward' && shouldInterveneForDeletion) {
                 this._compositionStep();
                 this.historyRollback();
                 ev.preventDefault();
                 this._applyCommand('oDeleteBackward');
             } else if (
                 (ev.inputType === 'deleteContentForward' || isChromeDeleteforward) &&
-                wasSelectingAcrossDifferentBlocks
+                shouldInterveneForDeletion
             ) {
                 this._compositionStep();
                 this.historyRollback();
                 ev.preventDefault();
                 this._applyCommand('oDeleteForward');
             } else if (
-                (ev.inputType === 'insertParagraph' || isChromeInsertParagraph) &&
-                (wasSelectingAcrossDifferentBlocks || wasCollapsed)
+                (ev.inputType === 'insertParagraph' || isChromeInsertParagraph)
             ) {
                 this._compositionStep();
                 this.historyRollback();
@@ -2595,8 +2595,9 @@ export class OdooEditor extends EventTarget {
                 const isUnitTests = !ev.isTrusted && this.testMode;
                 // we cannot trust the browser to keep the selection inside empty tags.
                 const latestSelectionInsideEmptyTag = this._isLatestComputedSelectionInsideEmptyInlineTag();
+                const shouldInterveneForInsertion = !wasCollapsed && shouldInterveneForDeletion;
                 if (
-                    wasSelectingAcrossDifferentBlocks ||
+                    shouldInterveneForInsertion ||
                     latestSelectionInsideEmptyTag ||
                     isUnitTests
                 ) {
@@ -2662,7 +2663,7 @@ export class OdooEditor extends EventTarget {
                 this.historyStep();
             }
         }
-        if (!isComposing) {
+        if (!isCompositionEvent) {
             this._fromCompositionText = false;
         }
     }
@@ -2679,7 +2680,7 @@ export class OdooEditor extends EventTarget {
         // inserting the printed representation of the character.
         if (/^.$/u.test(ev.key) && !ev.ctrlKey && !ev.metaKey && (isMacOS() || !ev.altKey)) {
             const selection = this.document.getSelection();
-            if (selection && !selection.isCollapsed) {
+            if (selection && !selection.isCollapsed && this.isSelectionInEditable(selection)) {
                 this.deleteRange(selection);
             }
         }
