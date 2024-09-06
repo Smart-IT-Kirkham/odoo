@@ -6,6 +6,7 @@ from odoo import Command
 from odoo.tests import tagged
 
 from odoo.addons.point_of_sale.tests.test_frontend import TestPointOfSaleHttpCommon
+from odoo.addons.point_of_sale.tests.common_setup_methods import setup_pos_combo_items
 
 
 @tagged("post_install", "-at_install")
@@ -376,6 +377,20 @@ class TestUi(TestPointOfSaleHttpCommon):
 
         reward_orderline = self.main_pos_config.current_session_id.order_ids[-1].lines.filtered(lambda line: line.is_reward_line)
         self.assertEqual(len(reward_orderline.ids), 0, msg='Reference: Order4_no_reward. Last order should have no reward line.')
+
+        # Part 3
+        partner_ddd = self.env['res.partner'].create({'name': 'Test Partner DDD'})
+        self.env['loyalty.card'].create({
+            'partner_id': partner_ddd.id,
+            'program_id': loyalty_program.id,
+            'points': 100,
+        })
+
+        self.start_tour(
+            "/pos/web?config_id=%d" % self.main_pos_config.id,
+            "PosLoyaltyChangeRewardQty",
+            login="pos_user",
+        )
 
     def test_loyalty_free_product_zero_sale_price_loyalty_program(self):
         # In this program, each $ spent gives 1 point.
@@ -2189,3 +2204,25 @@ class TestUi(TestPointOfSaleHttpCommon):
             "PosLoyaltyGiftCardNoPoints",
             login="accountman",
         )
+
+    def test_cheapest_product_reward_pos_combo(self):
+        setup_pos_combo_items(self)
+        self.office_combo.write({'lst_price': 50})
+        self.env['loyalty.program'].search([]).write({'active': False})
+        self.env['loyalty.program'].create({
+            'name': 'Auto Promo Program - Cheapest Product',
+            'program_type': 'promotion',
+            'trigger': 'auto',
+            'rule_ids': [(0, 0, {
+                'minimum_qty': 2,
+            })],
+            'reward_ids': [(0, 0, {
+                'reward_type': 'discount',
+                'discount': 10,
+                'discount_mode': 'percent',
+                'discount_applicability': 'cheapest',
+            })]
+        })
+
+        self.main_pos_config.with_user(self.pos_user).open_ui()
+        self.start_tour(f"/pos/ui?config_id={self.main_pos_config.id}", 'PosComboCheapestRewardProgram', login="pos_user")
