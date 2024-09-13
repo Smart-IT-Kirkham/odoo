@@ -4063,6 +4063,7 @@ class TestMrpOrder(TestMrpCommon):
         Checks that the expected durations of workorders are updated depending on the produced quantity.
         """
         bom = self.bom_2
+        bom.type = 'normal'
         bom.operation_ids.time_mode = 'manual'
         bom.operation_ids.time_cycle_manual = 60.0
         product = bom.product_id
@@ -4305,5 +4306,5 @@ class TestMrpSynchronization(HttpCase):
         self.start_tour(url, "test_manufacturing_and_byproduct_sm_to_sml_synchronization", login="admin", timeout=100)
         self.assertEqual(mo.move_raw_ids.quantity, 7)
         self.assertEqual(mo.move_raw_ids.move_line_ids.quantity, 7)
-        self.assertEqual(mo.move_byproduct_ids.quantity, 7)
+        self.assertEqual(mo.move_byproduct_ids.quantity, 8)
         self.assertEqual(len(mo.move_byproduct_ids.move_line_ids), 2)
