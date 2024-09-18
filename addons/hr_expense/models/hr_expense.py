@@ -195,8 +195,8 @@ class HrExpense(models.Model):
             currency=currency or self.currency_id,
             product=self.product_id,
             taxes=self.tax_ids,
-            price_unit=price_unit or self.total_amount_company,
-            quantity=quantity or 1,
+            price_unit=price_unit or 0,
+            quantity=quantity if quantity is not None else 1,  # Allows 0 quantity
             account=self.account_id,
             analytic_distribution=self.analytic_distribution,
             extra_context={'force_price_include': True},
@@ -374,7 +374,7 @@ class HrExpense(models.Model):
     @api.onchange('total_amount')
     def _inverse_total_amount(self):
         for expense in self:
-            expense.unit_amount = expense.total_amount_company / expense.quantity
+            expense.unit_amount = expense.total_amount_company / (expense.quantity or 1)
 
     @api.constrains('payment_mode')
     def _check_payment_mode(self):
@@ -445,6 +445,9 @@ class HrExpense(models.Model):
                 raise UserError(_('You cannot delete a posted or approved expense.'))
 
     def write(self, vals):
+        if 'state' in vals and (not self.user_has_groups('hr_expense.group_hr_expense_manager') and vals['state'] != 'submit' and
+        any(expense.state == 'draft' for expense in self)):
+            raise UserError(_("You don't have the rights to bypass the validation process of this expense."))
         expense_to_previous_sheet = {}
         if 'sheet_id' in vals:
             self.env['hr.expense.sheet'].browse(vals['sheet_id']).check_access_rule('write')
@@ -1154,6 +1157,17 @@ class HrExpenseSheet(models.Model):
         sheets.activity_update()
         return sheets
 
+    def write(self, vals):
+        if 'state' in vals:
+            # Avoid user with write access on expense sheet in draft state to bypass the validation process
+            if not self.user_has_groups('hr_expense.group_hr_expense_manager') and self.state == 'draft' and vals['state'] != 'submit':
+                raise UserError(_("You don't have the rights to bypass the validation process of this expense report."))
+            elif vals['state'] == 'approve':
+                self._check_can_approve()
+            elif vals['state'] == 'cancel':
+                self._check_can_refuse()
+        return super().write(vals)
+
     @api.ondelete(at_uninstall=False)
     def _unlink_except_posted_or_paid(self):
         for expense in self:
@@ -1394,6 +1408,8 @@ class HrExpenseSheet(models.Model):
         self.sudo().activity_update()
 
     def _check_can_approve(self):
+        if self.env.su:
+            return
         if not self.user_has_groups('hr_expense.group_hr_expense_team_approver'):
             raise UserError(_("Only Managers and HR Officers can approve expenses"))
         elif not self.user_has_groups('hr_expense.group_hr_expense_manager'):
@@ -1459,9 +1475,12 @@ class HrExpenseSheet(models.Model):
     def paid_expense_sheets(self):
         self.write({'state': 'done'})
 
-    def refuse_sheet(self, reason):
+    # TODO in master could be aggregated with _check_can_accept
+    def _check_can_refuse(self):
+        if self.env.su:
+            return
         if not self.user_has_groups('hr_expense.group_hr_expense_team_approver'):
-            raise UserError(_("Only Managers and HR Officers can approve expenses"))
+            raise UserError(_("Only Managers and HR Officers can refuse expenses"))
         elif not self.user_has_groups('hr_expense.group_hr_expense_manager'):
             current_managers = self.employee_id.expense_manager_id | self.employee_id.parent_id.user_id | self.employee_id.department_id.manager_id.user_id | self.user_id
 
@@ -1471,6 +1490,8 @@ class HrExpenseSheet(models.Model):
             if not self.env.user in current_managers and not self.user_has_groups('hr_expense.group_hr_expense_user') and self.employee_id.expense_manager_id != self.env.user:
                 raise UserError(_("You can only refuse your department expenses"))
 
+    def refuse_sheet(self, reason):
+        self._check_can_refuse()
         self.write({'state': 'cancel'})
         for sheet in self:
             sheet.message_post_with_view('hr_expense.hr_expense_template_refuse_reason', values={'reason': reason, 'is_sheet': True, 'name': sheet.name})
@@ -1479,8 +1500,8 @@ class HrExpenseSheet(models.Model):
     def reset_expense_sheets(self):
         if not self.can_reset:
             raise UserError(_("Only HR Officers or the concerned employee can reset to draft."))
-        self.mapped('expense_line_ids').write({'is_refused': False})
         self.sudo().write({'state': 'draft', 'approval_date': False})
+        self.mapped('expense_line_ids').write({'is_refused': False})
         self.activity_update()
         return True
 
