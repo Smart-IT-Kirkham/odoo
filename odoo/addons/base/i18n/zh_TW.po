@@ -18106,7 +18106,7 @@ msgstr "法國-會計報表"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr_invoice_addr
 msgid "France - Adding Mandatory Invoice Mentions (Decree no. 2022-1299)"
-msgstr ""
+msgstr "法國 - 新增強制性發票提及（第 2022-1299 號法令）"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_fr_fec
@@ -27793,12 +27793,12 @@ msgstr "現場活動測驗"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_event_track_quiz
 msgid "Quizzes on Tracks"
-msgstr "軌跡測驗"
+msgstr "專題研討小測驗"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_event_track_quiz
 msgid "Quizzes on tracks"
-msgstr "軌跡測驗"
+msgstr "專題研討小測驗"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_quotation_builder

@@ -186,22 +186,37 @@ class PaymentAcquirer(models.Model):
         if not pay_method_line:
             pay_method_line = self.env['account.payment.method.line'].search(
                 [
-                    ('journal_id.company_id', '=', self.company_id.id),
+                    ('company_id', '=', self.company_id.id),
                     ('code', '=', self.provider),
                     ('payment_acquirer_id', '=', False),
                 ],
                 limit=1,
             )
         if pay_method_line:
+            pay_method_line.name = self.name
             pay_method_line.payment_acquirer_id = self
             pay_method_line.journal_id = self.journal_id
         elif allow_create:
             default_payment_method_id = self._get_default_payment_method_id()
-            self.env['account.payment.method.line'].create({
+            if not default_payment_method_id:
+                return
+
+            create_values = {
+                'name': self.name,
                 'payment_method_id': default_payment_method_id,
                 'journal_id': self.journal_id.id,
                 'payment_acquirer_id': self.id,
-            })
+            }
+            pay_method_line_same_code = self.env['account.payment.method.line'].search(
+                [
+                    ('company_id', '=', self.company_id.id),
+                    ('code', '=', self.provider),
+                ],
+                limit=1,
+            )
+            if pay_method_line_same_code:
+                create_values['payment_account_id'] = pay_method_line_same_code.payment_account_id.id
+            self.env['account.payment.method.line'].create(create_values)
 
     @api.depends('provider', 'state', 'company_id')
     def _compute_journal_id(self):
@@ -230,7 +245,7 @@ class PaymentAcquirer(models.Model):
 
     def _get_default_payment_method_id(self):
         self.ensure_one()
-        return self.env.ref('account.account_payment_method_manual_in').id
+        return None
 
     #=== CONSTRAINT METHODS ===#
 
