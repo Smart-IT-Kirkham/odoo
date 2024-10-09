@@ -827,7 +827,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_tr_reports
 msgid ""
 "\n"
-"        Accounting reports for Turkey\n"
+"        Accounting reports for Türkiye\n"
 "    "
 msgstr ""
 "\n"
@@ -20130,7 +20130,7 @@ msgstr "ここから、あなたと連絡先にリンクされている全ての
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_management
 msgid "From quotations to invoices"
-msgstr "見積もりから請求書まで"
+msgstr "見積から請求書まで"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_access_view_search
@@ -23711,7 +23711,7 @@ msgstr "保守担当者"
 #: model:ir.module.category,name:base.module_category_manufacturing_maintenance
 #: model:ir.module.module,shortdesc:base.module_maintenance
 msgid "Maintenance"
-msgstr "メンテナンス"
+msgstr "整備"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_maintenance
@@ -34491,17 +34491,17 @@ msgstr "チュニジア"
 
 #. module: base
 #: model:res.country,name:base.tr
-msgid "Turkey"
+msgid "Türkiye"
 msgstr "トルコ"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_tr
-msgid "Turkey - Accounting"
+msgid "Türkiye - Accounting"
 msgstr "トルコ - 会計"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_tr_reports
-msgid "Turkey - Accounting Reports"
+msgid "Türkiye - Accounting Reports"
 msgstr "トルコ - 会計レポート"
 
 #. module: base
