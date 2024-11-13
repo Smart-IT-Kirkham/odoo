@@ -849,9 +849,6 @@ msgid ""
 "        Accounting reports for Türkiye\n"
 "    "
 msgstr ""
-"\n"
-"        Accounting reports for Türkiye\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_uk_reports
@@ -34372,6 +34369,15 @@ msgid "The \"App Switcher\" action cannot be selected as home action."
 msgstr "لا يمكن تحديد إجراء \"تبديل التطبيقات\" كإجراء الصفحة الرئيسية. "
 
 #. module: base
+#. odoo-python
+#: code:addons/base/models/res_users.py:0
+#, python-format
+msgid ""
+"The action \"%s\" cannot be set as the home action because it requires a "
+"record to be selected beforehand."
+msgstr ""
+
+#. module: base
 #: model:ir.model.fields,help:base.field_res_country__code
 #: model:ir.model.fields,help:base.field_res_partner__country_code
 #: model:ir.model.fields,help:base.field_res_users__country_code
@@ -36041,12 +36047,12 @@ msgstr "تونس"
 #. module: base
 #: model:res.country,name:base.tr
 msgid "Türkiye"
-msgstr "تركيا"
+msgstr "Türkiye"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_tr
 msgid "Türkiye - Accounting"
-msgstr "تركيا - المحاسبة"
+msgstr "Türkiye - Accounting"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_tr_reports

@@ -9,8 +9,8 @@
 # Noma Yuki, 2024
 # Martin Trigaux, 2024
 # Wil Odoo, 2024
-# Ryoko Tsuda <ryoko@quartile.co>, 2024
 # Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2024
+# Ryoko Tsuda <ryoko@quartile.co>, 2024
 # Junko Augias, 2024
 # 
 msgid ""
@@ -830,9 +830,6 @@ msgid ""
 "        Accounting reports for Türkiye\n"
 "    "
 msgstr ""
-"\n"
-"        トルコ向けの会計レポート\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_uk_reports
@@ -27458,7 +27455,7 @@ msgstr "ポータル・ユーザだけが自分のアカウントを削除でき
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.demo_force_install_form
 msgid "Oops, no!"
-msgstr "おっと、いや'"
+msgstr "おっと、違った！"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_profile__speedscope_url
@@ -30850,12 +30847,12 @@ msgstr "設備/機器の保守管理"
 #. module: base
 #: model:ir.module.module,summary:base.module_industry_fsm_sale
 msgid "Schedule and track onsite operations, invoice time and material"
-msgstr "オンサイトオペレーション、請求書の時間と資料をスケジュールして追跡します"
+msgstr "オンサイトオペレーションをスケジュール、追跡し、タイムアンドマテリアル方式で請求"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_industry_fsm
 msgid "Schedule and track onsite operations, time and material"
-msgstr "オンサイトの運用、時間、および資料のスケジュールと追跡"
+msgstr "オンサイトオペレーション、タイムアンドマテリアルのスケジュールと追跡"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_calendar
@@ -32910,6 +32907,15 @@ msgstr "\"%s\" アクションはホームアクションとして選択でき�
 #, python-format
 msgid "The \"App Switcher\" action cannot be selected as home action."
 msgstr "\"アプリスイッチャー\"アクションはホームアクションとして選択できません。"
+
+#. module: base
+#. odoo-python
+#: code:addons/base/models/res_users.py:0
+#, python-format
+msgid ""
+"The action \"%s\" cannot be set as the home action because it requires a "
+"record to be selected beforehand."
+msgstr "アクション\"%s\" は、事前にレコードを選択する必要があるため、ホームアクションとして設定できません。"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_country__code
