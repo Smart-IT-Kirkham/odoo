@@ -19,7 +19,6 @@ class AccountChartTemplate(models.AbstractModel):
         """Generate the demo data related to accounting."""
         # This is a generator because data created here might be referenced by xml_id to data
         # created later but defined in this same function.
-        self._get_demo_data_products(company)
         return {
             'account.move': self._get_demo_data_move(company),
             'account.bank.statement': self._get_demo_data_statement(company),
@@ -58,18 +57,6 @@ class AccountChartTemplate(models.AbstractModel):
                 _logger.exception('Error while posting demo data')
 
     @api.model
-    def _get_demo_data_products(self, company=False):
-        prod_templates = self.env['product.product'].search(self.env['product.product']._check_company_domain(company))
-        if self.env.company.account_sale_tax_id:
-            prod_templates_sale = prod_templates.filtered(
-                lambda p: not p.taxes_id.filtered_domain(p.taxes_id._check_company_domain(company)))
-            prod_templates_sale.write({'taxes_id': [Command.link(self.env.company.account_sale_tax_id.id)]})
-        if self.env.company.account_purchase_tax_id:
-            prod_templates_purchase = prod_templates.filtered(
-                lambda p: not p.supplier_taxes_id.filtered_domain(p.taxes_id._check_company_domain(company)))
-            prod_templates_purchase.write({'supplier_taxes_id': [Command.link(self.env.company.account_purchase_tax_id.id)]})
-
-    @api.model
     def _get_demo_data_move(self, company=False):
         one_month_ago = fields.Date.today() + relativedelta(months=-1)
         fifteen_months_ago = fields.Date.today() + relativedelta(months=-15)
@@ -90,7 +77,7 @@ class AccountChartTemplate(models.AbstractModel):
         )
         default_receivable = self.env.ref('base.res_partner_3').with_company(company).property_account_receivable_id
         income_account = self.env['account.account'].search([
-            ('company_id', '=', cid),
+            *self.env['account.account']._check_company_domain(cid),
             ('account_type', '=', 'income'),
             ('id', '!=', (company or self.env.company).account_journal_early_pay_discount_gain_account_id.id)
         ], limit=1)
