@@ -4,7 +4,7 @@ import re
 from markupsafe import Markup
 from odoo import api, fields, Command, models, _
 from odoo.tools import float_round
-from odoo.exceptions import UserError, ValidationError, RedirectWarning
+from odoo.exceptions import UserError, ValidationError
 from odoo.tools import email_split, float_is_zero, float_repr, float_compare, is_html_empty
 from odoo.tools.misc import clean_context, format_date
 
@@ -445,7 +445,7 @@ class HrExpense(models.Model):
                 raise UserError(_('You cannot delete a posted or approved expense.'))
 
     def write(self, vals):
-        if 'state' in vals and (not self.user_has_groups('hr_expense.group_hr_expense_manager') and vals['state'] != 'submit' and
+        if 'state' in vals and (not self.user_has_groups('hr_expense.group_hr_expense_manager') and vals['state'] != 'reported' and
         any(expense.state == 'draft' for expense in self)):
             raise UserError(_("You don't have the rights to bypass the validation process of this expense."))
         expense_to_previous_sheet = {}
@@ -1333,16 +1333,19 @@ class HrExpenseSheet(models.Model):
 
     def _prepare_bill_vals(self):
         self.ensure_one()
+        move_vals = self._prepare_move_vals()
+        if self.employee_id.sudo().bank_account_id:
+            move_vals['partner_bank_id'] = self.employee_id.sudo().bank_account_id.id
         return {
-            **self._prepare_move_vals(),
+            **move_vals,
             # force the name to the default value, to avoid an eventual 'default_name' in the context
             # to set it to '' which cause no number to be given to the account.move when posted.
             'journal_id': self.journal_id.id,
             'move_type': 'in_invoice',
-            'partner_id': self.employee_id.sudo().address_home_id.commercial_partner_id.id,
+            'partner_id': self.employee_id.sudo().address_home_id.id,
+            'commercial_partner_id': self.employee_id.user_partner_id.id,
             'currency_id': self.currency_id.id,
             'line_ids':[Command.create(expense._prepare_move_line_vals()) for expense in self.expense_line_ids],
-            'partner_bank_id': self.employee_id.sudo().bank_account_id.id,
         }
 
     def _prepare_move_vals(self):
@@ -1427,7 +1430,7 @@ class HrExpenseSheet(models.Model):
 
     def approve_expense_sheets(self):
         self._check_can_approve()
-        self._check_bank_account()
+
         self._validate_analytic_distribution()
         duplicates = self.expense_line_ids.duplicate_expense_ids.filtered(lambda exp: exp.state in ['approved', 'done'])
         if duplicates:
@@ -1435,28 +1438,6 @@ class HrExpenseSheet(models.Model):
             action['context'] = {'default_sheet_ids': self.ids, 'default_expense_ids': duplicates.ids}
             return action
         self._do_approve()
-
-    def _check_bank_account(self):
-        no_bank_employees = self.filtered(lambda sheet: sheet.payment_mode == 'own_account' and not sheet.employee_id.sudo().bank_account_id).mapped('employee_id')
-        if no_bank_employees:
-            if (len(no_bank_employees.ids) == 1):
-                kwargs = {
-                    'views': [(False, 'form')],
-                    'res_id': no_bank_employees.id,
-                }
-            else:
-                kwargs = {
-                    'views': [(False, 'list'), (False, 'form')],
-                    'domain': [('id', 'in', no_bank_employees.ids)],
-                }
-            action = {
-                    'res_model': 'hr.employee',
-                    'type': 'ir.actions.act_window',
-                    'target': 'current',
-                    'name': _("Employee(s)"),
-                    **kwargs
-                }
-            raise RedirectWarning(_("Employee(s) should have a bank account set."), action, _("Go to Employee(s)"))
 
     def _validate_analytic_distribution(self):
         for line in self.expense_line_ids:
@@ -1563,7 +1544,6 @@ class HrExpenseSheet(models.Model):
         The default_partner_bank_id is set only if there is one available, if more than one the field is left empty.
         :return: An action opening the account.payment.register wizard.
         '''
-        self._check_bank_account()
         return {
             'name': _('Register Payment'),
             'res_model': 'account.payment.register',
@@ -1571,7 +1551,7 @@ class HrExpenseSheet(models.Model):
             'context': {
                 'active_model': 'account.move',
                 'active_ids': self.account_move_id.ids,
-                'default_partner_bank_id': self.employee_id.sudo().bank_account_id.id,
+                'default_partner_bank_id': self.account_move_id.partner_bank_id.id,
             },
             'target': 'new',
             'type': 'ir.actions.act_window',

@@ -1288,6 +1288,33 @@ msgid ""
 "        with pain.008.001.02 specification) to send to your bank in order to\n"
 "        collect a set of payments.\n"
 "\n"
+"        To be eligible for this payment method, a customer must have first\n"
+"        returned a mandate to the company, giving their consent to use direct debit.\n"
+"        This consent must have been encoded as a 'customer mandate' in Odoo.\n"
+"\n"
+"        You also need to meet the following requirements in order to properly\n"
+"        generate an SDD file:\n"
+"        - Your company account must be set to a valid IBAN number\n"
+"        - Your company must have been given a creditor identifier (this can be done in Settings - General Settings - Accounting section)\n"
+"        - Your company must have defined a journal to receive SDD payments (again, in 'settings' of accounting module)\n"
+"        - Every customer for whom you generate a payment must have a valid IBAN account number.\n"
+"\n"
+"        Odoo will let you know if any of these requirements are not satisfied.\n"
+"\n"
+"        To register a payment for open invoices, you can use the dedicated\n"
+"        'SEPA Direct Debit' option by selecting a bank account in the 'Register\n"
+"        Payment' wizard. An error message will appear if no valid mandate is\n"
+"        available for generating a payment on the selected invoice.\n"
+"    "
+msgstr ""
+
+#. module: base
+msgid ""
+"\n"
+"        This module enables the generation of SEPA Direct Debit (SDD)-compliant XML files (consistent\n"
+"        with pain.008.001.02 specification) to send to your bank in order to\n"
+"        collect a set of payments.\n"
+"\n"
 "        To be elligible for this payment method, a customer must have first\n"
 "        returned a mandate to the company, giving his consent to use direct debit.\n"
 "        This consent must have been encoded as a 'customer mandate' into Odoo.\n"
@@ -9056,6 +9083,7 @@ msgid ""
 "Account holder name, in case it is different than the name of the Account "
 "Holder"
 msgstr ""
+"Kontoholders navn, hvis det er forskjellig fra navnet på kontoholderen."
 
 #. module: base
 #: model:ir.module.category,name:base.module_category_accounting
@@ -10881,7 +10909,7 @@ msgstr "Bankkonto"
 #: model:ir.model.fields,help:base.field_res_partner_bank__acc_type
 msgid ""
 "Bank account type: Normal or IBAN. Inferred from the bank account number."
-msgstr ""
+msgstr "Bankkontotype: Normal eller IBAN. Utledet fra bankkontonummeret."
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_res_bank_form
@@ -11198,6 +11226,8 @@ msgid ""
 "Below text serves as a suggestion and doesn’t engage Odoo S.A. "
 "responsibility."
 msgstr ""
+"Nedenstående tekst fungerer som et forslag og medfører ikke Odoo S.A.s "
+"ansvar."
 
 #. module: base
 #: model:res.country,name:base.bj
@@ -20469,7 +20499,7 @@ msgstr ""
 #. module: base
 #: model:ir.model,name:base.model_base_partner_merge_automatic_wizard
 msgid "Merge Partner Wizard"
-msgstr ""
+msgstr "Slå sammen partnerveiviseren."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.base_partner_merge_automatic_wizard_form
@@ -22644,6 +22674,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:base.action_partner_customer_form
 msgid "Odoo helps you easily track all activities related to a customer."
 msgstr ""
+"Odoo hjelper deg enkelt med å spore alle aktiviteter relatert til en kunde."
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_partner_supplier_form
@@ -26031,7 +26062,7 @@ msgstr "San Marino"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner_bank__sanitized_acc_number
 msgid "Sanitized Account Number"
-msgstr ""
+msgstr "Sanitert kontonummer."
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__res_lang__week_start__6
@@ -26648,12 +26679,12 @@ msgstr "Sett som Todo"
 #. module: base
 #: model:ir.actions.act_window,name:base.action_open_base_onboarding_company
 msgid "Set your company data"
-msgstr ""
+msgstr "Sett selskapsdata"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.onboarding_company_step
 msgid "Set your company's data for documents header/footer."
-msgstr ""
+msgstr "Angi bedriftens data for topptekst/bunntekst for dokumenter."
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_actions_act_url__binding_model_id
@@ -31669,6 +31700,8 @@ msgstr "Du bør prøve andre søkekriterier."
 #: model_terms:res.company,invoice_terms_html:base.main_company
 msgid "You should update this document to reflect your T&amp;C."
 msgstr ""
+"Du bør oppdatere dette dokumentet for å gjenspeile din vilkår og "
+"betingelser."
 
 #. module: base
 #. odoo-python

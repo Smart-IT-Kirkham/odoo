@@ -1014,7 +1014,7 @@ msgstr ""
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_comparisons
 msgid "<small>/ month</small>"
-msgstr "<small>／月</small>"
+msgstr "<small>/月</small>"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
@@ -6522,7 +6522,7 @@ msgstr "媒體標題"
 #: model_terms:ir.ui.view,arch_db:website.s_rating_options
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Medium"
-msgstr "中"
+msgstr "媒介"
 
 #. module: website
 #. odoo-javascript
@@ -7133,7 +7133,7 @@ msgstr "數字（整數）"
 #: model:ir.model.fields,field_description:website.field_res_config_settings__website_language_count
 #: model:ir.model.fields,field_description:website.field_website__language_count
 msgid "Number of languages"
-msgstr "語系數量"
+msgstr "語言數目"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
@@ -8619,7 +8619,7 @@ msgstr "利用網店及電子商務功能，提高銷售額"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_visitor_view_form
 msgid "Send Email"
-msgstr "發送電子信件"
+msgstr "傳送電郵"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.template_footer_contact
@@ -9722,7 +9722,7 @@ msgstr "此欄位與\"arch\"欄位相同，但不帶翻譯"
 #. module: website
 #: model:ir.model.fields,help:website.field_res_config_settings__website_default_lang_code
 msgid "This field is used to set/get locales for user"
-msgstr "此欄位用於設定／取得使用者地區語系"
+msgstr "此欄位用於設定/取得使用者的語言及地區設定"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_website_page__arch
@@ -9827,6 +9827,7 @@ msgstr "此檢視架構已修改"
 #. module: website
 #. odoo-javascript
 #: code:addons/website/static/src/systray_items/website_switcher.xml:0
+#: code:addons/website/static/src/systray_items/website_switcher.js:0
 #, python-format
 msgid "This website does not have a domain configured."
 msgstr "此網站未設置網域名稱。"
@@ -11290,7 +11291,7 @@ msgstr "你的動態小片段將在此處顯示。系統現時顯示此訊息，
 #: code:addons/website/static/src/js/form_editor_registry.js:0
 #, python-format
 msgid "Your Email"
-msgstr "您的電子信件"
+msgstr "你的電郵"
 
 #. module: website
 #. odoo-javascript

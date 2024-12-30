@@ -1349,7 +1349,7 @@ msgstr ""
 "        * 2 (dua) digit pertama adalah Tahun Penerbitan\n"
 "        * 8 (delapan) digit berikutnya adalah Nomor Urut\n"
 "\n"
-"        Để có thể xuất hóa đơn khách hàng thành e-Faktur,\n"
+"        Để có thể xuất hóa đơn bán hàng thành e-Faktur,\n"
 "        bạn cần nhập các dãy số mà chính phủ đã chỉ định\n"
 "        cho bạn trong Kế toán > Khách hàng > e-Faktur\n"
 "\n"
@@ -1860,6 +1860,33 @@ msgid ""
 "        with pain.008.001.02 specification) to send to your bank in order to\n"
 "        collect a set of payments.\n"
 "\n"
+"        To be eligible for this payment method, a customer must have first\n"
+"        returned a mandate to the company, giving their consent to use direct debit.\n"
+"        This consent must have been encoded as a 'customer mandate' in Odoo.\n"
+"\n"
+"        You also need to meet the following requirements in order to properly\n"
+"        generate an SDD file:\n"
+"        - Your company account must be set to a valid IBAN number\n"
+"        - Your company must have been given a creditor identifier (this can be done in Settings - General Settings - Accounting section)\n"
+"        - Your company must have defined a journal to receive SDD payments (again, in 'settings' of accounting module)\n"
+"        - Every customer for whom you generate a payment must have a valid IBAN account number.\n"
+"\n"
+"        Odoo will let you know if any of these requirements are not satisfied.\n"
+"\n"
+"        To register a payment for open invoices, you can use the dedicated\n"
+"        'SEPA Direct Debit' option by selecting a bank account in the 'Register\n"
+"        Payment' wizard. An error message will appear if no valid mandate is\n"
+"        available for generating a payment on the selected invoice.\n"
+"    "
+msgstr ""
+
+#. module: base
+msgid ""
+"\n"
+"        This module enables the generation of SEPA Direct Debit (SDD)-compliant XML files (consistent\n"
+"        with pain.008.001.02 specification) to send to your bank in order to\n"
+"        collect a set of payments.\n"
+"\n"
 "        To be elligible for this payment method, a customer must have first\n"
 "        returned a mandate to the company, giving his consent to use direct debit.\n"
 "        This consent must have been encoded as a 'customer mandate' into Odoo.\n"
@@ -2004,7 +2031,7 @@ msgid ""
 msgstr ""
 "\n"
 "        Phân hệ này gửi thông tin thuế (chủ yếu là VAT) của \n"
-"        hóa đơn nhà cung cấp và hóa đơn khách hàng tới SII. Nó được gọi là\n"
+"        hóa đơn mua hàng và hóa đơn bán hàng tới SII. Nó được gọi là\n"
 "        Procedimiento G417 - IVA. Llevanza de libros registro. Đây là\n"
 "        yêu cầu bắt buộc đối với mọi công ty có doanh thu trên 6 triệu €\n"
 "        và những công ty khác đã có thể sử dụng. Hóa đơn được gửi tự động\n"
@@ -2087,6 +2114,9 @@ msgid ""
 "        ZATCA E-Invoicing, support for PoS\n"
 "    "
 msgstr ""
+"\n"
+"        Hoá đơn điện tử ZATCA, hỗ trợ PoS\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,summary:base.module_purchase_product_matrix
@@ -2900,7 +2930,7 @@ msgstr ""
 "    Chọn nút radio **Chuyển khoản Tín dụng ABA**.\n"
 "\n"
 "    Nếu nhà cung cấp có nhiều tài khoản ngân hàng, bạn có thể cần chọn\n"
-"    đúng **Tài khoản Ngân hàng của Người nhận**. Hoặc nếu thanh toán hóa đơn nhà cung cấp, có thể\n"
+"    đúng **Tài khoản Ngân hàng của Người nhận**. Hoặc nếu thanh toán hóa đơn mua hàng, có thể\n"
 "    cần đúng tài khoản ngân hàng được liên kết với hóa đơn đó.\n"
 "    Nhập số tiền thanh toán,...\n"
 "\n"
@@ -5338,7 +5368,7 @@ msgstr ""
 "- Liên hệ trực tiếp với SII (Servicio de Impuestos Internos) để gửi hóa đơn và các chứng từ thuế khác liên quan đến bán hàng.\n"
 "- Liên hệ với Khách hàng để gửi DTE bán hàng.\n"
 "- Liên hệ với Nhà cung cấp để chấp nhận DTE từ họ.\n"
-"- Liên hệ trực tiếp với SII để thông báo về việc chấp nhận hoặc từ chối hóa đơn nhà cung cấp hoặc các DTE khác.\n"
+"- Liên hệ trực tiếp với SII để thông báo về việc chấp nhận hoặc từ chối hóa đơn mua hàng hoặc các DTE khác.\n"
 "\n"
 "Để xem mã vạch trên hóa đơn, bạn cần có thư viện pdf417gen.\n"
 "\n"
@@ -5414,7 +5444,7 @@ msgstr ""
 "Bạn cũng có thể gửi trực tiếp cho Digiflow nếu bạn đã mua tài khoản từ họ\n"
 "và thậm chí gửi tới SUNAT trong trường hợp có điều bất ngờ xảy ra.\n"
 "\n"
-"Chúng tôi hỗ trợ gửi và hủy hóa đơn khách hàng.\n"
+"Chúng tôi hỗ trợ gửi và hủy hóa đơn bán hàng.\n"
 "    "
 
 #. module: base
@@ -5923,7 +5953,7 @@ msgstr ""
 "Tính năng\n"
 "----------\n"
 "\n"
-"Ở một số quốc gia Mỹ Latinh, bao gồm Argentina và Chile, một số giao dịch kế toán như hóa đơn và hóa đơn nhà cung cấp được phân loại theo loại chứng từ do cơ quan tài chính của chính phủ xác định (Ở Argentina là AFIP, Chile là SII).\n"
+"Ở một số quốc gia Mỹ Latinh, bao gồm Argentina và Chile, một số giao dịch kế toán như hóa đơn và hóa đơn mua hàng được phân loại theo loại chứng từ do cơ quan tài chính của chính phủ xác định (Ở Argentina là AFIP, Chile là SII).\n"
 "\n"
 "Theo dự kiến, phân hệ này sẽ được mở rộng bằng bản địa hóa để quản lý các loại chứng từ này và là thông tin cần thiết cần được hiển thị trong các báo cáo được in và cần được xác định dễ dàng, trong bộ hóa đơn cũng như di chuyển tài khoản.\n"
 "\n"
@@ -14334,7 +14364,7 @@ msgstr "Cho phép khách hàng của trang web chọn điểm nhận hàng"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_amazon
 msgid "Amazon Connector"
-msgstr "Kết nối Amazon"
+msgstr "Liên kết Amazon"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_amazon_taxcloud
@@ -14546,7 +14576,7 @@ msgstr "Thuật ngữ Ứng dụng"
 #: model_terms:ir.ui.view,arch_db:base.base_onboarding_company_form
 #: model_terms:ir.ui.view,arch_db:base.res_config_view_base
 msgid "Apply"
-msgstr "Ứng tuyển"
+msgstr "Áp dụng"
 
 #. module: base
 #. odoo-python
@@ -15837,7 +15867,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_amazon_taxcloud
 msgid "Bridge module between Amazon Connector and TaxCloud"
-msgstr "Phân hệ cầu nối giữa Kết nối Amazon và TaxCloud"
+msgstr "Phân hệ cầu nối giữa Liên kết Amazon và TaxCloud"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_sale_timesheet_margin
@@ -20290,7 +20320,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_fedex
 msgid "Fedex Shipping (Legacy)"
-msgstr ""
+msgstr "Vận chuyển Fedex (Cũ)"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_fr_fec
@@ -23475,7 +23505,7 @@ msgstr "Ngày khóa không thể đảo ngược"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__group_by_is_company
 msgid "Is Company"
-msgstr "Là công ty"
+msgstr "Công ty"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_company__is_company_details_empty
@@ -24239,7 +24269,7 @@ msgid ""
 "your vendor bills"
 msgstr ""
 "Hãy để hệ thống cố gắng chọn đúng tài khoản, thuế và/hoặc sản phẩm cho hóa "
-"đơn nhà cung cấp của bạn"
+"đơn mua hàng của bạn"
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_referral
@@ -27977,7 +28007,7 @@ msgstr ""
 "các đơn đặt hàng giao sau, hoàn tiền, tiếp nhận sản phẩm và kiểm soát chất lượng. Chọn phương pháp \n"
 "kiểm soát phù hợp với nhu cầu của bạn.\n"
 "\n"
-"Không mất công kiểm soát hóa đơn nhà cung cấp. Chọn phương pháp phù hợp với \n"
+"Không mất công kiểm soát hóa đơn mua hàng. Chọn phương pháp phù hợp với \n"
 "nhu cầu của bạn: tạo trước hóa đơn nháp dựa trên đơn mua hàng, khi tiếp nhận \n"
 "sản phẩm, tạo hóa đơn thủ công và nhập thông tin từ đơn mua hàng,...\n"
 "\n"
@@ -30189,7 +30219,7 @@ msgstr "Độ chính xác chữ số"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_predictive_bills
 msgid "Predictive vendor bill data"
-msgstr "Dữ liệu hóa đơn nhà cung cấp dự đoán"
+msgstr "Dữ liệu hóa đơn mua hàng dự đoán"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_users_form
@@ -30882,7 +30912,7 @@ msgstr "Ma trận mua hàng"
 #. module: base
 #: model:ir.module.module,summary:base.module_purchase_stock
 msgid "Purchase Orders, Receipts, Vendor Bills for Stock"
-msgstr "Đơn đặt hàng, biên lai, hóa đơn nhà cung cấp cho kho"
+msgstr "Đơn đặt hàng, biên lai, hóa đơn mua hàng cho kho"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_purchase_requisition_stock
@@ -32226,7 +32256,7 @@ msgstr "Ả Rập Xê Út - Hoá đơn điện tử"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_edi_pos
 msgid "Saudi Arabia - E-invoicing (Simplified)"
-msgstr ""
+msgstr "Ả Rập Xê Út - Hoá đơn điện tử (Đã đơn giản hoá)"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_pos
@@ -32664,6 +32694,9 @@ msgid ""
 " install the new \"Fedex Shipping\" module and uninstall this one as soon as"
 " possible. This integration will stop working in 2024"
 msgstr ""
+"Đây là tích hợp cũ với FedEx không còn được hỗ trợ. Vui lòng cài đặt phân hệ"
+" \"Vận chuyển FedEx\" mới và gỡ bỏ phân hệ này càng sớm càng tốt. Tích hợp "
+"này sẽ ngừng hoạt động vào năm 2024."
 
 #. module: base
 #: model:ir.module.module,summary:base.module_delivery_ups_rest
@@ -33189,7 +33222,7 @@ msgstr "Mạng xã hội YouTube"
 #. module: base
 #: model:ir.module.module,summary:base.module_social_media
 msgid "Social media connectors for company settings."
-msgstr "Kết nối Mạng xã hội cho thiết lập công ty."
+msgstr "Liên kết Mạng xã hội cho thiết lập công ty."
 
 #. module: base
 #: model:res.country,name:base.sb
@@ -35397,7 +35430,7 @@ msgid ""
 "for the FEDEX connector."
 msgstr ""
 "Phân hệ này cho phép người dùng thương mại điện tử chọn giao hàng đến các "
-"điểm Nhận hàng cho kết nối FEDEX."
+"điểm Nhận hàng cho liên kết FEDEX."
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_hr_recruitment
@@ -35824,7 +35857,7 @@ msgstr "Đến"
 #: model:ir.model.fields.selection,name:base.selection__res_users_deletion__state__todo
 #: model_terms:ir.ui.view,arch_db:base.config_wizard_step_view_search
 msgid "To Do"
-msgstr "Cần làm"
+msgstr "Việc cần làm"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__state__to_install
@@ -35865,7 +35898,7 @@ msgstr "Để trả về một tác vụ, chỉ định: <code>action = {...}</c
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_actions_todo_tree
 msgid "Todo"
-msgstr "Cần làm"
+msgstr "Việc cần làm"
 
 #. module: base
 #: model:res.country,name:base.tg
@@ -38552,7 +38585,7 @@ msgstr "vd: https://www.odoo.com"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_ebay
 msgid "eBay Connector"
-msgstr "kết nối eBay"
+msgstr "Liên kết eBay"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_sale
