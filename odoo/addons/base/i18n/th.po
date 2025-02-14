@@ -10,7 +10,7 @@
 # Martin Trigaux, 2024
 # Wil Odoo, 2024
 # Ped, 2024
-# Rasareeyar Lappiam, 2024
+# Rasareeyar Lappiam, 2025
 # 
 msgid ""
 msgstr ""
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-06 13:33+0000\n"
 "PO-Revision-Date: 2022-09-22 05:44+0000\n"
-"Last-Translator: Rasareeyar Lappiam, 2024\n"
+"Last-Translator: Rasareeyar Lappiam, 2025\n"
 "Language-Team: Thai (https://app.transifex.com/odoo/teams/41243/th/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -618,7 +618,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_pk_reports
 msgid ""
 "\n"
-"        Accounting reports for Pakistan\n"
+"Accounting Reports for Pakistan (Profit and Loss report and Balance Sheet)\n"
 "    "
 msgstr ""
 
@@ -1092,7 +1092,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_edi
 msgid ""
 "\n"
-"        E-invoice implementation for the Kingdom of Saudi Arabia\n"
+"E-invoice implementation for Saudi Arabia; Integration with ZATCA\n"
 "    "
 msgstr ""
 
@@ -1100,7 +1100,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_edi_pos
 msgid ""
 "\n"
-"        E-invoice implementation for the Kingdom of Saudi Arabia (PoS)\n"
+"E-invoice implementation for Saudi Arabia; Integration with ZATCA (POS)\n"
 "    "
 msgstr ""
 
@@ -1629,6 +1629,9 @@ msgid ""
 "        ZATCA E-Invoicing, support for PoS\n"
 "    "
 msgstr ""
+"\n"
+"        ZATCA E-Invoicing รองรับ PoS\n"
+"    "
 
 #. module: base
 #: model:ir.module.module,summary:base.module_purchase_product_matrix
@@ -1658,8 +1661,9 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_eg_edi_eta
 msgid ""
 "\n"
-"       This module integrate with the ETA Portal to automatically sign and send your invoices to the tax Authority.\n"
-"       Special thanks to Plementus <info@plementus.com> for their help in developing this module.\n"
+"Egypt Tax Authority Invoice Integration\n"
+"==============================================================================\n"
+"Integrates with the ETA portal to automatically send and sign the Invoices to the Tax Authority.\n"
 "    "
 msgstr ""
 
@@ -2379,7 +2383,7 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_hr_payroll_account
 msgid ""
 "\n"
-"Accounting Data for KSA Payroll Rules.\n"
+"Accounting Data for Saudi Arabia Payroll Rules.\n"
 "=======================================================\n"
 "\n"
 "    "
@@ -5316,9 +5320,14 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_hr_payroll
 msgid ""
 "\n"
-"Kingdom of Saudi Arabia Payroll and End of Service rules.\n"
+"Saudi Arabia Payroll and End of Service rules.\n"
 "===========================================================\n"
-"\n"
+"- Basic Calculation\n"
+"- End of Service Calculation\n"
+"- Other Input Rules (Overtime, Salary Attachments, etc.)\n"
+"- Split Structures for EOS and Monthly Salaries\n"
+"- GOSI Employee Deduction\n"
+"- Unpaid leaves\n"
 "    "
 msgstr ""
 
@@ -6076,10 +6085,18 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa
 msgid ""
 "\n"
-"Odoo Arabic localization for most Saudi Arabia.\n"
-msgstr ""
+"Saudi Arabia Accounting Module\n"
+"===========================================================\n"
+"Saudi Arabia Accounting Basic Charts and Localization\n"
 "\n"
-"Odoo การแปลภาษาอาหรับสำหรับประเทศซาอุดิอาระเบีย\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"- Vat Filling Report\n"
+"- Withholding Tax Report\n"
+"- Fiscal Positions\n"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_web_enterprise
@@ -7211,8 +7228,19 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_eg
 msgid ""
 "\n"
-"This is the base module to manage the accounting chart for Egypt in Odoo.\n"
+"Egypt Accounting Module\n"
 "==============================================================================\n"
+"Egypt Accounting Basic Charts and Localization.\n"
+"\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"- VAT Return\n"
+"- Withholding Tax Report\n"
+"- Schedule Tax Report\n"
+"- Other Taxes Report\n"
+"- Fiscal Positions\n"
 "    "
 msgstr ""
 
@@ -8482,6 +8510,8 @@ msgid ""
 "\n"
 "United Arab Emirates Payroll and End of Service rules.\n"
 "=======================================================\n"
+"- Basic Salary Calculations\n"
+"- EOS Calculations\n"
 "\n"
 "    "
 msgstr ""
@@ -8490,8 +8520,16 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_ae
 msgid ""
 "\n"
-"United Arab Emirates accounting chart and localization.\n"
+"United Arab Emirates Accounting Module\n"
 "=======================================================\n"
+"United Arab Emirates accounting basic charts and localization.\n"
+"\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"- Tax Report\n"
+"- Fiscal Positions\n"
 "    "
 msgstr ""
 
@@ -8795,8 +8833,16 @@ msgstr " นี่คือโมดูลพื้นฐานในการ�
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_pk
 msgid ""
-" This is the base module to manage chart of accounts and localization for "
-"the Pakistan "
+"\n"
+"Pakistan Accounting Module\n"
+"=======================================================\n"
+"Pakistan accounting basic charts and localization.\n"
+"\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"    "
 msgstr ""
 
 #. module: base
@@ -16615,8 +16661,8 @@ msgstr "ประเทศอียิปต์ - การบัญชี"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_eg_edi_eta
-msgid "Egyptian E-Invoice Integration"
-msgstr "ผสานการใช้งานใบแจ้งหนี้อิเล็กทรอนิกส์ของประเทศอียิปต์"
+msgid "Egypt E-Invoicing"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner__partner_share
@@ -20861,13 +20907,13 @@ msgstr "K - กิจกรรมทางการเงินและกา�
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll
-msgid "K.S.A. - Payroll"
-msgstr "K.S.A. - บัญชีเงินเดือน"
+msgid "Saudi Arabia - Payroll"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll_account
-msgid "K.S.A. - Payroll with Accounting"
-msgstr "K.S.A. - บัญชีเงินเดือนกับระบบบัญชี"
+msgid "Saudi Arabia - Payroll with Accounting"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_digest
@@ -28479,7 +28525,7 @@ msgstr "ประเทศซาอุดิอาระเบีย - ใบแ
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_edi_pos
 msgid "Saudi Arabia - E-invoicing (Simplified)"
-msgstr ""
+msgstr "ประเทศซาอุดีอาระเบีย - การออกใบแจ้งหนี้ทางอิเล็กทรอนิกส์ (แบบย่อ)"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_pos
@@ -28911,8 +28957,11 @@ msgstr "ส่งการจัดส่งของคุณผ่าน UPS �
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_usps
-msgid "Send your shippings through USPS and track them online"
-msgstr "ส่งการจัดส่งของคุณผ่าน USPS และติดตามทางออนไลน์"
+msgid ""
+"This is the legacy integration with USPS. Please install the new \"United "
+"States Postal Service (USPS) Shipping\" module and uninstall this one as "
+"soon as possible."
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,summary:base.module_survey
@@ -32373,13 +32422,13 @@ msgstr "U - กิจกรรมขององค์กรและองค�
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll
-msgid "U.A.E. - Payroll"
-msgstr "สหรัฐอาหรับเอมิเรตส์ - บัญชีเงินเดือน"
+msgid "United Arab Emirates - Payroll"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll_account
-msgid "U.A.E. - Payroll with Accounting"
-msgstr "สหรัฐอาหรับเอมิเรตส์ - บัญชีเงินเดือนกับระบบบัญชี"
+msgid "United Arab Emirates - Payroll with Accounting"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_uk_reports
@@ -32640,8 +32689,8 @@ msgstr "สหรัฐอเมริกา"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_usps
-msgid "United States Postal Service (USPS) Shipping"
-msgstr "บริการจัดส่งไปรษณีย์ของสหรัฐอเมริกา (USPS)"
+msgid "United States Postal Service (USPS) Shipping (Legacy)"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_uom
@@ -34891,13 +34940,6 @@ msgstr ""
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__many2many
 msgid "many2many"
 msgstr "many2many"
-
-#. module: base
-#. odoo-python
-#: code:addons/base/models/ir_actions.py:0
-#, python-format
-msgid "many2many fields cannot be evaluated by reference"
-msgstr "ฟิลด์ many2many ไม่สามารถประเมินโดยการอ้างอิงได้"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__many2one

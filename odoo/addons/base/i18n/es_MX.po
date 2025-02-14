@@ -11,7 +11,7 @@
 # Martin Trigaux, 2024
 # Wil Odoo, 2024
 # Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
-# Fernanda Alvarez, 2024
+# Fernanda Alvarez, 2025
 # 
 msgid ""
 msgstr ""
@@ -19,7 +19,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-06 13:33+0000\n"
 "PO-Revision-Date: 2022-09-22 05:44+0000\n"
-"Last-Translator: Fernanda Alvarez, 2024\n"
+"Last-Translator: Fernanda Alvarez, 2025\n"
 "Language-Team: Spanish (Mexico) (https://app.transifex.com/odoo/teams/41243/es_MX/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -520,18 +520,19 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Visión general:\n"
+"Resumen:\n"
 "---------\n"
 "\n"
-"* Plantilla de plan de cuentas e impuestos para empresas en Japón.\n"
-"* Esto probablemente no cubre todas las cuentas necesarias para una empresa. Se espera que agregue/elimine/modifique cuentas tomando en cuenta esta plantilla.\n"
+"* Plantilla del plan de cuentas e impuestos para las empresas en Japón.\n"
+"* Es probable que este módulo no cubra todas las cuentas necesarias para una empresa. Se espera que usted agregue, elimine o modifique cuentas de acuerdo con esta plantilla.\n"
 "\n"
 "Nota:\n"
 "-----\n"
 "\n"
-"* Se han añadido las posiciones fiscales ''内税'' y ''外税'' para manejar los requisitos especiales que podrían surgir de la implementación de TPV. [1] En circunstancias normales, es posible que no necesite usarlos en absoluto.\n"
+"* Agregamos las posiciones fiscales ''内税'' y ''外税'' para gestionar los requisitos especiales que podrían surgir al implementar el PdV. [1] Es posible que no necesite usarlos en circunstancias normales.\n"
 "\n"
-"[1] Consulte https://github.com/odoo/odoo/pull/6470 para más detalles.\n"
+"[1] Consulte https://github.com/odoo/odoo/pull/6470 para obtener más detalles.\n"
+"\n"
 "    "
 
 #. module: base
@@ -785,12 +786,9 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_pk_reports
 msgid ""
 "\n"
-"        Accounting reports for Pakistan\n"
+"Accounting Reports for Pakistan (Profit and Loss report and Balance Sheet)\n"
 "    "
 msgstr ""
-"\n"
-"        Reportes contables para Pakistán\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_pl_reports
@@ -1398,23 +1396,17 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_edi
 msgid ""
 "\n"
-"        E-invoice implementation for the Kingdom of Saudi Arabia\n"
+"E-invoice implementation for Saudi Arabia; Integration with ZATCA\n"
 "    "
 msgstr ""
-"\n"
-"        Implementación de la factura electrónica para el Reino de Arabia Saudita\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_sa_edi_pos
 msgid ""
 "\n"
-"        E-invoice implementation for the Kingdom of Saudi Arabia (PoS)\n"
+"E-invoice implementation for Saudi Arabia; Integration with ZATCA (POS)\n"
 "    "
 msgstr ""
-"\n"
-"        Implementación de la factura electrónica para Arabia Saudita (PdV)\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,summary:base.module_l10n_mx_reports
@@ -1938,9 +1930,9 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-"Este módulo permite generar archivos XML compatibles con con la domiciliación bancaria SEPA (SDD) (de acuerdo\n"
+"Este módulo permite generar archivos XML compatibles con la domiciliación bancaria SEPA (SDD) (de acuerdo\n"
 "a la especificación pain.008.001.02) que podrá enviar a su banco\n"
-"para cobrar un conjunto de pagos. \n"
+"para cobrar varios pagos. \n"
 "\n"
 "\n"
 "Para ser elegible para utilizar este método de pago, el cliente primero debió\n"
@@ -2248,14 +2240,11 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_eg_edi_eta
 msgid ""
 "\n"
-"       This module integrate with the ETA Portal to automatically sign and send your invoices to the tax Authority.\n"
-"       Special thanks to Plementus <info@plementus.com> for their help in developing this module.\n"
+"Egypt Tax Authority Invoice Integration\n"
+"==============================================================================\n"
+"Integrates with the ETA portal to automatically send and sign the Invoices to the Tax Authority.\n"
 "    "
 msgstr ""
-"\n"
-"       Este módulo se integra con el portal ETA para automáticamente firmar y enviar sus facturas a la autoridad tributaria.\n"
-"       Agradecemos especialmente a Plementus <info@plementus.com> por su ayuda para desarrollar este módulo.\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ke_edi_tremol
@@ -3174,16 +3163,11 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_hr_payroll_account
 msgid ""
 "\n"
-"Accounting Data for KSA Payroll Rules.\n"
+"Accounting Data for Saudi Arabia Payroll Rules.\n"
 "=======================================================\n"
 "\n"
 "    "
 msgstr ""
-"\n"
-"Información de contabilidad para las reglas de nóminas del Reino de Arabia Saudita.\n"
-"=======================================================\n"
-"\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ke_hr_payroll_account
@@ -3693,7 +3677,7 @@ msgid ""
 "Add relation information between Sale Orders and Purchase Orders if Make to Order (MTO) is activated on one sold product.\n"
 msgstr ""
 "\n"
-"Agregue información de relación entre órdenes de venta y órdenes de compra si la opción de fabricación sobre pedido (MTO, por su sigla en inglés) está activada en un producto vendido.\n"
+"Agregue información de relación entre Órdenes de venta y Órdenes de compra si la opción fabricación sobre pedido (MTO) está habilitada en un producto vendido.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_fr_facturx_chorus_pro
@@ -6999,16 +6983,16 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa_hr_payroll
 msgid ""
 "\n"
-"Kingdom of Saudi Arabia Payroll and End of Service rules.\n"
+"Saudi Arabia Payroll and End of Service rules.\n"
 "===========================================================\n"
-"\n"
+"- Basic Calculation\n"
+"- End of Service Calculation\n"
+"- Other Input Rules (Overtime, Salary Attachments, etc.)\n"
+"- Split Structures for EOS and Monthly Salaries\n"
+"- GOSI Employee Deduction\n"
+"- Unpaid leaves\n"
 "    "
 msgstr ""
-"\n"
-"Reglas de nómina y finalización de servicios del Reino de Arabia Saudita.\n"
-"===========================================================\n"
-"\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_stock_landed_costs
@@ -7976,10 +7960,18 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_sa
 msgid ""
 "\n"
-"Odoo Arabic localization for most Saudi Arabia.\n"
-msgstr ""
+"Saudi Arabia Accounting Module\n"
+"===========================================================\n"
+"Saudi Arabia Accounting Basic Charts and Localization\n"
 "\n"
-"Localización arábica de Odoo para la mayoría de Arabia Saudita.\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"- Vat Filling Report\n"
+"- Withholding Tax Report\n"
+"- Fiscal Positions\n"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,description:base.module_web_enterprise
@@ -9459,14 +9451,21 @@ msgstr ""
 #: model:ir.module.module,description:base.module_l10n_eg
 msgid ""
 "\n"
-"This is the base module to manage the accounting chart for Egypt in Odoo.\n"
+"Egypt Accounting Module\n"
 "==============================================================================\n"
+"Egypt Accounting Basic Charts and Localization.\n"
+"\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"- VAT Return\n"
+"- Withholding Tax Report\n"
+"- Schedule Tax Report\n"
+"- Other Taxes Report\n"
+"- Fiscal Positions\n"
 "    "
 msgstr ""
-"\n"
-"Este es un módulo base para la gestión del plan de cuentas de Odoo en Egipto.\n"
-"==============================================================================\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ee
@@ -11123,27 +11122,28 @@ msgid ""
 "\n"
 "United Arab Emirates Payroll and End of Service rules.\n"
 "=======================================================\n"
+"- Basic Salary Calculations\n"
+"- EOS Calculations\n"
 "\n"
 "    "
 msgstr ""
-"\n"
-"Reglas de nómina y finalización de servicios de los Emiratos Árabes Unidos.\n"
-"=======================================================\n"
-"\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ae
 msgid ""
 "\n"
-"United Arab Emirates accounting chart and localization.\n"
+"United Arab Emirates Accounting Module\n"
 "=======================================================\n"
+"United Arab Emirates accounting basic charts and localization.\n"
+"\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"- Tax Report\n"
+"- Fiscal Positions\n"
 "    "
 msgstr ""
-"\n"
-"Plan de cuentas y localización de los Emiratos Árabes Unidos\n"
-"=======================================================\n"
-"    "
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_us
@@ -11538,11 +11538,17 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_pk
 msgid ""
-" This is the base module to manage chart of accounts and localization for "
-"the Pakistan "
+"\n"
+"Pakistan Accounting Module\n"
+"=======================================================\n"
+"Pakistan accounting basic charts and localization.\n"
+"\n"
+"Activates:\n"
+"\n"
+"- Chart of Accounts\n"
+"- Taxes\n"
+"    "
 msgstr ""
-"Este es el módulo base para gestionar el plan de cuentas y la localización "
-"de Pakistán"
 
 #. module: base
 #. odoo-python
@@ -18732,7 +18738,7 @@ msgstr "Asistente para error de datos de demostración"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_demo_failure_wizard__failure_ids
 msgid "Demo Installation Failures"
-msgstr "Fallos en la instalación de datos de demostración"
+msgstr "Errores en la instalación de datos de demostración"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.demo_force_install_form
@@ -18740,7 +18746,7 @@ msgid ""
 "Demo data should only be used on test databases!\n"
 "                             Once they are loaded, they cannot be removed!"
 msgstr ""
-"Los datos de la demostración solo deben utilizarse en las bases de datos de prueba.\n"
+"Solo utilice los datos de demostración en las bases de datos de prueba.\n"
 "                             No podrá eliminarlos después de cargarlos."
 
 #. module: base
@@ -19551,8 +19557,8 @@ msgstr "Egipto - Contabilidad"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_eg_edi_eta
-msgid "Egyptian E-Invoice Integration"
-msgstr "Integración de la facturación electrónica para Egipto"
+msgid "Egypt E-Invoicing"
+msgstr ""
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner__partner_share
@@ -23918,13 +23924,13 @@ msgstr "K - ACTIVIDADES FINANCIERAS Y DE SEGUROS"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll
-msgid "K.S.A. - Payroll"
-msgstr "Reino de Arabia Saudita - Nómina"
+msgid "Saudi Arabia - Payroll"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll_account
-msgid "K.S.A. - Payroll with Accounting"
-msgstr "Reino de Arabia Saudita - Nómina y contabilidad"
+msgid "Saudi Arabia - Payroll with Accounting"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_digest
@@ -32988,8 +32994,14 @@ msgstr "Haga sus envíos a través de UPS y rastréelos en línea"
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_usps
-msgid "Send your shippings through USPS and track them online"
-msgstr "Haga sus envíos a través de USPS y rastréelos en línea"
+msgid ""
+"This is the legacy integration with USPS. Please install the new \"United "
+"States Postal Service (USPS) Shipping\" module and uninstall this one as "
+"soon as possible."
+msgstr ""
+"Esta es la integración heredada con USPS. Instale el nuevo módulo \"Envíos "
+"por USPS (United States Postal Service)\" y desinstale este tan pronto como "
+"le sea posible."
 
 #. module: base
 #: model:ir.module.module,summary:base.module_survey
@@ -36544,13 +36556,13 @@ msgstr "U - ACTIVIDADES DE ORGANIZACIONES Y CUERPOS EXTRATERRITORIALES"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll
-msgid "U.A.E. - Payroll"
-msgstr "EAU - Nómina"
+msgid "United Arab Emirates - Payroll"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll_account
-msgid "U.A.E. - Payroll with Accounting"
-msgstr "Emiratos Árabes Unidos - Nómina y contabilidad"
+msgid "United Arab Emirates - Payroll with Accounting"
+msgstr ""
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_uk_reports
@@ -36813,10 +36825,8 @@ msgstr "Estados Unidos - Contabilidad"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_delivery_usps
-msgid "United States Postal Service (USPS) Shipping"
-msgstr ""
-"Envíos por USPS (Servicio postal de los Estados Unidos, por sus siglas en "
-"inglés)"
+msgid "United States Postal Service (USPS) Shipping (Legacy)"
+msgstr "Envíos por USPS (United States Postal Service) (heredado)"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_uom
@@ -39079,13 +39089,6 @@ msgstr "mail_bot_hr"
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__many2many
 msgid "many2many"
 msgstr "many2many"
-
-#. module: base
-#. odoo-python
-#: code:addons/base/models/ir_actions.py:0
-#, python-format
-msgid "many2many fields cannot be evaluated by reference"
-msgstr "los campos many2many no se pueden evaluar por referencia"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_model_fields__ttype__many2one

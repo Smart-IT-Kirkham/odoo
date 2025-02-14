@@ -14,7 +14,7 @@
 # Ryoko Tsuda <ryoko@quartile.co>, 2024
 # Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2024
 # Wil Odoo, 2024
-# Junko Augias, 2024
+# Junko Augias, 2025
 # 
 msgid ""
 msgstr ""
@@ -22,7 +22,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-06 13:31+0000\n"
 "PO-Revision-Date: 2022-09-22 05:44+0000\n"
-"Last-Translator: Junko Augias, 2024\n"
+"Last-Translator: Junko Augias, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1365,7 +1365,7 @@ msgstr "この移動の明細の一つは減価償却勘定科目に使われて
 #: code:addons/account/models/account_payment.py:0
 #, python-format
 msgid "A payment must always belongs to a bank or cash journal."
-msgstr "支払いは銀行あるいは現金仕訳に紐づいている必要があります。"
+msgstr "支払いは銀行仕訳帳または現金出納帳に紐づいている必要があります。"
 
 #. module: account
 #. odoo-python
@@ -1983,7 +1983,7 @@ msgid ""
 "Accrual entry created on %(date)s: %(accrual_entry)s.                    And"
 " its reverse entry: %(reverse_entry)s."
 msgstr ""
-" %(date)s: %(accrual_entry)sに作成された発生項目。                  "
+" %(date)s: %(accrual_entry)sに作成された未収計上。                  "
 "また、その逆エントリ：%(reverse_entry)s"
 
 #. module: account
@@ -3516,6 +3516,13 @@ msgstr "非購買仕訳帳で購買文書を作成することができない"
 #, python-format
 msgid "Cannot create a sale document in a non sale journal"
 msgstr "売上仕訳帳以外で売上文書を作成することができない"
+
+#. module: account
+#. odoo-python
+#: code:addons/account/wizard/accrued_orders.py:0
+#, python-format
+msgid "Cannot create an accrual entry with orders in different currencies."
+msgstr "異なる通貨のオーダを含む未収計上は作成できません。"
 
 #. module: account
 #. odoo-python
@@ -6666,7 +6673,7 @@ msgstr "外国為替"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_fiscal_position__foreign_vat
 msgid "Foreign Tax ID"
-msgstr "国外 税ID"
+msgstr "国外登録番号"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__multi_vat_foreign_country_ids
@@ -8260,7 +8267,7 @@ msgstr "仕訳グループ"
 #: model:ir.ui.menu,name:account.menu_action_account_journal_group_list
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_group_form
 msgid "Journal Groups"
-msgstr "仕訳帳グループ"
+msgstr "仕訳グループ"
 
 #. module: account
 #: model:ir.model,name:account.model_account_move_line
@@ -8306,25 +8313,25 @@ msgstr "仕訳明細"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__name
 msgid "Journal Name"
-msgstr "仕訳帳名"
+msgstr "仕訳名"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_chart_template__account_journal_payment_credit_account_id
 #: model:ir.model.fields,field_description:account.field_res_company__account_journal_payment_credit_account_id
 msgid "Journal Outstanding Payments Account"
-msgstr ""
+msgstr "仕訳未消込支払勘定"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_chart_template__account_journal_payment_debit_account_id
 #: model:ir.model.fields,field_description:account.field_res_company__account_journal_payment_debit_account_id
 msgid "Journal Outstanding Receipts Account"
-msgstr ""
+msgstr "仕訳未消込入金勘定"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_chart_template__account_journal_suspense_account_id
 #: model:ir.model.fields,field_description:account.field_res_company__account_journal_suspense_account_id
 msgid "Journal Suspense Account"
-msgstr "ジャーナルサスペンスアカウント"
+msgstr "仕訳保留勘定"
 
 #. module: account
 #: model:ir.model.constraint,message:account.constraint_account_journal_code_company_uniq
@@ -12426,6 +12433,12 @@ msgstr "サービス"
 #, python-format
 msgid "Set a price"
 msgstr "価格を設定します"
+
+#. module: account
+#: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
+#: model:ir.model.fields,help:account.field_res_partner__use_partner_credit_limit
+msgid "Set a value greater than 0.0 to activate a credit limit check"
+msgstr ""
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account_tag__active

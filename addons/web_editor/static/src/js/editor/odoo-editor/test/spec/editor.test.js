@@ -4034,6 +4034,35 @@ X[]
                     });
                 });
             });
+            describe("Linebreak Insertion for Links with Specific Roles", () => {
+                it("should insert a linebreak on a link with role tab", async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<p><a class="nav-link" href="#" role="tab">Ho[]me</a></p>',
+                        stepFunction: async editor => {
+                            await triggerEvent(editor.editable, 'input', { data: 'Enter', inputType: 'insertParagraph' });
+                        },
+                        contentAfter: '<p><a class="nav-link" href="#" role="tab">Ho<br>[]me</a></p>',
+                    });
+                });
+                it("should insert a linebreak on a link with role button", async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<p><a class="btn btn-primary" href="#" role="button">Ho[]me</a></p>',
+                        stepFunction: async editor => {
+                            await triggerEvent(editor.editable, 'input', { data: 'Enter', inputType: 'insertParagraph' });
+                        },
+                        contentAfter: '<p><a class="btn btn-primary" href="#" role="button">Ho<br>[]me</a></p>',
+                    });
+                });
+                it("should insert a linebreak on the list with nav-item class", async () => {
+                    await testEditor(BasicEditor, {
+                        contentBefore: '<ul><li class="nav-item"><a class="nav-link" href="#" role="tab">Home[]</a></li></ul>',
+                        stepFunction: async editor => {
+                            await triggerEvent(editor.editable, 'input', { data: 'Enter', inputType: 'insertParagraph' });
+                        },
+                        contentAfter: '<ul><li class="nav-item"><a class="nav-link" href="#" role="tab">Home</a><br>[]<br></li></ul>',
+                    });
+                });
+            });
         });
         describe('Selection not collapsed', () => {
             it('should delete the first half of a paragraph, then split it', async () => {
@@ -7733,6 +7762,19 @@ X[]
                         await simulateMouseClick(editor, firstTable, true);
                     },
                     contentAfter: '<table></table><p>[]<br></p><table></table>'
+                });
+            });
+            it('should reset selection on mousedown on empty editable', async () => {
+                await testEditor(BasicEditor, {
+                    contentBefore: '<p>[<br>]</p>',
+                    stepFunction: async editor => {
+                        const paragraph = editor.editable.querySelector('p');
+                        await triggerEvent(paragraph, 'mousedown');
+                        await nextTick();
+                        await triggerEvent(paragraph, 'mouseup');
+                        triggerEvent(paragraph, 'click');
+                    },
+                    contentAfter: '<p>[]<br></p>'
                 });
             });
         });
