@@ -5,17 +5,18 @@
 # Translators:
 # Martin Trigaux, 2023
 # Jolien De Paepe, 2024
-# Wil Odoo, 2024
 # Larissa Manderfeld, 2024
 # Erwin van der Ploeg <erwin@odooexperts.nl>, 2024
+# Manon Rondou, 2025
+# Wil Odoo, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 10:28+0000\n"
+"POT-Creation-Date: 2025-02-10 10:34+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Erwin van der Ploeg <erwin@odooexperts.nl>, 2024\n"
+"Last-Translator: Wil Odoo, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/odoo/teams/41243/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1174,6 +1175,14 @@ msgid ""
 "Inside quote: The document will be included in the pdf of the quotation \n"
 "and sale order between the header pages and the quote table. "
 msgstr ""
+"Hiermee kan je het document delen met je klanten binnen een verkoop. \n"
+"Laat het leeg als je dit document niet wilt delen met klanten. \n"
+"Offerte: het document wordt verzonden naar de klanten en is op elk moment toegankelijk voor hen.\n"
+"bijv. deze optie kan handig zijn om bestanden met productbeschrijvingen te delen. \n"
+"Bevestigde order: het document wordt verzonden naar de klanten en is toegankelijk voor hen.\n"
+"bijv. deze optie kan handig zijn voor het delen van gebuikershandleidingen of digitale inhoud die via e-commerce is gekocht. \n"
+"Binnen offerte: het document wordt opgenomen in de pdf-file van de offerte\n"
+"en in de verkooporder tussen de voorbladen en de offertetabel."
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_payment_link_wizard__amount_paid
@@ -4882,12 +4891,12 @@ msgstr "De volgende orders hoeven niet te worden bevestigd: %s"
 #: code:addons/sale/models/product_template.py:0
 #, python-format
 msgid ""
-"The following products cannot be restricted to the company %s because they have already been used in quotations or sales orders in another company:\n"
-"%s\n"
+"The following products cannot be restricted to the company %(company)s because they have already been used in quotations or sales orders in another company:\n"
+"%(used_products)s\n"
 "You can archive these products and recreate them with your company restriction instead, or leave them as shared product."
 msgstr ""
-"Deze producten kunnen niet tot één bedrijf %s beperkt worden omdat die al gebruikt werden voor een offerte of order in een andere bedrijf:\n"
-"%s\n"
+"Deze producten kunnen niet tot één bedrijf %(company)s beperkt worden omdat die al gebruikt werden voor een offerte of order in een andere bedrijf:\n"
+"%(used_products)s\n"
 "In plaats daarvan kun je deze producten archiveren en opnieuw aanmaken met een bedrijfsrestrictie, of ze als gemeenschappelijk product laten staan."
 
 #. module: sale

@@ -22,29 +22,34 @@ class NilveraClient:
         self.base_url = 'https://api.nilvera.com' if self.is_production else 'https://apitest.nilvera.com'
         self.timeout_limit = min(timeout_limit or 10, 30)
 
-        self.session = requests.Session()
-        self.session.headers.update({'Accept': 'application/json'})
+        self.__session = requests.Session()
+        self.__session.headers.update({'Accept': 'application/json'})
         if api_key:
-            self.session.headers['Authorization'] = 'Bearer ' + api_key
+            self.__session.headers['Authorization'] = 'Bearer ' + api_key
 
     def __enter__(self):
         return self
 
     def __exit__(self, type, value, traceback):
-        if hasattr(self, 'session'):
-            self.session.close()
+        if hasattr(self, '_NilveraClient__session'):
+            self.__session.close()
 
     def request(self, method, endpoint, params=None, json=None, files=None, handle_response=True):
         start = datetime.utcnow()
         url = self.base_url + endpoint
 
-        response = self.session.request(
-            method, url,
-            timeout=self.timeout_limit,
-            params=params,
-            json=json,
-            files=files,
-        )
+        try:
+            response = self.__session.request(
+                method, url,
+                timeout=self.timeout_limit,
+                params=params,
+                json=json,
+                files=files,
+            )
+        except requests.exceptions.RequestException as e:
+            _logger.error("Network error during request: %s", e)
+            raise UserError("Network connectivity issue. Please check your internet connection and try again.")
+
         end = datetime.utcnow()
         self._log_request(method, start, end, url, params, json, response)
 
