@@ -368,7 +368,7 @@ class SaleOrderLine(models.Model):
         if not self.product_custom_attribute_value_ids and not no_variant_ptavs:
             return ""
 
-        name = "\n"
+        name = ""
 
         custom_ptavs = self.product_custom_attribute_value_ids.custom_product_template_attribute_value_id
         multi_ptavs = no_variant_ptavs.filtered(lambda ptav: ptav.display_type == 'multi').sorted()
@@ -714,6 +714,8 @@ class SaleOrderLine(models.Model):
             return ''
 
         invoice_lines = self._get_invoice_lines()
+        if self.invoice_status == 'invoiced' and not invoice_lines:
+            return ''
         if all(line.parent_state == 'draft' for line in invoice_lines):
             return 'draft'
         if all(line.parent_state == 'cancel' for line in invoice_lines):

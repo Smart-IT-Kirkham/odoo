@@ -1252,6 +1252,10 @@ msgid ""
 "=======================================================\n"
 "\n"
 msgstr ""
+"\n"
+"沙特阿拉伯薪酬規則的會計數據\n"
+"=======================================================\n"
+"\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_sk_hr_payroll_account
@@ -1361,6 +1365,8 @@ msgid ""
 "\n"
 "Accounting Reports for Pakistan (Profit and Loss report and Balance Sheet)\n"
 msgstr ""
+"\n"
+"巴基斯坦會計報表（損益報表及資產負債表）\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_hu
@@ -4468,6 +4474,8 @@ msgid ""
 "\n"
 "E-Transport implementation for Batch Pickings in Romania\n"
 msgstr ""
+"\n"
+"為羅馬尼亞大批揀貨實施電子運輸\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ro_edi_stock
@@ -4475,6 +4483,8 @@ msgid ""
 "\n"
 "E-Transport implementation for Romania\n"
 msgstr ""
+"\n"
+"為羅馬尼亞實施電子運輸\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_it_edi
@@ -4507,6 +4517,8 @@ msgid ""
 "\n"
 "E-invoice implementation for Saudi Arabia; Integration with ZATCA (POS)\n"
 msgstr ""
+"\n"
+"為沙特阿拉伯實施電子發票的功能；ZATCA 整合功能（POS 銷售點管理）\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_dk_oioubl
@@ -4742,6 +4754,20 @@ msgid ""
 "- Other Taxes Report\n"
 "- Fiscal Positions\n"
 msgstr ""
+"\n"
+"埃及會計模組\n"
+"==============================================================================\n"
+"埃及會計基礎賬目總表及本地化\n"
+"\n"
+"啟動：\n"
+"\n"
+"- 賬目總表\n"
+"- 稅項\n"
+"- 增值稅申報\n"
+"- 預扣稅報告\n"
+"- 預定稅務報表\n"
+"- 其他稅務報告\n"
+"- 財務規則\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_eg_edi_eta
@@ -4751,6 +4777,10 @@ msgid ""
 "==============================================================================\n"
 "Integrates with the ETA portal to automatically send and sign the Invoices to the Tax Authority.\n"
 msgstr ""
+"\n"
+"埃及稅務局發票整合功能\n"
+"==============================================================================\n"
+"與 ETA 門戶網站整合，自動向稅務機關傳送及簽署發票。\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_edi
@@ -7813,6 +7843,17 @@ msgid ""
 "- Tax Report\n"
 "- Withholding Tax Report\n"
 msgstr ""
+"\n"
+"巴基斯坦會計模組\n"
+"=======================================================\n"
+"巴基斯坦會計基礎賬目總表及本地化\n"
+"\n"
+"啟動：\n"
+"\n"
+"- 賬目總表\n"
+"- 稅項\n"
+"- 稅務報告\n"
+"- 預扣稅報告\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_pa
@@ -8393,6 +8434,18 @@ msgid ""
 "- Withholding Tax Report\n"
 "- Fiscal Positions\n"
 msgstr ""
+"\n"
+"沙特阿拉伯會計模組\n"
+"===========================================================\n"
+"沙特阿拉伯會計基礎賬目總表及本地化\n"
+"\n"
+"啟動：\n"
+"\n"
+"- 賬目總表\n"
+"- 稅項\n"
+"- 增值稅申報表\n"
+"- 預扣稅報告\n"
+"- 財務規則\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_sa_pos
@@ -8401,6 +8454,9 @@ msgid ""
 "Saudi Arabia POS Localization\n"
 "===========================================================\n"
 msgstr ""
+"\n"
+"沙特阿拉伯 POS 本地化\n"
+"===========================================================\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_sa_hr_payroll
@@ -9159,6 +9215,8 @@ msgid ""
 "\n"
 "This bridge module adds the necessary fields to properly round the Tax Report for Estonia in the closing entries.\n"
 msgstr ""
+"\n"
+"此橋接模組加入所需欄位，為愛沙尼亞稅務報告的結算記項，進行正確的四捨五入。\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_mrp_subcontracting_dropshipping
@@ -12046,6 +12104,17 @@ msgid ""
 "- Tax Report\n"
 "- Fiscal Positions\n"
 msgstr ""
+"\n"
+"阿聯酋會計模組\n"
+"=======================================================\n"
+"阿聯酋會計基礎賬目總表及本地化\n"
+"\n"
+"啟動：\n"
+"\n"
+"- 賬目總表\n"
+"- 稅項\n"
+"- 稅務報告\n"
+"- 財務規則\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ae_corporate_tax_report
@@ -14229,7 +14298,7 @@ msgstr "科目自動轉賬"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_bank_statement_import
 msgid "Account Bank Statement Import"
-msgstr "會計銀行對帳單匯入"
+msgstr "賬戶銀行結單匯入"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_accountant_batch_payment
@@ -17718,7 +17787,7 @@ msgstr "聖誕島"
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
 #: model_terms:ir.ui.view,arch_db:base.view_res_bank_form
 msgid "City"
-msgstr "縣市"
+msgstr "城市"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_actions_server__update_m2m_operation__clear
@@ -20567,7 +20636,7 @@ msgstr "Egypt - Accounting"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_eg_edi_eta
 msgid "Egypt E-Invoicing"
-msgstr ""
+msgstr "埃及電子發票"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_partner__partner_share
@@ -20999,7 +21068,7 @@ msgstr "Estonia - Accounting Reports"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ee_rounding
 msgid "Estonia - Rounding"
-msgstr ""
+msgstr "愛沙尼亞 - 四捨五入"
 
 #. module: base
 #: model:res.country,name:base.sz
@@ -21496,12 +21565,12 @@ msgstr "意大利電子商務電子發票功能"
 #: model:ir.model.fields,field_description:base.field_res_bank__state
 #: model:ir.model.fields,field_description:base.field_res_company__state_id
 msgid "Fed. State"
-msgstr "縣市"
+msgstr "聯邦州份"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_country_state
 msgid "Fed. States"
-msgstr "縣市"
+msgstr "聯邦州份"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_country_state
@@ -23987,12 +24056,12 @@ msgstr "匯入Amazon訂單並同步交貨"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_bank_statement_import_camt
 msgid "Import CAMT Bank Statement"
-msgstr "匯入CAMT銀行對帳單"
+msgstr "匯入 CAMT 銀行結單"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_bank_statement_import_csv
 msgid "Import CSV Bank Statement"
-msgstr "匯入CSV銀行對帳單"
+msgstr "匯入 CSV 銀行結單"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_account_winbooks_import
@@ -24002,12 +24071,12 @@ msgstr "從 Winbooks 匯入資料"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_bank_statement_import_ofx
 msgid "Import OFX Bank Statement"
-msgstr "匯入OFX銀行對帳單"
+msgstr "匯入 OFX 銀行結單"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_bank_statement_import_qif
 msgid "Import QIF Bank Statement"
-msgstr "匯入QIF銀行對帳單"
+msgstr "匯入 QIF 銀行結單"
 
 #. module: base
 #. odoo-python
@@ -24326,7 +24395,7 @@ msgstr "安裝應用程式"
 #. module: base
 #: model:ir.model,name:base.model_base_language_install
 msgid "Install Language"
-msgstr "安裝語系"
+msgstr "安裝語言"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__ir_module_module__state__installed
@@ -29057,7 +29126,7 @@ msgstr ""
 "答複申請人，在潛在客戶自動化營銷中重複使用電子郵件模板\n"
 "活動.\n"
 "\n"
-"對您的電子郵件的答復會自動出現在每個文件的歷史記錄中\n"
+"對你的電子郵件的答復會自動出現在每個文件的歷史記錄中\n"
 "使用社群網路模組.\n"
 "\n"
 "清理您的潛在客戶資料庫\n"
@@ -33539,12 +33608,12 @@ msgstr "Romania - Accounting Reports"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ro_edi_stock
 msgid "Romania - E-Transport"
-msgstr ""
+msgstr "羅馬尼亞 - 電子運輸"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ro_edi_stock_batch
 msgid "Romania - E-Transport Batch Pickings"
-msgstr ""
+msgstr "羅馬尼亞 - 大批揀貨電子運輸"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ro_edi
@@ -34182,12 +34251,12 @@ msgstr "沙特阿拉伯 - 電子發票（簡化）"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll
 msgid "Saudi Arabia - Payroll"
-msgstr ""
+msgstr "沙特阿拉伯 - 薪酬管理"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll_account
 msgid "Saudi Arabia - Payroll with Accounting"
-msgstr ""
+msgstr "沙特阿拉伯 - 薪酬管理及會計"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_pos
@@ -35668,17 +35737,17 @@ msgstr "狀態"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_state__code
 msgid "State Code"
-msgstr "縣市代碼"
+msgstr "州/省代碼"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_state__name
 msgid "State Name"
-msgstr "縣市名稱"
+msgstr "州/省名稱"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__state_required
 msgid "State Required"
-msgstr "縣市為必填欄位"
+msgstr "必須填寫州/省"
 
 #. module: base
 #: model:res.country,name:base.ps
@@ -37268,7 +37337,7 @@ msgstr "伺服器拒絕測試收件人 (%(email_to)s)，錯誤 (%(repl)s)"
 #. module: base
 #: model:ir.model.fields,help:base.field_res_country_state__code
 msgid "The state code."
-msgstr "縣市代碼."
+msgstr "州/省的代碼。"
 
 #. module: base
 #. odoo-python
@@ -38400,16 +38469,16 @@ msgid ""
 "- 'Send Webhook Notification': send a POST request to an external system, also known as a Webhook\n"
 "- 'Execute Existing Actions': define an action that triggers several other server actions\n"
 msgstr ""
-"伺服器操作類型。可使用以下值：\n"
-"- 更新記錄：更新記錄的值\n"
-"- 創建活動：創建活動（討論）\n"
-"- 發送電子郵件：發佈信息、備註或發送電子郵件（討論）\n"
-"- 發送短信：發送短信，將其記錄在文件中（短信）\n"
-"- 添加/刪除關注者：添加或刪除記錄中的關注者（討論）\n"
-"- 創建記錄：使用新值創建新記錄（討論)\n"
-"- 執行代碼：將執行的 Python 代碼塊\n"
-"- 發送 Webhook 通知：向外部系統發送 POST 請求，也稱為 Webhook\n"
-"- 執行現有操作：定義一個可觸發多個其他服務器操作的操作\n"
+"伺服器操作類型。 可使用以下的值：\n"
+"- 更新記錄：更新某項記錄的值\n"
+"- 建立活動：建立一項活動（聊天應用程式）\n"
+"- 傳送電郵：發佈訊息、備註或傳送電子郵件（聊天應用程式）\n"
+"- 傳送短訊：傳送 SMS 電話短訊，並在文件中建立相關記錄（短訊應用程式）\n"
+"- 加入/移除關注者：將關注者加入記錄中，或從記錄中移除（聊天應用程式）\n"
+"- 建立記錄：使用新的值去建立新記錄\n"
+"- 執行程式碼：將會執行的 Python 程式碼段落\n"
+"- 傳送網絡鈎子通知：向外部系統傳送一個 POST 請求（亦稱為 webhook 網絡鈎子）\n"
+"- 執行現有操作：設定一項操作，用以觸發多項其他伺服器操作\n"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_model_constraint__type
@@ -38715,12 +38784,12 @@ msgstr "阿聯酋 - 企業稅務報告"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll
 msgid "United Arab Emirates - Payroll"
-msgstr ""
+msgstr "阿聯酋 - 薪酬管理"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll_account
 msgid "United Arab Emirates - Payroll with Accounting"
-msgstr ""
+msgstr "阿聯酋 - 薪酬管理及會計"
 
 #. module: base
 #: model:res.country,name:base.uk

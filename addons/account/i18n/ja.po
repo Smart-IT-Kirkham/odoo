@@ -5,8 +5,9 @@
 # Translators:
 # 764374359f7a865bd0df682e21e54552_335e00f <6548f6be8d222d7d28a3e8d58aa819d1_1128047>, 2023
 # Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2024
-# Wil Odoo, 2024
 # Ryoko Tsuda <ryoko@quartile.co>, 2024
+# Wil Odoo, 2025
+# Martin Trigaux, 2025
 # Junko Augias, 2025
 # 
 msgid ""
@@ -80,6 +81,17 @@ msgid "# Reconciled Statement Lines"
 msgstr "消込済明細書明細数"
 
 #. module: account
+#: model:ir.model.fields,field_description:account.field_res_partner__supplier_invoice_count
+#: model:ir.model.fields,field_description:account.field_res_users__supplier_invoice_count
+msgid "# Vendor Bills"
+msgstr "仕入先請求書数"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_chart_template__code_digits
+msgid "# of Digits"
+msgstr "桁数"
+
+#. module: account
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
 #, python-format
@@ -142,6 +154,7 @@ msgstr "%s (コピー)"
 #: code:addons/account/models/account_journal.py:0
 #: code:addons/account/models/account_reconcile_model.py:0
 #: code:addons/account/models/account_reconcile_model.py:0
+#: code:addons/account/models/account_payment_term.py:0
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (コピー)"
@@ -1819,7 +1832,7 @@ msgstr "適用する勘定科目"
 #. module: account
 #: model:ir.model.fields,help:account.field_account_automatic_entry_wizard__destination_account_id
 msgid "Account to transfer to."
-msgstr "移送先のアカウント:"
+msgstr "振替先のアカウント:"
 
 #. module: account
 #: model:ir.model,name:account.model_account_tour_upload_bill
@@ -5604,6 +5617,13 @@ msgstr "値引日数"
 #: model:ir.model.fields,field_description:account.field_account_move_line__discount_amount_currency
 msgid "Discount amount in Currency"
 msgstr "値引の通貨金額"
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_move.py:0
+#, python-format
+msgid "Discount of %(amount)s if paid %(when)s"
+msgstr ""
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_analytic_applicability__display_account_prefix
@@ -11546,6 +11566,11 @@ msgid "Reconciliation Parts"
 msgstr "消込パーツ"
 
 #. module: account
+#: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier_bills
+msgid "Record a new vendor bill"
+msgstr "仕入先請求書を新規作成してください"
+
+#. module: account
 #. odoo-python
 #: code:addons/account/models/account_tax.py:0
 #, python-format
@@ -14966,7 +14991,7 @@ msgstr "請求書に「送信&印刷」をクリックする時に、下のオ�
 #: model:digest.tip,name:account.digest_tip_account_0
 #: model_terms:digest.tip,tip_description:account.digest_tip_account_0
 msgid "Tip: No need to print, put in an envelop and post your invoices"
-msgstr "ヒント：印刷したり、封筒に入れたり、請求書を投稿したりする必要はありません。"
+msgstr "ヒント: 請求書を印刷して、封筒に入れ、投函する必要はありません"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_automatic_entry_wizard__destination_account_id
@@ -15193,12 +15218,12 @@ msgstr "取引詳細"
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__transaction_type
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model__match_transaction_type
 msgid "Transaction Type"
-msgstr "トランザクションタイプ"
+msgstr "取引タイプ"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_reconcile_model__match_transaction_type_param
 msgid "Transaction Type Parameter"
-msgstr "トランザクションタイプパラメータ"
+msgstr "取引タイプパラメータ"
 
 #. module: account
 #. odoo-python
@@ -15222,14 +15247,14 @@ msgstr "仕訳項目を転送"
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "Transfer counterpart"
-msgstr "転送対応"
+msgstr "振替相手"
 
 #. module: account
 #. odoo-python
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "Transfer entry to %s"
-msgstr "%sの転送エントリ"
+msgstr "%sの振替エントリ"
 
 #. module: account
 #. odoo-python
@@ -15237,7 +15262,7 @@ msgstr "%sの転送エントリ"
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "Transfer from %s"
-msgstr "%sの転送"
+msgstr "%sの振替"
 
 #. module: account
 #. odoo-python
@@ -15245,7 +15270,7 @@ msgstr "%sの転送"
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "Transfer to %s"
-msgstr "%sの転送"
+msgstr "%sの振替"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -15613,8 +15638,8 @@ msgid ""
 "printed in the right country, put in an envelop and sent by snail mail. Use "
 "this feature from the list view to post hundreds of invoices in bulk."
 msgstr ""
-"請求書を自動的に郵送するには、「<i>郵送</i>」 オプションを使用してください。切手の費用に対して、私たちに任せてください: "
-"請求書は正しい国で印刷され、封筒に入れられ、普通郵便で送られます。リスト表示からこの機能を使用して、何百もの請求書をまとめて郵送します。 "
+"請求書を自動的に郵送するには、”郵送” "
+"オプションを使用して下さい。国内用切手1枚分の費用で、面倒な作業はすべてお任せ下さい。請求書は適切な国で印刷され、封筒に入れられ、郵送されます。リストビューからこの機能を使用すれば、数百枚の請求書を一括で郵送できます。"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_line__quick_edit_total_amount
@@ -15791,9 +15816,11 @@ msgstr "仕入先請求書が作成されました"
 #. odoo-python
 #: code:addons/account/models/account_analytic_account.py:0
 #: code:addons/account/models/chart_template.py:0
+#: model:ir.actions.act_window,name:account.res_partner_action_supplier_bills
 #: model:account.journal,name:account.1_purchase
 #: model:ir.model.fields.selection,name:account.selection__res_company__quick_edit_mode__in_invoices
 #: model_terms:ir.ui.view,arch_db:account.account_analytic_account_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:account.partner_view_buttons
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:account.res_partner_view_search
 #, python-format
@@ -15859,6 +15886,20 @@ msgstr "仕入先:"
 #: model_terms:ir.ui.view,arch_db:account.view_partner_bank_search_inherit
 msgid "Vendors"
 msgstr "仕入先"
+
+#. module: account
+#: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier_bills
+msgid ""
+"Vendors bills can be pre-generated based on purchase\n"
+"                orders or receipts. This allows you to control bills\n"
+"                you receive from your vendor according to the draft\n"
+"                document in Odoo."
+msgstr ""
+"仕入先請求書は、購買オーダまたは入荷伝票に\n"
+"                基づいて事前に作成することができます。これにより、\n"
+"                Odoo内のドラフトドキュメントに従って\n"
+"仕入先から受け取る請求書を、\n"
+"                管理することができます。"
 
 #. module: account
 #. odoo-javascript
@@ -16477,6 +16518,13 @@ msgstr "このレポート(%s)を削除することはできません。この�
 
 #. module: account
 #. odoo-python
+#: code:addons/account/models/account_account.py:0
+#, python-format
+msgid "You cannot deprecate an account that is used in a tax distribution."
+msgstr ""
+
+#. module: account
+#. odoo-python
 #: code:addons/account/models/res_config_settings.py:0
 #, python-format
 msgid ""
@@ -16693,8 +16741,8 @@ msgstr "一部の調整がまだ保留中の場合は、アカウントを切り
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
 #, python-format
-msgid "You cannot switch the type of a posted document."
-msgstr "投稿済ドキュメントの種類を変更することはできません。"
+msgid "You cannot switch the type of a document which has been posted once."
+msgstr "一度されたドキュメントの種類を変更することはできません。"
 
 #. module: account
 #. odoo-python
@@ -17270,6 +17318,13 @@ msgstr "は、支払いが遅延した場合、事前の警告なしにサービ
 #: model_terms:ir.ui.view,arch_db:account.account_tour_upload_bill_email_confirm
 msgid "with a pdf of an invoice as attachment."
 msgstr "と請求書のPDFを添付ファイルにする。"
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_move.py:0
+#, python-format
+msgid "within %(days)s days"
+msgstr ""
 
 #. module: account
 #. odoo-python

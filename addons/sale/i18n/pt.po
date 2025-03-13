@@ -16,6 +16,7 @@
 # GRACE CONLON, 2024
 # Maitê Dietze, 2024
 # Arxi, 2024
+# Nuno Silva <nuno.silva@arxi.pt>, 2025
 # Peter Lawrence Romão <peterromao@yahoo.co.uk>, 2025
 # 
 msgid ""
@@ -3262,7 +3263,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale.field_res_config_settings__prepayment_percent
 #: model:ir.model.fields,field_description:sale.field_sale_order__prepayment_percent
 msgid "Prepayment percentage"
-msgstr ""
+msgstr "Percentagem de pré-pagamento"
 
 #. module: sale
 #. odoo-python
@@ -3463,7 +3464,7 @@ msgstr "Qtd Encomendada"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_report__qty_to_deliver
 msgid "Qty To Deliver"
-msgstr ""
+msgstr "Qtd a Entregar"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_report__qty_to_invoice

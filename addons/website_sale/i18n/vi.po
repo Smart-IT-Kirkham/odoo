@@ -4,8 +4,8 @@
 # 
 # Translators:
 # Thang Nguyen, 2024
-# Thi Huong Nguyen, 2024
 # Wil Odoo, 2025
+# Thi Huong Nguyen, 2025
 # 
 msgid ""
 msgstr ""
@@ -13,7 +13,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-02-10 10:33+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Wil Odoo, 2025\n"
+"Last-Translator: Thi Huong Nguyen, 2025\n"
 "Language-Team: Vietnamese (https://app.transifex.com/odoo/teams/41243/vi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -326,7 +326,7 @@ msgstr ""
 "                    <br/>\n"
 "                    <i class=\"o_order_location_address\"/>\n"
 "                </span>\n"
-"                <span class=\"fa fa-times ms-2 o_remove_order_location\" aria-label=\"Xoá địa điểm này\" title=\"Xoá địa điểm này\"/>"
+"                <span class=\"fa fa-times ms-2 o_remove_order_location\" aria-label=\"Xoá vị trí này\" title=\"Xoá vị trí này\"/>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment_delivery_methods
@@ -2860,6 +2860,13 @@ msgstr "Giao dịch thanh toán"
 
 #. module: website_sale
 #. odoo-python
+#: code:addons/website_sale/controllers/main.py:0
+#, python-format
+msgid "Payment is already being processed."
+msgstr "Thanh toán đang được xử lý."
+
+#. module: website_sale
+#. odoo-python
 #: code:addons/website_sale/models/website_snippet_filter.py:0
 #, python-format
 msgid "Pedal-based opening system"
@@ -3972,6 +3979,13 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_sale/controllers/main.py:0
 #, python-format
+msgid "The cart has already been paid. Please refresh the page."
+msgstr "Giỏ hàng đã được thanh toán. Vui lòng làm mới trang."
+
+#. module: website_sale
+#. odoo-python
+#: code:addons/website_sale/controllers/main.py:0
+#, python-format
 msgid "The cart has been updated. Please refresh the page."
 msgstr "Giỏ hàng đã được cập nhật. Vui lòng làm mới trang."
 
@@ -4741,7 +4755,7 @@ msgstr "xoá"
 #: code:addons/website_sale/static/src/js/website_sale_delivery.js:0
 #, python-format
 msgid "select to see available Pick-Up Locations"
-msgstr "chọn để xem các Địa điểm nhận hàng khả dụng"
+msgstr "chọn để xem các Vị trí nhận hàng khả dụng"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.accept_terms_and_conditions
