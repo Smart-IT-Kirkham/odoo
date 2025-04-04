@@ -899,7 +899,7 @@ msgstr "活動ビュー"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_form
 msgid "Add a Product"
-msgstr "プロダクトを追加"
+msgstr "プロダクト追加"
 
 #. module: stock
 #: model_terms:ir.actions.act_window,help:stock.action_product_production_lot_form
@@ -1530,7 +1530,7 @@ msgstr "取消済"
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_storage_category__capacity_ids
 msgid "Capacity"
-msgstr "能力"
+msgstr "キャパシティ"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_storage_category_form
@@ -3351,7 +3351,7 @@ msgstr "重量予測"
 #: code:addons/stock/static/src/stock_forecasted/forecasted_details.xml:0
 #, python-format
 msgid "Forecasted with Pending"
-msgstr "保留中の予測"
+msgstr "保留中を含む予測"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_lot_label_layout__print_format
@@ -3376,7 +3376,7 @@ msgstr "引当なし在庫"
 #: code:addons/stock/static/src/stock_forecasted/forecasted_details.xml:0
 #, python-format
 msgid "Free Stock in Transit"
-msgstr "輸送中引当なし在庫"
+msgstr "利用可能な移動中在庫"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_product__free_qty
@@ -4234,7 +4234,7 @@ msgstr "フォロー中　"
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_package_level__is_fresh_package
 msgid "Is Fresh Package"
-msgstr "フレッシュパッケージか"
+msgstr "新規梱包"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move__is_locked
@@ -8672,7 +8672,7 @@ msgstr "ロット/シリアル番号 (%s) は他のプロダクトにリンク�
 msgid ""
 "The Picking Operations report has been deleted so you cannot print at this "
 "time unless the report is restored."
-msgstr ""
+msgstr "ピッキングオペレーションレポートが削除されたため、レポートが復元されない限り、現時点では印刷できません。"
 
 #. module: stock
 #. odoo-python

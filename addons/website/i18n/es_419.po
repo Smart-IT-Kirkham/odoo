@@ -5,8 +5,8 @@
 # Translators:
 # Iran Villalobos López, 2023
 # Lucia Pacheco, 2024
-# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2024
 # Wil Odoo, 2025
+# Patricia Gutiérrez Capetillo <pagc@odoo.com>, 2025
 # Fernanda Alvarez, 2025
 # 
 msgid ""
@@ -2463,7 +2463,7 @@ msgstr "Fondo"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.new_page_template_about_s_features
 msgid "Backend"
-msgstr "Salir (sin cerrar sesión)"
+msgstr "Backend"
 
 #. module: website
 #. odoo-javascript
@@ -3742,7 +3742,7 @@ msgstr "Cree un proyecto de Google y obtenga una clave"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Create a link to target this section"
-msgstr "Cree un enlace para orientar sus anuncios a esta sección"
+msgstr "Crear enlace para redirigir a esta sección"
 
 #. module: website
 #. odoo-javascript
@@ -5457,7 +5457,7 @@ msgstr "Familia de la fuente"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Font size"
-msgstr "Tamaño de fuente"
+msgstr "Tamaño de la fuente"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_theme_website_page__footer_visible
@@ -10193,7 +10193,7 @@ msgstr "Desplazar hacia arriba"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Scroll Top Button"
-msgstr "Botón superior de desplazamiento"
+msgstr "Botón para regresar a la parte superior"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options

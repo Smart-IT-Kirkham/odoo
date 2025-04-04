@@ -1322,7 +1322,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/many2many_binary/many2many_binary_field.xml:0
 #, python-format
 msgid "Attach"
-msgstr ""
+msgstr "Επισυνάψτε"
 
 #. module: web
 #. odoo-javascript
@@ -5006,7 +5006,7 @@ msgstr ""
 #: code:addons/web/static/src/views/fields/properties/property_tags.js:0
 #, python-format
 msgid "No result"
-msgstr ""
+msgstr "Κανένα αποτέλεσμα"
 
 #. module: web
 #. odoo-javascript
