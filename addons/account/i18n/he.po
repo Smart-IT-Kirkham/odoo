@@ -19,28 +19,28 @@
 # ExcaliberX <excaliberx@gmail.com>, 2022
 # שהאב חוסיין <shhab89@gmail.com>, 2022
 # דודי מלכה <Dudimalka6@gmail.com>, 2022
-# Lilach Gilliam <lilach.gilliam@gmail.com>, 2022
 # Amit Spilman <amit@laylinetech.com>, 2022
 # Yihya Hugirat <hugirat@gmail.com>, 2022
 # Netta Waizer, 2022
-# NoaFarkash, 2022
 # Roy Sayag, 2022
+# NoaFarkash, 2022
 # Martin Trigaux, 2023
 # MichaelHadar, 2023
 # Sagi Ahiel, 2023
-# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2024
 # yael terner, 2024
 # Hed Shefer <hed@laylinetech.com>, 2024
 # Orel Nahmany, 2024
 # Ha Ketem <haketem@gmail.com>, 2024
 # Eyal arkush, 2025
+# Lilach Gilliam <lilach.gilliam@gmail.com>, 2025
+# ZVI BLONDER <ZVIBLONDER@gmail.com>, 2025
 # or balmas, 2025
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-06 13:31+0000\n"
+"POT-Creation-Date: 2025-02-10 08:26+0000\n"
 "PO-Revision-Date: 2022-09-22 05:44+0000\n"
 "Last-Translator: or balmas, 2025\n"
 "Language-Team: Hebrew (https://app.transifex.com/odoo/teams/41243/he/)\n"
@@ -105,6 +105,12 @@ msgid "# Reconciled Statement Lines"
 msgstr "מספר שורות שהותאמו"
 
 #. module: account
+#: model:ir.model.fields,field_description:account.field_res_partner__supplier_invoice_count
+#: model:ir.model.fields,field_description:account.field_res_users__supplier_invoice_count
+msgid "# Vendor Bills"
+msgstr "מס' חשבונית ספק "
+
+#. module: account
 #: model:ir.model.fields,field_description:account.field_account_chart_template__code_digits
 msgid "# of Digits"
 msgstr "# ספרות"
@@ -165,6 +171,7 @@ msgstr "%s (העתק)"
 #: code:addons/account/models/account_journal.py:0
 #: code:addons/account/models/account_reconcile_model.py:0
 #: code:addons/account/models/account_reconcile_model.py:0
+#: code:addons/account/models/account_payment_term.py:0
 #, python-format
 msgid "%s (copy)"
 msgstr "%s (העתק)"
@@ -1447,14 +1454,14 @@ msgstr ""
 #: code:addons/account/models/account_move_line.py:0
 #, python-format
 msgid "Account %s is of payable type, but is used in a sale operation."
-msgstr ""
+msgstr "החשבון%s הוא מסוג ספקים, אך נעשה בו שימוש בפעולת מכירה."
 
 #. module: account
 #. odoo-python
 #: code:addons/account/models/account_move_line.py:0
 #, python-format
 msgid "Account %s is of receivable type, but is used in a purchase operation."
-msgstr ""
+msgstr "החשבון%s הוא מסוג לקוחות, אך נעשה בו שימוש בפעולת רכש."
 
 #. module: account
 #: model:ir.model,name:account.model_account_cash_rounding
@@ -2883,6 +2890,7 @@ msgstr "אישור אוטומטי"
 #. module: account
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
+#: code:addons/account/models/company.py:0
 #: code:addons/account/models/company.py:0
 #, python-format
 msgid "Automatic Balancing Line"
@@ -5774,7 +5782,7 @@ msgstr "בוצע"
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_cash_rounding__rounding_method__down
 msgid "Down"
-msgstr ""
+msgstr "למטה"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_invoice_page
@@ -6682,7 +6690,7 @@ msgstr "מזהה מס זר"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_company__multi_vat_foreign_country_ids
 msgid "Foreign VAT countries"
-msgstr ""
+msgstr "מע\"מ מדינות זרות"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_fiscal_position__foreign_vat_header_mode
@@ -8046,6 +8054,12 @@ msgid "Is Between"
 msgstr "בין"
 
 #. module: account
+#: model:ir.model.fields,field_description:account.field_res_partner__is_coa_installed
+#: model:ir.model.fields,field_description:account.field_res_users__is_coa_installed
+msgid "Is Coa Installed"
+msgstr ""
+
+#. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement__is_complete
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__statement_complete
 msgid "Is Complete"
@@ -8917,7 +8931,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_automatic_entry_wizard__lock_date_message
 msgid "Lock Date Message"
-msgstr ""
+msgstr "הודעת תאריך נעילה"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__restrict_mode_hash_table
@@ -9189,7 +9203,7 @@ msgstr "שותפים תואמים"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_reconcile_model_search
 msgid "Matching rules"
-msgstr ""
+msgstr "כללי התאמה"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_partial_reconcile__max_date
@@ -9441,7 +9455,7 @@ msgstr "שם"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_tax__name_searchable
 msgid "Name Searchable"
-msgstr ""
+msgstr "חיפוש לפי שם"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -9451,7 +9465,7 @@ msgstr "נווט בקלות באמצעות דוחות ובדוק מה עומד �
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_cash_rounding__rounding_method__half-up
 msgid "Nearest"
-msgstr ""
+msgstr "הכי קרוב"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__needed_terms
@@ -9482,7 +9496,7 @@ msgstr "ערך שלילי של שדה הסכום אם payment_type הוא יוצ
 #: code:addons/account/models/account_tax.py:0
 #, python-format
 msgid "Nested group of taxes are not allowed."
-msgstr ""
+msgstr "קבוצות מקוננות של מיסים אינן מותרות."
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_report__filter_hierarchy__never
@@ -9515,6 +9529,16 @@ msgstr "ערכים חדשים"
 #: model:ir.model.fields.selection,name:account.selection__account_reconcile_model_template__matching_order__new_first
 msgid "Newest first"
 msgstr "הראשון יהיה החדש ביותר"
+
+#. module: account
+#: model:ir.model.fields,field_description:account.field_account_bank_statement_line__activity_calendar_event_id
+#: model:ir.model.fields,field_description:account.field_account_journal__activity_calendar_event_id
+#: model:ir.model.fields,field_description:account.field_account_move__activity_calendar_event_id
+#: model:ir.model.fields,field_description:account.field_account_payment__activity_calendar_event_id
+#: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__activity_calendar_event_id
+#: model:ir.model.fields,field_description:account.field_res_partner_bank__activity_calendar_event_id
+msgid "Next Activity Calendar Event"
+msgstr "הפעילות הבאה ביומן"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__activity_date_deadline
@@ -9554,7 +9578,7 @@ msgstr "לא"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_search
 msgid "No Bank Matching"
-msgstr ""
+msgstr "לא נמצא בנק תואם"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__blocked
@@ -9984,7 +10008,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_report__only_tax_exigible
 msgid "Only Tax Exigible Lines"
-msgstr ""
+msgstr "רק שורות חייבות במס"
 
 #. module: account
 #. odoo-python
@@ -11197,7 +11221,7 @@ msgstr "הדפס שיקים כדי לשלם לספקים"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement__problem_description
 msgid "Problem Description"
-msgstr ""
+msgstr "תיאור הבעיה"
 
 #. module: account
 #: model:ir.model,name:account.model_product_template
@@ -11490,6 +11514,11 @@ msgstr "מודלים לביצוע התאמה"
 #: model:ir.model.fields,field_description:account.field_account_full_reconcile__partial_reconcile_ids
 msgid "Reconciliation Parts"
 msgstr "חלקי השלמה"
+
+#. module: account
+#: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier_bills
+msgid "Record a new vendor bill"
+msgstr "רשום חשבונית ספק חדש"
 
 #. module: account
 #. odoo-python
@@ -12494,8 +12523,8 @@ msgid "Set a price"
 msgstr "קבע מחיר"
 
 #. module: account
-#: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 #: model:ir.model.fields,help:account.field_res_partner__use_partner_credit_limit
+#: model:ir.model.fields,help:account.field_res_users__use_partner_credit_limit
 msgid "Set a value greater than 0.0 to activate a credit limit check"
 msgstr ""
 
@@ -15219,11 +15248,9 @@ msgstr "העבר ל %s"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid ""
-"Trigger alerts when creating Invoices and Sales Orders for Partners with a "
-"Total Receivable amount exceeding a limit."
+"Trigger alerts when creating Invoices and Sales Orders for Partners with a Total Receivable amount exceeding a limit.\n"
+"                                        <br/><small>Set a value greater than 0.0 to activate a credit limit check</small>"
 msgstr ""
-"הפעל התראות בעת יצירת חשבוניות והזמנות לקוח עבור לקוחות עם סכום חיוב כולל "
-"העולה על מגבלה."
 
 #. module: account
 #. odoo-python
@@ -15709,8 +15736,10 @@ msgstr "חשבונית ספק נוצרה"
 #. odoo-python
 #: code:addons/account/models/account_analytic_account.py:0
 #: code:addons/account/models/chart_template.py:0
+#: model:ir.actions.act_window,name:account.res_partner_action_supplier_bills
 #: model:ir.model.fields.selection,name:account.selection__res_company__quick_edit_mode__in_invoices
 #: model_terms:ir.ui.view,arch_db:account.account_analytic_account_view_form_inherit
+#: model_terms:ir.ui.view,arch_db:account.partner_view_buttons
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 #: model_terms:ir.ui.view,arch_db:account.res_partner_view_search
 #, python-format
@@ -15770,6 +15799,15 @@ msgstr "ספק:"
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_report_search
 msgid "Vendors"
 msgstr "ספקים"
+
+#. module: account
+#: model_terms:ir.actions.act_window,help:account.res_partner_action_supplier_bills
+msgid ""
+"Vendors bills can be pre-generated based on purchase\n"
+"                orders or receipts. This allows you to control bills\n"
+"                you receive from your vendor according to the draft\n"
+"                document in Odoo."
+msgstr ""
 
 #. module: account
 #. odoo-javascript
@@ -16149,7 +16187,7 @@ msgstr "אי אפשר ליצור תשלומים ששייכים לארגונים 
 #: code:addons/account/models/account_report.py:0
 #, python-format
 msgid "You can't delete a report that has variants."
-msgstr ""
+msgstr "אינך יכול למחוק דוח שיש לו וריאנטים."
 
 #. module: account
 #. odoo-python
@@ -16308,7 +16346,7 @@ msgstr ""
 #: code:addons/account/models/account_account.py:0
 #, python-format
 msgid "You cannot create recursive groups."
-msgstr ""
+msgstr "לא ניתן ליצור קבוצות רקורסיביות"
 
 #. module: account
 #. odoo-python
@@ -16324,7 +16362,7 @@ msgstr ""
 #: code:addons/account/models/account_move_line.py:0
 #, python-format
 msgid "You cannot delete a tax line as it would impact the tax report"
-msgstr ""
+msgstr "אינך יכול למחוק שורת מע\"מ כיוון שזה ישפיע על דוח מע\"מ."
 
 #. module: account
 #. odoo-python
@@ -16360,6 +16398,13 @@ msgstr ""
 msgid ""
 "You cannot delete this report (%s), it is used by the accounting PDF "
 "generation engine."
+msgstr ""
+
+#. module: account
+#. odoo-python
+#: code:addons/account/models/account_account.py:0
+#, python-format
+msgid "You cannot deprecate an account that is used in a tax distribution."
 msgstr ""
 
 #. module: account
@@ -16537,7 +16582,7 @@ msgstr "אינך יכול להסיר\\לבטל את החשבון %s המוגדר
 msgid ""
 "You cannot remove/deactivate the accounts \"%s\" which are set on a tax "
 "repartition line."
-msgstr ""
+msgstr "אינך יכול להסיר/לנטרל את החשבונות \"%s\" המוגדרים בשורת חלוקה למיסים."
 
 #. module: account
 #. odoo-python
@@ -16588,8 +16633,8 @@ msgstr ""
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
 #, python-format
-msgid "You cannot switch the type of a posted document."
-msgstr ""
+msgid "You cannot switch the type of a document which has been posted once."
+msgstr "אין אפשרות לשנות את סוג המסמך שכבר נרשם פעם אחת."
 
 #. module: account
 #. odoo-python
@@ -16641,7 +16686,7 @@ msgstr "אי אפשר להשתמש באשף זה על תנועות יומן הש
 #: code:addons/account/models/account_move.py:0
 #, python-format
 msgid "You cannot validate a document with an inactive currency: %s"
-msgstr ""
+msgstr "אינך יכול לאמת מסמך עם מטבע שאינו פעיל: %s"
 
 #. module: account
 #. odoo-python
@@ -16900,7 +16945,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_register_form
 msgid "has been applied."
-msgstr ""
+msgstr "הוחל."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
@@ -17006,7 +17051,7 @@ msgstr "שומרת את הזכות לבקש רבית קבועה בגובה 10% �
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_tax_repartition_line__tag_ids_domain
 msgid "tag domain"
-msgstr ""
+msgstr "דומיין תגית"
 
 #. module: account
 #. odoo-python

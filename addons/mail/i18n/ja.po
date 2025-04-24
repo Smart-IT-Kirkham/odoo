@@ -12,8 +12,8 @@
 # Martin Trigaux, 2023
 # Ryoko Tsuda <ryoko@quartile.co>, 2023
 # Tatsuki Kanda, 2023
-# Wil Odoo, 2024
-# Junko Augias, 2024
+# Wil Odoo, 2025
+# Junko Augias, 2025
 # 
 msgid ""
 msgstr ""
@@ -21,7 +21,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-02-06 13:31+0000\n"
 "PO-Revision-Date: 2022-09-22 05:53+0000\n"
-"Last-Translator: Junko Augias, 2024\n"
+"Last-Translator: Junko Augias, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,7 +72,7 @@ msgstr "\"%s\"はマイクへのアクセスが必要です。"
 #: code:addons/mail/static/src/models/channel_member_list_category_view.js:0
 #, python-format
 msgid "%(categoryText)s - %(memberCount)s"
-msgstr ""
+msgstr "%(categoryText)s - %(memberCount)s"
 
 #. module: mail
 #. odoo-python
@@ -962,7 +962,7 @@ msgstr "ATM sign"
 #: code:addons/mail/static/src/components/call_invite_request_popup/call_invite_request_popup.xml:0
 #, python-format
 msgid "Accept"
-msgstr "受理"
+msgstr "参加"
 
 #. module: mail
 #. odoo-python
@@ -3168,7 +3168,7 @@ msgstr "完了して次を起動"
 #: model_terms:ir.ui.view,arch_db:mail.mail_activity_view_form_popup
 #, python-format
 msgid "Done & Schedule Next"
-msgstr "完了 & 次をスケジュール"
+msgstr "完了して次をスケジュール"
 
 #. module: mail
 #. odoo-javascript
@@ -4702,7 +4702,7 @@ msgstr "招待URL"
 #: code:addons/mail/wizard/mail_wizard_invite.py:0
 #, python-format
 msgid "Invitation to follow %(document_model)s: %(document_name)s"
-msgstr "%(document_model)sをフォローするための招待:%(document_name)s"
+msgstr "%(document_model)sへのフォロー招待:%(document_name)s"
 
 #. module: mail
 #. odoo-javascript
@@ -4752,7 +4752,7 @@ msgstr "現在のユーザかゲスト著者か"
 #: model:ir.model.fields,field_description:mail.field_mail_compose_message__is_mail_template_editor
 #: model:ir.model.fields,field_description:mail.field_mail_composer_mixin__is_mail_template_editor
 msgid "Is Editor"
-msgstr "編集者であり"
+msgstr "編集者である"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_blacklist__message_is_follower
@@ -6788,7 +6788,7 @@ msgstr ""
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Only users belonging to the \"%s\" group can modify dynamic templates."
-msgstr ""
+msgstr " \"%s\" に属するユーザだけがダイナミックテンプレートを修正できます。"
 
 #. module: mail
 #: model:ir.model.fields.selection,name:mail.selection__mail_channel_member__fold_state__open
@@ -8011,7 +8011,7 @@ msgstr "活動をスケジュール"
 #: code:addons/mail/models/mail_activity.py:0
 #, python-format
 msgid "Schedule an Activity"
-msgstr "ある活動をスケジュール　"
+msgstr "活動をスケジュール　"
 
 #. module: mail
 #. odoo-javascript
@@ -8019,7 +8019,7 @@ msgstr "ある活動をスケジュール　"
 #: code:addons/mail/static/src/xml/web_kanban_activity.xml:0
 #, python-format
 msgid "Schedule an activity"
-msgstr "アクティビティをスケジュールする"
+msgstr "活動をスケジュール"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_template__scheduled_date
@@ -9743,7 +9743,7 @@ msgstr "ファイルをアップロード"
 #: code:addons/mail/static/src/xml/web_kanban_activity.xml:0
 #, python-format
 msgid "Upload file"
-msgstr "ファイルをアップロードする"
+msgstr "ファイルをアップロード"
 
 #. module: mail
 #. odoo-javascript
