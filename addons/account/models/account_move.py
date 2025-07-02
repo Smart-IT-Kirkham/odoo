@@ -3249,7 +3249,8 @@ class AccountMove(models.Model):
     # -------------------------------------------------------------------------
 
     def _get_tax_lines_to_aggregate(self):
-        return self.line_ids.filtered(lambda x: x.display_type == 'tax')
+        # Note: We need to include cash rounding lines created by the 'biggest_tax' strategy too.
+        return self.line_ids.filtered('tax_repartition_line_id')
 
     def _prepare_invoice_aggregated_taxes(self, filter_invl_to_apply=None, filter_tax_values_to_apply=None, grouping_key_generator=None):
         self.ensure_one()
@@ -4443,7 +4444,7 @@ class AccountMove(models.Model):
             payment_state = 'partially_paid'
 
         term_lines = self.line_ids.filtered(lambda line: line.display_type == 'payment_term')
-        epd_installment = term_lines._get_epd_data()
+        epd_installment = term_lines and term_lines._get_epd_data()
         discount_date = epd_installment and epd_installment['line'].discount_date
         epd_info = {}
         if epd_installment and discount_date:

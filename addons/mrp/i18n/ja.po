@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-09 20:36+0000\n"
+"POT-Creation-Date: 2025-06-13 00:52+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Junko Augias, 2025\n"
 "Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
@@ -2527,6 +2527,11 @@ msgid "Has Routing Lines"
 msgstr "工順明細あり"
 
 #. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_workorder__has_worksheet
+msgid "Has Worksheet"
+msgstr "ワークシートあり"
+
+#. module: mrp
 #: model:ir.model.fields.selection,name:mrp.selection__mrp_document__priority__2
 msgid "High"
 msgstr "高"
@@ -4850,7 +4855,7 @@ msgstr "遅延を避けるため、製造オーダを早めにスケジュール
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_workorder_form_view_inherit
 msgid "Scheduled Date"
-msgstr "計画日"
+msgstr "予定日"
 
 #. module: mrp
 #. odoo-python
@@ -6976,7 +6981,7 @@ msgstr "製造オーダ"
 #: code:addons/mrp/models/mrp_production.py:0
 #, python-format
 msgid "merged"
-msgstr "マージ済"
+msgstr "統合済"
 
 #. module: mrp
 #. odoo-python

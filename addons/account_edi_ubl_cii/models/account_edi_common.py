@@ -500,6 +500,37 @@ class AccountEdiCommon(models.AbstractModel):
             ]
         return []
 
+    def _import_rounding_amount(self, invoice, rounding_node, qty_factor):
+        """
+        Add an invoice line representing the rounding amount given in the document.
+        - The amount is assumed to be in document currency
+        """
+        currency = invoice.currency_id
+        rounding_amount_currency = currency.round(qty_factor * float(rounding_node.text) if rounding_node is not None else 0.0)
+
+        if invoice.currency_id.is_zero(rounding_amount_currency):
+            return []
+
+        inverse_rate = abs(invoice.amount_total_signed) / invoice.amount_total if invoice.amount_total else 0
+        rounding_amount = invoice.company_id.currency_id.round(rounding_amount_currency * inverse_rate)
+
+        invoice.line_ids.create([{
+            'display_type': 'product',
+            'name': _('Rounding'),
+            'quantity': 1,
+            'product_id': False,
+            'price_unit': rounding_amount_currency,
+            'balance': invoice.direction_sign * rounding_amount,
+            'company_id': invoice.company_id.id,
+            'move_id': invoice.id,
+            'tax_ids': False,
+        }])
+
+        formatted_amount = formatLang(self.env, rounding_amount_currency, currency_obj=currency)
+        return [
+            _("A rounding amount of %s was detected.", formatted_amount),
+        ]
+
     def _import_fill_invoice_line_values(self, tree, xpath_dict, invoice_line, qty_factor):
         """
         Read the xml invoice, extract the invoice line values, compute the odoo values
@@ -654,8 +685,9 @@ class AccountEdiCommon(models.AbstractModel):
         discount = 0
         amount_fixed_taxes = sum(d['tax_amount'] * billed_qty for d in fixed_taxes_list)
         if billed_qty * price_unit != 0 and price_subtotal is not None:
-            inferred_discount = 100 * (1 - (price_subtotal - amount_fixed_taxes) / (billed_qty * price_unit))
-            discount = inferred_discount if not float_is_zero(inferred_discount, 2) else 0.0
+            currency = invoice_line.currency_id or self.env.company.currency_id
+            inferred_discount = 100 * (1 - (price_subtotal - amount_fixed_taxes) / currency.round(billed_qty * price_unit))
+            discount = inferred_discount if not float_is_zero(inferred_discount, currency.decimal_places) else 0.0
 
         # Sometimes, the xml received is very bad; e.g.:
         #   * unit price = 0, qty = 0, but price_subtotal = -200
