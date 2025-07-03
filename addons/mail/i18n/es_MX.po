@@ -662,7 +662,7 @@ msgid ""
 "warning\">No record for this model</b>"
 msgstr ""
 "<b attrs=\"{'invisible': [('no_record', '=', False)]}\" class=\"text-"
-"warning\">Sin registro para este modelo</b>"
+"warning\">No hay registros para este modelo</b>"
 
 #. module: mail
 #. odoo-python
@@ -3474,7 +3474,7 @@ msgstr "Dirección de correo electrónico"
 #. module: mail
 #: model:ir.model,name:mail.model_mail_alias
 msgid "Email Aliases"
-msgstr "Seudónimos de correos"
+msgstr "Seudónimos de correo"
 
 #. module: mail
 #: model:ir.model,name:mail.model_mail_alias_mixin

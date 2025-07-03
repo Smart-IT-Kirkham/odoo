@@ -21384,7 +21384,7 @@ msgstr "Hong Kong - Muhasebe"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_hk_hr_payroll
 msgid "Hong Kong - Payroll"
-msgstr ""
+msgstr "Hong Kong - Bordro"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_hk_hr_payroll_hsbc_autopay
@@ -21394,7 +21394,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_hk_hr_payroll_account
 msgid "Hong Kong - Payroll with Accounting"
-msgstr ""
+msgstr "Hong Kong - Muhasebe ile Bordro"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_mail_server__smtp_host
@@ -31551,12 +31551,12 @@ msgstr "Suudi Arabistan - E-faturalama (Basitleştirilmiş)"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll
 msgid "Saudi Arabia - Payroll"
-msgstr ""
+msgstr "Suudi Arabistan - Bordro"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_hr_payroll_account
 msgid "Saudi Arabia - Payroll with Accounting"
-msgstr ""
+msgstr "Suudi Arabistan - Muhasebe ile Bordro"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_sa_pos
@@ -35750,12 +35750,12 @@ msgstr "Birleşik Arap Emirlikleri - Muhasebe"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll
 msgid "United Arab Emirates - Payroll"
-msgstr ""
+msgstr "Birleşik Arap Emirlikleri - Bordro"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_hr_payroll_account
 msgid "United Arab Emirates - Payroll with Accounting"
-msgstr ""
+msgstr "Birleşik Arap Emirlikleri - Muhasebe ile Bordro"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_ae_pos
