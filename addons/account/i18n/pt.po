@@ -19,9 +19,9 @@
 # Antonio Daniel, 2024
 # Arxi, 2024
 # Wil Odoo, 2024
-# Maitê Dietze, 2024
 # Pilar Vargas, 2024
 # Peter Lawrence Romão <peterromao@yahoo.co.uk>, 2025
+# Maitê Dietze, 2025
 # Daniel Reis, 2025
 # 
 msgid ""
@@ -5794,14 +5794,14 @@ msgstr "Valor do desconto na moeda corrente"
 #: code:addons/account/models/account_move.py:0
 #, python-format
 msgid "Discount of %(amount)s if paid today"
-msgstr ""
+msgstr "Desconto de %(amount)s se pago hoje"
 
 #. module: account
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
 #, python-format
 msgid "Discount of %(amount)s if paid within %(days)s days"
-msgstr ""
+msgstr "Desconto de %(amount)s se pago dentro de %(days)s dias"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_analytic_applicability__display_account_prefix
@@ -6230,7 +6230,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_register_form
 msgid "Early Payment Discount of"
-msgstr ""
+msgstr "Desconto por pagamento antecipado de"
 
 #. module: account
 #. odoo-python
@@ -15379,13 +15379,15 @@ msgstr ""
 msgid ""
 "This move is configured to be posted automatically at the accounting date:"
 msgstr ""
+"Este lançamento está configurado para ser lançado automaticamente na data "
+"contabilística:"
 
 #. module: account
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
 #, python-format
 msgid "This move will be posted at the accounting date: %(date)s"
-msgstr ""
+msgstr "Este lançamento será lançado na data contabilística: %(date)s"
 
 #. module: account
 #. odoo-javascript
@@ -16331,7 +16333,7 @@ msgstr "Faturas de Fornecedor"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__account_discount_income_allocation_id
 msgid "Vendor Bills Discounts Account"
-msgstr ""
+msgstr "Conta de descontos das contas do fornecedor"
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__account_invoice_report__move_type__in_refund
@@ -17387,7 +17389,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
 msgid "You should update this document to reflect your T&amp;C."
-msgstr ""
+msgstr "Você deve atualizar este documento para refletir seu T&amp;C."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.portal_my_home_invoice
@@ -17463,7 +17465,7 @@ msgstr "atribuir a fatura"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_move_form
 msgid "auto-posting enabled. Next accounting date:"
-msgstr ""
+msgstr "Lançamento automático habilitado. Próxima data contabilística:"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_default_terms_and_conditions
