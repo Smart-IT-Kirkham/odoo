@@ -1,7 +1,12 @@
-import { waitForEndOfOperation } from "@html_builder/../tests/helpers";
 import { expect, test } from "@odoo/hoot";
 import { waitForNone } from "@odoo/hoot-dom";
-import { contains, dataURItoBlob, defineModels, models, onRpc } from "@web/../tests/web_test_helpers";
+import {
+    contains,
+    dataURItoBlob,
+    defineModels,
+    models,
+    onRpc,
+} from "@web/../tests/web_test_helpers";
 import {
     defineWebsiteModels,
     setupWebsiteBuilder,
@@ -15,7 +20,7 @@ defineWebsiteModels();
 defineModels([ProductRibbon]);
 
 test("Product page options", async () => {
-    const { waitDomUpdated } = await setupWebsiteBuilder(`
+    const { waitSidebarUpdated } = await setupWebsiteBuilder(`
         <main>
             <div class="o_wsale_product_page">
                 <section
@@ -63,10 +68,9 @@ test("Product page options", async () => {
         return [];
     });
 
-    const base64Image = (
-        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5"
-        + "AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYIIA"
-    );
+    const base64Image =
+        "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAIAQMAAAD+wSzIAAAABlBMVEX///+/v7+jQ3Y5" +
+        "AAAADklEQVQI12P4AIX8EAgALgAD/aNpbtEAAAAASUVORK5CYIIA";
     onRpc("ir.attachment", "search_read", () => [
         {
             mimetype: "image/png",
@@ -82,14 +86,10 @@ test("Product page options", async () => {
             original: { id: 1, image_src: "/web/image/hoot.png", mimetype: "image/png" },
         };
     });
-    onRpc(
-        "/web/image/hoot.png",
-        () => {
-            // converted image won't be used if original is not larger
-            return dataURItoBlob(base64Image + "A".repeat(1000));
-        },
-        { pure: true },
-    );
+    onRpc("/web/image/hoot.png", () => {
+        // converted image won't be used if original is not larger
+        return dataURItoBlob(base64Image + "A".repeat(1000));
+    });
     onRpc("/html_editor/modify_image/1", () => {
         expect.step("modify_image");
         return base64Image; // Simulate image compression/convertion
@@ -106,12 +106,12 @@ test("Product page options", async () => {
     await contains("button#o_wsale_image_width").click();
     // Avoid selecting the first option to prevent the image layout option from disappearing
     await contains("[data-action-id=productPageImageWidth][data-action-value='50_pc']").click();
+    await waitSidebarUpdated();
     await expect.waitForSteps(["config"]);
-    await waitDomUpdated();
 
     await contains("button#o_wsale_image_layout").click();
     await contains("[data-action-id=productPageImageLayout]").click();
-    await waitForEndOfOperation();
+    await waitSidebarUpdated();
     await expect.waitForSteps([
         // Activate the carousel view and change the shop config
         "config",
@@ -123,7 +123,7 @@ test("Product page options", async () => {
         // Save the image changes
         "save",
         // Reload the view
-        "theme_customize_data_get"
+        "theme_customize_data_get",
     ]);
 
     // Make sure that clicking quickly on a builder button after an clicking on

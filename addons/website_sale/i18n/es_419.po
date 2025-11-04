@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-03 18:37+0000\n"
-"PO-Revision-Date: 2025-10-09 02:31+0000\n"
-"Last-Translator: \"Patricia Gutiérrez (pagc)\" <pagc@odoo.com>\n"
+"POT-Creation-Date: 2025-10-08 18:37+0000\n"
+"PO-Revision-Date: 2025-10-30 17:22+0000\n"
+"Last-Translator: \"Fernanda Alvarez (mfar)\" <mfar@odoo.com>\n"
 "Language-Team: Spanish (Latin America) <https://translate.odoo.com/projects/"
 "odoo-19/website_sale/es_419/>\n"
 "Language: es_419\n"
@@ -51,8 +51,8 @@ msgid ""
 "                 -"
 msgstr ""
 "&amp;copy;\n"
-"                <span class=\"o_footer_copyright_name align-baseline\""
-">Nombre de la empresa</span>\n"
+"                <span class=\"o_footer_copyright_name align-"
+"baseline\">Nombre de la empresa</span>\n"
 "                 -"
 
 #. module: website_sale
@@ -241,8 +241,8 @@ msgid ""
 "to cart</span>"
 msgstr ""
 "<i class=\"d-md-none fa fa-shopping-cart\" role=\"presentation\"/>\n"
-"                                    <span class=\"d-none d-md-inline\""
-">Agregar al carrito</span>"
+"                                    <span class=\"d-none d-md-"
+"inline\">Agregar al carrito</span>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.navigation_buttons
@@ -274,10 +274,10 @@ msgid ""
 ">\n"
 "                    <span class=\"o_label small ms-1\">Add to Cart</span>"
 msgstr ""
-"<i class=\"fa fa-fw fa-shopping-cart o_not-animable\" role=\"presentation\"/>"
-"\n"
-"                    <span class=\"o_label small ms-1\">Agregar al "
-"carrito</span>"
+"<i class=\"fa fa-fw fa-shopping-cart o_not-animable\" role=\"presentation\"/"
+">\n"
+"                    <span class=\"o_label small ms-1\">Agregar al carrito</"
+"span>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product_pages_kanban_view
@@ -307,7 +307,7 @@ msgstr "<i class=\"fa fa-print me-2\"/>Imprimir"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.quick_reorder_button
 msgid "<i class=\"fa fa-rotate-left me-2\"/>Quick reorder"
-msgstr "<i class=\"fa fa-rotate-left me-2\"/>Reordendo rápido"
+msgstr "<i class=\"fa fa-rotate-left me-2\"/>Reordenado rápido"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.sale_order_re_order_btn
@@ -324,8 +324,8 @@ msgid ""
 "<i class=\"fa fa-shopping-cart fa-fw\" role=\"presentation\"/><span "
 "class=\"o_label small ms-1\">Add to Cart</span>"
 msgstr ""
-"<i class=\"fa fa-shopping-cart fa-fw\" role=\"presentation\"/><span class="
-"\"o_label small ms-1\">Agregar al carrito</span>"
+"<i class=\"fa fa-shopping-cart fa-fw\" role=\"presentation\"/><span "
+"class=\"o_label small ms-1\">Agregar al carrito</span>"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.cta_wrapper
@@ -1837,7 +1837,7 @@ msgstr "Comparar al precio"
 #: model:ir.model.fields,field_description:website_sale.field_res_config_settings__group_product_price_comparison
 #: model:res.groups,name:website_sale.group_product_price_comparison
 msgid "Comparison Price"
-msgstr "Precio de comparación"
+msgstr "Precio comparativo"
 
 #. module: website_sale
 #: model:product.public.category,name:website_sale.public_category_desks_components
@@ -2322,12 +2322,12 @@ msgstr "Resumen"
 #: code:addons/website_sale/static/src/website_builder/product_page_option.xml:0
 #: model:ir.model.fields.selection,name:website_sale.selection__res_config_settings__account_on_checkout__disabled
 msgid "Disabled"
-msgstr "Deshabilitada"
+msgstr "Deshabilitado"
 
 #. module: website_sale
 #: model:ir.model.fields.selection,name:website_sale.selection__website__account_on_checkout__disabled
 msgid "Disabled (buy as guest)"
-msgstr "Deshabilitar (comprar como invitado)"
+msgstr "Deshabilitado (comprar como invitado)"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.coupon_form
@@ -3221,7 +3221,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/website_sale/controllers/main.py:0
 msgid "Invalid category."
-msgstr ""
+msgstr "Categoría inválida."
 
 #. module: website_sale
 #. odoo-python
@@ -4073,7 +4073,7 @@ msgstr "Embalaje"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_website_page
 msgid "Page"
-msgstr ""
+msgstr "Página"
 
 #. module: website_sale
 #. odoo-javascript
@@ -6126,7 +6126,7 @@ msgstr "Historial de vistas del producto"
 #. odoo-javascript
 #: code:addons/website_sale/static/src/website_builder/add_to_cart_option.xml:0
 msgid "Visitor's Choice"
-msgstr "Selección del visitante"
+msgstr "Elección del visitante"
 
 #. module: website_sale
 #: model:product.public.category,name:website_sale.public_category_furnitures_wardrobes

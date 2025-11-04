@@ -74,7 +74,7 @@ describe("Html Paste cleaning - whitelist", () => {
                 );
             },
             contentAfter:
-                '<p>123a</p><table class="table table-bordered"><tbody><tr><th>h</th></tr><tr><td>b</td></tr></tbody></table><p>d[]</p>',
+                '<p>123a</p><table class="table table-bordered o_table"><tbody><tr><th>h</th></tr><tr><td>b</td></tr></tbody></table><p>d[]</p>',
         });
     });
 
@@ -98,14 +98,13 @@ describe("Html Paste cleaning - whitelist", () => {
                 );
             },
             contentAfter: unformat(`
-                <table class="table table-bordered">
+                <table class="table table-bordered o_table">
                     <tbody>
                         <tr>
-                            <td><p><br></p></td>
+                            <td><p>[]<br></p></td>
                         </tr>
                     </tbody>
                 </table>
-                <p>[]<br></p>
             `),
         });
     });
@@ -3862,7 +3861,7 @@ describe("Paste HTML tables", () => {
 </div>`
                 );
             },
-            contentAfter: `<table class="table table-bordered">
+            contentAfter: `<table class="table table-bordered o_table">
 ${"            "}
 ${"            "}
             <tbody><tr>
@@ -3884,9 +3883,9 @@ ${"            "}
             </tr>
             <tr>
                 <td>14pt MONO TEXT
-                </td>
+                []</td>
             </tr>
-        </tbody></table><p>[]<br></p>`,
+        </tbody></table>`,
         });
     });
 
@@ -3961,7 +3960,7 @@ ${"            "}
 </google-sheets-html-origin>`
                 );
             },
-            contentAfter: `<table class="table table-bordered">
+            contentAfter: `<table class="table table-bordered o_table">
 ${"        "}
 ${"            "}
 ${"            "}
@@ -3994,10 +3993,10 @@ ${"        "}
                     text on color background</td>
             </tr>
             <tr>
-                <td>14pt MONO TEXT</td>
+                <td>14pt MONO TEXT[]</td>
             </tr>
         </tbody>
-    </table><p>[]<br></p>`,
+    </table>`,
         });
     });
 
@@ -4096,7 +4095,7 @@ ${"        "}
 </html>`
                 );
             },
-            contentAfter: `<table class="table table-bordered">
+            contentAfter: `<table class="table table-bordered o_table">
 ${"        "}
 ${"        "}
         <tbody><tr>
@@ -4123,12 +4122,44 @@ ${"        "}
         </tr>
         <tr>
             <td>
-                14pt MONO TEXT
+                14pt MONO TEXT[]
             </td>
         </tr>
-    </tbody></table><p>[]<br></p>`,
+    </tbody></table>`,
         });
     });
+
+    test("should apply default table classes (table, table-bordered, o_table) on paste", async () => {
+        await testEditor({
+            contentBefore: `
+                <p>[]<br></p>
+            `,
+            stepFunction: async (editor) => {
+                pasteHtml(
+                    editor,
+                    unformat(`
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `)
+                );
+            },
+            contentAfter: unformat(`
+                <table class="table table-bordered o_table">
+                    <tbody>
+                        <tr>
+                            <td><p>[]<br></p></td>
+                        </tr>
+                    </tbody>
+                </table>
+            `),
+        });
+    });
+
     test("should move all rows from thead to tbody", async () => {
         await testEditor({
             contentBefore: "<p>[]<br></p>",
@@ -4158,7 +4189,7 @@ ${"        "}
                 );
             },
             contentAfter: unformat(`
-                        <table class="table table-bordered">
+                        <table class="table table-bordered o_table">
                             <tbody>
                                 <tr>
                                     <th>1</th>
@@ -4170,11 +4201,10 @@ ${"        "}
                                 </tr>
                                 <tr>
                                     <td>1</td>
-                                    <td>2</td>
+                                    <td>2[]</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p>[]<br></p>
                     `),
         });
     });
@@ -4197,15 +4227,14 @@ ${"        "}
                 );
             },
             contentAfter: unformat(`
-                        <table class="table table-bordered">
+                        <table class="table table-bordered o_table">
                             <tbody>
                                 <tr>
                                     <th>1</th>
-                                    <th>2</th>
+                                    <th>2[]</th>
                                 </tr>
                             </tbody>
                         </table>
-                        <p>[]<br></p>
                     `),
         });
     });
