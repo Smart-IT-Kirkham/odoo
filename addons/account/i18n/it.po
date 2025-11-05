@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-07 18:36+0000\n"
-"PO-Revision-Date: 2025-08-18 11:03+0000\n"
+"POT-Creation-Date: 2025-10-30 18:35+0000\n"
+"PO-Revision-Date: 2025-11-03 20:30+0000\n"
 "Last-Translator: \"Marianna Ciofani (cima)\" <cima@odoo.com>\n"
 "Language-Team: Italian <https://translate.odoo.com/projects/odoo-17/account/"
 "it/>\n"
@@ -2193,11 +2193,11 @@ msgstr "Ratei e risconti"
 #: code:addons/account/wizard/accrued_orders.py:0
 #, python-format
 msgid ""
-"Accrual entry created on %(date)s: %(accrual_entry)s.                    And "
-"its reverse entry: %(reverse_entry)s."
+"Accrual entry created on %(date)s: %(accrual_entry)s.                And its "
+"reverse entry: %(reverse_entry)s."
 msgstr ""
-"Registrazione di competenza creata il %(date)s: "
-"%(accrual_entry)s.                    Storno: %(reverse_entry)s."
+"Registrazione per competenza creata il %(date)s: %(accrual_entry)"
+"s.                Storno: %(reverse_entry)s."
 
 #. module: account
 #. odoo-python
@@ -9062,6 +9062,11 @@ msgstr "Luglio"
 #: model:ir.model.fields.selection,name:account.selection__res_company__fiscalyear_last_month__6
 msgid "June"
 msgstr "Giugno"
+
+#. module: account
+#: model:ir.model,name:account.model_kpi_provider
+msgid "KPI Provider"
+msgstr "Fornitore KPI"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__kanban_dashboard
@@ -18444,6 +18449,14 @@ msgid ""
 msgstr ""
 "Ricevuta di pagamento {{ object.company_id.name }} (rif. {{ object.name or "
 "'n/d' }})"
+
+#, python-format
+#~ msgid ""
+#~ "Accrual entry created on %(date)s: %(accrual_entry)s.                    "
+#~ "And its reverse entry: %(reverse_entry)s."
+#~ msgstr ""
+#~ "Registrazione di competenza creata il %(date)s: "
+#~ "%(accrual_entry)s.                    Storno: %(reverse_entry)s."
 
 #, python-format
 #~ msgid ""

@@ -2646,6 +2646,10 @@ class AccountMove(models.Model):
         '''
         self.ensure_one()
 
+        # No cash basis journal entry should be created for an account move in a bank or cash journal
+        if self.journal_id.type in ('bank', 'cash'):
+            return None
+
         values = {
             'move': self,
             'to_process_lines': [],
@@ -3291,17 +3295,22 @@ class AccountMove(models.Model):
 
         # Collect the computed tax_amount_currency/tax_amount from the taxes computation.
         tax_details_per_rep_line = {}
-        for _base_line, _to_update_vals, tax_values_list in to_process:
-            for tax_values in tax_values_list:
-                tax_rep_id = tax_values['tax_repartition_line_id']
-                tax_rep_amounts = tax_details_per_rep_line.setdefault(tax_rep_id, {
-                    'tax_amount_currency': 0.0,
-                    'tax_amount': 0.0,
-                    'distribute_on': [],
-                })
-                tax_rep_amounts['tax_amount_currency'] += tax_values['tax_amount_currency']
-                tax_rep_amounts['tax_amount'] += tax_values['tax_amount']
-                tax_rep_amounts['distribute_on'].append(tax_values)
+        aggregated_taxes = self.env['account.tax'].with_company(self.company_id)._aggregate_taxes(
+            to_process,
+            filter_tax_values_to_apply=filter_tax_values_to_apply,
+        )
+        for tax_index, tax_values in aggregated_taxes['tax_details'].items():
+            group_tax_details = tax_values['group_tax_details']
+            tax_rep_id = group_tax_details[0]['tax_repartition_line'].id
+            tax_rep_amounts = tax_details_per_rep_line.setdefault(tax_rep_id, {
+                'tax_amount_currency': 0.0,
+                'tax_amount': 0.0,
+                'distribute_on': [],
+            })
+            tax_rep_amounts['tax_amount_currency'] += tax_values['tax_amount_currency']
+            tax_rep_amounts['tax_amount'] += tax_values['tax_amount']
+            for tax_details in group_tax_details:
+                tax_rep_amounts['distribute_on'].append(tax_details)
 
         # Dispatch the delta on tax_values.
         for key, currency in (('tax_amount_currency', self.currency_id), ('tax_amount', self.company_currency_id)):
@@ -4017,7 +4026,7 @@ class AccountMove(models.Model):
 
     def _link_bill_origin_to_purchase_orders(self, timeout=10):
         for move in self.filtered(lambda m: m.move_type in self.get_purchase_types()):
-            references = [move.invoice_origin] if move.invoice_origin else []
+            references = [ref.strip() for ref in move.invoice_origin.split(',')] if move.invoice_origin else []
             move._find_and_set_purchase_orders(references, move.partner_id.id, move.amount_total, timeout=timeout)
         return self
 
@@ -4834,7 +4843,11 @@ class AccountMove(models.Model):
             'invoice_source_email': from_mail_addresses[0],
             'partner_id': partners and partners[0].id or False,
         }
-        move_ctx = self.with_context(default_move_type=custom_values['move_type'], default_journal_id=custom_values['journal_id'])
+        move_ctx = self.with_context(
+            default_move_type=custom_values['move_type'],
+            default_journal_id=custom_values['journal_id'],
+            default_company_id=company.id,
+        )
         move = super(AccountMove, move_ctx).message_new(msg_dict, custom_values=values)
         move._compute_name()  # because the name is given, we need to recompute in case it is the first invoice of the journal
 
