@@ -737,7 +737,7 @@ export class Rtc extends Record {
                 }
                 for (const [id, info] of Object.entries(payload)) {
                     const session = await this.store.RtcSession.getWhenReady(Number(id));
-                    if (!this.state.channel || session?.eq(this.selfSession)) {
+                    if (!this.state.channel || !session || session.eq(this.selfSession)) {
                         return;
                     }
                     // `isRaisingHand` is turned into the Date `raisingHand`
@@ -1330,6 +1330,9 @@ export class Rtc extends Record {
                 );
                 this.store.settings.useBlur = false;
             }
+        } else if (!this.store.settings.useBlur && type === "camera") {
+            this.blurManager?.close();
+            this.blurManager = undefined;
         }
         switch (type) {
             case "camera": {

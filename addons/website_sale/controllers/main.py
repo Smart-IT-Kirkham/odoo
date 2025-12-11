@@ -233,7 +233,7 @@ class WebsiteSale(payment_portal.PaymentPortal):
     ], type='http', auth="public", website=True, sitemap=sitemap_shop)
     def shop(self, page=0, category=None, search='', min_price=0.0, max_price=0.0, ppg=False, **post):
         if not request.website.has_ecommerce_access():
-            return request.redirect('/web/login')
+            return request.redirect(f'/web/login?redirect={request.httprequest.path}')
         try:
             min_price = float(min_price)
         except ValueError:
@@ -361,7 +361,12 @@ class WebsiteSale(payment_portal.PaymentPortal):
         if filter_by_tags_enabled and search_product:
             all_tags = ProductTag.search(
                 expression.AND([
-                    [('product_ids.is_published', '=', True), ('visible_on_ecommerce', '=', True)],
+                    [
+                        ('visible_on_ecommerce', '=', True),
+                        '|',
+                        ('product_template_ids.is_published', '=', True),
+                        ('product_product_ids.is_published', '=', True),
+                    ],
                     website_domain
                 ])
             )
@@ -460,7 +465,7 @@ class WebsiteSale(payment_portal.PaymentPortal):
     @route(['/shop/<model("product.template"):product>'], type='http', auth="public", website=True, sitemap=sitemap_products, readonly=True)
     def product(self, product, category='', search='', **kwargs):
         if not request.website.has_ecommerce_access():
-            return request.redirect('/web/login')
+            return request.redirect(f'/web/login?redirect={request.httprequest.path}')
 
         return request.render("website_sale.product", self._prepare_product_values(product, category, search, **kwargs))
 
@@ -757,7 +762,7 @@ class WebsiteSale(payment_portal.PaymentPortal):
         revive: Revival method when abandoned cart. Can be 'merge' or 'squash'
         """
         if not request.website.has_ecommerce_access():
-            return request.redirect('/web/login')
+            return request.redirect('/web/login?redirect=/shop/cart')
 
         order = request.website.sale_get_order()
         if order and order.state != 'draft':
@@ -1871,6 +1876,16 @@ class WebsiteSale(payment_portal.PaymentPortal):
             'sale_order_id': order.id,  # Allow Stripe to check if tokenization is required.
         }
         return checkout_page_values | payment_form_values
+
+    @route(
+        _express_checkout_delivery_route + '/compute_taxes', type='json', auth='public',
+        website=True, sitemap=False,
+    )
+    def express_checkout_shipping_address_compute_taxes(self):
+        order_sudo = request.website.sale_get_order()
+        order_sudo._recompute_taxes()
+
+        return payment_utils.to_minor_currency_units(order_sudo.amount_total, order_sudo.currency_id)
 
     def _get_shop_payment_errors(self, order):
         """ Check that there is no error that should block the payment.
