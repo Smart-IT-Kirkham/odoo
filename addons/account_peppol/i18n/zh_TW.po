@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-04 18:36+0000\n"
+"POT-Creation-Date: 2025-12-25 18:35+0000\n"
 "PO-Revision-Date: 2023-10-26 23:09+0000\n"
 "Last-Translator: Tony Ng, 2025\n"
 "Language-Team: Chinese (Taiwan) (https://app.transifex.com/odoo/teams/41243/"
@@ -198,11 +198,6 @@ msgid "Cannot cancel an entry that has already been sent to PEPPOL"
 msgstr "無法取消已傳送至 Peppol 的記項"
 
 #. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid_format
-msgid "Cannot receive this format"
-msgstr "未能接收此格式"
-
-#. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
@@ -334,6 +329,13 @@ msgid "Incoming Invoices Journal"
 msgstr "收到發票日記賬"
 
 #. module: account_peppol
+#. odoo-python
+#: code:addons/account_peppol/wizard/account_move_send.py:0
+#, python-format
+msgid "Invoice %s is too big to send via peppol (64MB limit)"
+msgstr ""
+
+#. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_res_partner__is_peppol_edi_format
 #: model:ir.model.fields,field_description:account_peppol.field_res_users__is_peppol_edi_format
 msgid "Is Peppol Edi Format"
@@ -389,19 +391,9 @@ msgid "Not registered"
 msgstr "未設立"
 
 #. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid
-msgid "Not valid"
-msgstr "無效"
-
-#. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__res_company__account_peppol_proxy_state__not_verified
 msgid "Not verified"
 msgstr "未驗證"
-
-#. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_verified
-msgid "Not verified yet"
-msgstr "尚未驗證"
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.mail_notification_layout_with_responsible_signature_and_peppol
@@ -461,6 +453,21 @@ msgstr "Peppol：更新訊息狀態"
 #: model:ir.actions.server,name:account_peppol.ir_cron_peppol_get_participant_status_ir_actions_server
 msgid "PEPPOL: update participant status"
 msgstr "Peppol：更新參與者狀態"
+
+#. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid_format
+msgid "Partner cannot receive format"
+msgstr ""
+
+#. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid
+msgid "Partner is not on Peppol"
+msgstr ""
+
+#. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__valid
+msgid "Partner is on Peppol"
+msgstr ""
 
 #. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__res_company__account_peppol_proxy_state__pending
@@ -524,12 +531,6 @@ msgid "Peppol e-address (EAS)"
 msgstr "Peppol 電子地址（EAS）"
 
 #. module: account_peppol
-#: model:ir.model.fields,field_description:account_peppol.field_res_partner__account_peppol_verification_label
-#: model:ir.model.fields,field_description:account_peppol.field_res_users__account_peppol_verification_label
-msgid "Peppol endpoint validity"
-msgstr "Peppol 終端點有效性"
-
-#. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/account_edi_proxy_user.py:0
 #, python-format
@@ -542,6 +543,8 @@ msgid "Peppol ready invoices"
 msgstr "Peppol 現成發票"
 
 #. module: account_peppol
+#: model:ir.model.fields,field_description:account_peppol.field_res_partner__account_peppol_verification_label
+#: model:ir.model.fields,field_description:account_peppol.field_res_users__account_peppol_verification_label
 #: model_terms:ir.ui.view,arch_db:account_peppol.account_peppol_view_account_invoice_filter
 msgid "Peppol status"
 msgstr "Peppol 狀態"
@@ -674,6 +677,13 @@ msgid "Skipped"
 msgstr "忽略"
 
 #. module: account_peppol
+#. odoo-python
+#: code:addons/account_peppol/wizard/account_move_send.py:0
+#, python-format
+msgid "Some attachments could not be sent with the XML:"
+msgstr ""
+
+#. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
 msgid ""
 "Start sending and receiving documents via Peppol as soon as your "
@@ -723,13 +733,6 @@ msgstr "所使用的 Peppol 服務很可能是 %s。"
 
 #. module: account_peppol
 #. odoo-python
-#: code:addons/account_peppol/wizard/account_move_send.py:0
-#, python-format
-msgid "The document has been sent to the Peppol Access Point for processing"
-msgstr "文件已發送至 Peppol 接入點進行處理"
-
-#. module: account_peppol
-#. odoo-python
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
 msgid ""
@@ -748,6 +751,15 @@ msgid ""
 msgstr ""
 "以下合作夥伴的設定不正確，未能接收 Peppol 文件。請檢查及驗證其 Peppol 終端點"
 "以及電子發票格式： %s"
+
+#. module: account_peppol
+#. odoo-python
+#: code:addons/account_peppol/wizard/account_move_send.py:0
+#, python-format
+msgid ""
+"The invoice has been sent to the Peppol Access Point. The following "
+"attachments were sent with the XML:"
+msgstr ""
 
 #. module: account_peppol
 #. odoo-python
@@ -830,6 +842,11 @@ msgid "Too many attempts to request an SMS code. Please try again later."
 msgstr "要求簡訊代碼的嘗試次數太多。請稍後再試。"
 
 #. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_verified
+msgid "Unchecked"
+msgstr ""
+
+#. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_company__peppol_endpoint
 #: model:ir.model.fields,help:account_peppol.field_res_config_settings__account_peppol_endpoint
 msgid ""
@@ -855,11 +872,6 @@ msgid ""
 "Using the config params, this field specifies which edi modes may be "
 "selected from the UI"
 msgstr "通過配置參數，該欄位可指定可從用戶界面選擇哪些 edi 模式"
-
-#. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__valid
-msgid "Valid"
-msgstr "有效"
 
 #. module: account_peppol
 #. odoo-javascript
@@ -976,6 +988,25 @@ msgstr "以傳送發票，但這個"
 #: model_terms:ir.ui.view,arch_db:account_peppol.mail_notification_layout_with_responsible_signature_and_peppol
 msgid "uses"
 msgstr "使用"
+
+#~ msgid "Cannot receive this format"
+#~ msgstr "未能接收此格式"
+
+#~ msgid "Not valid"
+#~ msgstr "無效"
+
+#~ msgid "Not verified yet"
+#~ msgstr "尚未驗證"
+
+#~ msgid "Peppol endpoint validity"
+#~ msgstr "Peppol 終端點有效性"
+
+#~ msgid "Valid"
+#~ msgstr "有效"
+
+#, python-format
+#~ msgid "The document has been sent to the Peppol Access Point for processing"
+#~ msgstr "文件已發送至 Peppol 接入點進行處理"
 
 #, python-format
 #~ msgid "Your confirmation code is"

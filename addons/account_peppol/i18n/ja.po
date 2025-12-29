@@ -1,24 +1,27 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* account_peppol
+# * account_peppol
 #
 # Translators:
 # Wil Odoo, 2024
 # Junko Augias, 2025
 #
+# Weblate <noreply-mt-weblate@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-04 18:36+0000\n"
-"PO-Revision-Date: 2023-10-26 23:09+0000\n"
-"Last-Translator: Junko Augias, 2025\n"
-"Language-Team: Japanese (https://app.transifex.com/odoo/teams/41243/ja/)\n"
+"POT-Creation-Date: 2025-12-25 18:35+0000\n"
+"PO-Revision-Date: 2025-12-27 08:25+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-17/"
+"account_peppol/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.14.3\n"
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.mail_notification_layout_with_responsible_signature_and_peppol
@@ -201,11 +204,6 @@ msgid "Cannot cancel an entry that has already been sent to PEPPOL"
 msgstr "PEPPOLに送信済みのエントリをキャンセルすることはできません。"
 
 #. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid_format
-msgid "Cannot receive this format"
-msgstr "このフォーマットを受信できません"
-
-#. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
@@ -340,6 +338,13 @@ msgid "Incoming Invoices Journal"
 msgstr "受入請求仕訳帳"
 
 #. module: account_peppol
+#. odoo-python
+#: code:addons/account_peppol/wizard/account_move_send.py:0
+#, python-format
+msgid "Invoice %s is too big to send via peppol (64MB limit)"
+msgstr "請求書%s は、Peppol経由で送信するには大きすぎます(サイズ制限64MB)"
+
+#. module: account_peppol
 #: model:ir.model.fields,field_description:account_peppol.field_res_partner__is_peppol_edi_format
 #: model:ir.model.fields,field_description:account_peppol.field_res_users__is_peppol_edi_format
 msgid "Is Peppol Edi Format"
@@ -395,19 +400,9 @@ msgid "Not registered"
 msgstr "登録されていません"
 
 #. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid
-msgid "Not valid"
-msgstr "無効です"
-
-#. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__res_company__account_peppol_proxy_state__not_verified
 msgid "Not verified"
 msgstr "未検証"
-
-#. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_verified
-msgid "Not verified yet"
-msgstr "まだ検証されていません"
 
 #. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.mail_notification_layout_with_responsible_signature_and_peppol
@@ -467,6 +462,21 @@ msgstr "PEPPOL：メッセージステータスを更新"
 #: model:ir.actions.server,name:account_peppol.ir_cron_peppol_get_participant_status_ir_actions_server
 msgid "PEPPOL: update participant status"
 msgstr "PEPPOL：参加者ステータスを更新"
+
+#. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid_format
+msgid "Partner cannot receive format"
+msgstr "パートナーはフォーマットを受信できません"
+
+#. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_valid
+msgid "Partner is not on Peppol"
+msgstr "取引先はPeppolに登録されていません"
+
+#. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__valid
+msgid "Partner is on Peppol"
+msgstr "取引先はPeppolを利用しています"
 
 #. module: account_peppol
 #: model:ir.model.fields.selection,name:account_peppol.selection__res_company__account_peppol_proxy_state__pending
@@ -530,12 +540,6 @@ msgid "Peppol e-address (EAS)"
 msgstr "Peppol e-address (EAS)"
 
 #. module: account_peppol
-#: model:ir.model.fields,field_description:account_peppol.field_res_partner__account_peppol_verification_label
-#: model:ir.model.fields,field_description:account_peppol.field_res_users__account_peppol_verification_label
-msgid "Peppol endpoint validity"
-msgstr "Peppolエンドポイント有効性"
-
-#. module: account_peppol
 #. odoo-python
 #: code:addons/account_peppol/models/account_edi_proxy_user.py:0
 #, python-format
@@ -548,6 +552,8 @@ msgid "Peppol ready invoices"
 msgstr "Peppol準備完了請求書"
 
 #. module: account_peppol
+#: model:ir.model.fields,field_description:account_peppol.field_res_partner__account_peppol_verification_label
+#: model:ir.model.fields,field_description:account_peppol.field_res_users__account_peppol_verification_label
 #: model_terms:ir.ui.view,arch_db:account_peppol.account_peppol_view_account_invoice_filter
 msgid "Peppol status"
 msgstr "Peppolステータス"
@@ -680,6 +686,13 @@ msgid "Skipped"
 msgstr "無効回答"
 
 #. module: account_peppol
+#. odoo-python
+#: code:addons/account_peppol/wizard/account_move_send.py:0
+#, python-format
+msgid "Some attachments could not be sent with the XML:"
+msgstr "一部の添付ファイルはXMLで送信できませんでした："
+
+#. module: account_peppol
 #: model_terms:ir.ui.view,arch_db:account_peppol.res_config_settings_view_form
 msgid ""
 "Start sending and receiving documents via Peppol as soon as your "
@@ -729,13 +742,6 @@ msgstr "使用されているPeppolサービスは%sのようです。"
 
 #. module: account_peppol
 #. odoo-python
-#: code:addons/account_peppol/wizard/account_move_send.py:0
-#, python-format
-msgid "The document has been sent to the Peppol Access Point for processing"
-msgstr "このドキュメントは処理のためPeppolアクセスポイントに送信されました。"
-
-#. module: account_peppol
-#. odoo-python
 #: code:addons/account_peppol/models/res_config_settings.py:0
 #, python-format
 msgid ""
@@ -756,6 +762,17 @@ msgid ""
 msgstr ""
 "以下の取引先のPeppolドキュメントの受信が正しく設定されていません。Peppolエン"
 "ドポイントと電子請求書フォーマットをご確認下さい：%s"
+
+#. module: account_peppol
+#. odoo-python
+#: code:addons/account_peppol/wizard/account_move_send.py:0
+#, python-format
+msgid ""
+"The invoice has been sent to the Peppol Access Point. The following "
+"attachments were sent with the XML:"
+msgstr ""
+"請求書はPeppolアクセスポイントに送信されました。以下の添付ファイルがXMLと共に"
+"送信されました："
 
 #. module: account_peppol
 #. odoo-python
@@ -843,6 +860,11 @@ msgid "Too many attempts to request an SMS code. Please try again later."
 msgstr "SMSコードのリクエストが多すぎます。後でもう一度お試し下さい。"
 
 #. module: account_peppol
+#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__not_verified
+msgid "Unchecked"
+msgstr "未確認"
+
+#. module: account_peppol
 #: model:ir.model.fields,help:account_peppol.field_res_company__peppol_endpoint
 #: model:ir.model.fields,help:account_peppol.field_res_config_settings__account_peppol_endpoint
 msgid ""
@@ -871,11 +893,6 @@ msgid ""
 "selected from the UI"
 msgstr ""
 "コンフィグパラメータを使って、UIからどのediモードを選択できるかを指定します。"
-
-#. module: account_peppol
-#: model:ir.model.fields.selection,name:account_peppol.selection__res_partner__account_peppol_verification_label__valid
-msgid "Valid"
-msgstr "有効"
 
 #. module: account_peppol
 #. odoo-javascript
@@ -994,6 +1011,26 @@ msgstr "請求書を送信するには、しかし、この請求書は"
 #: model_terms:ir.ui.view,arch_db:account_peppol.mail_notification_layout_with_responsible_signature_and_peppol
 msgid "uses"
 msgstr "ユーザー"
+
+#~ msgid "Cannot receive this format"
+#~ msgstr "このフォーマットを受信できません"
+
+#~ msgid "Not valid"
+#~ msgstr "無効です"
+
+#~ msgid "Not verified yet"
+#~ msgstr "まだ検証されていません"
+
+#~ msgid "Peppol endpoint validity"
+#~ msgstr "Peppolエンドポイント有効性"
+
+#~ msgid "Valid"
+#~ msgstr "有効"
+
+#, python-format
+#~ msgid "The document has been sent to the Peppol Access Point for processing"
+#~ msgstr ""
+#~ "このドキュメントは処理のためPeppolアクセスポイントに送信されました。"
 
 #, python-format
 #~ msgid "Your confirmation code is"

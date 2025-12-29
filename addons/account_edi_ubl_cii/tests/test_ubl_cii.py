@@ -2,6 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from lxml import etree
+from unittest import SkipTest
 from unittest.mock import patch
 
 from odoo import fields, Command
@@ -9,6 +10,11 @@ from odoo.addons.account.tests.common import AccountTestInvoicingCommon
 from odoo.tests import tagged
 from odoo.tools import file_open
 from odoo.tools.safe_eval import datetime
+
+try:
+    from odoo.addons.test_mimetypes.tests.test_guess_mimetypes import contents
+except ImportError:
+    contents = None
 
 
 @tagged('post_install', '-at_install')
@@ -608,3 +614,136 @@ class TestAccountEdiUblCii(AccountTestInvoicingCommon):
         # Importing should not try to create multiple partner bank records with the same account number.
         # It would cause a traceback due to a unique constraint on the (sanitized) account number, partner pair.
         self.env['account.edi.common']._import_retrieve_and_fill_partner_bank_details(invoice, [acc_number, acc_number])
+
+    def test_send_and_print_extra_attachments(self):
+        if self.env['ir.module.module']._get('test_mimetypes').state != 'installed':
+            raise SkipTest("Module required for the test is not installed (test_mimetypes)")
+        self.partner_a.country_id = self.env.ref('base.be')
+        self.partner_a.commercial_partner_id.ubl_cii_format = 'ubl_bis3'
+        invoice = self.env['account.move'].create({
+            'partner_id': self.partner_a.id,
+            'move_type': 'out_invoice',
+            'invoice_line_ids': [Command.create({'product_id': self.product_a.id})]
+        })
+        invoice.action_post()
+
+        # Supported
+        xlsx_attachment = self.env['ir.attachment'].create({
+            'name': 'xlsx attachment',
+            'raw': contents('xlsx'),
+            'mimetype': 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        })
+        # Not supported
+        docx_attachment = self.env['ir.attachment'].create({
+            'name': 'docx attachment',
+            'raw': contents('docx'),
+            'mimetype': 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+        })
+        xml_attachment = self.env['ir.attachment'].create({
+            'name': 'xml attachment',
+            'raw': "<?xml version='1.0' encoding='UTF-8'?><test/>",
+            'mimetype': 'application/xml',
+        })
+        txt_attachment = self.env['ir.attachment'].create({
+            'name': 'txt attachment',
+            'raw': b'txt attachment'
+        })
+
+        template = self.env.ref('account.email_template_edi_invoice', raise_if_not_found=False)
+        wizard = self.env['account.move.send'].create({
+            'move_ids': invoice.ids,
+            'mail_template_id': template.id,
+        })
+        wizard.checkbox_download = False
+        wizard.checkbox_send_mail = False
+        wizard.checkbox_send_by_post = False
+        wizard.checkbox_ubl_cii_xml = True
+        wizard.mail_attachments_widget = wizard.mail_attachments_widget + [{
+            'id': attachment.id,
+            'name': attachment.name,
+            'mimetype': attachment.mimetype,
+            'placeholder': False,
+            'manual': True,
+        } for attachment in [xlsx_attachment, docx_attachment, xml_attachment, txt_attachment]]
+
+        wizard.action_send_and_print()
+
+        self.assertTrue(invoice.ubl_cii_xml_id)
+        tree = etree.fromstring(invoice.ubl_cii_xml_id.raw)
+
+        attachments_elements = tree.findall('./{*}AdditionalDocumentReference')
+
+        self.assertEqual(len(attachments_elements), 2)
+        self.assertEqual(attachments_elements[0].find('{*}ID').text, invoice.invoice_pdf_report_id.name)
+        self.assertEqual(attachments_elements[1].find('{*}ID').text, xlsx_attachment.name)
+
+    def test_facturx_use_correct_vat(self):
+        """Test that Factur-X uses the foreign VAT when available, else the company VAT."""
+        germany = self.env.ref("base.de")
+
+        company = self.env.company
+        company.vat = '931736581'
+        self.partner_a.country_id = germany.id
+        self.partner_a.ubl_cii_format = 'facturx'
+        self.partner_b.country_id = company.country_id.id
+        self.partner_b.ubl_cii_format = 'facturx'
+
+        tax_group = self.env['account.tax.group'].create({
+            'name': 'German Taxes',
+            'company_id': company.id,
+            'country_id': germany.id,
+        })
+        tax = self.env['account.tax'].create({
+            'name': 'DE VAT 19%',
+            'amount': 19,
+            'amount_type': 'percent',
+            'type_tax_use': 'sale',
+            'country_id': germany.id,
+            'tax_group_id': tax_group.id,
+        })
+
+        fiscal_position = self.env['account.fiscal.position'].create({
+            'name': 'German FP',
+            'vat_required': True,
+            'foreign_vat': 'DE123456788',
+            'country_id': germany.id,
+        })
+
+        invoice_with_fp = self.env['account.move'].create({
+            'partner_id': self.partner_a.id,
+            'move_type': 'out_invoice',
+            'fiscal_position_id': fiscal_position.id,
+            'invoice_date': fields.Date.from_string('2025-12-22'),
+            'invoice_line_ids': [Command.create({
+                'product_id': self.product_a.id,
+                'tax_ids': [Command.set(tax.ids)],
+            })],
+        })
+        local_invoice = self.env['account.move'].create({
+            'partner_id': self.partner_b.id,
+            'move_type': 'out_invoice',
+            'invoice_date': fields.Date.from_string('2025-12-22'),
+            'invoice_line_ids': [Command.create({
+                'product_id': self.product_a.id,
+            })],
+        })
+        invoice_with_fp.action_post()
+        local_invoice.action_post()
+
+        # Check XML for foreign VAT
+        xml_bytes = self.env["account.edi.xml.cii"]._export_invoice(invoice_with_fp)[0]
+        xml_tree = etree.fromstring(xml_bytes)
+        node = xml_tree.xpath("//ram:ID[@schemeID='VA']", namespaces={
+            "ram": "urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100",
+            "rsm": "urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100",
+        })
+        self.assertEqual(node[0].text, fiscal_position.foreign_vat, "Foreign Fiscal Position VAT")
+
+        # Check XML for company VAT fallback
+        xml_bytes = self.env["account.edi.xml.cii"]._export_invoice(local_invoice)[0]
+        xml_tree = etree.fromstring(xml_bytes)
+        node = xml_tree.xpath("//ram:ID[@schemeID='VA']", namespaces={
+            "ram": "urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100",
+            "rsm": "urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100",
+        })
+        self.assertEqual(node[0].text, company.vat, "Company VAT fallback")
