@@ -27,6 +27,7 @@ registry.category("web_tour.tours").add("ProductScreenTour", {
             // Go by default to home category
 
             Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
             OfflineUtil.setOfflineMode(),
             ProductScreen.firstProductIsFavorite("Whiteboard Pen"),
             // Make sure we don't have any scroll bar on the product list
@@ -184,6 +185,7 @@ registry.category("web_tour.tours").add("FloatingOrderTour", {
     steps: () =>
         [
             Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
             ProductScreen.orderIsEmpty(),
             ProductScreen.clickDisplayedProduct("Desk Organizer", true, "1.0", "5.10"),
             ProductScreen.clickDisplayedProduct("Desk Organizer", true, "2.0", "10.20"),
@@ -959,7 +961,7 @@ registry.category("web_tour.tours").add("test_barcode_search_attributes_preset",
         ].flat(),
 });
 
-registry.category("web_tour.tours").add("test_remove_archived_product_from_cache", {
+registry.category("web_tour.tours").add("test_archived_product_removed_and_order_is_refunded", {
     steps: () =>
         [
             Chrome.startPoS(),
@@ -998,17 +1000,27 @@ registry.category("web_tour.tours").add("test_remove_archived_product_from_cache
             BackendUtils.openShopSession("Shop"),
             Dialog.confirm("Open Register"),
             ProductScreen.productIsDisplayed("A Test Product").map(negateStep),
+            // Refund.
+            Chrome.clickOrders(),
+            TicketScreen.selectFilter("Paid"),
+            TicketScreen.selectOrder("0001"),
+            TicketScreen.confirmRefund(),
+            PaymentScreen.clickPaymentMethod("Bank"),
+            PaymentScreen.clickValidate(),
+            ReceiptScreen.isShown(),
         ].flat(),
 });
 
 registry.category("web_tour.tours").add("test_preset_timing_retail", {
     steps: () =>
         [
+            Chrome.freezeDateTime(1764583200000), // 1 dec 2025 - 10:00
             Chrome.startPoS(),
             Dialog.confirm("Open Register"),
             ProductScreen.clickDisplayedProduct("Desk Organizer"),
             ProductScreen.selectPreset("Dine in", "Delivery"),
             PartnerList.clickPartner("A simple PoS man!"),
+            Chrome.presetTimingSlotHourNotExists("09:00"),
             Chrome.selectPresetTimingSlotHour("15:00"),
             Chrome.presetTimingSlotIs("15:00"),
             Chrome.createFloatingOrder(),

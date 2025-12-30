@@ -1,4 +1,4 @@
-import { test, expect } from "@odoo/hoot";
+import { test, expect, describe } from "@odoo/hoot";
 import { setupPosEnv, getFilledOrder } from "../utils";
 import { definePosModels } from "../data/generate_model_definitions";
 
@@ -12,6 +12,10 @@ function getAllPricesData(otherData = {}) {
                 name: "Test Order",
                 lines: [1],
             },
+            {
+                id: 2,
+                name: "Test Combo order",
+            },
         ],
         "pos.order.line": [
             {
@@ -21,6 +25,33 @@ function getAllPricesData(otherData = {}) {
                 price_unit: 100.0,
                 qty: 2,
                 tax_ids: [1],
+            },
+            {
+                id: 2,
+                order_id: 2,
+                product_id: 7,
+                price_unit: 0.0,
+                qty: 1,
+                combo_line_ids: [3, 4],
+                tax_ids: [],
+            },
+            {
+                id: 3,
+                order_id: 2,
+                product_id: 8,
+                price_unit: 1,
+                qty: 2,
+                combo_parent_id: 2,
+                tax_ids: [],
+            },
+            {
+                id: 4,
+                order_id: 2,
+                product_id: 10,
+                price_unit: 8,
+                qty: 1,
+                combo_parent_id: 2,
+                tax_ids: [],
             },
         ],
         ...otherData,
@@ -172,6 +203,30 @@ test("[setQuantity] Base test", async () => {
     expect(orderLine.qty).toBe(2.78);
     orderLine.setQuantity(2.771);
     expect(orderLine.qty).toBe(2.77);
+
+    const comboOrderline = data["pos.order.line"][1];
+    const comboChild1 = data["pos.order.line"][2];
+    const comboChild2 = data["pos.order.line"][3];
+    expect(comboOrderline.qty).toBe(1);
+    expect(comboChild1.qty).toBe(2);
+    expect(comboChild2.qty).toBe(1);
+    expect(comboOrderline.price_unit).toBe(0);
+    expect(comboChild1.price_unit).toBe(1);
+    expect(comboChild2.price_unit).toBe(8);
+    comboOrderline.setQuantity(3, true);
+    expect(comboOrderline.qty).toBe(3);
+    expect(comboChild1.qty).toBe(6);
+    expect(comboChild2.qty).toBe(3);
+    expect(comboOrderline.price_unit).toBe(0);
+    expect(comboChild1.price_unit).toBe(1);
+    expect(comboChild2.price_unit).toBe(8);
+    comboOrderline.setQuantity(2, true);
+    expect(comboOrderline.qty).toBe(2);
+    expect(comboChild1.qty).toBe(4);
+    expect(comboChild2.qty).toBe(2);
+    expect(comboOrderline.price_unit).toBe(0);
+    expect(comboChild1.price_unit).toBe(1);
+    expect(comboChild2.price_unit).toBe(8);
 });
 
 test("[canBeMergedWith]: Base test", async () => {
@@ -198,13 +253,48 @@ test("[canBeMergedWith]: Base test", async () => {
     expect(line1.qty).toBe(5);
 });
 
-test("Test taxes after fiscal position", async () => {
-    const store = await setupPosEnv();
-    const models = store.models;
-    const dataDict = getAllPricesData();
-    dataDict["pos.order"][0]["fiscal_position_id"] = 2;
-    const data = models.loadConnectedData(dataDict);
-    const orderLine = data["pos.order.line"][0];
-    const lineValues = orderLine.prepareBaseLineForTaxesComputationExtraValues();
-    expect(lineValues.tax_ids.length).toBe(0);
+describe("Test taxes after fiscal position", () => {
+    test("Orderline containing a taxed product", async () => {
+        const store = await setupPosEnv();
+        const models = store.models;
+        const dataDict = getAllPricesData();
+        dataDict["pos.order"][0]["fiscal_position_id"] = 2;
+        const data = models.loadConnectedData(dataDict);
+        const orderLine = data["pos.order.line"][0];
+        const lineValues = orderLine.prepareBaseLineForTaxesComputationExtraValues();
+        expect(lineValues.tax_ids.length).toBe(0);
+    });
+    test("Taxed Orderline orderline after fiscal position", async () => {
+        const store = await setupPosEnv();
+        const models = store.models;
+        const dataDict = getAllPricesData();
+        dataDict["pos.order"][0]["fiscal_position_id"] = 1;
+        const data = models.loadConnectedData(dataDict);
+        // Taxed order line
+        const orderLine = data["pos.order.line"][0];
+        // Taxed Product
+        const taxedProductLineValues = orderLine.prepareBaseLineForTaxesComputationExtraValues();
+        expect(taxedProductLineValues.tax_ids.length).toBe(1);
+        // Non Taxed Product
+        orderLine.product_id.taxes_id = [];
+        const nonTaxedProductlineValues = orderLine.prepareBaseLineForTaxesComputationExtraValues();
+        expect(nonTaxedProductlineValues.tax_ids.length).toBe(1);
+    });
+    test("Non-taxed orderline after fiscal position", async () => {
+        const store = await setupPosEnv();
+        const models = store.models;
+        const dataDict = getAllPricesData();
+        dataDict["pos.order"][0]["fiscal_position_id"] = 1;
+        const data = models.loadConnectedData(dataDict);
+        const orderLine = data["pos.order.line"][0];
+        // Non taxed order line
+        orderLine.tax_ids = [];
+        // Taxed product
+        const taxedProductLineValues = orderLine.prepareBaseLineForTaxesComputationExtraValues();
+        expect(taxedProductLineValues.tax_ids.length).toBe(0);
+        orderLine.product_id.taxes_id = [];
+        // Non Taxed product
+        const nonTaxedProductlineValues = orderLine.prepareBaseLineForTaxesComputationExtraValues();
+        expect(nonTaxedProductlineValues.tax_ids.length).toBe(0);
+    });
 });
