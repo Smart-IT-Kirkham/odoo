@@ -377,15 +377,21 @@ patch(PosStore.prototype, {
 
         return false;
     },
-    async onDeleteOrder(order) {
-        const orderIsDeleted = await super.onDeleteOrder(...arguments);
-        if (
-            orderIsDeleted &&
-            this.config.module_pos_restaurant &&
-            this.router.state.current !== "TicketScreen"
-        ) {
+    removeOrder(order) {
+        const orderRemoved = super.removeOrder(...arguments);
+        if (this.removeOrderShouldRedirect(order, orderRemoved)) {
             this.navigate("FloorScreen");
         }
+        return orderRemoved;
+    },
+    removeOrderShouldRedirect(order, hasBeenRemoved) {
+        const wasCurrentOrder = this.selectedOrderUuid === order?.uuid;
+        return (
+            hasBeenRemoved &&
+            wasCurrentOrder &&
+            this.config.module_pos_restaurant &&
+            this.router.state.current !== "TicketScreen"
+        );
     },
     async closingSessionNotification(data) {
         await super.closingSessionNotification(...arguments);
@@ -463,18 +469,6 @@ patch(PosStore.prototype, {
     },
     get selectedTable() {
         return this.getOrder()?.table_id;
-    },
-    navigate(routeName, routeParams = {}) {
-        const order = this.getOrder();
-        if (
-            this.config.module_pos_restaurant &&
-            this.router.state.current === "ProductScreen" &&
-            order &&
-            !order.isBooked
-        ) {
-            this.removeOrder(order);
-        }
-        return super.navigate(routeName, routeParams);
     },
     showDefault() {
         const page = this.defaultPage;
@@ -1048,7 +1042,28 @@ patch(PosStore.prototype, {
             customer_count: order.getCustomerCount(),
         };
     },
+    continueSplitting(order) {
+        const originalOrderUuid = order.uiState.splittedOrderUuid;
+        order.uiState.screen_data.value = "";
+        this.selectedOrderUuid = originalOrderUuid;
+        const nextOrderScreen = this.getOrder().getCurrentScreenData().name;
+        this.navigate(nextOrderScreen || "ProductScreen", {
+            orderUuid: originalOrderUuid,
+        });
+    },
+    isContinueSplitting(order) {
+        if (this.config.module_pos_restaurant && !this.selectedTable) {
+            const splittedOrder = order.originalSplittedOrder;
 
+            if (!splittedOrder) {
+                return false;
+            }
+
+            return !splittedOrder.finalized;
+        } else {
+            return false;
+        }
+    },
     async validateOrderFast(paymentMethod) {
         const currentOrder = this.getOrder();
         if (!currentOrder) {
