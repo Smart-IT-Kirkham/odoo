@@ -764,9 +764,31 @@ class MrpProduction(models.Model):
             days_delay = production.bom_id.produce_delay
             date_finished = production.date_start + relativedelta(days=days_delay)
             if production._should_postpone_date_finished(date_finished):
-                workorder_expected_duration = sum(production.workorder_ids.mapped('duration_expected'))
-                date_finished = date_finished + relativedelta(minutes=workorder_expected_duration or 60)
+                date_finished = production._calculate_expected_finished_date(date_finished) or \
+                    (date_finished + relativedelta(minutes=sum(production.workorder_ids.mapped('duration_expected')) or 60))
             production.date_finished = date_finished
+
+    def _calculate_expected_finished_date(self, date_start):
+        """
+        Return the expected completion date of production based on workcenter availability.
+
+        If at least one workorder has an unavailable workcenter, returns False.
+
+        :param date_start: begin the computation at this datetime (datetime)
+        """
+        if not isinstance(date_start, datetime.datetime) or not self.workorder_ids:
+            return False
+
+        date_finished_per_workcenter = defaultdict(lambda: date_start)
+        for wo in self.workorder_ids:
+            if not wo.workcenter_id.resource_calendar_id:
+                return False
+            wo_optimal_date_start = date_finished_per_workcenter[wo.workcenter_id.id]
+            _, to_date = wo.workcenter_id._get_first_available_slot(wo_optimal_date_start, wo.duration_expected)
+            if not isinstance(to_date, datetime.datetime):
+                return False
+            date_finished_per_workcenter[wo.workcenter_id.id] = to_date
+        return max(date_finished_per_workcenter.values())
 
     @api.depends('company_id', 'bom_id', 'product_id', 'product_qty', 'product_uom_id', 'location_src_id', 'never_product_template_attribute_value_ids')
     def _compute_move_raw_ids(self):
@@ -807,6 +829,10 @@ class MrpProduction(models.Model):
                 if 'date' in updated_values or 'date_deadline' in updated_values:
                     production.move_finished_ids = [
                         Command.update(m.id, updated_values) for m in production.move_finished_ids
+                        if any(
+                            updated_values.get(field) and m[field] != updated_values[field]
+                            for field in ('date', 'date_deadline')
+                        )
                     ]
                 continue
             production_with_move_finished_ids_to_unlink_ids.add(production.id)
@@ -921,7 +947,7 @@ class MrpProduction(models.Model):
         if 'workorder_ids' in self:
             production_to_replan = self.filtered(lambda p: p.is_planned)
         for move_str in ('move_raw_ids', 'move_finished_ids'):
-            if move_str not in vals or self.state in ['draft', 'cancel', 'done']:
+            if move_str not in vals or self.state in ['cancel', 'done']:
                 continue
             # When adding a move raw/finished, it should have the source location's `warehouse_id`.
             # Before, it was handle by an onchange, now it's forced if not already in vals.
@@ -1741,8 +1767,8 @@ class MrpProduction(models.Model):
         self.workorder_ids.filtered(lambda x: x.state not in ['done', 'cancel']).action_cancel()
         finish_moves = self.move_finished_ids.filtered(lambda x: x.state not in ('done', 'cancel'))
         raw_moves = self.move_raw_ids.filtered(lambda x: x.state not in ('done', 'cancel'))
-        (finish_moves | raw_moves)._action_cancel()
-        picking_ids = self.picking_ids.filtered(lambda x: x.state not in ('done', 'cancel'))
+        (finish_moves | raw_moves).with_context(skip_mo_check=True)._action_cancel()
+        picking_ids = self.picking_ids.filtered(lambda x: x.state not in ('done', 'cancel') and not any(mo.state == 'done' for mo in x.production_ids))
         picking_ids.action_cancel()
 
         for production, documents in documents_by_production.items():

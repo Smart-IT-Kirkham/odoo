@@ -10,15 +10,15 @@
 # Marta Wacławek, 2025
 # Wil Odoo, 2025
 # Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>, 2025
-# "Marta (wacm)" <wacm@odoo.com>, 2025.
+# "Marta (wacm)" <wacm@odoo.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-29 18:36+0000\n"
-"PO-Revision-Date: 2026-01-03 18:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2026-01-15 18:38+0000\n"
+"PO-Revision-Date: 2026-01-17 09:09+0000\n"
+"Last-Translator: \"Marta (wacm)\" <wacm@odoo.com>\n"
 "Language-Team: Polish <https://translate.odoo.com/projects/odoo-18/account/"
 "pl/>\n"
 "Language: pl\n"
@@ -26,8 +26,8 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && "
-"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || "
-"(n%10>=5 && n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+"(n%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && "
+"n%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 "X-Generator: Weblate 5.14.3\n"
 
 #. module: account
@@ -9166,6 +9166,11 @@ msgid "Invoice Outstanding Credits Debits Widget"
 msgstr "Widget Zaległe faktury kredyty debety"
 
 #. module: account
+#: model:ir.actions.report,name:account.account_invoices
+msgid "Invoice PDF"
+msgstr "PDF faktury"
+
+#. module: account
 #: model:ir.model.fields,field_description:account.field_account_bank_statement_line__invoice_partner_display_name
 #: model:ir.model.fields,field_description:account.field_account_move__invoice_partner_display_name
 msgid "Invoice Partner Display Name"
@@ -10407,7 +10412,7 @@ msgid ""
 "partner will have granted to you. Module account_sepa is necessary.\n"
 msgstr ""
 "Ręcznie: Uzyskaj płatność za pomocą dowolnej metody poza Odoo.\n"
-"Dostawcy płatności: Każdy dostawca płatności ma swoją własną Metodę "
+"Operatorzy płatności: Każdy operator płatności ma swoją własną Metodę "
 "płatności. Zażądaj transakcji na/do karty dzięki tokenowi płatniczemu "
 "wpisanemu przez partnera podczas zakupu lub subskrypcji online.\n"
 "Depozyt wsadowy: Zbierz kilka czeków klientów jednocześnie generując i "
@@ -10448,7 +10453,7 @@ msgid ""
 msgstr ""
 "Instrukcja: Płać lub otrzymuj płatności za pomocą dowolnej metody poza "
 "Odoo.\n"
-"Dostawcy płatności: Każdy dostawca płatności ma swoją własną Metodę "
+"Operatorzy płatności: Każdy operator płatności ma swoją własną Metodę "
 "płatności. Zażądaj transakcji na/do karty dzięki tokenowi płatniczemu "
 "wpisanemu przez partnera podczas zakupu lub subskrypcji online.\n"
 "Czek: Płać rachunki czekiem i drukuj go z Odoo.\n"
@@ -11865,7 +11870,6 @@ msgstr "PAY001"
 #. module: account
 #. odoo-python
 #: code:addons/account/models/account_move.py:0
-#: model:ir.actions.report,name:account.account_invoices
 msgid "PDF"
 msgstr "PDF"
 
@@ -18915,6 +18919,12 @@ msgstr "Nie można zamieścić wpisu w zarchiwizowanym dzienniku (%(journal)s)"
 
 #. module: account
 #. odoo-python
+#: code:addons/account/models/account_move.py:0
+msgid "You cannot post an entry with an archived analytic account: %s"
+msgstr ""
+
+#. module: account
+#. odoo-python
 #: code:addons/account/models/res_currency.py:0
 msgid ""
 "You cannot reduce the number of decimal places of a currency which has "
@@ -19710,9 +19720,6 @@ msgid ""
 msgstr ""
 "{{ object.company_id.name }} Pokwitowanie zapłaty (Ref {{ object.name or 'n/"
 "a' }})"
-
-#~ msgid "Invoice PDF"
-#~ msgstr "PDF faktury"
 
 #~ msgid "This setting cannot be changed after an invoice is created."
 #~ msgstr ""
