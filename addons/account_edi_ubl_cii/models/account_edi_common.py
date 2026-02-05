@@ -18,6 +18,7 @@ UOM_TO_UNECE_CODE = {
     'uom.product_uom_gram': 'GRM',
     'uom.product_uom_day': 'DAY',
     'uom.product_uom_hour': 'HUR',
+    'uom.product_uom_minute': 'MIN',
     'uom.product_uom_ton': 'TNE',
     'uom.product_uom_meter': 'MTR',
     'uom.product_uom_km': 'KMT',
@@ -38,6 +39,7 @@ UOM_TO_UNECE_CODE = {
     'uom.uom_square_foot': 'FTK',
     'uom.product_uom_yard': 'YRD',
     'uom.product_uom_millimeter': 'MMT',
+    'uom.product_uom_kwh': 'KWH',
 }
 
 # -------------------------------------------------------------------------
@@ -379,7 +381,8 @@ class AccountEdiCommon(models.AbstractModel):
             .with_company(invoice.company_id) \
             ._retrieve_partner(name=name, phone=phone, mail=mail, vat=vat, domain=domain)
         if not invoice.partner_id and name and vat:
-            partner_vals = {'name': name, 'email': mail, 'phone': phone, 'street': street, 'street2': street2, 'zip': zip_code, 'city': city}
+            partner_vals = {'name': name, 'email': mail, 'phone': phone, 'street': street, 'street2': street2,
+                            'zip': zip_code, 'city': city, 'is_company': True}
             if peppol_eas and peppol_endpoint:
                 partner_vals.update({'peppol_eas': peppol_eas, 'peppol_endpoint': peppol_endpoint})
             country = self.env.ref(f'base.{country_code.lower()}', raise_if_not_found=False) if country_code else False

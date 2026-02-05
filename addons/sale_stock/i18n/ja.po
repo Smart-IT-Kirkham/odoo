@@ -8,13 +8,13 @@
 # Junko Augias, 2025
 # Yoshi Tashiro (Quartile) <tashiro@roomsfor.hk>, 2025
 # Weblate <noreply-mt-weblate@weblate.org>, 2025.
-# "Junko Augias (juau)" <juau@odoo.com>, 2025.
+# "Junko Augias (juau)" <juau@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
-"PO-Revision-Date: 2025-12-13 08:03+0000\n"
+"PO-Revision-Date: 2026-01-30 09:50+0000\n"
 "Last-Translator: \"Junko Augias (juau)\" <juau@odoo.com>\n"
 "Language-Team: Japanese <https://translate.odoo.com/projects/odoo-17/"
 "sale_stock/ja/>\n"
@@ -142,7 +142,7 @@ msgstr "なるべく早く"
 #: code:addons/sale_stock/static/src/widgets/qty_at_date_widget.xml:0
 #, python-format
 msgid "Availability"
-msgstr "利用可能"
+msgstr "在庫状況"
 
 #. module: sale_stock
 #. odoo-javascript
@@ -228,7 +228,7 @@ msgstr ""
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__display_qty_widget
 msgid "Display Qty Widget"
-msgstr "配送数量ウィジェット"
+msgstr "数量ウィジェットを表示"
 
 #. module: sale_stock
 #. odoo-python
@@ -296,7 +296,7 @@ msgstr "本日の無料数量"
 #. module: sale_stock
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__full
 msgid "Fully Delivered"
-msgstr "配送完了"
+msgstr "出荷完了"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_sale_order__show_json_popover
@@ -375,7 +375,7 @@ msgstr "仕訳"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_account_move_line
 msgid "Journal Item"
-msgstr "仕訳項目"
+msgstr "仕訳明細"
 
 #. module: sale_stock
 #: model_terms:ir.ui.view,arch_db:sale_stock.sale_order_portal_content_inherit_sale_stock
@@ -465,7 +465,7 @@ msgstr "On"
 #. module: sale_stock
 #: model:ir.model.fields.selection,name:sale_stock.selection__sale_order__delivery_status__partial
 msgid "Partially Delivered"
-msgstr "一部配送済み"
+msgstr "一部出荷済"
 
 #. module: sale_stock
 #: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__default_picking_policy
@@ -661,12 +661,12 @@ msgstr "在庫補充レポート"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rule
 msgid "Stock Rule"
-msgstr "在庫規則"
+msgstr "在庫ルール"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_rules_report
 msgid "Stock Rules report"
-msgstr "在庫規則レポート"
+msgstr "在庫ルールレポート"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_stock_valuation_layer
@@ -676,7 +676,7 @@ msgstr "在庫評価レイヤ"
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_report_stock_report_stock_rule
 msgid "Stock rule report"
-msgstr "在庫規則レポート"
+msgstr "在庫ルールレポート"
 
 #. module: sale_stock
 #. odoo-javascript
