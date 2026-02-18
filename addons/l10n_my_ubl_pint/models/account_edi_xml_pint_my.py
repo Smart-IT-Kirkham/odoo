@@ -3,6 +3,15 @@
 from odoo import models, _
 
 
+class AccountEdiXmlUBL21(models.AbstractModel):
+    _inherit = 'account.edi.xml.ubl_21'
+
+    def _get_customization_ids(self):
+        vals = super()._get_customization_ids()
+        vals['pint_my'] = 'urn:peppol:pint:billing-1@my-1'
+        return vals
+
+
 class AccountEdiXmlUBLPINTMY(models.AbstractModel):
     _inherit = "account.edi.xml.ubl_bis3"
     _name = 'account.edi.xml.pint_my'
@@ -138,6 +147,19 @@ class AccountEdiXmlUBLPINTMY(models.AbstractModel):
             grouping_key['tax_category_code'] = 'E'
 
         return grouping_key
+
+    def _add_invoice_tax_total_nodes(self, document_node, vals):
+        # EXTENDS account.edi.xml.ubl_bis3
+        super()._add_invoice_tax_total_nodes(document_node, vals)
+        nodes = document_node['cac:TaxTotal']
+
+        if not nodes:
+            tax_total_node = self._ubl_get_tax_total_node(vals, {
+                'currency': vals['currency_id'],
+                'amount': 0.0,
+                'subtotals': {},
+            })
+            nodes.append(tax_total_node)
 
     def _add_invoice_header_nodes(self, document_node, vals):
         # EXTENDS account.edi.xml.ubl_bis3
