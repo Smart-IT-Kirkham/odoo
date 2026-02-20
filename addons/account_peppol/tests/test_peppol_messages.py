@@ -300,15 +300,15 @@ class TestPeppolMessage(TestAccountMoveSendCommon):
             checkbox_send_peppol=True,
         )
 
-        wizard.action_send_and_print()
-
-        self.env['account_edi_proxy_client.user']._cron_peppol_get_message_status()
-        self.assertRecordValues(move, [{
-                'peppol_move_state': 'done',
-                'peppol_message_uuid': FAKE_UUID[0],
-            }],
-        )
-        self.assertTrue(bool(move.ubl_cii_xml_id))
+        # Try to send the invoice twice to ensure the second send doesn't mark the state as skipped
+        for _ in range(2):
+            wizard.action_send_and_print()
+            self.env['account_edi_proxy_client.user']._cron_peppol_get_message_status()
+            self.assertRecordValues(move, [{
+                    'peppol_move_state': 'done',
+                    'peppol_message_uuid': FAKE_UUID[0],
+                }],
+            )
 
     def test_send_peppol_and_email_default_values(self):
         # If both "Send by Email" and "Send by Peppol" are set, we deactivate the "Send by Email" option
@@ -355,6 +355,30 @@ class TestPeppolMessage(TestAccountMoveSendCommon):
         move = self.env['account.move'].search([('peppol_message_uuid', '=', FAKE_UUID[1])])
         self.assertRecordValues(
             move, [{
+                'peppol_move_state': 'done',
+                'move_type': 'in_invoice',
+            }])
+
+    def test_peppol_document_retrieval_with_company_context(self):
+        # Ensure that the bill creation is done using the move company/proxy user context
+
+        other_company = self.company_data_2["company"]
+        self.env["ir.default"].create({
+            'company_id': other_company.id,
+            'field_id': self.env['ir.model.fields']._get('res.partner', 'company_id').id,
+            'json_value': other_company.id,
+        })
+        initial_company = self.env.company
+        other_companies = self.env.companies
+        self.env['account_edi_proxy_client.user']\
+            .with_company(other_company)\
+            .with_context(allowed_company_ids=other_companies.ids)\
+            ._cron_peppol_get_new_documents()
+
+        move = self.env['account.move'].search([('peppol_message_uuid', '=', FAKE_UUID[1])])
+        self.assertRecordValues(
+            move, [{
+                'company_id': initial_company.id,
                 'peppol_move_state': 'done',
                 'move_type': 'in_invoice',
             }])

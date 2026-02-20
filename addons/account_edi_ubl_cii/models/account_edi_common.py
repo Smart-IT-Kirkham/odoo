@@ -316,7 +316,7 @@ class AccountEdiCommon(models.AbstractModel):
 
         # Update the invoice.
         invoice.move_type = move_type
-        with invoice._get_edi_creation() as invoice:
+        with invoice.with_context(disable_onchange_name_predictive=True)._get_edi_creation() as invoice:
             logs = self._import_fill_invoice_form(invoice, tree, qty_factor)
         if invoice:
             body = Markup("<strong>%s</strong>") % \
@@ -332,7 +332,7 @@ class AccountEdiCommon(models.AbstractModel):
         # For UBL, we should override the computed tax amount if it is less than 0.05 different of the one in the xml.
         # In order to support use case where the tax total is adapted for rounding purpose.
         # This has to be done after the first import in order to let Odoo compute the taxes before overriding if needed.
-        with invoice._get_edi_creation() as invoice:
+        with invoice.with_context(disable_onchange_name_predictive=True)._get_edi_creation() as invoice:
             self._correct_invoice_tax_amount(tree, invoice)
 
         # === Import the embedded documents in the xml if some are found ===
@@ -393,44 +393,9 @@ class AccountEdiCommon(models.AbstractModel):
                 invoice.partner_id.vat = vat
 
     def _import_retrieve_and_fill_partner_bank_details(self, invoice, bank_details):
-        """ Retrieve the bank account, if no matching bank account is found, create it
-        """
-
-        # clear the context, because creation of partner when importing should not depend on the context default values
-        ResPartnerBank = self.env['res.partner.bank'].with_env(self.env(context=clean_context(self.env.context)))
         bank_details = list(set(map(sanitize_account_number, bank_details)))
-
-        if invoice.move_type in ('out_refund', 'in_invoice'):
-            partner = invoice.partner_id
-        elif invoice.move_type in ('out_invoice', 'in_refund'):
-            partner = self.env.company.partner_id
-        else:
-            return
-
-        banks_to_create = []
-        acc_number_partner_bank_dict = {
-            bank.sanitized_acc_number: bank
-            for bank in ResPartnerBank.with_context(active_test=False).search(
-                [('company_id', 'in', [False, invoice.company_id.id]), ('acc_number', 'in', bank_details)]
-            )
-        }
-
-        for account_number in bank_details:
-            partner_bank = acc_number_partner_bank_dict.get(account_number, ResPartnerBank)
-
-            if partner_bank.partner_id == partner:
-                if not partner_bank.active:
-                    partner_bank.active = True
-                invoice.partner_bank_id = partner_bank
-                return
-            elif not partner_bank and account_number:
-                banks_to_create.append({
-                    'acc_number': account_number,
-                    'partner_id': partner.id,
-                })
-
-        if banks_to_create:
-            invoice.partner_bank_id = ResPartnerBank.create(banks_to_create)[0]
+        body = _("The following bank account numbers got retrieved during the import : %s", ", ".join(bank_details))
+        invoice.with_context(no_new_invoice=True).message_post(body=body)
 
     def _import_fill_invoice_allowance_charge(self, tree, invoice, qty_factor):
         logs = []
@@ -680,8 +645,11 @@ class AccountEdiCommon(models.AbstractModel):
         # line_net_subtotal (mandatory)
         price_subtotal = None
         line_total_amount_node = tree.find(xpath_dict['line_total_amount'])
-        if line_total_amount_node is not None:
-            price_subtotal = float(line_total_amount_node.text)
+        if line_total_amount_node is None or line_total_amount_node.text is None or not line_total_amount_node.text.strip():
+            return None
+        price_subtotal = float(line_total_amount_node.text)
+        if price_subtotal == 0:
+            return None
 
         ####################################################
         # Setting the values on the invoice_line
@@ -771,7 +739,7 @@ class AccountEdiCommon(models.AbstractModel):
                 # company check is already done in the prediction query
                 predicted_tax_id = invoice_line\
                     ._predict_specific_tax('percent', amount, invoice_line.move_id.journal_id.type)
-                tax = self.env['account.tax'].browse(predicted_tax_id)
+                tax = self.env['account.tax'].browse(predicted_tax_id).filtered_domain(domain)[:1]
             if not tax:
                 tax = self.env['account.tax'].search(domain + [('price_include', '=', False)], limit=1)
             if not tax:
