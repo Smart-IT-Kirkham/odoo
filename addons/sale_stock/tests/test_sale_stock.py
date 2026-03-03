@@ -2612,7 +2612,28 @@ class TestSaleStock(TestSaleStockCommon, ValuationReconciliationTestCommon):
         Check that the customer of an SO is propageted to all moves of the
         pull chain in multi-step deliveries.
         """
-        # delivery_route = self.warehouse_3_steps_pull.delivery_route_id
+        sale_order = self.env['sale.order'].create({
+            'partner_id': self.partner_a.id,
+            'warehouse_id':  self.warehouse_3_steps_pull.id,
+            'order_line': [Command.create({
+                'product_id': self.product_a.id,
+                'product_uom_qty': 1,
+            })]
+        })
+        sale_order.action_confirm()
+        self.assertRecordValues(sale_order.picking_ids.sorted(lambda p: p.picking_type_id.name)[::-1], [
+            {'partner_id': self.partner_a.id, 'picking_type_id': self.warehouse_3_steps_pull.pick_type_id.id},
+            {'partner_id': self.partner_a.id, 'picking_type_id': self.warehouse_3_steps_pull.pack_type_id.id},
+            {'partner_id': self.partner_a.id, 'picking_type_id': self.warehouse_3_steps_pull.out_type_id.id},
+        ])
+
+    def test_sale_partner_propagation_3_step_mtso_pull(self):
+        """
+        Check that the customer of an SO is propageted to all moves of the
+        pull chain in multi-step take from stock if availble else trigger an
+        other rule (mtso) deliveries.
+        """
+        self.warehouse_3_steps_pull.delivery_route_id.rule_ids[1:].procure_method = 'mts_else_mto'
         sale_order = self.env['sale.order'].create({
             'partner_id': self.partner_a.id,
             'warehouse_id':  self.warehouse_3_steps_pull.id,
@@ -2668,3 +2689,27 @@ class TestSaleStock(TestSaleStockCommon, ValuationReconciliationTestCommon):
         lot.invalidate_recordset()
         self.assertEqual(lot.with_user(user).sale_order_count, 1)
         self.assertEqual(lot.with_user(user).sale_order_ids, sale_order_2)
+
+    def test_invoice_zero_quantity_after_delivery_fifo(self):
+        """
+        Posting an invoice with quantity = 0 after delivery
+        """
+        self.env.company.write({
+            'cost_method': 'fifo',
+            'inventory_valuation': 'real_time',
+        })
+
+        sale = self._get_new_sale_order(product=self.new_product, amount=1)
+        sale.action_confirm()
+
+        picking = sale.picking_ids
+        self.assertEqual(len(picking), 1)
+
+        picking.move_ids.quantity = 1
+        picking.button_validate()
+
+        invoice = sale._create_invoices()
+        invoice.invoice_line_ids.quantity = 0
+        invoice.action_post()
+
+        self.assertEqual(invoice.state, 'posted')

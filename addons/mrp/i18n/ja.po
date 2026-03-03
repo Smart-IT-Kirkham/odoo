@@ -20,11 +20,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-25 18:35+0000\n"
-"PO-Revision-Date: 2026-01-30 07:44+0000\n"
+"POT-Creation-Date: 2026-02-27 18:36+0000\n"
+"PO-Revision-Date: 2026-02-04 06:28+0000\n"
 "Last-Translator: \"Junko Augias (juau)\" <juau@odoo.com>\n"
-"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-19/mrp/ja/>"
-"\n"
+"Language-Team: Japanese <https://translate.odoo.com/projects/odoo-19/mrp/ja/"
+">\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -422,6 +422,11 @@ msgid "<span class=\"o_stat_text\">Child MO</span>"
 msgstr "<span class=\"o_stat_text\">子製造オーダ</span>"
 
 #. module: mrp
+#: model_terms:ir.ui.view,arch_db:mrp.mrp_bom_form_view
+msgid "<span class=\"o_stat_text\">Copy Existing Operations</span>"
+msgstr ""
+
+#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_workcenter_view
 msgid "<span class=\"o_stat_text\">Load</span>"
 msgstr "<span class=\"o_stat_text\">負荷時間</span>"
@@ -735,7 +740,7 @@ msgstr "要アクション"
 #: model:ir.model.fields,field_description:mrp.field_mrp_routing_workcenter__active
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__active
 msgid "Active"
-msgstr "アクティブ"
+msgstr "有効"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__activity_ids
@@ -2218,7 +2223,7 @@ msgstr "プロダクトの一部を下請業者に委託"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_production__delivery_count
 msgid "Delivery Orders"
-msgstr "配送"
+msgstr "出荷オーダ"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workcenter__note
@@ -2648,7 +2653,7 @@ msgstr "Font awesomeのアイコン 例. fa-tasks"
 #. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.view_mrp_consumption_warning_form
 msgid "Force"
-msgstr "強制する"
+msgstr "強制"
 
 #. module: mrp
 #. odoo-javascript
@@ -2947,8 +2952,8 @@ msgid ""
 "If the active field is set to False, it will allow you to hide the resource "
 "record without removing it."
 msgstr ""
-"アクティブ項目をFalse にセットすると、リソースレコードは削除することなく非表"
-"示にできます。"
+"有効項目をFalse にセットすると、リソースレコードは削除することなく非表示にで"
+"きます。"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_stock_picking_type__auto_print_mrp_reception_report_labels
@@ -3298,7 +3303,7 @@ msgstr "リードタイム"
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_workorder__leave_id
 msgid "Leave"
-msgstr "解除"
+msgstr "休暇"
 
 #. module: mrp
 #: model:ir.model.fields,help:mrp.field_product_document__attached_on_mrp
@@ -3998,9 +4003,9 @@ msgid ""
 "of Materials, which means that operations can still be planned on it/them. "
 "To prevent this, deletion of the work center is recommended instead."
 msgstr ""
-"アーカイブした作業区: '%s' はアクティブな製造オーダにリンクしているため、その"
-"作業区での工程を計画することが可能な状態です。それを防ぐため、代わりに作業区"
-"を削除することをお勧めします。"
+"アーカイブした作業区: '%s' は有効な製造オーダにリンクしているため、その作業区"
+"での工程を計画することが可能な状態です。それを防ぐため、代わりに作業区を削除"
+"することをお勧めします。"
 
 #. module: mrp
 #. odoo-python
@@ -4009,8 +4014,8 @@ msgid ""
 "Note that product(s): '%s' is/are still linked to active Bill of Materials, "
 "which means that the product can still be used on it/them."
 msgstr ""
-"プロダクト:  '%s' はアクティブな製造オーダにリンクしているため、そのプロダク"
-"トを製造オーダで使用することが可能な状態です。"
+"プロダクト:  '%s' は有効な製造オーダにリンクしているため、そのプロダクトを製"
+"造オーダで使用することが可能な状態です。"
 
 #. module: mrp
 #: model:ir.model.fields,field_description:mrp.field_mrp_bom__message_needaction_counter
@@ -5377,6 +5382,11 @@ msgid "Show Bom Tab"
 msgstr "部品表タブを表示"
 
 #. module: mrp
+#: model:ir.model.fields,field_description:mrp.field_mrp_bom__show_copy_operations_button
+msgid "Show Copy Operations Button"
+msgstr ""
+
+#. module: mrp
 #: model_terms:ir.ui.view,arch_db:mrp.mrp_production_form_view
 msgid "Show Details"
 msgstr "詳細を表示"
@@ -5739,6 +5749,13 @@ msgid "Technical field to check when we can unreserve"
 msgstr "いつ引当て解除できるかを確認する技術フィールド"
 
 #. module: mrp
+#: model:ir.model.fields,help:mrp.field_mrp_bom__show_copy_operations_button
+msgid ""
+"Technical field used to control the visibility of the 'Copy Existing "
+"Operations' button."
+msgstr ""
+
+#. module: mrp
 #: model:ir.model.fields,help:mrp.field_mrp_production__is_outdated_bom
 msgid "The BoM has been updated since creation of the MO"
 msgstr "製造オーダ作成後から部品表が更新されています"
@@ -5928,6 +5945,12 @@ msgstr "消費できる構成品がありません。本当に続けますか？
 #: code:addons/mrp/report/mrp_report_bom_structure.py:0
 msgid "There is no defined calendar on workcenter %s."
 msgstr "作業区%sに定義されたカレンダがありません。"
+
+#. module: mrp
+#. odoo-python
+#: code:addons/mrp/wizard/mrp_production_serial_numbers.py:0
+msgid "There is no serial numbers to apply."
+msgstr ""
 
 #. module: mrp
 #: model_terms:ir.actions.act_window,help:mrp.action_mrp_unbuild_moves
@@ -7135,9 +7158,8 @@ msgid ""
 "'Performance'. Create one from the Manufacturing app, menu: Configuration / "
 "Productivity Losses."
 msgstr ""
-"カテゴリ「パフォーマンス」内に少なくとも1つのアクティブでない生産性ロスを定義"
-"する必要があります。製造アプリのメニュー 設定 / 生産性ロス で作成してくださ"
-"い。"
+"カテゴリ「パフォーマンス」内に少なくとも1つの有効でない生産性ロスを定義する必"
+"要があります。製造アプリのメニュー 設定 / 生産性ロス で作成してください。"
 
 #. module: mrp
 #. odoo-python
