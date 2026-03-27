@@ -4800,7 +4800,12 @@ class AccountMove(models.Model):
                 except (UserError, ValueError):
                     _logger.exception("Failed to link bill to purchase order")
 
-        if new and res:
+        if new:
+            # we force an early access token write to prevent edge-cases where the notification
+            # email will fail because the OCR/IAP (async) callback triggers a concurrent update on the same
+            # account move
+            self._portal_ensure_token()
+            self.flush_recordset(['access_token'])
             try:
                 attachments = set(self.attachment_ids + self._from_files_data(files_data + self._unwrap_attachments(files_data)))
                 self.journal_id._notify_invoice_subscribers(
