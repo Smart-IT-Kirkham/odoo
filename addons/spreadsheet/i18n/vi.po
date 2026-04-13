@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-22 18:37+0000\n"
-"PO-Revision-Date: 2026-03-07 08:23+0000\n"
-"Last-Translator: \"Thi Huong Nguyen (thng)\" <thng@odoo.com>\n"
+"POT-Creation-Date: 2026-04-03 18:40+0000\n"
+"PO-Revision-Date: 2026-04-07 09:24+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Vietnamese <https://translate.odoo.com/projects/odoo-17/"
 "spreadsheet/vi/>\n"
 "Language: vi\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.1\n"
+"X-Generator: Weblate 5.16.2\n"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -183,6 +183,13 @@ msgstr "2 cột"
 #, python-format
 msgid "2 rows"
 msgstr "2 hàng"
+
+#. module: spreadsheet
+#. odoo-javascript
+#: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.xml:0
+#, python-format
+msgid "A"
+msgstr ""
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -745,7 +752,7 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "All the ranges must have the same dimensions."
-msgstr "Tất cả phạm vi phải có cùng danh mục."
+msgstr "Tất cả phạm vi phải có cùng kích thước."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -866,8 +873,7 @@ msgid ""
 "An integer specifying the dimension size of the unit matrix. It must be "
 "positive."
 msgstr ""
-"Một số nguyên xác định kích thước danh mục của ma trận đơn vị. Đây phải là "
-"số dương."
+"Một số nguyên xác định kích thước của ma trận đơn vị. Đây phải là số dương."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -1514,7 +1520,7 @@ msgstr "Chọn một giá trị..."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "Circular reference"
-msgstr "Lỗi vòng lặp"
+msgstr "Tham chiếu vòng lặp"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -2770,7 +2776,7 @@ msgstr "Mở rộng nhóm hàng"
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "Expands or pads an array to specified row and column dimensions."
-msgstr "Mở rộng hoặc đệm một mảng theo danh mục hàng và cột xác định."
+msgstr "Mở rộng hoặc đệm một mảng theo kích thước hàng và cột xác định."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -3170,7 +3176,7 @@ msgstr "Hàm [[FUNCTION_NAME]] cần criteria_range và tiêu chí đi theo cặ
 #, python-format
 msgid ""
 "Function [[FUNCTION_NAME]] expects criteria_range to have the same dimension"
-msgstr "Hàm [[FUNCTION_NAME]] cần criteria_range có cùng danh mục."
+msgstr "Hàm [[FUNCTION_NAME]] cần criteria_range có cùng kích thước"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -3179,6 +3185,8 @@ msgstr "Hàm [[FUNCTION_NAME]] cần criteria_range có cùng danh mục."
 msgid ""
 "Function [[FUNCTION_NAME]] expects number values for %s, but got a boolean."
 msgstr ""
+"Hàm [[FUNCTION_NAME]] yêu cầu giá trị số cho %s, nhưng nhận được giá trị "
+"boolean."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -3186,7 +3194,7 @@ msgstr ""
 #, python-format
 msgid ""
 "Function [[FUNCTION_NAME]] expects number values for %s, but got a string."
-msgstr ""
+msgstr "Hàm [[FUNCTION_NAME]] yêu cầu giá trị số cho %s, nhưng nhận được chuỗi."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -3196,6 +3204,8 @@ msgid ""
 "Function [[FUNCTION_NAME]] expects number values for %s, but got an empty "
 "value."
 msgstr ""
+"Hàm [[FUNCTION_NAME]] yêu cầu giá trị số cho %s, nhưng nhận được giá trị "
+"trống."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -5029,7 +5039,7 @@ msgstr "Chỉ có thể phân chia một lựa chọn từ một cột"
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "Operator"
-msgstr "Người vận hành"
+msgstr "Toán tử"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -5518,7 +5528,7 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "Returns a n x n unit matrix, where n is the input dimension."
-msgstr "Trả về ma trận đơn vị n x n, trong đó n là danh mục đầu vào."
+msgstr "Trả về ma trận đơn vị n x n, trong đó n là số chiều đầu vào."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -6507,7 +6517,7 @@ msgstr "Điều kiện đối số phải là một cột hoặc một hàng."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The arguments conditions must have the same dimensions."
-msgstr "Điều kiện đối số phải có cùng danh mục."
+msgstr "Điều kiện đối số phải có cùng kích thước."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -6705,7 +6715,7 @@ msgstr "Giá trị đường cơ sở không hợp lệ."
 #, python-format
 msgid ""
 "The cashflow_amounts and cashflow_dates ranges must have the same dimensions."
-msgstr "Phạm vi cashflow_amounts và cashflow_dates phải có cùng danh mục."
+msgstr "Phạm vi cashflow_amounts và cashflow_dates phải có cùng kích thước."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -7143,7 +7153,7 @@ msgstr "Tỷ lệ chiết khấu của chứng khoán tại thời điểm mua."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The discount rate of the security invested in."
-msgstr "Tỷ lệ chiết khấu của chứng khoán tại đã được đầu tư."
+msgstr "Tỷ lệ chiết khấu của chứng khoán đã được đầu tư."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -7334,6 +7344,8 @@ msgid ""
 "The first and second arguments of [[FUNCTION_NAME]] must be non-empty "
 "matrices."
 msgstr ""
+"Đối số thứ nhất và thứ hai của [[FUNCTION_NAME]] phải là các ma trận không "
+"rỗng."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -7654,7 +7666,7 @@ msgstr "future_value (%s) bắt buộc phải là số dương."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The high (%s) must be greater than or equal to the low (%s)."
-msgstr "Giá trị cao (%s) phải lớn hơn hoặc hoặc bằng giá trị thấp (%s)."
+msgstr "Giá trị cao (%s) phải lớn hơn hoặc bằng giá trị thấp (%s)."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -7891,8 +7903,7 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The maximum (%s) must be greater than or equal to the minimum (%s)."
-msgstr ""
-"Giá trị tối đa (%s) phải lớn hơn hoặc hoặc bằng giá trị tối thiểu (%s)."
+msgstr "Giá trị tối đa (%s) phải lớn hơn hoặc bằng giá trị tối thiểu (%s)."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -8397,7 +8408,7 @@ msgstr "Số lần xuất hiện (%s) phải là số dương hoặc không có.
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The one-dimensional array to be searched."
-msgstr "Mảng một chiều cần tìm."
+msgstr "Mảng một chiều cần được tìm kiếm."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -8528,7 +8539,7 @@ msgstr "Kỳ phải nằm trong khoảng từ 1 đến number_of_periods"
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The position (%s) must be greater than or equal to 1."
-msgstr "Vị trí (%s) phải lớn hơn hoặc hoặc bằng 1."
+msgstr "Vị trí (%s) phải lớn hơn hoặc bằng 1."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -8621,7 +8632,7 @@ msgstr "Dải ô chứa tập dữ liệu cần xem xét."
 msgid ""
 "The range containing the return value. Should have the same dimensions as "
 "lookup_range."
-msgstr "Phạm vi chứa giá trị trả về. Phải có cùng danh mục với lookup_range."
+msgstr "Phạm vi chứa giá trị trả về. Phải có cùng kích thước với lookup_range."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -9089,7 +9100,7 @@ msgstr "Giá trị thứ hai."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The settlement (%s) must be greater than or equal to the issue (%s)."
-msgstr "Ngày thanh toán (%s) phải lớn hơn hoặc hoặc bằng ngày phát hành (%s)."
+msgstr "Ngày thanh toán (%s) phải lớn hơn hoặc bằng ngày phát hành (%s)."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -9203,7 +9214,7 @@ msgstr "start_period (%s) phải nhỏ hơn hoặc bằng end_period (%s)."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The starting_at (%s) must be greater than or equal to 1."
-msgstr "starting_at (%s) phải lớn hơn hoặc hoặc bằng 1."
+msgstr "starting_at (%s) phải lớn hơn hoặc bằng 1."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -9481,7 +9492,7 @@ msgstr "Giá trị (%s) phải nằm trong khoảng tính từ -1 đến cả 1.
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The value (%s) must be greater than or equal to 1."
-msgstr "Giá trị (%s) phải lớn hơn hoặc hoặc bằng 1."
+msgstr "Giá trị (%s) phải lớn hơn hoặc bằng 1."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -10037,7 +10048,7 @@ msgstr "Giá trị để kiểm tra liệu có nhỏ hơn hoặc bằng value2."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "The value to test as being less than value2."
-msgstr "Giá trị để kiểm tra liệu có nhỏ hơn value2."
+msgstr "Giá trị cần kiểm tra liệu có nhỏ hơn value2."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -10546,7 +10557,7 @@ msgstr "Giá trị thay đổi so với giá trị khóa"
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "Value for parameter %s is missing in [[FUNCTION_NAME]]."
-msgstr ""
+msgstr "Thiếu giá trị cho tham số %s trong [[FUNCTION_NAME]]."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11155,6 +11166,13 @@ msgstr "Bạn không có quyền xuất dữ liệu. Vui lòng liên hệ với 
 
 #. module: spreadsheet
 #. odoo-javascript
+#: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.xml:0
+#, python-format
+msgid "Z"
+msgstr ""
+
+#. module: spreadsheet
+#. odoo-javascript
 #: code:addons/spreadsheet/static/src/pivot/pivot_functions.js:0
 #, python-format
 msgid "[[FUNCTION_NAME]] cannot be called from the spreadsheet."
@@ -11196,6 +11214,8 @@ msgid ""
 "[[FUNCTION_NAME]] expects the provided values of %(argName)s to be a non-"
 "empty matrix."
 msgstr ""
+"[[FUNCTION_NAME]] yêu cầu các giá trị được cung cấp cho %(argName)s phải là "
+"một ma trận không rỗng."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11216,7 +11236,7 @@ msgstr "[[FUNCTION_NAME]] có số đối số không khớp %s với %s."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "[[FUNCTION_NAME]] has mismatched dimensions for argument %s (%s vs %s)."
-msgstr "[[FUNCTION_NAME]] có danh mục không khớp cho đối số %s (%s vs %s)."
+msgstr "[[FUNCTION_NAME]] có kích thước không khớp cho đối số %s (%s vs %s)."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11350,7 +11370,7 @@ msgstr "có thể lặp lại"
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid "return_range should have the same dimensions as lookup_range."
-msgstr "return_range phải có cùng danh mục với lookup_range."
+msgstr "return_range phải có cùng kích thước với lookup_range."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11386,6 +11406,13 @@ msgstr "hôm nay"
 #, python-format
 msgid "tomorrow"
 msgstr "ngày mai"
+
+#. module: spreadsheet
+#. odoo-javascript
+#: code:addons/spreadsheet/static/src/public_readonly_app/public_readonly.xml:0
+#, python-format
+msgid "x"
+msgstr ""
 
 #. module: spreadsheet
 #. odoo-javascript

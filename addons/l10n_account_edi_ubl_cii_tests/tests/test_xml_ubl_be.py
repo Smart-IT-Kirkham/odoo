@@ -659,6 +659,36 @@ class TestUBLBE(TestUBLCommon, TestAccountMoveSendCommon):
         self.assertEqual(invoice.amount_total, 121.0)
         self._assert_invoice_attachment(invoice.ubl_cii_xml_id, None, 'from_odoo/bis3_test_export_with_percentage_tax_multiple_repartition_lines.xml')
 
+    def test_export_with_fixed_taxes_case5(self):
+        """ CASE 5: simple invoice with a recupel tax, with one negative line.
+        1) Subtotal (price without taxes): (10+1) * 5 + (10+1) * -3 = 22.00
+        2) Taxes:
+            - recupel = 5 - 3 = 2
+            - VAT = (20 + 2) * 0.21 = 4.62
+        3) Total = 20 + 2 + 4.62 = 26.62
+        """
+        invoice = self._generate_move(
+            self.partner_1,
+            self.partner_2,
+            move_type='out_invoice',
+            invoice_line_ids=[
+                {
+                    'product_id': self.product_a.id,
+                    'quantity': 5,
+                    'price_unit': 10,
+                    'tax_ids': [Command.set([self.recupel.id, self.tax_21.id])],
+                },
+                {
+                    'product_id': self.product_a.id,
+                    'quantity': -3,
+                    'price_unit': 10,
+                    'tax_ids': [Command.set([self.recupel.id, self.tax_21.id])],
+                }
+            ],
+        )
+        self.assertEqual(invoice.amount_total, 26.62)
+        self._assert_invoice_attachment(invoice.ubl_cii_xml_id, None, 'from_odoo/bis3_ecotaxes_case5.xml')
+
     def test_export_payment_terms(self):
         """
         Tests the early payment discount using the example case from the VBO/FEB.
@@ -1339,4 +1369,14 @@ class TestUBLBE(TestUBLCommon, TestAccountMoveSendCommon):
             subfolder=subfolder, filename='bis3_out_invoice_quantity_and_or_unit_price_zero.xml', amount_total=3630.00, amount_tax=630.00,
             list_line_subtotals=[1000, 1000, 1000], currency_id=self.currency_data['currency'].id, list_line_price_unit=[1000, 100, 10],
             list_line_discount=[0, 0, 0], list_line_taxes=[tax_21, tax_21, tax_21], list_line_quantity=[1, 10, 100], move_type='out_invoice',
+        )
+
+    def test_import_unit_price_zero_but_charges(self):
+        """ Tests invoice lines with unit price set to zero but with allowance charges
+        """
+        subfolder = "tests/test_files/from_odoo"
+        self._assert_imported_invoice_from_file(
+            subfolder=subfolder, filename='bis3_out_invoice_unit_price_zero_but_charges.xml', amount_total=18.15, amount_tax=3.15,
+            list_line_subtotals=[10, 5], currency_id=self.currency_data['currency'].id, list_line_price_unit=[10, 5], list_line_discount=[0, 0],
+            list_line_quantity=[1, 1],
         )
