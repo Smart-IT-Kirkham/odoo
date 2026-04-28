@@ -532,7 +532,9 @@ class AccountMoveLine(models.Model):
     def _compute_name(self):
         def get_name(line):
             values = []
-            if line.partner_id.lang:
+            if line.move_id.partner_id.lang:
+                product = line.product_id.with_context(lang=line.move_id.partner_id.lang)
+            elif line.partner_id.lang:
                 product = line.product_id.with_context(lang=line.partner_id.lang)
             else:
                 product = line.product_id
@@ -769,14 +771,22 @@ class AccountMoveLine(models.Model):
         # get the where clause
         query = self._search(self.env.context.get('domain_cumulated_balance') or [], bypass_access=True)
         sql_order = self._order_to_sql(self.env.context.get('order_cumulated_balance'), query, reverse=True)
-        result = dict(self.env.execute_query(query.select(
+
+        subquery = query.subselect(
             SQL.identifier(query.table, "id"),
             SQL(
                 "SUM(%s) OVER (ORDER BY %s ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)",
                 SQL.identifier(query.table, "balance"),
                 sql_order,
             ),
-        )))
+        )
+        result = dict(self.env.execute_query(
+            SQL(
+                "SELECT * FROM (%(subquery)s) AS aml WHERE id = ANY(%(ids)s)",
+                subquery=subquery,
+                ids=self.ids,
+            ),
+        ))
         for record in self:
             record.cumulated_balance = result[record.id]
 
@@ -974,21 +984,21 @@ class AccountMoveLine(models.Model):
     def _compute_discount_allocation_needed(self):
         line2discounted_amount = {
             line: [
-                (line.account_id, amount),
-                (discount_allocation_account, -amount),
+                (line.account_id, amount_currency, line.company_currency_id.round(amount_currency / line.currency_rate)),
+                (discount_allocation_account, -amount_currency, -line.company_currency_id.round(amount_currency / line.currency_rate)),
             ]
             for line in self.move_id.line_ids
             if line.display_type == 'product'
             and (discount_allocation_account := line.move_id._get_discount_allocation_account())
             and line.account_id != discount_allocation_account
-            and (amount := line.currency_id.round(
+            and (amount_currency := line.currency_id.round(
                 line.move_id.direction_sign * line.quantity * line.price_unit * line.discount / 100
             ))
         }
 
         distribution_totals = defaultdict(lambda: defaultdict(float))
         for line, discounted_amounts in line2discounted_amount.items():
-            for account, amount in discounted_amounts:
+            for account, _amount_currency, amount in discounted_amounts:
                 for analytic_account_id in line.analytic_distribution or {}:
                     distribution_totals[frozendict({
                         'move_id': line.move_id.id,
@@ -1003,7 +1013,7 @@ class AccountMoveLine(models.Model):
                 continue
 
             discount_allocation_needed = {}
-            for account, amount in line2discounted_amount[line]:
+            for account, amount_currency, amount in line2discounted_amount[line]:
                 key = frozendict({
                     'move_id': line.move_id.id,
                     'account_id': account.id,
@@ -1014,7 +1024,8 @@ class AccountMoveLine(models.Model):
                 discount_allocation_needed[key] = frozendict({
                     'display_type': 'discount',
                     'name': _("Discount"),
-                    'amount_currency': amount,
+                    'amount_currency': amount_currency,
+                    'balance': amount,
                     'analytic_distribution': {
                         account_id: 100 * value / total
                         for account_id, value in dist.items()
@@ -1902,8 +1913,11 @@ class AccountMoveLine(models.Model):
     @api.ondelete(at_uninstall=False)
     def _unlink_except_posted(self):
         # Prevent deleting lines on posted entries
-        if not self.env.context.get('force_delete') and any(m.state == 'posted' for m in self.move_id):
-            raise UserError(_("You can't delete a posted journal item. Don’t play games with your accounting records; reset the journal entry to draft before deleting it."))
+        if not self.env.context.get('force_delete'):
+            non_zero_lines = self.filtered(lambda l: l.balance or l.amount_currency)
+            restricted = non_zero_lines.move_id.filtered(lambda m: m.state == 'posted')
+            if restricted:
+                raise UserError(_("You can't delete a posted journal item. Don’t play games with your accounting records; reset the journal entry to draft before deleting it."))
 
     @api.ondelete(at_uninstall=False)
     def _prevent_automatic_line_deletion(self):
@@ -1934,8 +1948,10 @@ class AccountMoveLine(models.Model):
 
         self.remove_move_reconcile()
 
-        # Check the lock date. (Only relevant if the move is posted)
-        self.move_id.filtered(lambda m: m.state == 'posted')._check_fiscal_lock_dates()
+        # Check the lock date. (Only relevant if the move is posted and non zero lines)
+        non_zero_lines = self.filtered(lambda l: l.balance or l.amount_currency)
+        moves_to_check = non_zero_lines.move_id.filtered(lambda m: m.state == 'posted')
+        moves_to_check._check_fiscal_lock_dates()
 
         # Check the tax lock date.
         self._check_tax_lock_date()
@@ -3072,7 +3088,7 @@ class AccountMoveLine(models.Model):
                 exchange_moves_to_post |= exchange_move
 
         if exchange_moves_to_post:
-            exchange_moves_to_post._post(soft=False)
+            exchange_moves_to_post.with_context(validate_analytic=False)._post(soft=False)
 
         return exchange_moves
 

@@ -754,6 +754,9 @@ export class PosStore extends WithLazyGetterTrap {
                     );
                     product = productPackaging && productPackaging.product_id;
                 }
+                if (!product && opts.product) {
+                    product = opts.product;
+                }
             } else {
                 product = opts.presetVariant;
             }
@@ -1136,8 +1139,10 @@ export class PosStore extends WithLazyGetterTrap {
             const payload =
                 values?.payload && Object.keys(values?.payload).length
                     ? values.payload
-                    : await this.openConfigurator(productTemplate, opts);
-
+                    : await this.openConfigurator(productTemplate, {
+                          ...opts,
+                          product: values?.product_id,
+                      });
             if (payload) {
                 // Find candidate based on instantly created variants.
                 const attributeValues = this.models["product.template.attribute.value"]
@@ -1300,6 +1305,10 @@ export class PosStore extends WithLazyGetterTrap {
         this.setNextOrderRefs(order);
         order.setPricelist(this.config.pricelist_id);
 
+        if (!order.partner_id) {
+            order.partner_id = this.getDefaultPartnerId();
+        }
+
         if (this.config.use_presets && !data["preset_id"]) {
             this.selectPreset(this.config.default_preset_id, order);
         }
@@ -1341,13 +1350,17 @@ export class PosStore extends WithLazyGetterTrap {
     get openOrder() {
         return this.models["pos.order"].find((o) => o.state === "draft") || this.addNewOrder();
     }
+    getDefaultPartnerId() {
+        return null;
+    }
     getEmptyOrder() {
+        const defaultPartnerId = this.getDefaultPartnerId();
         const emptyOrders = this.models["pos.order"].filter(
             (order) =>
                 order.isEmpty() &&
                 !order.finalized &&
                 order.payment_ids.length === 0 &&
-                !order.partner_id &&
+                (!order.partner_id || order.partner_id.id === defaultPartnerId) &&
                 order.pricelist_id?.id === this.config.pricelist_id?.id &&
                 order.fiscal_position_id?.id === this.config.default_fiscal_position_id?.id
         );
@@ -2743,13 +2756,26 @@ export class PosStore extends WithLazyGetterTrap {
             }
         }
 
+        const filteredList = this.filterExcludedProducts(recordIterator);
+
+        if (
+            !isSearchByWord &&
+            !this.selectedCategory?.id &&
+            this.areAllProductsSpecial(filteredList)
+        ) {
+            return [];
+        }
+
+        return this.orderProductBySequenceAndFav(filteredList);
+    }
+
+    filterExcludedProducts(products) {
         const filteredList = [];
         const excludedProductIds = new Set(this.getExcludedProductIds());
         const availableCateg = new Set(
             (this.config.iface_available_categ_ids || []).map((c) => c.id)
         );
-
-        for (const p of recordIterator) {
+        for (const p of products) {
             if (filteredList.length >= 100) {
                 break;
             }
@@ -2768,16 +2794,7 @@ export class PosStore extends WithLazyGetterTrap {
 
             filteredList.push(p);
         }
-
-        if (
-            !isSearchByWord &&
-            !this.selectedCategory?.id &&
-            this.areAllProductsSpecial(filteredList)
-        ) {
-            return [];
-        }
-
-        return this.orderProductBySequenceAndFav(filteredList);
+        return filteredList;
     }
 
     get productToDisplayByCateg() {
@@ -2820,19 +2837,22 @@ export class PosStore extends WithLazyGetterTrap {
 
         for (const catId of selectedCategoryIds) {
             const products = byCateg[catId] || [];
-            const filtered = searchWord
+
+            let filtered = searchWord
                 ? this.getProductsBySearchWord(searchWord, products)
                 : products;
 
+            // Its advised to not use group by categ with too much products in differents
+            // categories, but in case of we end up with too much products, we slice them in
+            // group of 100 to avoid freezing the browser tab.
+            // We cannot just slice the products to display and keep the same category, because
+            // we want to avoid having categories with only few products displayed and others
+            // with a lot of products not displayed.
+            filtered = this.orderProductBySequenceAndFav(filtered);
+            filtered = this.filterExcludedProducts(filtered);
+
             if (filtered.length) {
-                // Its advised to not use group by categ with too much products in differents
-                // categories, but in case of we end up with too much products, we slice them in
-                // group of 100 to avoid freezing the browser tab.
-                // We cannot just slice the products to display and keep the same category, because
-                // we want to avoid having categories with only few products displayed and others
-                // with a lot of products not displayed.
-                const sorted = this.orderProductBySequenceAndFav(filtered);
-                results.push([catId, sorted.splice(0, 100)]);
+                results.push([catId, filtered]);
             }
         }
 
@@ -2935,11 +2955,6 @@ export class PosStore extends WithLazyGetterTrap {
         this.setOrder(this.getEmptyOrder());
         this.mobile_pane = "right";
     }
-
-    get showSaveOrderButton() {
-        return this.config.raw.trusted_config_ids.length > 0;
-    }
-
     canEditPayment(order) {
         return order.nb_print === 0;
     }
