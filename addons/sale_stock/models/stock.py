@@ -146,7 +146,7 @@ class StockPicking(models.Model):
 
             so_line_vals = {
                 'move_ids': [(4, move.id, 0)],
-                'name': product.display_name,
+                'name': product.with_context(lang=sale_order.partner_id.lang).get_product_multiline_description_sale(),
                 'order_id': sale_order.id,
                 'product_id': product.id,
                 'product_uom_qty': 0,
@@ -164,7 +164,9 @@ class StockPicking(models.Model):
                 so_line_vals['price_unit'] = 0
             # New lines should be added at the bottom of the SO (higher sequence number)
             if not so_line:
-                so_line_vals['sequence'] = max(sale_order.order_line.mapped('sequence')) + len(sale_order_lines_vals) + 1
+                so_line_vals['sequence'] = (
+                    max(sale_order.order_line.mapped('sequence'), default=0) + len(sale_order_lines_vals) + 1
+                )
             sale_order_lines_vals.append(so_line_vals)
 
         if sale_order_lines_vals:

@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-29 18:36+0000\n"
-"PO-Revision-Date: 2026-02-24 23:33+0000\n"
+"POT-Creation-Date: 2026-04-10 18:37+0000\n"
+"PO-Revision-Date: 2026-05-26 04:56+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hindi <https://translate.odoo.com/projects/odoo-18/stock/hi/>"
 "\n"
@@ -26,7 +26,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: stock
 #. odoo-python
@@ -44,6 +44,14 @@ msgstr ""
 msgid ""
 "\n"
 "(%(serial_number)s) exists in location %(location)s"
+msgstr ""
+
+#. module: stock
+#. odoo-python
+#: code:addons/stock/models/stock_move.py:0
+msgid ""
+"\n"
+"Package: %s"
 msgstr ""
 
 #. module: stock
@@ -362,7 +370,7 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.message_body
 msgid "-&gt;"
-msgstr ""
+msgstr "-&gt;"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.exception_on_picking
@@ -389,46 +397,9 @@ msgid "1 Week"
 msgstr ""
 
 #. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_package_barcode
-msgid "12.0"
-msgstr ""
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_generic_barcode
-msgid "1234567890"
-msgstr ""
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_lot_label
-msgid "12345678901"
-msgstr ""
-
-#. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking_type__product_label_format__2x7xprice
 msgid "2 x 7 with price"
-msgstr ""
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_package_barcode
-msgid "2021-9-01"
-msgstr ""
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_package_barcode_small
-msgid "2023-01-01"
-msgstr "01-01-2023`"
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_picking
-msgid "2023-09-24"
-msgstr ""
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_delivery_document
-#: model_terms:ir.ui.view,arch_db:stock.report_package_barcode
-#: model_terms:ir.ui.view,arch_db:stock.report_picking
-msgid "3.00"
-msgstr "3.00"
+msgstr "2 x 7 कीमत के साथ"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__lot_label_layout__print_format__4x12
@@ -449,17 +420,12 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking_type__product_label_format__4x12xprice
 msgid "4 x 12 with price"
-msgstr ""
+msgstr "4 x 12 कीमत के साथ"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking_type__product_label_format__4x7xprice
 msgid "4 x 7 with price"
-msgstr ""
-
-#. module: stock
-#: model_terms:ir.ui.view,arch_db:stock.report_package_barcode
-msgid "54326786758"
-msgstr ""
+msgstr "4 x 7 कीमत के साथ"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_form_view
@@ -892,7 +858,7 @@ msgstr ""
 #: model:ir.model.fields,help:stock.field_product_template__is_storable
 #: model:ir.model.fields,help:stock.field_stock_move__is_storable
 msgid "A storable product is a product for which you manage stock."
-msgstr ""
+msgstr "स्टोरेबल प्रॉडक्ट वह है जिसका आप स्टॉक मैनेज करते हैं।"
 
 #. module: stock
 #: model:res.groups,name:stock.group_warning_stock
@@ -1000,10 +966,10 @@ msgid ""
 "incoming products into specific child locations straight away (e.g. specific "
 "bins, racks)."
 msgstr ""
-"अपने वेयरहाउस में प्रॉडक्ट मूव्स के लिए रूट ऑपरेशन जोड़ें और कस्टमाइज़ करें: जैसे आने वाले सामान के लिए अनलोड "
-"> क्वालिटी कंट्रोल > स्टॉक, और जाने वाले सामान के लिए पिक > पैक > शिप. \n"
-" इनकमिंग प्रॉडक्ट को सीधे खास चाइल्ड लोकेशन (जैसे खास बिन्स, रैक्स) पर भेजने के लिए आप वेयरहाउस लोकेशन्स "
-"पर पुटअवे रणनीतियां भी सेट कर सकते हैं।"
+"अपने वेयरहाउस में प्रॉडक्ट मूव्स के लिए रूट ऑपरेशन जोड़ें और कस्टमाइज़ करें: जैसे आने वाले सामान के "
+"लिए अनलोड > क्वालिटी कंट्रोल > स्टॉक, और जाने वाले सामान के लिए पिक > पैक > शिप. \n"
+" इनकमिंग प्रॉडक्ट को सीधे खास चाइल्ड लोकेशन (जैसे खास बिन्स, रैक्स) पर भेजने के लिए आप "
+"वेयरहाउस लोकेशन्स पर पुटअवे रणनीतियां भी सेट कर सकते हैं।"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
@@ -1014,10 +980,10 @@ msgid ""
 "strategies on warehouse locations in order to send incoming products into "
 "specific child locations straight away (e.g. specific bins, racks)."
 msgstr ""
-"वेयरहाउस में प्रॉडक्ट की हलचल को मैनेज करने के लिए रूट ऑपरेशंस जोड़ें और कस्टमाइज़ करें: जैसे आने वाले प्रॉडक्"
-"ट के लिए अनलोड > क्वालिटी कंट्रोल > स्टॉक, और जाने वाले प्रॉडक्ट के लिए पिक > पैक > शिप. आप वेयरहाउस लोके"
-"शन पर पुटअवे रणनीति भी सेट कर सकते हैं, ताकि आने वाले प्रॉडक्ट को सीधे खास जगहों (जैसे खास बिन या रैक) पर "
-"भेजा जा सके।"
+"वेयरहाउस में प्रॉडक्ट की हलचल को मैनेज करने के लिए रूट ऑपरेशंस जोड़ें और कस्टमाइज़ करें: जैसे आने "
+"वाले प्रॉडक्ट के लिए अनलोड > क्वालिटी कंट्रोल > स्टॉक, और जाने वाले प्रॉडक्ट के लिए पिक > "
+"पैक > शिप. आप वेयरहाउस लोकेशन पर पुटअवे रणनीति भी सेट कर सकते हैं, ताकि आने वाले प्रॉडक्ट "
+"को सीधे खास जगहों (जैसे खास बिन या रैक) पर भेजा जा सके।"
 
 #. module: stock
 #. odoo-javascript
@@ -1090,7 +1056,7 @@ msgstr "सभी "
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_putaway_list
 msgid "All Categories"
-msgstr ""
+msgstr "सभी कैटगरी"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_storage_category_form
@@ -1111,7 +1077,7 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/stock/static/src/views/search/stock_report_search_panel.xml:0
 msgid "All Warehouses"
-msgstr ""
+msgstr "सभी वेयरहाउस"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__procurement_group__move_type__one
@@ -1330,7 +1296,7 @@ msgstr "अटैचमेंट काउंट"
 #: model:ir.ui.menu,name:stock.menu_attribute_action
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
 msgid "Attributes"
-msgstr ""
+msgstr "एट्रिब्यूट"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__res_company__annual_inventory_month__8
@@ -1488,7 +1454,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model,name:stock.model_barcode_rule
 msgid "Barcode Rule"
-msgstr ""
+msgstr "बारकोड से जुड़ा नियम"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_res_config_settings__module_stock_barcode
@@ -1687,9 +1653,10 @@ msgid ""
 "(Chicago) in its entirety and does not include any costs relating to the "
 "legislation of the country in which the client is located."
 msgstr ""
-"कुछ देश अपने आंतरिक कानूनों के अनुसार इनवॉइस की राशि पर स्रोत पर टैक्स कटौती (withholding tax) लागू "
-"करते हैं. ऐसी किसी भी कटौती का भुगतान क्लाइंट द्वारा कर अधिकारियों को किया जाएगा. किसी भी स्थिति में My Company "
-"(Chicago) किसी देश के कानून से संबंधित खर्चों में शामिल नहीं होगी. इसलिए, इनवॉइस की पूरी राशि My Company "
+"कुछ देश अपने आंतरिक कानूनों के अनुसार इनवॉइस की राशि पर स्रोत पर टैक्स कटौती "
+"(withholding tax) लागू करते हैं. ऐसी किसी भी कटौती का भुगतान क्लाइंट द्वारा कर "
+"अधिकारियों को किया जाएगा. किसी भी स्थिति में My Company (Chicago) किसी देश के कानून "
+"से संबंधित खर्चों में शामिल नहीं होगी. इसलिए, इनवॉइस की पूरी राशि My Company "
 "(Chicago) को देय होगी और इसमें क्लाइंट के देश के कानून से संबंधित कोई भी खर्च शामिल नहीं है।"
 
 #. module: stock
@@ -1799,7 +1766,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model,name:stock.model_product_label_layout
 msgid "Choose the sheet layout to print the labels"
-msgstr ""
+msgstr "लेबल प्रिंट करने के लिए शीट लेआउट चुनें"
 
 #. module: stock
 #: model:ir.model,name:stock.model_picking_label_type
@@ -2418,7 +2385,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock.report_delivery_document
 #: model_terms:ir.ui.view,arch_db:stock.report_picking
 msgid "Customizable Desk"
-msgstr ""
+msgstr "कस्टमाइज़ेबल डेस्क"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_location_form
@@ -2548,6 +2515,9 @@ msgid ""
 "        If greater than the last day of a month, then the last day of the "
 "month will be selected instead."
 msgstr ""
+"महीने का वह दिन जब वार्षिक इन्वेंट्री होनी चाहिए. अगर यह शून्य या नकारात्मक है, तो "
+"महीने का पहला दिन चुना जाएगा.\n"
+"        अगर यह महीने के अंतिम दिन से ज़्यादा है, तो महीने का अंतिम दिन चुना जाएगा।"
 
 #. module: stock
 #. odoo-javascript
@@ -2850,6 +2820,9 @@ msgid ""
 "of the product: whether it will be bought, manufactured, replenished on "
 "order, etc."
 msgstr ""
+"इंस्टॉल किए गए मॉड्यूल के आधार पर, यह आपको प्रॉडक्ट के रूट (मार्ग) को परिभाषित करने की "
+"अनुमति देगा: कि इसे खरीदा जाएगा, मैन्युफ़ैक्चर किया जाएगा, ऑर्डर पर दोबारा भरा जाएगा "
+"वगैरह।"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_lot__note
@@ -2943,7 +2916,7 @@ msgstr "डेस्टिनेशन लोकेशन"
 #: model:ir.model.fields,field_description:stock.field_stock_move__location_dest_usage
 #: model:ir.model.fields,field_description:stock.field_stock_move_line__location_dest_usage
 msgid "Destination Location Type"
-msgstr ""
+msgstr "वह स्थान या वेयरहाउस का प्रकार जहां सामान भेजा या रखा जाना है"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.message_body
@@ -3203,7 +3176,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/stock/models/stock_orderpoint.py:0
 msgid "Edit Product"
-msgstr ""
+msgstr "प्रॉडक्ट में बदलाव करें"
 
 #. module: stock
 #. odoo-python
@@ -3222,7 +3195,7 @@ msgstr "लागू होने की तारीख"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
 msgid "Email Confirmation"
-msgstr ""
+msgstr "ईमेल की पुष्टि"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_res_company__stock_move_email_validation
@@ -3253,9 +3226,10 @@ msgid ""
 "inventory adjustments, batch picking, moving lots or pallets, low inventory "
 "checks, etc. Go to the \"Apps\" menu to activate the barcode interface."
 msgstr ""
-"Odoo बारकोड ऐप्लिकेशन के साथ तेज़ अनुभव का आनंद लें. यह बहुत तेज़ है और बिना स्थिर इंटरनेट कनेक्शन के भी "
-"काम करता है. यह सभी फ़्लो को सपोर्ट करता है: इन्वेंट्री अडजस्टमेंट, बैच पिकिंग, लॉट या पैलेट को मूव करना, "
-"कम इन्वेंट्री की जाँच आदि. बारकोड इंटरफ़ेस को चालू करने के लिए \"ऐप्लिकेशन\" मेन्यू पर जाएं।"
+"Odoo बारकोड ऐप्लिकेशन के साथ तेज़ अनुभव का आनंद लें. यह बहुत तेज़ है और बिना स्थिर इंटरनेट "
+"कनेक्शन के भी काम करता है. यह सभी फ़्लो को सपोर्ट करता है: इन्वेंट्री अडजस्टमेंट, बैच पिकिंग, "
+"लॉट या पैलेट को मूव करना, कम इन्वेंट्री की जाँच आदि. बारकोड इंटरफ़ेस को चालू करने के लिए "
+"\"ऐप्लिकेशन\" मेन्यू पर जाएं।"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_product_product__tracking
@@ -3460,8 +3434,10 @@ msgid ""
 "Otherwise, this includes goods stored in any Stock Location with 'internal' "
 "type."
 msgstr ""
-"आने वाले समय के लिए अनुमानित स्टॉक (गणना: हाथ में उपलब्ध मात्रा - बाहर जाने वाली + आने वाली)\n"
-"अगर आप एक खास जगह देख रहे हैं, तो इसमें वहां का और उससे जुड़ी छोटी जगहों का सामान गिना जाएगा.\n"
+"आने वाले समय के लिए अनुमानित स्टॉक (गणना: हाथ में उपलब्ध मात्रा - बाहर जाने वाली + आने "
+"वाली)\n"
+"अगर आप एक खास जगह देख रहे हैं, तो इसमें वहां का और उससे जुड़ी छोटी जगहों का सामान गिना "
+"जाएगा.\n"
 "अगर एक वेयरहाउस देख रहे हैं, तो उसके मुख्य स्टॉक और जुड़ी जगहों का सामान शामिल होगा.\n"
 "बाकी मामलों में, 'आंतरिक' टाइप की सभी जगहों का सामान इसमें जुड़ता है।"
 
@@ -3478,7 +3454,8 @@ msgid ""
 msgstr ""
 "अनुमानित स्टॉक की गिनती (कुल उपलब्ध स्टॉक में से बुक किए गए स्टॉक को घटाकर)\n"
 "एक ही स्टॉक लोकेशन होने पर, इसमें उस लोकेशन या उसके सब-लोकेशन में स्टोर सामान शामिल है.\n"
-"एक ही वेयरहाउस होने पर, इसमें उस वेयरहाउस के स्टॉक लोकेशन या उसके सब-लोकेशन में स्टोर सामान शामिल है.\n"
+"एक ही वेयरहाउस होने पर, इसमें उस वेयरहाउस के स्टॉक लोकेशन या उसके सब-लोकेशन में स्टोर "
+"सामान शामिल है.\n"
 "बाकी स्थितियों में, सिर्फ 'इंटरनल' टाइप वाले स्टोर में रखा सामान ही गिना जाएगा।"
 
 #. module: stock
@@ -3896,6 +3873,9 @@ msgid ""
 "services of a debt recovery company. All legal expenses will be payable by "
 "the client."
 msgstr ""
+"अगर पेमेंट की आखिरी तारीख से 60 दिन बीत जाने पर भी अगर पैसा नहीं मिलता, तो My "
+"Company (Chicago) के पास ऋण वसूली कंपनी की सेवाएं लेने का अधिकार सुरक्षित है. सभी "
+"कानूनी खर्चों का भुगतान ग्राहक द्वारा किया जाएगा।"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
@@ -4135,6 +4115,10 @@ msgid ""
 "        In case of incoming flow, validate the transfer before this date in "
 "order to have these products in stock at the date promised by the supplier"
 msgstr ""
+"आउटगोइंग फ्लो के मामले में, ग्राहक को वादे की तारीख पर डिलीवरी देने के लिए, इस तारीख से "
+"पहले ट्रांसफर को वैलिडेट करें..\n"
+"        इनकमिंग फ्लो के मामले में, सप्लायर के ज़रिए वादे की गई तारीख पर स्टॉक में प्रॉडक्ट "
+"होने के लिए, इस तारीख से पहले ट्रांसफर की पुष्टि करें"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.quant_package_search_view
@@ -4149,9 +4133,9 @@ msgid ""
 "office within 8 days of the delivery of the goods or the provision of the "
 "services."
 msgstr ""
-"इसे स्वीकार्य बनाने के लिए, माल की डिलीवरी या सेवाओं के प्रावधान के 8 दिनों के भीतर रजिस्टर किए गए ऑफ़िस को "
-"रिकॉर्डेड डिलीवरी के ज़रिए भेजे गए पत्र के माध्यम से My Company (Chicago) को किसी भी दावे की सूचना दी जानी"
-" चाहिए।"
+"इसे स्वीकार्य बनाने के लिए, माल की डिलीवरी या सेवाओं के प्रावधान के 8 दिनों के भीतर "
+"रजिस्टर किए गए ऑफ़िस को रिकॉर्डेड डिलीवरी के ज़रिए भेजे गए पत्र के माध्यम से My Company "
+"(Chicago) को किसी भी दावे की सूचना दी जानी चाहिए।"
 
 #. module: stock
 #. odoo-javascript
@@ -4182,7 +4166,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse__reception_steps
 msgid "Incoming Shipments"
-msgstr ""
+msgstr "इनकमिंग शिपमेंट"
 
 #. module: stock
 #. odoo-javascript
@@ -5036,7 +5020,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move_line__lot_name
 msgid "Lot/Serial Number Name"
-msgstr ""
+msgstr "लॉट/सीरियल नंबर का नाम"
 
 #. module: stock
 #. odoo-python
@@ -5252,7 +5236,7 @@ msgstr "मेथड"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_warehouse_orderpoint_tree_editable
 msgid "Min"
-msgstr ""
+msgstr "मिनट"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse_orderpoint__product_min_qty
@@ -5521,7 +5505,7 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.exception_on_picking
 msgid "Next transfer(s) impacted:"
-msgstr ""
+msgstr "अगले ट्रांसफ़र का असर:"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_putaway_rule__sublocation__no
@@ -5849,7 +5833,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_type_tree
 #: model_terms:ir.ui.view,arch_db:stock.view_warehouse
 msgid "Operation Types"
-msgstr ""
+msgstr "ऑपरेशन के प्रकार"
 
 #. module: stock
 #. odoo-python
@@ -6013,10 +5997,11 @@ msgid ""
 "My Company (Chicago) will be authorized to suspend any provision of services "
 "without prior warning in the event of late payment."
 msgstr ""
-"हमारे इनवॉइस का भुगतान 21 कार्य दिवसों के भीतर करना होगा, जब तक कि इनवॉइस या ऑर्डर पर कोई अन्य समय "
-"सीमा न दी गई हो. नियत तारीख तक भुगतान न होने की स्थिति में, My Company (Chicago) शेष राशि के 10% के"
-" बराबर निश्चित ब्याज मांगने का अधिकार सुरक्षित रखती है. भुगतान में देरी होने पर My Company (Chicago) "
-"बिना किसी पूर्व सूचना के सेवाओं को निलंबित करने के लिए अधिकृत होगी।"
+"हमारे इनवॉइस का भुगतान 21 कार्य दिवसों के भीतर करना होगा, जब तक कि इनवॉइस या ऑर्डर "
+"पर कोई अन्य समय सीमा न दी गई हो. नियत तारीख तक भुगतान न होने की स्थिति में, My "
+"Company (Chicago) शेष राशि के 10% के बराबर निश्चित ब्याज मांगने का अधिकार सुरक्षित "
+"रखती है. भुगतान में देरी होने पर My Company (Chicago) बिना किसी पूर्व सूचना के सेवाओं को "
+"निलंबित करने के लिए अधिकृत होगी।"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse__out_type_id
@@ -6307,7 +6292,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock.field_stock_route__packaging_ids
 #: model_terms:ir.ui.view,arch_db:stock.stock_location_route_form_view
 msgid "Packagings"
-msgstr ""
+msgstr "पैकेजिंग"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_warehouse__wh_pack_stock_loc_id
@@ -6415,7 +6400,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:stock.field_stock_scrap__picking_id
 #: model_terms:ir.ui.view,arch_db:stock.view_move_search
 msgid "Picking"
-msgstr ""
+msgstr "पिकिंग"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_picking_internal_search
@@ -6699,7 +6684,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model,name:stock.model_report_stock_label_product_product_view
 msgid "Product Label Report"
-msgstr ""
+msgstr "प्रॉडक्ट लेबल रिपोर्ट"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__picking_label_type__label_type__products
@@ -6780,12 +6765,12 @@ msgstr "उत्पाद  प्रारूप"
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_report_stock_quantity__product_tmpl_id
 msgid "Product Tmpl"
-msgstr ""
+msgstr "प्रॉडक्ट टेम्प्लेट"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_scrap__tracking
 msgid "Product Tracking"
-msgstr ""
+msgstr "प्रॉडक्ट ट्रैकिंग"
 
 #. module: stock
 #: model:ir.model,name:stock.model_uom_uom
@@ -6812,7 +6797,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/stock/report/product_label_report.py:0
 msgid "Product model not defined, Please contact your administrator."
-msgstr ""
+msgstr "प्रॉडक्ट मॉडल सेट नहीं है, कृपया अपने एडमिनिस्ट्रेटर से संपर्क करें।"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_production_lot_form
@@ -7173,9 +7158,10 @@ msgid ""
 "type."
 msgstr ""
 "पहले से तय किए गए बाहर जाने वाले प्रॉडक्ट माल की कुल संख्या.\n"
-"एक स्टॉक लोकेशन के मामले में, इसमें इस लोकेशन या इसके चिल्ड्रन लोकेशन से बाहर जाने वाला माल शामिल है.\n"
-"एक वेयरहाउस के मामले में, इसमें इस वेयरहाउस के स्टॉक लोकेशन या इसके चिल्ड्रन लोकेशन से बाहर जाने वाला सामान "
+"एक स्टॉक लोकेशन के मामले में, इसमें इस लोकेशन या इसके चिल्ड्रन लोकेशन से बाहर जाने वाला माल "
 "शामिल है.\n"
+"एक वेयरहाउस के मामले में, इसमें इस वेयरहाउस के स्टॉक लोकेशन या इसके चिल्ड्रन लोकेशन से बाहर "
+"जाने वाला सामान शामिल है.\n"
 "नहीं, तो इसमें 'इंटरनल' प्रकार के किसी भी स्टॉक लोकेशन से बाहर जाने वाला सामान शामिल है।"
 
 #. module: stock
@@ -7536,7 +7522,7 @@ msgstr "रिप्लिनिशमेंट (अपने-आप स्ट�
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_replenishment_option__replenishment_info_id
 msgid "Replenishment Info"
-msgstr ""
+msgstr "रिप्लिनिशमेंट से जुड़ी जानकारी"
 
 #. module: stock
 #: model:ir.actions.act_window,name:stock.action_stock_replenishment_info
@@ -7587,7 +7573,7 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
 msgid "Request your vendors to deliver to your customers"
-msgstr ""
+msgstr "अपने वेंडर्स से ग्राहकों को डिलीवरी करने का अनुरोध करें"
 
 #. module: stock
 #: model:res.groups,name:stock.group_stock_sign_delivery
@@ -7812,7 +7798,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:stock.stock_location_route_tree
 #: model_terms:ir.ui.view,arch_db:stock.view_warehouse
 msgid "Routes"
-msgstr ""
+msgstr "रूट्स"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_product_product__has_available_route_ids
@@ -8276,7 +8262,7 @@ msgstr "शिपिंग कनेक्टर"
 #: model:ir.model.fields,field_description:stock.field_stock_picking__move_type
 #: model:ir.model.fields,field_description:stock.field_stock_picking_type__move_type
 msgid "Shipping Policy"
-msgstr ""
+msgstr "शिपिंग से जुड़ी नीति"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_quant_package__shipping_weight
@@ -8738,12 +8724,12 @@ msgstr "स्टॉक रूल रिपोर्ट"
 #. module: stock
 #: model:ir.model,name:stock.model_stock_replenishment_info
 msgid "Stock supplier replenishment information"
-msgstr ""
+msgstr "सप्लायर से स्टॉक को फिर से भरने की जानकारी"
 
 #. module: stock
 #: model:ir.model,name:stock.model_stock_replenishment_option
 msgid "Stock warehouse replenishment option"
-msgstr ""
+msgstr "वेयरहाउस में स्टॉक को फिर से भरने का विकल्प"
 
 #. module: stock
 #. odoo-python
@@ -8948,11 +8934,12 @@ msgid ""
 "Otherwise, the serial number should be corrected to prevent inconsistent "
 "data."
 msgstr ""
-"सीरियल नंबर (%(serial_number)s) पहले से इन जगह पर इस्तेमाल में है: %(location_list)s.\n"
+"सीरियल नंबर (%(serial_number)s) पहले से इन जगह पर इस्तेमाल में है: %"
+"(location_list)s.\n"
 "\n"
-"क्या यह सही है? उदाहरण के लिए, यह तब हो सकता है जब रसीद से पहले डिलीवरी ऑपरेशन को वैलिडेट कर दिया जा"
-"ए. ऐसे में, सभी स्टेप पूरे होने पर यह समस्या अपने आप ठीक हो जाएगी. अन्यथा, डेटा की गड़बड़ी रोकने के लिए सीरि"
-"यल नंबर को ठीक करें।"
+"क्या यह सही है? उदाहरण के लिए, यह तब हो सकता है जब रसीद से पहले डिलीवरी ऑपरेशन को "
+"वैलिडेट कर दिया जाए. ऐसे में, सभी स्टेप पूरे होने पर यह समस्या अपने आप ठीक हो जाएगी. "
+"अन्यथा, डेटा की गड़बड़ी रोकने के लिए सीरियल नंबर को ठीक करें।"
 
 #. module: stock
 #. odoo-python
@@ -9095,7 +9082,8 @@ msgid ""
 msgstr ""
 "ऑपरेशन टाइप सिस्टम आपको हर स्टॉक ऑपरेशन के लिए\n"
 "            एक खास टाइप तय करने की अनुमति देता है, जिससे उसके व्यू बदल जाएंगे.\n"
-"            ऑपरेशन टाइप पर आप यह तय कर सकते हैं कि क्या डिफ़ॉल्ट रूप से पैकिंग की ज़रूरत है,\n"
+"            ऑपरेशन टाइप पर आप यह तय कर सकते हैं कि क्या डिफ़ॉल्ट रूप से पैकिंग की ज़रूरत "
+"है,\n"
 "            या क्या ग्राहक का नाम दिखाया जाना चाहिए।"
 
 #. module: stock
@@ -9257,9 +9245,9 @@ msgid ""
 "demand flow. The requested delivery address will be the customer delivery "
 "address and not your warehouse."
 msgstr ""
-"इससे प्रॉडक्ट पर ड्रॉपशिपिंग रूट लागू करें, ताकि वेंडर सीधे ग्राहकों को डिलीवरी कर सकें. सेल्स ऑर्डर कन्फर्म होने "
-"पर, ड्रॉपशिप प्रोडक्ट के लिए कोटेशन का अनुरोध (RFQ) जनरेट होगा. यह एक ऑन-डिमांड फ्लो है. इसमें डिलीवरी का"
-" पता आपके वेयरहाउस के बजाय ग्राहक का होगा।"
+"इससे प्रॉडक्ट पर ड्रॉपशिपिंग रूट लागू करें, ताकि वेंडर सीधे ग्राहकों को डिलीवरी कर सकें. सेल्स "
+"ऑर्डर कन्फर्म होने पर, ड्रॉपशिप प्रोडक्ट के लिए कोटेशन का अनुरोध (RFQ) जनरेट होगा. यह "
+"एक ऑन-डिमांड फ्लो है. इसमें डिलीवरी का पता आपके वेयरहाउस के बजाय ग्राहक का होगा।"
 
 #. module: stock
 #. odoo-python
@@ -9381,6 +9369,9 @@ msgid ""
 "advised to change the Product Type since it can lead to inconsistencies. A "
 "better solution could be to archive the product and create a new one instead."
 msgstr ""
+"इस प्रॉडक्ट का उपयोग कम से कम एक इन्वेंटरी मूवमेंट में किया गया है. प्रॉडक्ट का टाइप बदलने "
+"की सलाह नहीं दी जाती है, क्योंकि इससे असंगतताएं आ सकती हैं. एक बेहतर समाधान यह हो सकता "
+"है कि प्रॉडक्ट को आर्काइव कर दिया जाए और इसके बजाय एक नया प्रॉडक्ट बनाया जाए।"
 
 #. module: stock
 #. odoo-python
@@ -9691,7 +9682,7 @@ msgstr "ट्रेसेबिलिटी रिपोर्ट"
 #: model:ir.model.fields,field_description:stock.field_product_template__is_storable
 #: model:ir.model.fields,field_description:stock.field_stock_move__is_storable
 msgid "Track Inventory"
-msgstr ""
+msgstr "इन्वेंट्री ट्रैक करें"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_res_config_settings__module_product_expiry
@@ -10067,6 +10058,11 @@ msgid ""
 "\n"
 "To avoid this, please discard the source location change before saving."
 msgstr ""
+"इस ट्रांसफर का जगह अपडेट करने से वर्तमान में असाइन किए गए आइटम अन-रिज़र्व हो जाएंगे. नए "
+"जगह पर आइटम रिज़र्व करने का प्रयास किया जाएगा और पिछले ट्रांसफर के साथ लिंक खत्म हो "
+"जाएगा.\n"
+"\n"
+"इससे बचने के लिए, कृपया सेव करने से पहले जगह परिवर्तन को रद्द करें।"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_move__priority__1
@@ -10143,7 +10139,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_change_product_qty__product_variant_count
 msgid "Variant Count"
-msgstr ""
+msgstr "वैरिएंट की संख्या"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_location_search
@@ -10445,7 +10441,7 @@ msgstr "वज़न की माप यूनिट का लेबल"
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__barcode_rule__type__weight
 msgid "Weighted Product"
-msgstr ""
+msgstr "वजन वाला प्रॉडक्ट"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_replenishment_info__wh_replenishment_option_ids
@@ -10463,7 +10459,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking__move_type__one
 #: model:ir.model.fields.selection,name:stock.selection__stock_picking_type__move_type__one
 msgid "When all products are ready"
-msgstr ""
+msgstr "जब सभी प्रॉडक्ट तैयार हो जाएं"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_route__product_selectable
@@ -10643,6 +10639,8 @@ msgid ""
 "type. To change this, go on the operation type and tick the box \"Create New "
 "Lots/Serial Numbers\"."
 msgstr ""
+"आपको इस ऑपरेशन टाइप के साथ लॉट या सीरियल नंबर बनाने की अनुमति नहीं है. इसे बदलने के "
+"लिए, ऑपरेशन टाइप पर जाएं और \"नए लॉट/सीरियल नंबर बनाएं\" बॉक्स को टिक करें।"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_package_destination_form_view
@@ -10718,7 +10716,7 @@ msgstr ""
 #. odoo-python
 #: code:addons/stock/models/stock_move_line.py:0
 msgid "You can not enter negative quantities."
-msgstr ""
+msgstr "आप नकारात्मक मात्राएं दर्ज नहीं कर सकते।"
 
 #. module: stock
 #. odoo-python
@@ -10895,6 +10893,8 @@ msgid ""
 "You cannot set a scrap location as the destination location for a "
 "manufacturing type operation."
 msgstr ""
+"आप मैन्युफ़ैक्चरिंग टाइप ऑपरेशन के लिए 'स्क्रैप लोकेशन' को 'डेस्टिनेशन लोकेशन' के रूप में सेट नहीं "
+"कर सकते।"
 
 #. module: stock
 #. odoo-python
@@ -11214,7 +11214,7 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_scrap_form_view
 msgid "from location"
-msgstr ""
+msgstr "लोकेशन से"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_form_view
@@ -11336,3 +11336,9 @@ msgstr "यूनिट"
 msgid ""
 "{{ object.company_id.name }} Delivery Order (Ref {{ object.name or 'n/a' }})"
 msgstr ""
+
+#~ msgid "2023-01-01"
+#~ msgstr "01-01-2023`"
+
+#~ msgid "3.00"
+#~ msgstr "3.00"

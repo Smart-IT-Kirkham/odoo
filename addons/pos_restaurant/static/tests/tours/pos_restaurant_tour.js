@@ -337,6 +337,13 @@ registry.category("web_tour.tours").add("OrderChange", {
                     "acknowledge printing error ( because we don't have printer in the test. )",
             },
             ProductScreen.orderlinesHaveNoChange(),
+            ProductScreen.clickControlButton("General Note"),
+            TextInputPopup.inputText("test note"),
+            Dialog.confirm(),
+            negateStep(...ProductScreen.OrderButtonNotContain("Message")),
+            ProductScreen.clickControlButton("General Note"),
+            Dialog.cancel(),
+            ProductScreen.OrderButtonNotContain("Message"),
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Cash"),
             PaymentScreen.clickNumpad("+10"),
@@ -873,5 +880,29 @@ registry.category("web_tour.tours").add("test_transfer_order_to_booked_table", {
             ProductScreen.clickPayButton(),
             PaymentScreen.clickPaymentMethod("Cash"),
             PaymentScreen.clickValidate(),
+        ].flat(),
+});
+
+registry.category("web_tour.tours").add("test_quantity_correctly_displayed_after_transfer", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+            FloorScreen.clickTable("5"),
+            ProductScreen.clickDisplayedProduct("Coca-Cola"),
+            ProductScreen.OrderButtonCategoryQty("Drinks", "1"),
+            Chrome.clickPlanButton(),
+            FloorScreen.clickTable("4"),
+            ProductScreen.clickDisplayedProduct("Minute Maid"),
+            ProductScreen.OrderButtonCategoryQty("Drinks", "1"),
+            ProductScreen.clickOrderButton(),
+            Dialog.confirm(),
+            ProductScreen.OrderButtonNotContain("Drinks"),
+            ProductScreen.clickControlButton("Transfer"),
+            FloorScreen.clickTable("5"),
+            ProductScreen.OrderButtonCategoryQty("Drinks", "1"),
+            ProductScreen.clickOrderButton(),
+            Dialog.confirm(),
+            ProductScreen.OrderButtonNotContain("Drinks"),
         ].flat(),
 });
