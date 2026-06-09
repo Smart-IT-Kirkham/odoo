@@ -263,13 +263,14 @@ class AccountMove(models.Model):
         # EXTENDS 'account'
         super()._compute_show_reset_to_draft_button()
         for move in self:
-            move.show_reset_to_draft_button = not move.l10n_it_edi_transaction and move.show_reset_to_draft_button
+            move.show_reset_to_draft_button = not (move.is_sale_document() and move.l10n_it_edi_transaction) and move.show_reset_to_draft_button
 
     def _parse_xml_with_recovery(self, content, name=None):
         def parse_xml(parser, content):
             try:
                 return etree.fromstring(content, parser)
-            except (etree.ParseError, ValueError) as e:
+            except (etree.ParseError, ValueError, TypeError) as e:
+                # Note: lxml < 5.0 raises ValueError; lxml 5.0+ / libxml2 2.12+ raises TypeError
                 _logger.info("XML parsing of %s failed: %s", name, e)
 
         parser = etree.XMLParser(recover=True, resolve_entities=False)
@@ -615,7 +616,10 @@ class AccountMove(models.Model):
             return None
         tax = tax_data['tax']
 
-        if tax._l10n_it_is_split_payment():
+        if tax._l10n_it_is_split_payment() or any(
+            child_tax._l10n_it_is_split_payment()
+            for child_tax in tax_data.get('group', self.env['account.tax']).children_tax_ids
+        ):
             tax_exigibility_code = 'S'
         elif tax.tax_exigibility == 'on_payment':
             tax_exigibility_code = 'D'
@@ -1447,14 +1451,17 @@ class AccountMove(models.Model):
             pension_fund_type = pension_fund.find("TipoCassa")
             tax_factor_percent = pension_fund.find("AlCassa")
             vat_tax_factor_percent = pension_fund.find("AliquotaIVA")
+            pension_fund_natura = pension_fund.find("Natura")
             pension_fund_type = pension_fund_type.text if pension_fund_type is not None else ""
             tax_factor_percent = float(tax_factor_percent.text or "0.0")
             vat_tax_factor_percent = float(vat_tax_factor_percent.text or "0.0")
+            pension_fund_natura = pension_fund_natura.text if pension_fund_natura is not None else False
             pension_fund_tax = self._l10n_it_edi_search_tax_for_import(
                 company,
                 tax_factor_percent,
                 ([('l10n_it_pension_fund_type', '=', pension_fund_type)]
-                 + type_tax_use_domain))
+                 + type_tax_use_domain),
+                l10n_it_exempt_reason=pension_fund_natura)
             if pension_fund_tax:
                 if vat_tax_factor_percent not in pension_fund_taxes:
                     pension_fund_taxes[vat_tax_factor_percent] = pension_fund_tax
@@ -1863,7 +1870,10 @@ class AccountMove(models.Model):
         elif amount := get_float(element, './/Importo'):
             percentage = get_float(element, './/Aliquota')
             if not percentage and (tax_amount := get_float(element, './/Imposta')):
-                percentage = round(tax_amount / (amount - tax_amount) * 100)
+                if amount == tax_amount:
+                    percentage = 0.0
+                else:
+                    percentage = round(tax_amount / (amount - tax_amount) * 100)
             move_line.price_unit = amount / (1 + percentage / 100)
 
         move_line.tax_ids = [Command.clear()]
@@ -2536,7 +2546,7 @@ class AccountMove(models.Model):
         if not pension_fund_tax_candidates:
             return None
 
-        if l10n_it_exemption_reason and len(pension_fund_tax_candidates) > 1:
+        if l10n_it_exemption_reason:
             pension_fund_tax_candidates = pension_fund_tax_candidates.filtered(lambda t: t.l10n_it_exempt_reason == l10n_it_exemption_reason)
         pension_fund_tax = pension_fund_tax_candidates[:1]
 
@@ -2546,17 +2556,20 @@ class AccountMove(models.Model):
         if not extra_info.get('pension_fund_assosoftware_tags'):
             return pension_fund_tax
 
-        selector = ".//AltriDatiGestionali[TipoDato[contains(text(),'AswCassPre')]]/RiferimentoTesto"
-        reference_text = get_text(element, selector)
-        if not reference_text:
+        parent_selector = ".//AltriDatiGestionali[TipoDato[contains(text(),'AswCassPre')]]"
+        parent_tag = element.xpath(parent_selector)
+        if not parent_tag:
             return None
 
-        if match := re.match(r"(?P<kind>TC\d{2}) \((?P<tax_rate>\d+)%\)", reference_text):
+        reference_tag = parent_tag[0].xpath("./RiferimentoTesto")
+        if reference_tag and (match := re.match(r"(?P<kind>TC\d{2}) \((?P<tax_rate>\d+)%\)", reference_tag[0].text)):
             rate = float(match.group("tax_rate"))
             match_kind = (match.group("kind") == pension_fund_tax.l10n_it_pension_fund_type)
             match_rate = (float_compare(rate, pension_fund_tax.amount, precision_digits=2) == 0)
             if match_kind and match_rate:
                 return pension_fund_tax
+        elif not reference_tag:
+            return pension_fund_tax
 
         return None
 

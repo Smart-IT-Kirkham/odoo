@@ -206,7 +206,7 @@ class AccountFiscalPosition(models.Model):
         return super(AccountFiscalPosition, self).write(vals)
 
     def _get_first_matching_fpos(self, partner):
-        sorted_fpos = self.sorted(key=lambda f: (-len(f.company_id.parent_ids), f.sequence))  # company specific first, then sequence
+        sorted_fpos = self.sorted(key=lambda f: (-len(f.company_id.sudo().parent_ids), f.sequence))  # company specific first, then sequence
         for fpos in sorted_fpos:
             if all(fn(fpos) for fn in self._get_fpos_validation_functions(partner)):
                 return fpos
@@ -898,6 +898,9 @@ class ResPartner(models.Model):
         country_prefix = re.match('^[a-zA-Z]{2}|^', vat).group()
 
         criteria = [{'domain': [('vat', 'in', (normalized_vat, vat))]}]
+        extra_vat_values = self._get_country_specific_vat_variants(normalized_vat, country_prefix)
+        if extra_vat_values:
+            criteria.append({'domain': [('vat', 'in', extra_vat_values)]})
         if country_prefix:
             criteria.append({
                 'domain': [
@@ -945,6 +948,11 @@ class ResPartner(models.Model):
         return {
             'criteria': criteria,
         }
+
+    @api.model
+    def _get_country_specific_vat_variants(self, normalized_vat, country_prefix):
+        """Return additional formatted VAT values to consider during EDI partner matching."""
+        return []
 
     @api.model
     def _import_retrieve_customer_from_phone(self, customer_values):
@@ -1017,7 +1025,7 @@ class ResPartner(models.Model):
                         full_domain = Domain.AND([static_domain, domain])
                         partner = self.search(
                             full_domain,
-                            order='company_id, parent_id DESC, id DESC',
+                            order='is_company DESC, supplier_rank DESC, company_id, parent_id DESC, id DESC',
                             limit=1,
                         )
                     elif search_method:
