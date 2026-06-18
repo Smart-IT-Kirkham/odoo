@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-09 10:41+0000\n"
+"POT-Creation-Date: 2026-05-08 17:36+0000\n"
+"PO-Revision-Date: 2026-06-03 18:16+0000\n"
 "Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
 "Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-17/"
 "point_of_sale/id/>\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: point_of_sale
 #. odoo-python
@@ -561,7 +561,7 @@ msgstr "Status Aktivitas"
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_session__activity_type_icon
 msgid "Activity Type Icon"
-msgstr "Ikon Jenis Aktifitas"
+msgstr "Ikon Jenis Aktivitas"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -1248,7 +1248,7 @@ msgstr "Baris-Baris Kas"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.report_saledetails
 msgid "Cash Move 1"
-msgstr "Pergerakkan Kas 1"
+msgstr "Pergerakan Kas 1"
 
 #. module: point_of_sale
 #. odoo-python
@@ -1274,6 +1274,11 @@ msgstr "Pembulatan Kas"
 #: model:ir.model.fields,field_description:point_of_sale.field_res_config_settings__pos_cash_rounding
 msgid "Cash Rounding (PoS)"
 msgstr "Pembulatan Kas (POS)"
+
+#. module: point_of_sale
+#: model_terms:ir.ui.view,arch_db:point_of_sale.report_saledetails
+msgid "Cash Rounding:"
+msgstr "Pembulatan Kas:"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
@@ -3138,7 +3143,7 @@ msgstr "Email tidak valid."
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 #, python-format
 msgid "Inventory"
-msgstr "Stok Persediaan"
+msgstr "Inventaris"
 
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
@@ -4282,7 +4287,7 @@ msgstr "Tipe Operasi"
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.res_config_settings_view_form
 msgid "Operation types show up in the Inventory dashboard."
-msgstr "Tipe operasi muncul di dasbor Stok Persediaan."
+msgstr "Tipe operasi muncul di dasbor Inventaris."
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -4467,7 +4472,7 @@ msgstr "Lainnya"
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_pos_payment_method__outstanding_account_id
 msgid "Outstanding Account"
-msgstr "Akun Piutang"
+msgstr "Akun Belum Lunas"
 
 #. module: point_of_sale
 #: model:ir.model.fields,field_description:point_of_sale.field_procurement_group__pos_order_id
@@ -5920,6 +5925,13 @@ msgstr "Minta faktur"
 #, python-format
 msgid "Request sent"
 msgstr "Permintaan dikirim"
+
+#. module: point_of_sale
+#. odoo-python
+#: code:addons/point_of_sale/models/pos_config.py:0
+#, python-format
+msgid "Rescue Sessions"
+msgstr "Selamatkan Sesi"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -8509,7 +8521,7 @@ msgstr ""
 #. module: point_of_sale
 #: model_terms:ir.ui.view,arch_db:point_of_sale.report_saledetails
 msgid "Z"
-msgstr ""
+msgstr "Z"
 
 #. module: point_of_sale
 #. odoo-javascript
@@ -8735,7 +8747,7 @@ msgstr "adalah duplikat dari order yang sudah ada"
 #: code:addons/point_of_sale/static/src/app/navbar/sale_details_button/sales_detail_report.xml:0
 #, python-format
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #~ msgid "0.00"
 #~ msgstr "0.00"

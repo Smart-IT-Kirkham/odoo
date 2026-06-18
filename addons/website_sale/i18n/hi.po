@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-07 09:27+0000\n"
+"PO-Revision-Date: 2026-05-26 13:26+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hindi <https://translate.odoo.com/projects/odoo-17/"
 "website_sale/hi/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.products
@@ -934,7 +934,7 @@ msgstr "कैरोसल"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.snippet_options
 msgid "Cart"
-msgstr ""
+msgstr "कार्ट"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_sale_order__cart_quantity
@@ -1232,7 +1232,7 @@ msgstr "पुष्टि करें"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.navigation_buttons
 msgid "Confirm Order"
-msgstr ""
+msgstr "ऑर्डर की पुष्टि करें"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.payment
@@ -1247,7 +1247,7 @@ msgstr "पुष्टि"
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.sale_report_view_search_website
 msgid "Confirmed Orders"
-msgstr ""
+msgstr "पुष्टि किए गए ऑर्डर"
 
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_res_partner
@@ -1369,7 +1369,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.sale_report_view_search_website
 msgid "Customer Country"
-msgstr ""
+msgstr "ग्राहक का देश"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product_comment
@@ -1986,6 +1986,7 @@ msgstr ""
 msgid ""
 "If you believe that it is an error, please contact the website administrator."
 msgstr ""
+"अगर आपको लगता है कि यह एक गड़बड़ी है, तो कृपया वेबसाइट एडमिन से संपर्क करें।"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_image__image_1920
@@ -2655,7 +2656,7 @@ msgstr ""
 #. module: website_sale
 #: model:product.ribbon,html:website_sale.out_of_stock_ribbon
 msgid "Out of stock"
-msgstr ""
+msgstr "स्टॉक खत्म"
 
 #. module: website_sale
 #: model:ir.model.fields,field_description:website_sale.field_product_public_category__parent_id
@@ -2704,7 +2705,7 @@ msgstr "पेमेंट प्रोवाइडर"
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_payment_token
 msgid "Payment Token"
-msgstr ""
+msgstr "पेमेंट टोकन"
 
 #. module: website_sale
 #: model:ir.ui.menu,name:website_sale.menu_ecommerce_payment_tokens
@@ -3029,7 +3030,7 @@ msgstr ""
 #: code:addons/website_sale/controllers/main.py:0
 #, python-format
 msgid "Product not found"
-msgstr ""
+msgstr "प्रॉडक्ट नहीं मिला"
 
 #. module: website_sale
 #: model:ir.model,name:website_sale.model_product_ribbon
@@ -3926,7 +3927,7 @@ msgstr ""
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.product
 msgid "This combination does not exist."
-msgstr ""
+msgstr "यह कॉम्बिनेशन मौजूद नहीं है।"
 
 #. module: website_sale
 #: model_terms:ir.ui.view,arch_db:website_sale.cart

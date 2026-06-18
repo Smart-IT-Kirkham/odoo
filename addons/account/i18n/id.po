@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-09 10:43+0000\n"
+"POT-Creation-Date: 2026-04-17 18:36+0000\n"
+"PO-Revision-Date: 2026-06-04 12:25+0000\n"
 "Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
 "Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-17/"
 "account/id/>\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: account
 #. odoo-python
@@ -2106,7 +2106,7 @@ msgstr "Ringkasan Aktivitas"
 #: model:ir.model.fields,field_description:account.field_account_setup_bank_manual_config__activity_type_icon
 #: model:ir.model.fields,field_description:account.field_res_partner_bank__activity_type_icon
 msgid "Activity Type Icon"
-msgstr "Ikon Jenis Aktifitas"
+msgstr "Ikon Jenis Aktivitas"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_journal__sale_activity_user_id
@@ -2347,7 +2347,7 @@ msgstr "Semua hubungan kontraktual akan diatur secara eksklusif oleh"
 #, python-format
 msgid "All selected moves for reversal must belong to the same company."
 msgstr ""
-"Semua pergerakkan yang dipilih untuk reversal harus berasal dari perusahaan "
+"Semua pergerakan yang dipilih untuk reversal harus berasal dari perusahaan "
 "yang sama."
 
 #. module: account
@@ -2764,7 +2764,7 @@ msgid ""
 "criterias (VAT/Country) are met."
 msgstr ""
 "Terapkan mapping pajak & akun pada faktur secara otomatis bila kriteria "
-"pencocokkan (PPN/Negara) terpenuhi."
+"pencocokan (PPN/Negara) terpenuhi."
 
 #. module: account
 #: model:ir.model.fields.selection,name:account.selection__res_company__fiscalyear_last_month__4
@@ -3470,7 +3470,7 @@ msgstr ""
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. module: account
 #. odoo-python
@@ -4947,7 +4947,7 @@ msgstr "Nilai tukar mata uang dari mata uang perusahaan ke mata uang dokumen."
 #: model:account.account,name:account.1_current_assets
 #: model:ir.model.fields.selection,name:account.selection__account_account__account_type__asset_current
 msgid "Current Assets"
-msgstr "Aktiva Terkini"
+msgstr "Aktiva Lancar"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_account__current_balance
@@ -5144,7 +5144,7 @@ msgstr "Cut-Off"
 #: code:addons/account/wizard/account_automatic_entry_wizard.py:0
 #, python-format
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #. module: account
 #: model:account.incoterms,name:account.incoterm_DAP
@@ -8056,12 +8056,12 @@ msgstr "Invalid fiscal year last day"
 #. module: account
 #: model:account.journal,name:account.1_inventory_valuation
 msgid "Inventory Valuation"
-msgstr "Penilaian Stok Persediaan"
+msgstr "Penilaian Inventaris"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_report__inventory_value
 msgid "Inventory Value"
-msgstr "Nilai Stok Persediaan"
+msgstr "Nilai Inventaris"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__tax_tag_invert
@@ -8521,7 +8521,7 @@ msgstr "Is Valid"
 #: model:ir.model.fields,help:account.field_account_move__is_being_sent
 #: model:ir.model.fields,help:account.field_account_payment__is_being_sent
 msgid "Is the move being sent asynchronously"
-msgstr "Apakah pergerakkan dikirim secara asinkron"
+msgstr "Apakah pergerakan dikirim secara asinkron"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_bank_statement_line__is_move_sent
@@ -9095,7 +9095,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:account.view_account_invoice_filter
 #: model_terms:ir.ui.view,arch_db:account.view_account_payment_search
 msgid "Late Activities"
-msgstr "Aktifitas terakhir"
+msgstr "Aktivitas terakhir"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.account_journal_dashboard_kanban_view
@@ -9121,7 +9121,7 @@ msgstr "Biarkan kosong untuk menetapkan Salesperson pada faktur."
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_journal_form
 msgid "Leave empty to use the default outstanding account"
-msgstr "Biarkan kosong untuk menggunakan akun piutang default"
+msgstr "Biarkan kosong untuk menggunakan akun belum lunas default"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_position_form
@@ -9495,7 +9495,7 @@ msgstr "Artikel Jurnal Sudah Dicocokkan"
 #: code:addons/account/models/account_payment.py:0
 #, python-format
 msgid "Matched Transactions"
-msgstr "Transaksi-Transaksi Cocok"
+msgstr "Transaksi Cocok"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_move_line__full_reconcile_id
@@ -9537,7 +9537,7 @@ msgstr "Matching partners"
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.view_account_reconcile_model_search
 msgid "Matching rules"
-msgstr "Peraturan pencocokkan"
+msgstr "Peraturan pencocokan"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_partial_reconcile__max_date
@@ -10691,7 +10691,7 @@ msgstr ""
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_payment__outstanding_account_id
 msgid "Outstanding Account"
-msgstr "Akun Outstanding"
+msgstr "Akun Belum Lunas"
 
 #. module: account
 #. odoo-python
@@ -12180,11 +12180,6 @@ msgstr "Sisa dalam Mata Uang"
 #: model:ir.model.fields,field_description:account.field_res_partner_bank__activity_user_id
 msgid "Responsible User"
 msgstr "Tanggung-jawab"
-
-#. module: account
-#: model:ir.model.fields,help:account.field_account_tax__tax_scope
-msgid "Restrict the use of taxes to a type of product."
-msgstr "Batasi penggunaan pajak ke tipe produk."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_reconcile_model__match_same_currency
@@ -14281,6 +14276,8 @@ msgid ""
 "The bank account of your company is not trusted. Please ask an admin or "
 "someone with approval rights to check it."
 msgstr ""
+"Rekening bank perusahaan Anda tidak tepercaya. Silakan minta admin atau "
+"seseorang dengan hak persetujuan untuk memeriksanya."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_move_line__statement_id
@@ -14354,6 +14351,10 @@ msgid ""
 "trusted. Go to the Bank Settings, double-check that it is yours or correct "
 "the number, and click on Send Money to trust it."
 msgstr ""
+"Rekening bank perusahaan (%(account_number)s) yang terhubung dengan faktur "
+"ini tidak tepercaya. Buka Pengaturan Bank, periksa kembali apakah rekening "
+"benar milik Anda atau perbaiki nomornya, lalu klik Kirim Uang untuk "
+"memercayainya."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_tax_repartition_line__company_id
@@ -14675,7 +14676,7 @@ msgstr ""
 msgid ""
 "The move could not be posted for the following reason: %(error_message)s"
 msgstr ""
-"Pergerakkan tidak dapat diposting karena alasan berikut: %(error_message)s"
+"Pergerakan tidak dapat diposting karena alasan berikut: %(error_message)s"
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_journal__alias_name
@@ -15479,7 +15480,7 @@ msgid ""
 "This matching rule is used when the user is not certain of all the "
 "information of the counterpart."
 msgstr ""
-"Peraturan pencocokkan digunakan saat user tidak yakin mengenai semua "
+"Peraturan pencocokan digunakan saat user tidak yakin mengenai semua "
 "informasi di counterpart."
 
 #. module: account
@@ -15571,7 +15572,7 @@ msgstr "Entry berulang ini berasal dari %s"
 #: model:ir.model.fields,help:account.field_account_payment__auto_post_until
 msgid "This recurring move will be posted up to and including this date."
 msgstr ""
-"Pergerakkan recurring ini akan dipost mendekati dan termasuk tanggal ini."
+"Pergerakan recurring ini akan dipost mendekati dan termasuk tanggal ini."
 
 #. module: account
 #. odoo-python
@@ -17126,7 +17127,7 @@ msgid ""
 "You can't register payments for both inbound and outbound moves at the same "
 "time."
 msgstr ""
-"Anda tidak dapat mendaftarkan pembayaran untuk pergerakkan masuk dan keluar "
+"Anda tidak dapat mendaftarkan pembayaran untuk pergerakan masuk dan keluar "
 "pada saat yang sama."
 
 #. module: account
@@ -17471,6 +17472,8 @@ msgstr "Anda tidak post entri di jurnal yang sudah diarsip (%(journal)s)"
 #, python-format
 msgid "You cannot post an entry with an archived analytic account: %s"
 msgstr ""
+"Anda tidak dapat memposting entri dengan akun analitik yang telah "
+"diarsipkan: %s"
 
 #. module: account
 #. odoo-python
@@ -18244,6 +18247,9 @@ msgid ""
 "{{ object.company_id.name }} Payment Receipt (Ref {{ object.name or 'n/a' }})"
 msgstr ""
 "{{ object.company_id.name }} Resi Pembayaran (Ref {{ object.name or 'n/a' }})"
+
+#~ msgid "Restrict the use of taxes to a type of product."
+#~ msgstr "Batasi penggunaan pajak ke tipe produk."
 
 #~ msgid "1.05"
 #~ msgstr "1.05"

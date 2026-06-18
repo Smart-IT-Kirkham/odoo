@@ -12,13 +12,14 @@
 # "Larissa Manderfeld (lman)" <lman@odoo.com>, 2025.
 # "Noemi Pla Garcia (nopl)" <nopl@odoo.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2026.
+# Alexandra Morel <alex.morel@tecnativa.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-16 13:08+0000\n"
-"PO-Revision-Date: 2026-03-07 08:22+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-06-14 21:01+0000\n"
+"Last-Translator: \"Noemi Pla Garcia (nopl)\" <nopl@odoo.com>\n"
 "Language-Team: Spanish <https://translate.odoo.com/projects/odoo-17/base/es/>"
 "\n"
 "Language: es\n"
@@ -27,7 +28,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=(n == 1) ? 0 : ((n != 0 && n % 1000000 == "
 "0) ? 1 : 2);\n"
-"X-Generator: Weblate 5.16.1\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_at_reports
@@ -617,11 +618,11 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Este módulo añade diversas funcionalidades al Punto de Venta que son "
-"específicas para la administración de un restaurante:\n"
-"- Impresión de cuenta: Permite imprimir la cuenta antes de pagar el pedido.\n"
-"- División de factura: Permite dividir la factura en diferentes pedidos.\n"
-"- Impresión de comanda en la cocina: Permite imprimir las comandas y "
+"Este módulo añade diversas funcionalidades al Punto de Venta para poder "
+"gestionar un restaurante:\n"
+"- Imprimir la cuenta: permite imprimir el ticket antes de pagar el pedido.\n"
+"- Dividir la cuenta: permite dividir la cuenta en diferentes pedidos.\n"
+"- Impresión de comanda en la cocina: permite imprimir las comandas y "
 "actualizaciones en las impresoras de la cocina o el bar.\n"
 "\n"
 
@@ -12400,26 +12401,24 @@ msgid ""
 "\n"
 msgstr ""
 "\n"
-"Este módulo le permite publicar a sus distribuidores y contactos en su sitio "
-"web y enviarles leads y oportunidades entrantes.\n"
+"Este módulo permite publicar a sus distribuidores/partners en su sitio web y "
+"enviarles leads y oportunidades entrantes.\n"
 "\n"
 "\n"
-"**Publicar un contacto**\n"
+"**Publicar un partner**\n"
 "\n"
-"Para publicar a un contacto, establezca un *nivel* en su formulario de "
-"contacto (en la sección Asignación de contacto) y haga clic en el botón "
-"*Publicar*.\n"
+"Para publicar un partner, defina un *nivel* en su ficha de contacto (en la "
+"sección Partner asignado) y haga clic en el botón *Publicar*.\n"
 "\n"
 "**Reenviar leads**\n"
 "\n"
-"El reenvío de leads se puede realizar para uno o varios leads a la vez. La "
-"acción está disponible en la sección *Contacto asignado* de la vista del "
-"formulario de lead u oportunidad y en el menú *Acción* de la vista de "
-"lista.\n"
+"Los leads pueden enviarse de forma individual o varios a la vez. Esta acción "
+"está disponible en la sección *Partner asignado* de la vista del formulario "
+"del lead u oportunidad, así como en el menú *Acción* de la vista de lista.\n"
 "\n"
-"La asignación automática se calcula a partir de los niveles de socios y la "
-"geolocalización. Los contactos reciben los leads que se encuentran cerca de "
-"ellos.\n"
+"La asignación automática se determina en función del nivel de los partners y "
+"de la ubicación geográfica. Los partners reciben los leads que se encuentran "
+"cerca/ubicados en su zona.\n"
 "\n"
 
 #. module: base
@@ -17238,7 +17237,7 @@ msgstr ""
 #: model:ir.module.module,summary:base.module_stock_barcode_picking_batch
 msgid "Add the support of batch transfers into the barcode view"
 msgstr ""
-"Añada la compatibilidad con traslados por lotes en la vista de código de "
+"Añada la compatibilidad con agrupaciones por lotes en la vista de código de "
 "barras"
 
 #. module: base
@@ -20484,7 +20483,7 @@ msgstr "Asistente de enlace para Codabox"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_l10n_be_codaclean
 msgid "Codaclean"
-msgstr ""
+msgstr "Codaclean"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_import_language
@@ -24848,7 +24847,7 @@ msgstr "Encuentre imágenes gratuitas de alta resolución de Unsplash"
 #: model:ir.module.module,description:base.module_data_recycle
 #: model:ir.module.module,summary:base.module_data_recycle
 msgid "Find old records and archive/delete them"
-msgstr "Encuentre registros antiguos y archívelos o eliminarlos"
+msgstr "Busque registros antiguos y archívelos o elimínelos"
 
 #. module: base
 #: model:ir.model.fields.selection,name:base.selection__base_partner_merge_automatic_wizard__state__finished
@@ -38434,6 +38433,9 @@ msgid ""
 "the UPS connector is compatiblewith the newest version of the UPS REST APIs "
 "available at https://developer.ups.com/"
 msgstr ""
+"Gestione sus envíos a través de UPS y realice su seguimiento en línea. Esta "
+"nueva versión del conector de UPS es compatible con la última versión de las "
+"API REST de UPS, disponibles en https://developer.ups.com/"
 
 #. module: base
 #: model:ir.module.module,description:base.module_delivery_usps_rest
@@ -39782,7 +39784,7 @@ msgstr "Soporte para sesiones en vivo: streaming, participación, youtube"
 #. module: base
 #: model:ir.module.module,summary:base.module_quality_control_picking_batch
 msgid "Support of quality control into batch transfers"
-msgstr "Soporte del control de calidad en traslados por lote"
+msgstr "Soporte del control de calidad en agrupaciones por lote"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_pos_online_payment_self_order

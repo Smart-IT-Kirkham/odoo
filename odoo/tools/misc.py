@@ -1154,12 +1154,22 @@ class OrderedSet(MutableSet):
     def intersection(self, *others):
         return reduce(OrderedSet.__and__, others, self)
 
+    def copy(self):
+        new_set = OrderedSet()
+        new_set._map = self._map.copy()  # Atomic dict copy
+        return new_set
+
 
 class LastOrderedSet(OrderedSet):
     """ A set collection that remembers the elements last insertion order. """
     def add(self, elem):
         OrderedSet.discard(self, elem)
         OrderedSet.add(self, elem)
+
+    def copy(self):
+        new_set = LastOrderedSet()
+        new_set._map = self._map.copy()  # Atomic dict copy
+        return new_set
 
 
 class Callbacks:

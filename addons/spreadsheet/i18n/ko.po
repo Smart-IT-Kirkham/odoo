@@ -8,14 +8,14 @@
 # Sarah Park, 2025
 #
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
-# "Kwanghee Park (kwpa)" <kwpa@odoo.com>, 2025.
+# "Kwanghee Park (kwpa)" <kwpa@odoo.com>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:40+0000\n"
-"PO-Revision-Date: 2026-01-24 17:01+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2026-04-24 17:38+0000\n"
+"PO-Revision-Date: 2026-06-14 21:00+0000\n"
+"Last-Translator: \"Kwanghee Park (kwpa)\" <kwpa@odoo.com>\n"
 "Language-Team: Korean <https://translate.odoo.com/projects/odoo-17/"
 "spreadsheet/ko/>\n"
 "Language: ko\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -119,20 +119,18 @@ msgstr ""
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid ""
-"(1) Search starting at first item. \n"
-"      (-1) Search starting at last item. \n"
-"      (2) Perform a binary search that relies on lookup_array being sorted "
-"in ascending order. If not sorted, invalid results will be returned. \n"
-"      (-2) Perform a binary search that relies on lookup_array being sorted "
-"in descending order. If not sorted, invalid results will be returned.\n"
-"      "
+"(1) Search starting at first item.       (-1) Search starting at last "
+"item.       (2) Perform a binary search that relies on lookup_array being "
+"sorted in ascending order. If not sorted, invalid results will be "
+"returned.       (-2) Perform a binary search that relies on lookup_array "
+"being sorted in descending order. If not sorted, invalid results will be "
+"returned.      "
 msgstr ""
-"(1) 첫 번째 항목부터 검색합니다. \n"
-"      (-1) 마지막 항목부터 검색합니다. \n"
-"      (2) 오름차순으로 정렬되는 lookup_array에 의존하는 이진 검색을 수행합니"
-"다. 정렬되지 않은 경우 잘못된 결과가 반환됩니다.\n"
-"      (-2) 내림차순으로 정렬되는 lookup_array에 의존하는 이진 검색을 수행합니"
-"다. 정렬되지 않은 경우 잘못된 결과가 반환됩니다."
+"(1) 첫 번째 항목부터 검색합니다.       (-1) 마지막 항목부터 "
+"검색합니다.       (2) 오름차순으로 lookup_array 기준으로 정렬하여 바이너리 "
+"검색을 수행합니다. 정렬되지 않은 경우 잘못된 결과가 반환됩니다.       (-2) "
+"내림차순으로 lookup_array 기준으로 정렬하여 바이너리 검색을 수행합니다. "
+"정렬되지 않은 경우 잘못된 결과가 반환됩니다.      "
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -188,7 +186,7 @@ msgstr "2 행"
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.xml:0
 #, python-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -3130,25 +3128,6 @@ msgstr "함수 [[FUNCTION_NAME]] 에서 결과를 찾지 못했습니다."
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
 #, python-format
 msgid ""
-"Function [[FUNCTION_NAME]] expects criteria_range and criterion to be in "
-"pairs."
-msgstr ""
-"[[FUNCTION_NAME]] 는 criteria_range와 criterion이 쌍으로 구성되는 함수입니다."
-
-#. module: spreadsheet
-#. odoo-javascript
-#: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
-#, python-format
-msgid ""
-"Function [[FUNCTION_NAME]] expects criteria_range to have the same dimension"
-msgstr ""
-"함수 [[FUNCTION_NAME]]의 criteria_range는 동일한 dimension을 가져야 합니다."
-
-#. module: spreadsheet
-#. odoo-javascript
-#: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.js:0
-#, python-format
-msgid ""
 "Function [[FUNCTION_NAME]] expects number values for %s, but got a boolean."
 msgstr ""
 "함수 [[FUNCTION_NAME]] 의 %s에 기대되는 값은 숫자 값이나, 부울 값이 출력되었"
@@ -3561,11 +3540,8 @@ msgstr "[[FUNCTION_NAME]] 계산에서 '%s'가 포함된 '%s'를 찾을 수 없�
 #, python-format
 msgid ""
 "In [[FUNCTION_NAME]], the number of columns of the first matrix (%s) must be "
-"equal to the \n"
-"        number of rows of the second matrix (%s)."
+"equal to the         number of rows of the second matrix (%s)."
 msgstr ""
-"[[FUNCTION_NAME]]에서 첫 번째 행렬의 열 수 (%s)는 \n"
-"        두 번째 행렬의 행 수 (%s)와 같아야 합니다."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -10860,14 +10836,9 @@ msgstr "구분 기호에 포함된 각 문자를 중심으로 텍스트를 나�
 #, python-format
 msgid ""
 "Whether or not to remove empty text messages from the split results. The "
-"default behavior is to treat \n"
-"        consecutive delimiters as one (if TRUE). If FALSE, empty cells "
-"values are added between consecutive delimiters."
+"default behavior is to treat         consecutive delimiters as one (if "
+"TRUE). If FALSE, empty cells values are added between consecutive delimiters."
 msgstr ""
-"분할 결과에서 빈 텍스트 메시지를 제거할 지 여부를 설정합니다. 기본 동작은 연"
-"속된 구분 기호를 \n"
-"        하나로 처리하는 것입니다. (TRUE일 경우). FALSE일 경우, 연속된 구분 기"
-"호 사이에 빈 셀 값이 추가됩니다."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -10883,12 +10854,8 @@ msgstr "결제일이 각 기간의 말일 (0) 인지 또는 시작일 (1) 인지
 #, python-format
 msgid ""
 "Whether the array should be scanned by column. True scans the array by "
-"column and false (default) \n"
-"      scans the array by row."
+"column and false (default)       scans the array by row."
 msgstr ""
-"배열을 열을 기준으로 스캔할지 여부입니다. True는 열을 기준으로 배열을 스캔하"
-"고 false (기본값)는 \n"
-"      배열을 행별로 스캔합니다."
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11097,7 +11064,7 @@ msgstr "데이터를 내보낼 권한이 없습니다. 관리자에게 문의하
 #: code:addons/spreadsheet/static/src/o_spreadsheet/o_spreadsheet.xml:0
 #, python-format
 msgid "Z"
-msgstr ""
+msgstr "Z"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11340,7 +11307,7 @@ msgstr "내일"
 #: code:addons/spreadsheet/static/src/public_readonly_app/public_readonly.xml:0
 #, python-format
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. module: spreadsheet
 #. odoo-javascript
@@ -11348,6 +11315,72 @@ msgstr ""
 #, python-format
 msgid "yesterday"
 msgstr "어제"
+
+#, python-format
+#~ msgid ""
+#~ "(1) Search starting at first item. \n"
+#~ "      (-1) Search starting at last item. \n"
+#~ "      (2) Perform a binary search that relies on lookup_array being "
+#~ "sorted in ascending order. If not sorted, invalid results will be "
+#~ "returned. \n"
+#~ "      (-2) Perform a binary search that relies on lookup_array being "
+#~ "sorted in descending order. If not sorted, invalid results will be "
+#~ "returned.\n"
+#~ "      "
+#~ msgstr ""
+#~ "(1) 첫 번째 항목부터 검색합니다. \n"
+#~ "      (-1) 마지막 항목부터 검색합니다. \n"
+#~ "      (2) 오름차순으로 정렬되는 lookup_array에 의존하는 이진 검색을 수행합"
+#~ "니다. 정렬되지 않은 경우 잘못된 결과가 반환됩니다.\n"
+#~ "      (-2) 내림차순으로 정렬되는 lookup_array에 의존하는 이진 검색을 수행"
+#~ "합니다. 정렬되지 않은 경우 잘못된 결과가 반환됩니다."
+
+#, python-format
+#~ msgid ""
+#~ "Function [[FUNCTION_NAME]] expects criteria_range and criterion to be in "
+#~ "pairs."
+#~ msgstr ""
+#~ "[[FUNCTION_NAME]] 는 criteria_range와 criterion이 쌍으로 구성되는 함수입니"
+#~ "다."
+
+#, python-format
+#~ msgid ""
+#~ "Function [[FUNCTION_NAME]] expects criteria_range to have the same "
+#~ "dimension"
+#~ msgstr ""
+#~ "함수 [[FUNCTION_NAME]]의 criteria_range는 동일한 dimension을 가져야 합니"
+#~ "다."
+
+#, python-format
+#~ msgid ""
+#~ "In [[FUNCTION_NAME]], the number of columns of the first matrix (%s) must "
+#~ "be equal to the \n"
+#~ "        number of rows of the second matrix (%s)."
+#~ msgstr ""
+#~ "[[FUNCTION_NAME]]에서 첫 번째 행렬의 열 수 (%s)는 \n"
+#~ "        두 번째 행렬의 행 수 (%s)와 같아야 합니다."
+
+#, python-format
+#~ msgid ""
+#~ "Whether or not to remove empty text messages from the split results. The "
+#~ "default behavior is to treat \n"
+#~ "        consecutive delimiters as one (if TRUE). If FALSE, empty cells "
+#~ "values are added between consecutive delimiters."
+#~ msgstr ""
+#~ "분할 결과에서 빈 텍스트 메시지를 제거할 지 여부를 설정합니다. 기본 동작은 "
+#~ "연속된 구분 기호를 \n"
+#~ "        하나로 처리하는 것입니다. (TRUE일 경우). FALSE일 경우, 연속된 구"
+#~ "분 기호 사이에 빈 셀 값이 추가됩니다."
+
+#, python-format
+#~ msgid ""
+#~ "Whether the array should be scanned by column. True scans the array by "
+#~ "column and false (default) \n"
+#~ "      scans the array by row."
+#~ msgstr ""
+#~ "배열을 열을 기준으로 스캔할지 여부입니다. True는 열을 기준으로 배열을 스캔"
+#~ "하고 false (기본값)는 \n"
+#~ "      배열을 행별로 스캔합니다."
 
 #, python-format
 #~ msgid ""

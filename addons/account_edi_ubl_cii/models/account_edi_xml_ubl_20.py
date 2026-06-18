@@ -4,6 +4,7 @@ from lxml import etree
 
 from odoo import models, _
 from odoo.tools import html2plaintext, cleanup_xml_node
+from odoo.addons.account_edi_ubl_cii.models.account_edi_common import FloatFmt
 
 UBL_NAMESPACES = {
     'cbc': "urn:oasis:names:specification:ubl:schema:xsd:CommonBasicComponents-2",
@@ -256,10 +257,10 @@ class AccountEdiXmlUBL20(models.AbstractModel):
                 'tax_amount_currency': 0.0,
             })
             if epd_tax_to_discount:
-                for percentage, base_amount_currency in epd_tax_to_discount.items():
-                    epd_base_tax_amounts[percentage]['base_amount_currency'] += base_amount_currency
+                for (percentage, tax_category), base_amount_currency in epd_tax_to_discount.items():
+                    epd_base_tax_amounts[percentage, tax_category]['base_amount_currency'] += base_amount_currency
                 epd_accounted_tax_amount = 0.0
-                for percentage, amounts in epd_base_tax_amounts.items():
+                for (percentage, _tax_category), amounts in epd_base_tax_amounts.items():
                     amounts['tax_amount_currency'] = invoice.currency_id.round(
                         amounts['base_amount_currency'] * percentage / 100.0)
                     epd_accounted_tax_amount += amounts['tax_amount_currency']
@@ -277,7 +278,8 @@ class AccountEdiXmlUBL20(models.AbstractModel):
                 }
                 if epd_tax_to_discount:
                     # early payment discounts: need to recompute the tax/taxable amounts
-                    epd_base_amount = epd_base_tax_amounts.get(subtotal['percent'], {}).get('base_amount_currency', 0.0)
+                    tax_category_id = subtotal['tax_category_vals']['id']
+                    epd_base_amount = epd_base_tax_amounts.get((subtotal['percent'], tax_category_id), {}).get('base_amount_currency', 0.0)
                     taxable_amount_after_epd = subtotal['taxable_amount'] - epd_base_amount
                     subtotal.update({
                         'taxable_amount': taxable_amount_after_epd,
@@ -304,21 +306,30 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             tax_totals_vals['tax_subtotal_vals'].append(subtotal)
 
         if epd_tax_to_discount:
-            # early payment discounts: hence, need to add a subtotal section
-            tax_totals_vals['tax_subtotal_vals'].append({
-                'currency': invoice.currency_id,
-                'currency_dp': invoice.currency_id.decimal_places,
-                'taxable_amount': sum(epd_tax_to_discount.values()),
-                'tax_amount': 0.0,
-                'tax_category_vals': {
-                    'id': 'E',
-                    'percent': 0.0,
-                    'tax_scheme_vals': {
-                        'id': "VAT",
+            epd_amount = sum(epd_tax_to_discount.values())
+            # if a 0% subtotal already exists : we merge it with the EPD subtotal.
+            # otherwise, we create a new subtotal node for EPD.
+            is_merged = False
+            for vals in tax_totals_vals['tax_subtotal_vals']:
+                if vals['tax_category_vals']['id'] == 'E':
+                    vals['taxable_amount'] += epd_amount
+                    is_merged = True
+                    break
+            if not is_merged:
+                tax_totals_vals['tax_subtotal_vals'].append({
+                    'currency': invoice.currency_id,
+                    'currency_dp': invoice.currency_id.decimal_places,
+                    'taxable_amount': epd_amount,
+                    'tax_amount': 0.0,
+                    'tax_category_vals': {
+                        'id': 'E',
+                        'percent': 0.0,
+                        'tax_scheme_vals': {
+                            'id': "VAT",
+                        },
+                        'tax_exemption_reason': _("Exempt from tax"),
                     },
-                    'tax_exemption_reason': _("Exempt from tax"),
-                },
-            })
+                })
         return [tax_totals_vals]
 
     def _get_invoice_line_item_vals(self, line, taxes_vals):
@@ -357,7 +368,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         epd_tax_to_discount = self._get_early_payment_discount_grouped_by_tax_rate(invoice)
         if epd_tax_to_discount:
             # One Allowance per tax rate (VAT included)
-            for tax_amount, discount_amount in epd_tax_to_discount.items():
+            for (tax_amount, tax_category), discount_amount in epd_tax_to_discount.items():
                 vals_list.append({
                     'charge_indicator': 'false',
                     'allowance_charge_reason_code': '64',
@@ -366,7 +377,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
                     'currency_dp': 2,
                     'currency_name': invoice.currency_id.name,
                     'tax_category_vals': [{
-                        'id': 'S',
+                        'id': tax_category,
                         'percent': tax_amount,
                         'tax_scheme_vals': {'id': 'VAT'},
                     }],
@@ -385,6 +396,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
                     'tax_scheme_vals': {'id': 'VAT'},
                 }],
             })
+
         return vals_list
 
     def _get_pricing_exchange_rate_vals_list(self, invoice):
@@ -482,13 +494,14 @@ class AccountEdiXmlUBL20(models.AbstractModel):
 
         uom = super()._get_uom_unece_code(line)
 
+        product_price_dp = self.env['decimal.precision'].precision_get('Product Price')
         return {
             'currency': line.currency_id,
             'currency_dp': self._get_currency_decimal_places(line.currency_id),
 
             # The price of an item, exclusive of VAT, after subtracting item price discount.
-            'price_amount': round(gross_price_unit, 10),
-            'product_price_dp': self.env['decimal.precision'].precision_get('Product Price'),
+            'price_amount': FloatFmt(gross_price_unit, 1, 10),
+            'product_price_dp': product_price_dp,
 
             # The number of item units to which the price applies.
             # setting to None -> the xml will not comprise the BaseQuantity (it's not mandatory)
@@ -501,6 +514,19 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         Uses the same method as the invoice TaxTotal, but can be overridden in other formats.
         """
         return self._get_invoice_tax_totals_vals_list(line.move_id, taxes_vals)
+
+    def _add_invoice_extra_line_vals(self, line, vals):
+        # Order Line Reference
+        if hasattr(line, 'x_studio_peppol_order_line_reference_id') and line.x_studio_peppol_order_line_reference_id:
+            vals['order_line_reference_id'] = line.x_studio_peppol_order_line_reference_id
+
+        # Buyers Item Identification (goes inside cac:Item)
+        if hasattr(line, 'x_studio_peppol_buyers_item_id') and line.x_studio_peppol_buyers_item_id:
+            if 'item_vals' not in vals:
+                vals['item_vals'] = {}
+            vals['item_vals']['buyers_item_identification_id'] = line.x_studio_peppol_buyers_item_id
+
+        return vals
 
     def _get_invoice_line_vals(self, line, line_id, taxes_vals):
         """ Method used to fill the cac:{Invoice,CreditNote,DebitNote}Line node.
@@ -517,12 +543,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             for vals in allowance_charge_vals_list
             if vals.get('from_fixed_tax')
         )
-        period_vals = {}
-        # deferred_start_date & deferred_end_date are enterprise-only fields
-        if line._fields.get('deferred_start_date') and (line.deferred_start_date or line.deferred_end_date):
-            period_vals.update({'start_date': line.deferred_start_date})
-            period_vals.update({'end_date': line.deferred_end_date})
-        return {
+        return self._add_invoice_extra_line_vals(line, {
             'currency': line.currency_id,
             'currency_dp': self._get_currency_decimal_places(line.currency_id),
             'id': line_id + 1,
@@ -533,8 +554,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             'tax_total_vals': self._get_invoice_line_tax_totals_vals_list(line, taxes_vals),
             'item_vals': self._get_invoice_line_item_vals(line, taxes_vals),
             'price_vals': self._get_invoice_line_price_vals(line),
-            'invoice_period_vals_list': [period_vals] if period_vals else []
-        }
+        })
 
     def _get_invoice_monetary_total_vals(self, invoice, taxes_vals, line_extension_amount, allowance_total_amount, charge_total_amount):
         """ Method used to fill the cac:{Legal,Requested}MonetaryTotal node"""
@@ -575,15 +595,17 @@ class AccountEdiXmlUBL20(models.AbstractModel):
     def _get_early_payment_discount_grouped_by_tax_rate(self, invoice):
         """
         Get the early payment discounts grouped by the tax rate of the product it is linked to
-        :returns {float: float}: mapping tax amounts to early payment discount amounts
+        :returns {float, str: float}: mapping (tax amount, tax category) pairs to early payment discount amounts
         """
         if invoice.invoice_payment_term_id.early_pay_discount_computation != 'mixed':
             return {}
         tax_to_discount = defaultdict(lambda: 0)
         sign = -1 if invoice.move_type == 'out_refund' else 1
         for line in invoice.line_ids.filtered(lambda l: l.display_type == 'epd'):
-            for tax in line.tax_ids:
-                tax_to_discount[tax.amount] += line.amount_currency * sign
+            tax_category_list = self._get_tax_category_list(invoice, line.tax_ids)
+            for i, tax in enumerate(line.tax_ids):
+                tax_category = tax_category_list[i]['id']
+                tax_to_discount[tax.amount, tax_category] += line.amount_currency * sign
         return tax_to_discount
 
     def _split_fixed_taxes(self, taxes_vals):
@@ -617,6 +639,45 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         invoice_lines = invoice.invoice_line_ids.filtered(lambda line: line.display_type not in ('line_note', 'line_section') and line._check_edi_line_tax_required())
         return enumerate(invoice_lines, start=start)
 
+    def _add_invoice_extra_vals(self, invoice, vals):
+        if hasattr(invoice, 'x_studio_peppol_tax_point_date') and invoice.x_studio_peppol_tax_point_date:
+            vals['vals']['tax_point_date'] = invoice.x_studio_peppol_tax_point_date
+
+        if hasattr(invoice, 'x_studio_peppol_contract_document_reference_id') and invoice.x_studio_peppol_contract_document_reference_id:
+            vals['vals']['contract_document_reference_id'] = invoice.x_studio_peppol_contract_document_reference_id
+
+        if hasattr(invoice, 'x_studio_peppol_despatch_document_reference_id') and invoice.x_studio_peppol_despatch_document_reference_id:
+            vals['vals']['despatch_document_reference_id'] = invoice.x_studio_peppol_despatch_document_reference_id
+
+        if hasattr(invoice, 'x_studio_peppol_accounting_cost') and invoice.x_studio_peppol_accounting_cost:
+            vals['vals']['accounting_cost'] = invoice.x_studio_peppol_accounting_cost
+
+        # Project Reference (only for invoices, not credit notes)
+        if vals['document_type'] == 'invoice':
+            if hasattr(invoice, 'x_studio_peppol_project_reference_id') and invoice.x_studio_peppol_project_reference_id:
+                vals['vals']['project_reference_id'] = invoice.x_studio_peppol_project_reference_id
+
+        # Order Reference - Override native value if PEPPOL field exists
+        if hasattr(invoice, 'x_studio_peppol_order_reference_id') and invoice.x_studio_peppol_order_reference_id:
+            vals['vals']['order_reference'] = invoice.x_studio_peppol_order_reference_id
+
+        # Invoice Period dates
+        invoice_period_vals = {}
+
+        if hasattr(invoice, 'x_studio_peppol_invoice_period_start_date') and invoice.x_studio_peppol_invoice_period_start_date:
+            invoice_period_vals['start_date'] = invoice.x_studio_peppol_invoice_period_start_date
+
+        if hasattr(invoice, 'x_studio_peppol_invoice_period_end_date') and invoice.x_studio_peppol_invoice_period_end_date:
+            invoice_period_vals['end_date'] = invoice.x_studio_peppol_invoice_period_end_date
+
+        # Only add invoice period if we have at least one date
+        if invoice_period_vals:
+            if 'invoice_period_vals_list' not in vals['vals']:
+                vals['vals']['invoice_period_vals_list'] = []
+            vals['vals']['invoice_period_vals_list'].append(invoice_period_vals)
+
+        return vals
+
     def _export_invoice_vals(self, invoice):
         def grouping_key_generator(base_line, tax_values):
             tax = tax_values['tax_repartition_line'].tax_id
@@ -647,7 +708,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         _fixed_taxes, emptying_taxes = self._split_fixed_taxes(taxes_vals)
 
         # Compute values for invoice lines.
-        line_extension_amount = 0.0
+        expected_line_extension_amount = line_extension_amount = 0.0
 
         document_allowance_charge_vals_list = self._get_document_allowance_charge_vals_list(invoice)
         invoice_line_vals_list = []
@@ -658,6 +719,23 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             invoice_line_vals_list.append(line_vals)
 
             line_extension_amount += line_vals['line_extension_amount']
+            expected_line_extension_amount += invoice.currency_id.round(line_vals['line_extension_amount'])
+
+        delta_amount = line_extension_amount - expected_line_extension_amount
+        if not invoice.currency_id.is_zero(delta_amount) and invoice.currency_id.decimal_places <= 2:
+            # distribute rounding error from low precision computation on lines
+            delta_sign = 1 if delta_amount > 0 else -1
+            lines_len = len(invoice_line_vals_list)
+            remaining = delta_amount
+            for line in invoice_line_vals_list:
+                if invoice.currency_id.compare_amounts(remaining, 0) != delta_sign:
+                    break
+                amt = delta_sign * max(
+                    invoice.currency_id.rounding,
+                    abs(invoice.currency_id.round(remaining / lines_len)),
+                )
+                remaining -= amt
+                line['line_extension_amount'] += amt
 
         # add emptying taxes as extra invoice lines
         for tax_key, tax_vals in emptying_taxes:
@@ -687,7 +765,6 @@ class AccountEdiXmlUBL20(models.AbstractModel):
                     'base_quantity_attrs': {'unitCode': 'C62'},
                     'product_price_dp': self.env['decimal.precision'].precision_get('Product Price'),
                 },
-                'invoice_period_vals_list': []
             })
             line_extension_amount += tax_vals['tax_amount_currency']
 
@@ -790,7 +867,7 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             vals['main_template'] = 'account_edi_ubl_cii.ubl_20_Invoice'
             vals['vals']['document_type_code'] = 380
 
-        return vals
+        return self._add_invoice_extra_vals(invoice, vals)
 
     def _get_note_vals_list(self, invoice):
         return [{'note': html2plaintext(invoice.narration)}] if invoice.narration else []
@@ -823,7 +900,8 @@ class AccountEdiXmlUBL20(models.AbstractModel):
     def _import_retrieve_partner_vals(self, tree, role):
         """ Returns a dict of values that will be used to retrieve the partner """
         return {
-            'vat': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:CompanyID[string-length(text()) > 5]', tree),
+            'vat': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:CompanyID[string-length(text()) > 5]', tree)
+                or self._find_value(f'.//cac:Accounting{role}Party/cac:Party/cac:PartyIdentification/cbc:ID[string-length(text()) > 5]', tree),
             'phone': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:Telephone', tree),
             'mail': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:ElectronicMail', tree),
             'name': self._find_value(f'.//cac:Accounting{role}Party/cac:Party//cbc:RegistrationName', tree) or
@@ -987,17 +1065,17 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             company = invoice_line.company_id
 
             # Product.
-            product_id = previously_retrieved_product.get((default_code, name, barcode, company))
-            if not product_id:
-                product_id = self.env['product.product']._retrieve_product(
-                    default_code=default_code,
-                    name=name,
-                    barcode=barcode,
-                    company=company
-                )
-                previously_retrieved_product[default_code, name, barcode, company] = product_id
+            product_params = {
+                'default_code': default_code,
+                'name': name,
+                'barcode': barcode,
+                'company': company,
+            }
+            product_key = tuple(product_params.values())
+            if product_key not in previously_retrieved_product:
+                previously_retrieved_product[product_key] = self.env['product.product']._retrieve_product(**product_params)
 
-            invoice_line.product_id = product_id
+            invoice_line.product_id = previously_retrieved_product[product_key]
 
             # Description
             description_node = tree.find('./{*}Item/{*}Description')
@@ -1007,15 +1085,6 @@ class AccountEdiXmlUBL20(models.AbstractModel):
             elif name_node is not None:
                 invoice_line.name = name_node.text  # Fallback on Name if Description is not found.
 
-            # Start and End date (enterprise fields)
-            if invoice_line._fields.get('deferred_start_date'):
-                start_date = tree.find('./{*}InvoicePeriod/{*}StartDate')
-                end_date = tree.find('./{*}InvoicePeriod/{*}EndDate')
-                if start_date is not None and end_date is not None:  # there is a constraint forcing none or the two to be set
-                    invoice_line.write({
-                        'deferred_start_date': start_date.text,
-                        'deferred_end_date': end_date.text,
-                    })
             xpath_dict = {
                 'basis_qty': [
                     './{*}Price/{*}BaseQuantity',
@@ -1063,15 +1132,6 @@ class AccountEdiXmlUBL20(models.AbstractModel):
         elif name_node is not None:
             invoice_line.name = name_node.text  # Fallback on Name if Description is not found.
 
-        # Start and End date (enterprise fields)
-        if invoice_line._fields.get('deferred_start_date'):
-            start_date = tree.find('./{*}InvoicePeriod/{*}StartDate')
-            end_date = tree.find('./{*}InvoicePeriod/{*}EndDate')
-            if start_date is not None and end_date is not None:  # there is a constraint forcing none or the two to be set
-                invoice_line.write({
-                    'deferred_start_date': start_date.text,
-                    'deferred_end_date': end_date.text,
-                })
         xpath_dict = {
             'basis_qty': [
                 './{*}Price/{*}BaseQuantity',

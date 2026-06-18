@@ -8,7 +8,7 @@ from odoo.tools.zeep import Client
 
 from collections import defaultdict
 from markupsafe import Markup
-
+from types import NoneType
 # -------------------------------------------------------------------------
 # UNIT OF MEASURE
 # -------------------------------------------------------------------------
@@ -103,17 +103,44 @@ COCONTRACTANT_DEFAULT_NOTE = _('Reverse charge: In the absence of a written obje
                               'If this condition is not met, the customer will be liable for the payment of the tax, interest, '
                               'and penalties due in relation to this condition.')
 
-# -------------------------------------------------------------------------
-# SUPPORTED FILE TYPES FOR IMPORT
-# -------------------------------------------------------------------------
-SUPPORTED_FILE_TYPES = {
-    'application/pdf': '.pdf',
-    'application/vnd.oasis.opendocument.spreadsheet': '.ods',
-    'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet': '.xlsx',
-    'image/jpeg': '.jpeg',
-    'image/png': '.png',
-    'text/csv': '.csv',
-}
+
+class FloatFmt(float):
+    """ A float with a given precision.
+    The precision is used when formatting the float.
+    """
+    def __new__(cls, value, min_dp=2, max_dp=None):
+        return super().__new__(cls, value)
+
+    def __init__(self, value, min_dp=2, max_dp=None):
+        self.min_dp = min_dp
+        self.max_dp = max_dp
+
+    def __str__(self):
+        if not isinstance(self.min_dp, int) or not isinstance(self.max_dp, (int, NoneType)):
+            return "<FloatFmt()>"
+        # why do we round ?
+        # imagine we have: 0.499 and max_dp = 2.
+        # The best representation for 0.499 with max_dp = 2 is 0.50 not 0.49
+        # rounding with max_dp precision ensure we have the best representation with max_dp decimal places.
+        self_float = float_round(float(self), self.min_dp if self.max_dp is None else self.max_dp)
+        if self.max_dp is None:
+            return float_repr(self_float, self.min_dp)
+        else:
+            # Format the float to between self.min_dp and self.max_dp decimal places.
+            # We start by formatting to self.max_dp, and then remove trailing zeros,
+            # but always keep at least self.min_dp decimal places.
+            amount_max_dp = float_repr(self_float, self.max_dp)
+            num_trailing_zeros = len(amount_max_dp) - len(amount_max_dp.rstrip('0'))
+            return float_repr(self_float, max(self.max_dp - num_trailing_zeros, self.min_dp))
+
+    def __repr__(self):
+        if not isinstance(self.min_dp, int) or not isinstance(self.max_dp, (int, NoneType)):
+            return "<FloatFmt()>"
+        self_float = float(self)
+        if self.max_dp is None:
+            return f"FloatFmt({self_float!r}, {self.min_dp!r})"
+        else:
+            return f"FloatFmt({self_float!r}, {self.min_dp!r}, {self.max_dp!r})"
 
 
 class AccountEdiCommon(models.AbstractModel):
@@ -148,10 +175,10 @@ class AccountEdiCommon(models.AbstractModel):
         return find_xml_value(xpath, tree, nsmap)
 
     def _get_belgian_cocontractant_note(self, invoice, customer):
-        if customer.country_id and customer.country_id.code == 'BE' and invoice.country_code == 'BE':
+        if customer.country_id.code == 'BE' and invoice.country_code == 'BE':
             co_contractant = self.env['account.chart.template'].ref('fiscal_position_template_4', raise_if_not_found=False)
-            if co_contractant and customer.property_account_position_id == co_contractant:
-                note = html2plaintext(customer.property_account_position_id.note) if customer.property_account_position_id.note else ''
+            if co_contractant and invoice.fiscal_position_id == co_contractant:
+                note = html2plaintext(invoice.fiscal_position_id.note) if invoice.fiscal_position_id.note else ''
                 return note or COCONTRACTANT_DEFAULT_NOTE
         return ''
 
@@ -208,7 +235,13 @@ class AccountEdiCommon(models.AbstractModel):
 
         cocontractant_note = self._get_belgian_cocontractant_note(invoice, customer)
         if cocontractant_note:
-            return create_dict(tax_category_code='AE', tax_exemption_reason_code='VATEX-EU-AE - Reverse charge', tax_exemption_reason=cocontractant_note)
+            if not tax.amount:
+                return create_dict(
+                    tax_category_code='AE',
+                    tax_exemption_reason_code='VATEX-EU-AE',
+                    tax_exemption_reason=cocontractant_note
+                )
+            raise UserError(_("Invalid Tax Setup for Co-Contractor. Please apply the standard co-contractor tax, or ensure your custom tax uses a tax amount of 0"))
 
         if supplier.country_id == customer.country_id:
             if not tax or tax.amount == 0:
@@ -381,39 +414,19 @@ class AccountEdiCommon(models.AbstractModel):
         })
 
         # === Import the embedded documents in the xml if some are found ===
-        attachments = self.env['ir.attachment']
         if invoice.message_main_attachment_id:
             # Invoice look like it was already imported, don't import attachments again
             return True
-        additional_docs = tree.findall('./{*}AdditionalDocumentReference')
-        for document in additional_docs:
-            attachment_name = document.find('{*}ID')
-            attachment_data = document.find('{*}Attachment/{*}EmbeddedDocumentBinaryObject')
-            if attachment_name is not None and attachment_data is not None:
-                mimetype = attachment_data.attrib.get('mimeCode')
-                if not (extension := SUPPORTED_FILE_TYPES.get(mimetype)):
-                    continue
-                text = attachment_data.text
-                # Normalize the name of the file : some e-fff emitters put the full path of the file
-                # (Windows or Linux style) and/or the name of the xml instead of the pdf.
-                # Get only the filename with the right extension.
-                name = (attachment_name.text or 'invoice').split('\\')[-1].split('/')[-1].split('.')[0] + extension
-                attachment = self.env['ir.attachment'].create({
-                    'name': name,
-                    'res_id': invoice.id,
-                    'res_model': 'account.move',
-                    'datas': text + '=' * (len(text) % 3),  # Fix incorrect padding
-                    'type': 'binary',
-                    'mimetype': mimetype,
-                })
-                # Upon receiving an email (containing an xml) with a configured alias to create invoice, the xml is
-                # set as the main_attachment. To be rendered in the form view, the pdf should be the main_attachment.
-                if invoice.message_main_attachment_id and \
-                        invoice.message_main_attachment_id.name.endswith('.xml') and \
-                        'pdf' not in invoice.message_main_attachment_id.mimetype and \
-                        mimetype == 'application/pdf':
-                    invoice.message_main_attachment_id = attachment
-                attachments |= attachment
+        additional_docs = file_data['attachment']._extract_additional_documents(tree)
+        attachments = self.env['ir.attachment'].create(additional_docs)
+        for attachment in attachments:
+            # Upon receiving an email (containing an xml) with a configured alias to create invoice, the xml is
+            # set as the main_attachment. To be rendered in the form view, the pdf should be the main_attachment.
+            if invoice.message_main_attachment_id and \
+                    invoice.message_main_attachment_id.name.endswith('.xml') and \
+                    'pdf' not in invoice.message_main_attachment_id.mimetype and \
+                    attachment.mimetype == 'application/pdf':
+                invoice.message_main_attachment_id = attachment
         if attachments:
             invoice.with_context(no_new_invoice=True).message_post(attachment_ids=attachments.ids)
 
@@ -883,6 +896,7 @@ class AccountEdiCommon(models.AbstractModel):
                 ('amount_type', '=', 'percent'),
                 ('type_tax_use', '=', invoice_line.move_id.journal_id.type),
                 ('amount', '=', amount),
+                ('country_id', '=', invoice_line.move_id.tax_country_id.id),
             ]
 
             tax = False

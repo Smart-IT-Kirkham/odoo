@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:39+0000\n"
-"PO-Revision-Date: 2026-04-09 10:39+0000\n"
-"Last-Translator: \"Manon Rondou (ronm)\" <ronm@odoo.com>\n"
+"POT-Creation-Date: 2026-05-29 17:37+0000\n"
+"PO-Revision-Date: 2026-04-14 14:24+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: French <https://translate.odoo.com/projects/odoo-17/"
 "account_edi_ubl_cii_tax_extension/fr/>\n"
 "Language: fr\n"
@@ -59,6 +59,16 @@ msgstr "Exonéré de taxe"
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii_tax_extension.selection__account_tax__ubl_cii_tax_category_code__g
 msgid "G - Free export item, VAT not charged"
 msgstr "G - Exportation de bien gratuit, TVA non perçue"
+
+#. module: account_edi_ubl_cii_tax_extension
+#. odoo-python
+#: code:addons/account_edi_ubl_cii_tax_extension/models/account_edi_common.py:0
+#, python-format
+msgid ""
+"Invalid Tax Setup for Co-Contractor fiscal position. Please apply the "
+"standard co-contractor tax, or ensure your custom tax uses Reason Code 'AE' "
+"and Exemption Reason Code 'VATEX-EU-AE' "
+msgstr ""
 
 #. module: account_edi_ubl_cii_tax_extension
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii_tax_extension.selection__account_tax__ubl_cii_tax_category_code__k
@@ -283,6 +293,8 @@ msgid ""
 "VATEX-EU-135-1 - Exempt based on article 135, section 1 of Council Directive "
 "2006/112/EC"
 msgstr ""
+"VATEX-EU-135-1 - exonéré sur la base de l’article 135, section 1 de la "
+"directive 2006/112/CE du Conseil"
 
 #. module: account_edi_ubl_cii_tax_extension
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii_tax_extension.selection__account_tax__ubl_cii_tax_exemption_reason_code__vatex-eu-143
@@ -794,6 +806,9 @@ msgid ""
 "des Impôts (CGI ; General tax code) Exonération de TVA - Article 261 D-3° du "
 "Code Général des Impôts"
 msgstr ""
+"VATEX-FR-CGI261D-3 - exonéré sur la base du 3° de l’article 261 D du Code "
+"Général des Impôts (CGI ; code général des impôts) exonération de TVA - "
+"article 261 D-3° du Code Général des Impôts"
 
 #. module: account_edi_ubl_cii_tax_extension
 #: model:ir.model.fields.selection,name:account_edi_ubl_cii_tax_extension.selection__account_tax__ubl_cii_tax_exemption_reason_code__vatex-fr-cgi261d-4

@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-04 19:15+0000\n"
+"PO-Revision-Date: 2026-05-18 07:30+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Slovak <https://translate.odoo.com/projects/odoo-17/"
 "mass_mailing/sk/>\n"
@@ -25,7 +25,7 @@ msgstr ""
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && "
 "n >= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: mass_mailing
 #. odoo-python
@@ -815,12 +815,12 @@ msgstr "Zarovnať dole"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.snippet_options
 msgid "Align Center"
-msgstr ""
+msgstr "Vycentrovať"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.snippet_options
 msgid "Align Left"
-msgstr ""
+msgstr "Zarovnať vľavo"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.snippet_options
@@ -830,7 +830,7 @@ msgstr "Zarovnať na stred"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.snippet_options
 msgid "Align Right"
-msgstr ""
+msgstr "Zarovnať doprava"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.snippet_options
@@ -1094,7 +1094,7 @@ msgstr "Nádherné úryvky"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Big Boxes"
-msgstr ""
+msgstr "Veľké rámce"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_contact__is_blacklisted
@@ -1181,7 +1181,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Blockquote"
-msgstr ""
+msgstr "Citácie"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_mailing__body_arch
@@ -1286,7 +1286,7 @@ msgstr ""
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Call to Action"
-msgstr ""
+msgstr "Výzva k akcii"
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_trace__campaign_id
@@ -1491,6 +1491,10 @@ msgid ""
 "resize and duplicate the blocks to create your own layout. Add images or "
 "icons to customize the blocks."
 msgstr ""
+"Farebné bloky sú jednoduchým a efektívnym spôsobom, ako <b>prezentovať a "
+"zvýrazniť váš obsah</b>. Vyberte si obrázok alebo farbu pre pozadie. Bloky "
+"môžete dokonca zmenšiť alebo zväčšiť a duplikovať, aby ste vytvorili vlastné "
+"rozloženie. Pridajte obrázky alebo ikony na prispôsobenie blokov."
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
@@ -1524,7 +1528,7 @@ msgstr "Názov spoločnosti"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Comparisons"
-msgstr ""
+msgstr "Porovnávanie"
 
 #. module: mass_mailing
 #: model:ir.model,name:mass_mailing.model_res_config_settings
@@ -1592,6 +1596,7 @@ msgstr "Kontakty"
 msgid ""
 "Continue reading <i class=\"fa fa-long-arrow-right align-middle ms-1\"/>"
 msgstr ""
+"Pokračovať v čítaní <i class=\"fa fa-long-arrow-right align-middle ms-1\"/>"
 
 #. module: mass_mailing
 #. odoo-python
@@ -2139,7 +2144,7 @@ msgstr "Vlastnosti"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Features Grid"
-msgstr ""
+msgstr "Funkcie - mriežka"
 
 #. module: mass_mailing
 #. odoo-python
@@ -2241,6 +2246,9 @@ msgid ""
 "He loves to keep his hands full by participating in the development of the "
 "software, marketing, and customer experience strategies."
 msgstr ""
+"Tony, zakladateľ a hlavný vizionár, je hnacou silou spoločnosti. Miluje, keď "
+"má plné ruky práce, a preto sa podieľa na vývoji softvéru, marketingu a "
+"stratégiách zákazníckej skúsenosti."
 
 #. module: mass_mailing
 #: model:ir.model.fields,field_description:mass_mailing.field_mailing_trace_report__email_from
@@ -2444,7 +2452,7 @@ msgstr "Ignorované"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Image - Text"
-msgstr ""
+msgstr "Obrázok – Text"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_masonry_block_options
@@ -3090,7 +3098,7 @@ msgstr "Hromadný mail"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Media List"
-msgstr ""
+msgstr "Zoznam médií"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_media_list
@@ -3506,7 +3514,7 @@ msgstr "Počet doručených správ s chybou"
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.email_designer_snippets
 msgid "Numbers"
-msgstr ""
+msgstr "Čísla"
 
 #. module: mass_mailing
 #: model_terms:ir.ui.view,arch_db:mass_mailing.s_mail_block_discount1

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-29 18:38+0000\n"
-"PO-Revision-Date: 2026-02-14 08:07+0000\n"
+"PO-Revision-Date: 2026-06-14 21:04+0000\n"
 "Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Hindi <https://translate.odoo.com/projects/odoo-17/utm/hi/>\n"
 "Language: hi\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.14.3\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: utm
 #. odoo-python
@@ -149,7 +149,7 @@ msgstr "कलर इंडेक्स"
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Copywriting"
-msgstr ""
+msgstr "कॉपीराइटिंग"
 
 #. module: utm
 #: model_terms:ir.actions.act_window,help:utm.utm_medium_action
@@ -163,8 +163,9 @@ msgstr ""
 
 #. module: utm
 #: model_terms:ir.actions.act_window,help:utm.utm_campaign_action
+#, fuzzy
 msgid "Create a campaign"
-msgstr ""
+msgstr "कैंपेन बनाएं"
 
 #. module: utm
 #: model_terms:ir.actions.act_window,help:utm.action_view_utm_stage
@@ -213,7 +214,7 @@ msgstr "डिप्लॉय"
 #: code:addons/utm/static/src/js/utm_campaign_kanban_examples.js:0
 #, python-format
 msgid "Deployed"
-msgstr ""
+msgstr "लागू किया गया"
 
 #. module: utm
 #. odoo-javascript
@@ -365,8 +366,9 @@ msgstr "मीडियम"
 
 #. module: utm
 #: model_terms:ir.ui.view,arch_db:utm.view_utm_campaign_view_search
+#, fuzzy
 msgid "My Campaigns"
-msgstr ""
+msgstr "मेरा कैंपेन"
 
 #. module: utm
 #: model:ir.model.fields,field_description:utm.field_utm_source_mixin__name

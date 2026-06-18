@@ -6,16 +6,16 @@
 # Martin Trigaux, 2023
 # Wil Odoo, 2025
 # Junko Augias, 2025
-# Ryoko Tsuda <ryoko@quartile.co>, 2025
+# Ryoko Tsuda <ryoko@quartile.co>, 2025, 2026.
 # "Junko Augias (juau)" <juau@odoo.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-09 10:42+0000\n"
-"Last-Translator: \"Junko Augias (juau)\" <juau@odoo.com>\n"
+"POT-Creation-Date: 2026-04-24 17:36+0000\n"
+"PO-Revision-Date: 2026-06-14 21:06+0000\n"
+"Last-Translator: Ryoko Tsuda <ryoko@quartile.co>\n"
 "Language-Team: Japanese <https://translate.odoo.com/projects/odoo-17/website/"
 "ja/>\n"
 "Language: ja\n"
@@ -23,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: website
 #. odoo-javascript
@@ -162,8 +162,8 @@ msgid ""
 "' did not match anything.\n"
 "                        Results are displayed for '"
 msgstr ""
-"' は何もと一致してませんでした。\n"
-"                        次の検索結果は表示されました '"
+"' に一致する結果はありませんでした。\n"
+"                                以下の検索結果を表示しています。 '"
 
 #. module: website
 #. odoo-javascript
@@ -2030,7 +2030,7 @@ msgstr "全てのクッキーを許可"
 #: code:addons/website/static/src/xml/website.cookies_bar.xml:0
 #, python-format
 msgid "Allow the use of cookies from this website on this browser?"
-msgstr "このブラウザーにこのサイトのクッキー使用を許可しますか?"
+msgstr "このブラウザにこのサイトのクッキー使用を許可しますか?"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_ir_ui_view__track
@@ -2534,12 +2534,12 @@ msgstr "大アイコンサブタイトル"
 #. module: website
 #: model:ir.model.fields,help:website.field_ir_model_fields__website_form_blacklisted
 msgid "Blacklist this field for web forms"
-msgstr "ウエブフォームにこのフィールドをブラックリストに登録"
+msgstr "このフィールドをWebフォームでブラックリストに登録する"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_ir_model_fields__website_form_blacklisted
 msgid "Blacklisted in web forms"
-msgstr "ウェブフォームでブラックリストに載せてます"
+msgstr "Webフォームでのブラックリスト登録"
 
 #. module: website
 #. odoo-javascript
@@ -2774,7 +2774,7 @@ msgstr ""
 #: code:addons/website/static/src/components/dialog/seo.xml:0
 #, python-format
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__cdn_url
@@ -2796,7 +2796,7 @@ msgstr "CTA"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippets
 msgid "Call to Action"
-msgstr "行動喚起"
+msgstr "CTA"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.template_footer_contact
@@ -2806,7 +2806,7 @@ msgstr "お電話ください"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Call-to-action"
-msgstr "行動喚起"
+msgstr "CTA"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
@@ -3138,7 +3138,7 @@ msgstr "ここをクリックしてソーシャルネットワークをセット
 #: code:addons/website/static/src/client_actions/website_preview/website_preview.xml:0
 #, python-format
 msgid "Click on"
-msgstr "右上の"
+msgstr "クリック："
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_embed_code
@@ -3840,7 +3840,7 @@ msgstr "ショーをカスタマイズ"
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
 #, python-format
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -4192,7 +4192,7 @@ msgstr "未使用のスニペットアセットを無効にする"
 #: model_terms:ir.ui.view,arch_db:website.bs_debug_view
 #: model_terms:ir.ui.view,arch_db:website.color_combinations_debug_view
 msgid "Disabled"
-msgstr "無効にします"
+msgstr "無効"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -4728,7 +4728,7 @@ msgstr "action_server_id又はfilter_idを提供する必要があります。"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_odoo_menu
 msgid "Electronics"
-msgstr "エレクトロニクス"
+msgstr "電子機器"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -4809,7 +4809,7 @@ msgstr "空フィールド名: %r"
 #: code:addons/website/static/src/xml/website.editor.xml:0
 #, python-format
 msgid "Enable billing on your Google Project"
-msgstr "Google Projectに請求を有効にします"
+msgstr "Googleプロジェクトの請求を有効化"
 
 #. module: website
 #: model:ir.model.fields,help:website.field_ir_model__website_form_access
@@ -5359,7 +5359,7 @@ msgstr "フロート"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.template_footer_headline
 msgid "Follow Us"
-msgstr "よかったらフォローお願いします"
+msgstr "フォローする"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.footer_custom
@@ -5371,7 +5371,7 @@ msgstr "よかったらフォローお願いします"
 #: model_terms:ir.ui.view,arch_db:website.template_footer_links
 #: model_terms:ir.ui.view,arch_db:website.template_footer_minimalist
 msgid "Follow us"
-msgstr "よかったらフォローお願いします"
+msgstr "フォローする"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -5630,7 +5630,7 @@ msgstr "全てのモジュールと機能にアクセス"
 #: model_terms:ir.ui.view,arch_db:website.template_footer_links
 #: model_terms:ir.ui.view,arch_db:website.template_footer_minimalist
 msgid "Get in touch"
-msgstr "連絡を取る"
+msgstr "お問い合わせ"
 
 #. module: website
 #. odoo-javascript
@@ -6939,7 +6939,7 @@ msgstr "職位"
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action
 #: model_terms:ir.ui.view,arch_db:website.template_footer_call_to_action
 msgid "Join us and make your company a better place."
-msgstr "私たちに参加して、会社をより良い場所にしていきましょう。"
+msgstr "私たちと共に、一歩進んだ企業づくりを。"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_call_to_action_menu
@@ -7291,7 +7291,7 @@ msgstr "制限されたカスタマイズ"
 #: model_terms:ir.ui.view,arch_db:website.s_chart_options
 #: model_terms:ir.ui.view,arch_db:website.s_process_steps_options
 msgid "Line"
-msgstr "ライン"
+msgstr "線"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_timeline_options
@@ -9755,7 +9755,7 @@ msgstr "テーマを削除"
 #. module: website
 #: model:ir.model.fields.selection,name:website.selection__theme_ir_asset__directive__replace
 msgid "Replace"
-msgstr "置き換える"
+msgstr "置き換え"
 
 #. module: website
 #. odoo-javascript
@@ -9923,7 +9923,7 @@ msgstr "角丸"
 #: model_terms:ir.ui.view,arch_db:website.s_image_gallery_options
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Rounded"
-msgstr "丸い"
+msgstr "角丸"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_image_gallery_options
@@ -10737,6 +10737,13 @@ msgid "Sound"
 msgstr "音声"
 
 #. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/dialog/edit_menu.xml:0
+#, python-format
+msgid "Spaces are not allowed in URL."
+msgstr ""
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Spacing"
 msgstr "間隔"
@@ -10945,7 +10952,7 @@ msgstr "同じ高さに引き伸ばす"
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_progress_bar_options
 msgid "Striped"
-msgstr "縦縞"
+msgstr "ストライプ"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
@@ -12279,12 +12286,12 @@ msgstr "静的フラグ画像のURL"
 #: code:addons/website/static/src/components/dialog/edit_menu.xml:0
 #, python-format
 msgid "Url or Email"
-msgstr "URL又はメール"
+msgstr "URLまたはメールアドレス"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.website_visitor_page_view_search
 msgid "Urls & Pages"
-msgstr "URL及びページ"
+msgstr "URLとページ"
 
 #. module: website
 #. odoo-javascript

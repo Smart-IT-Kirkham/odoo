@@ -14,17 +14,17 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-04 08:06+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
-"Language-Team: French <https://translate.odoo.com/projects/odoo-17/stock/fr/"
-">\n"
+"PO-Revision-Date: 2026-06-14 20:57+0000\n"
+"Last-Translator: \"Manon Rondou (ronm)\" <ronm@odoo.com>\n"
+"Language-Team: French <https://translate.odoo.com/projects/odoo-17/stock/fr/>"
+"\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : ((n != 0 && n % "
 "1000000 == 0) ? 1 : 2);\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: stock
 #. odoo-python
@@ -2666,15 +2666,12 @@ msgid ""
 "            the stock operations like the manufacturing orders\n"
 "            consumptions, inventories, etc."
 msgstr ""
-"Définissez vos emplacements de façon à ce qu'ils reflètent la structure de "
-"votre entrepôt et de votre\n"
-" organisation. Odoo est capable de gérer des emplacements physiques\n"
-" (entrepôts, étagères, bacs, etc.), des emplacements de partenaire "
-"(clients,\n"
-" fournisseurs) ainsi que des emplacements virtuels. Ces derniers servent de "
-"contrepartie aux\n"
-" opérations de stock, telles que les ordres de fabrication,\n"
-" la consommation, les inventaires, etc."
+"Définissez vos emplacements afin qu'ils reflètent la structure et "
+"l'organisation de votre entrepôt. Odoo est capable de gérer des emplacements "
+"physiques (entrepôts, étagères, bacs, etc.), des emplacements de partenaires "
+"(clients, fournisseurs) ainsi que des emplacements virtuels, qui servent de "
+"contrepartie aux opérations de stock telles que les consommations liées aux "
+"ordres de fabrication, les inventaires, etc."
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_location__removal_strategy_id
@@ -5226,7 +5223,7 @@ msgstr ""
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_warehouse_orderpoint__trigger__manual
 msgid "Manual"
-msgstr "Manuelle"
+msgstr "Manuel"
 
 #. module: stock
 #: model:ir.model.fields.selection,name:stock.selection__stock_rule__auto__manual
@@ -5584,7 +5581,7 @@ msgstr "Prochain inventaire prévu"
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_quant__inventory_date
 msgid "Next date the On Hand Quantity should be counted."
-msgstr "Prochaine date de comptage de la quantité disponible."
+msgstr "Prochaine date de comptage de la quantité en stock."
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.exception_on_picking
@@ -5880,7 +5877,7 @@ msgstr "Disponible"
 #: model_terms:ir.ui.view,arch_db:stock.view_stock_quant_tree_editable
 #: model_terms:ir.ui.view,arch_db:stock.view_stock_quant_tree_inventory_editable
 msgid "On Hand Quantity"
-msgstr "Quantité disponible"
+msgstr "Quantité en stock"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_stock_quant__available_quantity
@@ -5888,8 +5885,8 @@ msgid ""
 "On hand quantity which hasn't been reserved on a transfer, in the default "
 "unit of measure of the product"
 msgstr ""
-"Quantité disponible, non réservée sur un transfert, dans l’unité de mesure "
-"par défaut du produit"
+"Quantité en stock, non réservée sur un transfert, dans l’unité de mesure par "
+"défaut du produit"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.product_template_kanban_stock_view
@@ -11279,6 +11276,9 @@ msgid ""
 "You cannot validate a transfer if no quantities are reserved, or if only non-"
 "reserved moves are picked.To force the transfer, encode quantities."
 msgstr ""
+"Vous ne pouvez pas valider un transfert si aucune quantité n’est réservée ou "
+"si seuls des mouvements non réservés sont préparés. Pour forcer le "
+"transfert, saisissez les quantités."
 
 #. module: stock
 #. odoo-python

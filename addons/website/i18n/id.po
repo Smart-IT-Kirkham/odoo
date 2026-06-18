@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-04-09 10:42+0000\n"
-"Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
+"POT-Creation-Date: 2026-04-24 17:36+0000\n"
+"PO-Revision-Date: 2026-05-18 07:51+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-17/"
 "website/id/>\n"
 "Language: id\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 5.17\n"
 
 #. module: website
 #. odoo-javascript
@@ -2809,7 +2809,7 @@ msgstr ""
 #: code:addons/website/static/src/components/dialog/seo.xml:0
 #, python-format
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. module: website
 #: model:ir.model.fields,field_description:website.field_res_config_settings__cdn_url
@@ -3888,7 +3888,7 @@ msgstr "Kustomisasi Show"
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
 #, python-format
 msgid "D"
-msgstr ""
+msgstr "D"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_countdown_options
@@ -10847,6 +10847,13 @@ msgid "Sound"
 msgstr "Suara"
 
 #. module: website
+#. odoo-javascript
+#: code:addons/website/static/src/components/dialog/edit_menu.xml:0
+#, python-format
+msgid "Spaces are not allowed in URL."
+msgstr ""
+
+#. module: website
 #: model_terms:ir.ui.view,arch_db:website.snippet_options
 msgid "Spacing"
 msgstr "Spacing"
@@ -11158,7 +11165,7 @@ msgstr "Font Sistem"
 #: code:addons/website/static/src/components/dialog/seo.xml:0
 #, python-format
 msgid "T"
-msgstr ""
+msgstr "T"
 
 #. module: website
 #: model_terms:ir.ui.view,arch_db:website.s_mega_menu_menus_logos
@@ -13987,7 +13994,7 @@ msgstr "hari"
 #: code:addons/website/static/src/client_actions/configurator/configurator.js:0
 #, python-format
 msgid "develop the brand"
-msgstr "develop brand"
+msgstr "mengembangkan brand"
 
 #. module: website
 #. odoo-javascript

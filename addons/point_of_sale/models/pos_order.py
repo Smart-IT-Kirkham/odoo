@@ -562,7 +562,7 @@ class PosOrder(models.Model):
 
     def _get_partner_bank_id(self):
         bank_partner_id = False
-        if self.amount_total <= 0 and self.partner_id.bank_ids:
+        if self.amount_total < 0 and self.partner_id.bank_ids:
             bank_partner_id = self.partner_id.bank_ids[0].id
         elif self.amount_total >= 0 and self.company_id.partner_id.bank_ids:
             bank_partner_id = self.company_id.partner_id.bank_ids[0].id
@@ -1096,7 +1096,9 @@ class PosOrder(models.Model):
                 PosOrderLineLot = self.env['pos.pack.operation.lot']
                 for pack_lot in line.pack_lot_ids:
                     PosOrderLineLot += pack_lot.copy()
-                line.copy(line._prepare_refund_data(refund_order, PosOrderLineLot))
+                line_copy = line.copy(line._prepare_refund_data(refund_order, PosOrderLineLot))
+                line_copy._onchange_amount_line_all()
+            refund_order._onchange_amount_all()
             refund_orders |= refund_order
         return refund_orders
 

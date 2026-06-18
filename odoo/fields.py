@@ -338,9 +338,7 @@ class Field(MetaField('DummyField', (object,), {})):
         return "%s.%s" % (self.model_name, self.name)
 
     def __repr__(self):
-        if self.name is None:
-            return f"{'<%s.%s>'!r}" % (__name__, type(self).__name__)
-        return f"{'%s.%s'!r}" % (self.model_name, self.name)
+        return repr(str(self))
 
     ############################################################################
     #
@@ -3590,7 +3588,7 @@ class Properties(Field):
 
     def _compute(self, records):
         """Add the default properties value when the container is changed."""
-        for record in records:
+        for record in records.sudo():
             record[self.name] = self._add_default_values(
                 record.env,
                 {self.name: record[self.name], self.definition_record: record[self.definition_record]},

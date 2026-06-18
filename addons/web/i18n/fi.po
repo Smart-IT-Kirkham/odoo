@@ -46,7 +46,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-04-03 18:40+0000\n"
-"PO-Revision-Date: 2026-04-09 10:42+0000\n"
+"PO-Revision-Date: 2026-06-14 21:04+0000\n"
 "Last-Translator: Saara Hakanen <sahak@odoo.com>\n"
 "Language-Team: Finnish <https://translate.odoo.com/projects/odoo-17/web/fi/>"
 "\n"
@@ -55,7 +55,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.16.2\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: web
 #. odoo-javascript
@@ -483,7 +483,7 @@ msgstr ""
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "A"
-msgstr ""
+msgstr "A"
 
 #. module: web
 #. odoo-javascript
@@ -1010,7 +1010,7 @@ msgstr "Nuoli"
 #: code:addons/web/static/src/views/fields/datetime/datetime_field.xml:0
 #, python-format
 msgid "Arrow icon"
-msgstr "Nuolen kuvake"
+msgstr "Nuolikuvake"
 
 #. module: web
 #. odoo-javascript
@@ -1106,7 +1106,7 @@ msgstr "Avatar"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "B"
-msgstr ""
+msgstr "B"
 
 #. module: web
 #. odoo-javascript
@@ -1315,7 +1315,7 @@ msgstr "Bytes|Kb|Mb|Gb|Tb|Pb|Eb|Zb|Yb"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #. module: web
 #. odoo-javascript
@@ -3790,7 +3790,7 @@ msgstr "Kanban: ei toimintoa tyypille: "
 #: code:addons/web/static/src/views/fields/properties/property_definition.xml:0
 #, python-format
 msgid "Label"
-msgstr "Otsikko"
+msgstr "Nimike"
 
 #. module: web
 #. odoo-javascript
@@ -3812,7 +3812,7 @@ msgstr "Etikettikenttä"
 #: code:addons/web/static/src/views/fields/field_tooltip.xml:0
 #, python-format
 msgid "Label:"
-msgstr "Etiketti:"
+msgstr "Nimike:"
 
 #. module: web
 #. odoo-python
@@ -4011,7 +4011,7 @@ msgstr "Logon toissijainen väri"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "M"
-msgstr ""
+msgstr "M"
 
 #. module: web
 #. odoo-javascript
@@ -4767,7 +4767,7 @@ msgstr "Tiedostojen määrä"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "O"
-msgstr ""
+msgstr "O"
 
 #. module: web
 #. odoo-javascript
@@ -5103,7 +5103,7 @@ msgstr "Ylivuodon tyyli"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "P"
-msgstr ""
+msgstr "P"
 
 #. module: web
 #. odoo-javascript
@@ -5585,7 +5585,7 @@ msgstr "Qweb kentän kuva"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "R"
-msgstr ""
+msgstr "R"
 
 #. module: web
 #. odoo-javascript
@@ -6702,7 +6702,7 @@ msgstr "Härkä"
 #: model_terms:ir.ui.view,arch_db:web.external_layout_standard
 #: model_terms:ir.ui.view,arch_db:web.external_layout_striped
 msgid "Tax ID"
-msgstr "ALV-numero"
+msgstr "Verotunnus"
 
 #. module: web
 #. odoo-javascript
@@ -16791,7 +16791,7 @@ msgstr "punainen kirjekuori"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "i"
-msgstr ""
+msgstr "i"
 
 #. module: web
 #. odoo-javascript
@@ -20649,7 +20649,7 @@ msgstr "pähkinät"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "o"
-msgstr ""
+msgstr "o"
 
 #. module: web
 #. odoo-javascript
@@ -20803,7 +20803,7 @@ msgstr "omm"
 #: code:addons/web/static/src/webclient/user_menu/user_menu_items.xml:0
 #, python-format
 msgid "on any screen to show shortcut overlays and"
-msgstr "millä tahansa näytöllä näyttääksesi pikanäppäinten päällekkäisyydet ja"
+msgstr "millä tahansa näytöllä näyttääksesi pikakuvakepeitteet ja"
 
 #. module: web
 #. odoo-javascript
@@ -23073,7 +23073,7 @@ msgstr "hiljainen"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "r"
-msgstr ""
+msgstr "r"
 
 #. module: web
 #. odoo-javascript
@@ -27984,7 +27984,7 @@ msgstr "uurna"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "v"
-msgstr ""
+msgstr "v"
 
 #. module: web
 #. odoo-javascript
@@ -29594,7 +29594,7 @@ msgstr "vino"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. module: web
 #. odoo-javascript
@@ -29930,112 +29930,112 @@ msgstr "täällä"
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "サ"
-msgstr ""
+msgstr "サ"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "割"
-msgstr ""
+msgstr "割"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "可"
-msgstr ""
+msgstr "可"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "合"
-msgstr ""
+msgstr "合"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "営"
-msgstr ""
+msgstr "営"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "得"
-msgstr ""
+msgstr "得"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "指"
-msgstr ""
+msgstr "指"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "月"
-msgstr ""
+msgstr "月"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "有"
-msgstr ""
+msgstr "有"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "満"
-msgstr ""
+msgstr "満"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "無"
-msgstr ""
+msgstr "無"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "申"
-msgstr ""
+msgstr "申"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "祝"
-msgstr ""
+msgstr "祝"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "禁"
-msgstr ""
+msgstr "禁"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "秘"
-msgstr ""
+msgstr "秘"
 
 #. module: web
 #. odoo-javascript
 #: code:addons/web/static/src/core/emoji_picker/emoji_data.js:0
 #, python-format
 msgid "空"
-msgstr ""
+msgstr "空"
 
 #, python-format
 #~ msgid "00"
