@@ -128,6 +128,29 @@ class StockPickingType(models.Model):
     _name = 'stock.picking.type'
     _inherit = ['stock.picking.type', 'pos.load.mixin']
 
+    has_stock_reports_to_print = fields.Boolean(compute='_compute_has_stock_reports_to_print')
+
+    @api.depends(
+        'auto_print_delivery_slip',
+        'auto_print_return_slip',
+        'auto_print_reception_report',
+        'auto_print_reception_report_labels',
+        'auto_print_product_labels',
+        'auto_print_lot_labels',
+        'auto_print_packages',
+    )
+    def _compute_has_stock_reports_to_print(self):
+        for record in self:
+            record.has_stock_reports_to_print = (
+                record.auto_print_delivery_slip
+                or record.auto_print_return_slip
+                or record.auto_print_reception_report
+                or record.auto_print_reception_report_labels
+                or record.auto_print_product_labels
+                or record.auto_print_lot_labels
+                or record.auto_print_packages
+            )
+
     @api.depends('warehouse_id')
     def _compute_hide_reservation_method(self):
         super()._compute_hide_reservation_method()
@@ -150,7 +173,7 @@ class StockPickingType(models.Model):
 
     @api.model
     def _load_pos_data_fields(self, config):
-        return ['id', 'use_create_lots', 'use_existing_lots']
+        return ['id', 'use_create_lots', 'use_existing_lots', 'has_stock_reports_to_print']
 
 
 class StockMove(models.Model):
@@ -192,7 +215,7 @@ class StockMove(models.Model):
             moves_product_ids = set(moves.mapped('product_id').ids)
             lots = lines.pack_lot_ids.filtered(lambda l: l.lot_name and l.product_id.id in moves_product_ids)
             lots_data = set(lots.mapped(lambda l: (l.product_id.id, l.lot_name)))
-            existing_lots = self.env['stock.lot'].search([
+            existing_lots = self.env['stock.lot'].with_context(skip_preprocess_gs1=True).search([
                 '|', ('company_id', '=', False), ('company_id', '=', moves[0].picking_type_id.company_id.id),
                 ('product_id', 'in', lines.product_id.ids),
                 ('name', 'in', lots.mapped('lot_name')),
