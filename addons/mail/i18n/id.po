@@ -7,13 +7,14 @@
 # Abe Manyo, 2025
 #
 # "Nurul Aini Akrima Sabila (nuaas)" <nuaas@odoo.com>, 2026.
+# Weblate <noreply-mt-weblate@weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-06-03 18:17+0000\n"
-"Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
+"POT-Creation-Date: 2026-07-17 17:36+0000\n"
+"PO-Revision-Date: 2026-07-14 14:58+0000\n"
+"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
 "Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-17/mail/"
 "id/>\n"
 "Language: id\n"
@@ -21,7 +22,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: mail
 #. odoo-python
@@ -885,25 +886,32 @@ msgid "Add Users"
 msgstr "Tambahkan User"
 
 #. module: mail
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid ""
+"Add a Klipy GIF API key to enable GIFs support. If you were using a Tenor "
+"GIF API key (service shutdown on June 30, 2026), please replace it here with "
+"a Klipy GIF API key"
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_res_config_settings__tenor_api_key
+msgid ""
+"Add a Klipy GIF API key to enable GIFs support. https://docs.klipy.com/"
+"getting-started\n"
+"If you were using a Tenor GIF API key (service shutdown on June 30, 2026), "
+"please replace it here with a Klipy GIF API key"
+msgstr ""
+"Tambahkan API key Klipy GIF untuk mengaktifkan dukungan GIF. https://"
+"docs.klipy.com/getting-started\n"
+"Jika Anda sebelumnya menggunakan API key Tenor GIF (layanan ditutup pada 30 "
+"Juni 2026), silakan ganti di sini dengan API key Klipy GIF"
+
+#. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/message_reaction_button.xml:0
 #, python-format
 msgid "Add a Reaction"
 msgstr "Tambahkan Reaksi"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Add a Tenor GIF API key to enable GIFs support."
-msgstr "Tambahkan Tenor GIF API key untuk mengaktifkan bantuan GIF."
-
-#. module: mail
-#: model:ir.model.fields,help:mail.field_res_config_settings__tenor_api_key
-msgid ""
-"Add a Tenor GIF API key to enable GIFs support. https://"
-"developers.google.com/tenor/guides/quickstart#setup"
-msgstr ""
-"Tambahkan Tenor GIF API key untuk mengaktifkan bantuan GIF. https://"
-"developers.google.com/tenor/guides/quickstart#setup"
 
 #. module: mail
 #. odoo-javascript
@@ -3754,6 +3762,13 @@ msgid ""
 "Template Source Snippet:\n"
 "%(template_src)s"
 msgstr ""
+"Gagal merender template QWeb untuk %(template_label)s\n"
+"Model Target: %(model_name)s\n"
+"Konteks Bahasa: %(lang_context)s\n"
+"Kesalahan: %(error_details)s\n"
+"\n"
+"Snippet Sumber Template:\n"
+"%(template_src)s"
 
 #. module: mail
 #. odoo-python
@@ -3763,6 +3778,8 @@ msgid ""
 "Failed to render inline_template template: %(template_txt)s\n"
 "Error details: %(error)s"
 msgstr ""
+"Gagal merender template inline_template: %(template_txt)s\n"
+"Detail kesalahan: %(error)s"
 
 #. module: mail
 #. odoo-python
@@ -4684,6 +4701,17 @@ msgid "If you want to use twilio as TURN/STUN server provider"
 msgstr "Bila Anda ingin menggunakan twilio sebagai penyedia server TURN/STUN"
 
 #. module: mail
+#. odoo-javascript
+#: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
+#, python-format
+msgid ""
+"If you were using a Tenor API key, please replace it with a Klipy API key in "
+"the General Settings."
+msgstr ""
+"Jika Anda sebelumnya menggunakan API key Tenor, silakan ganti dengan API key "
+"Klipy di Pengaturan Umum."
+
+#. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_resend_message_view_form
 msgid "Ignore all"
 msgstr "Abaikan semuanya"
@@ -5251,6 +5279,32 @@ msgid "Kind Regards"
 msgstr "Salam Hangat"
 
 #. module: mail
+#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_api_key
+msgid "Klipy API key"
+msgstr "API key Klipy"
+
+#. module: mail
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "Klipy GIF API key"
+msgstr ""
+
+#. module: mail
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "Klipy GIF content filter"
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_gif_limit
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "Klipy GIF limits"
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_content_filter
+msgid "Klipy content filter"
+msgstr ""
+
+#. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
@@ -5700,7 +5754,7 @@ msgstr "Reset Templat Email"
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Mail Template: '%(name)s' (ID: %(record_id)s)"
-msgstr ""
+msgstr "Template Email: '%(name)s' (ID: %(record_id)s)"
 
 #. module: mail
 #. odoo-python
@@ -5877,7 +5931,7 @@ msgstr "Tandai sebagai selesai"
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Mass Mailing Template: '%(name)s' (ID: %(record_id)s)"
-msgstr ""
+msgstr "Template Pengiriman Massal: '%(name)s' (ID: %(record_id)s)"
 
 #. module: mail
 #. odoo-javascript
@@ -6280,7 +6334,7 @@ msgstr "Mute notifikasi sampai"
 #: model:ir.model.fields,field_description:mail.field_res_partner__my_activity_date_deadline
 #: model:ir.model.fields,field_description:mail.field_res_users__my_activity_date_deadline
 msgid "My Activity Deadline"
-msgstr "Deadline Kegiatan Saya"
+msgstr "Tenggat Aktivitas Saya"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_email_template_search
@@ -6389,7 +6443,7 @@ msgstr "Aktivitas Berikutnya"
 #: model:ir.model.fields,field_description:mail.field_res_partner__activity_date_deadline
 #: model:ir.model.fields,field_description:mail.field_res_users__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr "Batas Waktu Aktivitas Berikutnya"
+msgstr "Tenggat Aktivitas Berikutnya"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_mail_activity_mixin__activity_summary
@@ -6483,7 +6537,7 @@ msgstr "Tidak ada sejarah pesan"
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "No language detected in context"
-msgstr ""
+msgstr "Bahasa tidak terdeteksi dalam konteks"
 
 #. module: mail
 #. odoo-python
@@ -8366,6 +8420,13 @@ msgstr "Cari Incoming Mail Server"
 
 #. module: mail
 #. odoo-javascript
+#: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
+#, python-format
+msgid "Search Klipy"
+msgstr ""
+
+#. module: mail
+#. odoo-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #: code:addons/mail/static/src/core/web/chatter.xml:0
@@ -8384,13 +8445,6 @@ msgstr "Cari sesi RTC"
 #, python-format
 msgid "Search button"
 msgstr "Tombol pencarian"
-
-#. module: mail
-#. odoo-javascript
-#: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
-#, python-format
-msgid "Search for a GIF"
-msgstr "Cari GIF"
 
 #. module: mail
 #. odoo-javascript
@@ -8493,7 +8547,7 @@ msgstr "Pilih filter konten yang digunakan untuk memfilter GIF"
 #: code:addons/mail/static/src/discuss/core/common/channel_invitation.xml:0
 #, python-format
 msgid "Selected users:"
-msgstr "User-user yang dipilih:"
+msgstr "User yang dipilih:"
 
 #. module: mail
 #. odoo-javascript
@@ -9215,7 +9269,7 @@ msgstr "Keterangan templat"
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Template name not identified"
-msgstr ""
+msgstr "Nama template tidak teridentifikasi"
 
 #. module: mail
 #. odoo-python
@@ -9246,36 +9300,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mail.view_email_template_search
 msgid "Templates"
 msgstr "Contoh"
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_api_key
-msgid "Tenor API key"
-msgstr "Tenor API key"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Tenor GIF API key"
-msgstr "Tenor GIF API key"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Tenor GIF content filter"
-msgstr "Filter konten Tenor GIF"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Tenor GIF limits"
-msgstr "Batas Tenor GIF"
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_gif_limit
-msgid "Tenor Gif Limit"
-msgstr "Batas Tenor Gif"
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_content_filter
-msgid "Tenor content filter"
-msgstr "Filter konten tenor"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_email_server_form
@@ -10113,7 +10137,7 @@ msgstr "Unmute Channel"
 #: code:addons/mail/models/mail_render_mixin.py:0
 #, python-format
 msgid "Unnamed Mail Template"
-msgstr ""
+msgstr "Template Email Tanpa Nama"
 
 #. module: mail
 #. odoo-python
@@ -10453,7 +10477,7 @@ msgstr "Nama Pengguna"
 #: code:addons/mail/models/discuss/discuss_channel.py:0
 #, python-format
 msgid "Users in this channel: %(members)s %(dots)s and you."
-msgstr "User-user di channel ini: %(members)s %(dots)s dan Anda."
+msgstr "User di channel ini: %(members)s %(dots)s dan Anda."
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__restrict_template_rendering
@@ -10462,7 +10486,7 @@ msgid ""
 "However only Mail Template Editors will be able to create new dynamic "
 "templates or modify existing ones."
 msgstr ""
-"User-user akan masih dapat me-render templat.\n"
+"User akan masih dapat me-render templat.\n"
 "Namun hanya Editor Templat Email yang dapat membuat templat dinamik baru "
 "atau memodifikasi templat dinamik saat ini."
 
@@ -11382,8 +11406,8 @@ msgstr "telah ditugaskan ke Anda dari kegiatan berikut:"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__tenor_content_filter
-msgid "https://developers.google.com/tenor/guides/content-filtering"
-msgstr "https://developers.google.com/tenor/guides/content-filtering"
+msgid "https://docs.klipy.com/migrate-from-tenor/content-filtering"
+msgstr ""
 
 #. module: mail
 #. odoo-python
@@ -11669,7 +11693,7 @@ msgstr "up ICE:"
 #: code:addons/mail/static/src/discuss/core/web/command_palette.js:0
 #, python-format
 msgid "users"
-msgstr "user-user"
+msgstr "user"
 
 #. module: mail
 #. odoo-python
@@ -11713,6 +11737,41 @@ msgstr "“%(member_name)s” di “%(channel_name)s”"
 #, python-format
 msgid "“%s”"
 msgstr ""
+
+#, python-format
+#~ msgid "Search for a GIF"
+#~ msgstr "Cari GIF"
+
+#~ msgid "Add a Tenor GIF API key to enable GIFs support."
+#~ msgstr "Tambahkan Tenor GIF API key untuk mengaktifkan bantuan GIF."
+
+#~ msgid ""
+#~ "Add a Tenor GIF API key to enable GIFs support. https://"
+#~ "developers.google.com/tenor/guides/quickstart#setup"
+#~ msgstr ""
+#~ "Tambahkan Tenor GIF API key untuk mengaktifkan bantuan GIF. https://"
+#~ "developers.google.com/tenor/guides/quickstart#setup"
+
+#~ msgid "Tenor API key"
+#~ msgstr "Tenor API key"
+
+#~ msgid "Tenor GIF API key"
+#~ msgstr "Tenor GIF API key"
+
+#~ msgid "Tenor GIF content filter"
+#~ msgstr "Filter konten Tenor GIF"
+
+#~ msgid "Tenor GIF limits"
+#~ msgstr "Batas Tenor GIF"
+
+#~ msgid "Tenor Gif Limit"
+#~ msgstr "Batas Tenor Gif"
+
+#~ msgid "Tenor content filter"
+#~ msgstr "Filter konten tenor"
+
+#~ msgid "https://developers.google.com/tenor/guides/content-filtering"
+#~ msgstr "https://developers.google.com/tenor/guides/content-filtering"
 
 #, python-format
 #~ msgid ""

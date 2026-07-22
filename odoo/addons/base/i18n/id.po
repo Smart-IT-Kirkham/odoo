@@ -15,8 +15,8 @@ msgstr ""
 "Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2026-02-16 13:08+0000\n"
-"PO-Revision-Date: 2026-05-18 07:09+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"PO-Revision-Date: 2026-07-15 10:14+0000\n"
+"Last-Translator: \"Nurul Aini Akrima Sabila (nuaas)\" <nuaas@odoo.com>\n"
 "Language-Team: Indonesian <https://translate.odoo.com/projects/odoo-17/base/"
 "id/>\n"
 "Language: id\n"
@@ -24,7 +24,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.17\n"
+"X-Generator: Weblate 2026.6.1\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_at_reports
@@ -4358,7 +4358,7 @@ msgid ""
 "Create Credit Notes from Helpdesk tickets\n"
 msgstr ""
 "\n"
-"Buat Catatan Kredit dari tiket Meja bantuan\n"
+"Buat Nota Kredit dari tiket Meja bantuan\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_slides
@@ -4430,11 +4430,11 @@ msgstr ""
 "Buat survei yang menarik dan visualisasikan jawaban\n"
 "==============================================\n"
 "\n"
-"Tergantung pada jawaban atau tinjauan beberapa pertanyaan dari user-user "
-"yang berbeda. Survei\n"
+"Tergantung pada jawaban atau tinjauan beberapa pertanyaan dari user yang "
+"berbeda. Survei\n"
 "mungkin memiliki lebih dari satu halaman. Setiap halaman mungkin memiliki "
 "lebih dari satu pertanyaan dan\n"
-"setiap pertanyaan mungkin memiliki lebih dari satu jawaban. User-user yang "
+"setiap pertanyaan mungkin memiliki lebih dari satu jawaban. User yang "
 "berbeda mungkin memberikan jawaban yang\n"
 "berbeda untuk pertanyaan dan cara survei dilakukan. Mitra juga mungkin\n"
 "mengirimkan email dengan token pribadi untuk undangan survei.\n"
@@ -8654,7 +8654,7 @@ msgstr ""
 "\n"
 "* Dalam modul, agar administrator dan user Odoo yang tidak membutuhkan\n"
 "  atau menginginkan impor online dapat menghindari ketersediaan fitur "
-"tersebut untuk user-user.\n"
+"tersebut untuk user.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ng
@@ -14781,7 +14781,7 @@ msgstr "3. %y, %Y         ==&gt; 08, 2008"
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_appraisal_survey
 msgid "360 Feedback"
-msgstr "360 Feedback"
+msgstr "360 Masukan"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_account_external_tax
@@ -15413,7 +15413,7 @@ msgid ""
 "            </span>"
 msgstr ""
 "<span style=\"font-weight: bolder;\">\n"
-"                Feedback\n"
+"                Masukan\n"
 "            </span>"
 
 #. module: base
@@ -21898,7 +21898,7 @@ msgstr ""
 #: model:ir.module.module,shortdesc:base.module_account_debit_note
 #: model:ir.module.module,summary:base.module_account_debit_note
 msgid "Debit Notes"
-msgstr "Nota-Nota Debit"
+msgstr "Nota Debit"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_mail_server__smtp_debug
@@ -22241,7 +22241,7 @@ msgstr "Produsen Meja"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_base_partner_merge_automatic_wizard__dst_partner_id
 msgid "Destination Contact"
-msgstr "Tujuan Kontak"
+msgstr "Kontak Tujuan"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_actions_act_window__res_model
@@ -23974,7 +23974,7 @@ msgstr "Negara Bagian"
 #. module: base
 #: model:ir.actions.act_window,name:base.action_country_state
 msgid "Fed. States"
-msgstr "Negara Bagian/Propinsi"
+msgstr "Negara Bagian/Provinsi"
 
 #. module: base
 #: model_terms:ir.actions.act_window,help:base.action_country_state
@@ -25871,8 +25871,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.category,description:base.module_category_marketing_surveys
 msgid "Helps you manage your survey for review of different-different users."
-msgstr ""
-"Membantu Anda mengelola survei Anda untuk meninjau user-user yang berbeda."
+msgstr "Membantu Anda mengelola survei Anda untuk meninjau user yang berbeda."
 
 #. module: base
 #: model:ir.module.category,description:base.module_category_sales_sign
@@ -28908,7 +28907,7 @@ msgstr ""
 #. module: base
 #: model:ir.ui.menu,name:base.menu_module_tree
 msgid "Main Apps"
-msgstr "App-App Utama"
+msgstr "Aplikasi Utama"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_ir_sequence_date_range__sequence_id
@@ -35397,7 +35396,7 @@ msgstr "Product Matrix"
 #: model:ir.module.category,name:base.module_category_productivity
 #: model_terms:ir.ui.view,arch_db:base.user_groups_view
 msgid "Productivity"
-msgstr "Produktifitas"
+msgstr "Produktivitas"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_product
@@ -37740,7 +37739,7 @@ msgstr ""
 "Kontak yang dipilih akan digabungkan.\n"
 "                                Semua dokumen terkait ke salah satu kontak "
 "ini\n"
-"                                akan diarahkan ke tujuan kontak.\n"
+"                                akan diarahkan ke kontak tujuan.\n"
 "                                Anda dapat menghapus kontak dari daftar ini "
 "untuk menghindari menggabungkannya."
 
@@ -39047,12 +39046,12 @@ msgstr "Status"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_state__code
 msgid "State Code"
-msgstr "Kode Propinsi"
+msgstr "Kode Provinsi"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country_state__name
 msgid "State Name"
-msgstr "Nama Propinsi"
+msgstr "Nama Provinsi"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_country__state_required
@@ -40325,8 +40324,8 @@ msgid ""
 "The languages that you selected have been successfully installed. Users can "
 "choose their favorite language in their preferences."
 msgstr ""
-"Bahasa yang Anda pilih telah berhasil diinstal. User-user sekarang dapat "
-"memilih bahasa favorit mereka di preferensi."
+"Bahasa yang Anda pilih telah berhasil diinstal. User sekarang dapat memilih "
+"bahasa favorit mereka di preferensi."
 
 #. module: base
 #. odoo-python

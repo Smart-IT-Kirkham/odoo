@@ -21,13 +21,14 @@
 # Marta Wacławek, 2025
 # "Marta (wacm)" <wacm@odoo.com>, 2025, 2026.
 # Weblate <noreply-mt-weblate@weblate.org>, 2025, 2026.
+# Ondřej Klein <ondrej.klein@origamis.cz>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-04-03 18:38+0000\n"
-"PO-Revision-Date: 2026-06-14 21:00+0000\n"
-"Last-Translator: Weblate <noreply-mt-weblate@weblate.org>\n"
+"POT-Creation-Date: 2026-07-17 17:36+0000\n"
+"PO-Revision-Date: 2026-07-10 12:07+0000\n"
+"Last-Translator: Ondřej Klein <ondrej.klein@origamis.cz>\n"
 "Language-Team: Czech <https://translate.odoo.com/projects/odoo-17/mail/cs/>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -890,25 +891,28 @@ msgid "Add Users"
 msgstr "Přidat uživatele"
 
 #. module: mail
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid ""
+"Add a Klipy GIF API key to enable GIFs support. If you were using a Tenor "
+"GIF API key (service shutdown on June 30, 2026), please replace it here with "
+"a Klipy GIF API key"
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,help:mail.field_res_config_settings__tenor_api_key
+msgid ""
+"Add a Klipy GIF API key to enable GIFs support. https://docs.klipy.com/"
+"getting-started\n"
+"If you were using a Tenor GIF API key (service shutdown on June 30, 2026), "
+"please replace it here with a Klipy GIF API key"
+msgstr ""
+
+#. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/core/common/message_reaction_button.xml:0
 #, python-format
 msgid "Add a Reaction"
 msgstr "Přidat reakci"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Add a Tenor GIF API key to enable GIFs support."
-msgstr "Přidejte Tenor GIF API klíč, abyste umožnili podporu GIFů v Odoo."
-
-#. module: mail
-#: model:ir.model.fields,help:mail.field_res_config_settings__tenor_api_key
-msgid ""
-"Add a Tenor GIF API key to enable GIFs support. https://"
-"developers.google.com/tenor/guides/quickstart#setup"
-msgstr ""
-"Přidejte Tenor GIF API klíč, abyste umožnili podporu GIFů v Odoo. https://"
-"developers.google.com/tenor/guides/quickstart#setup"
 
 #. module: mail
 #. odoo-javascript
@@ -4679,6 +4683,15 @@ msgid "If you want to use twilio as TURN/STUN server provider"
 msgstr "Pokud chcete používat twilio jako poskytovatele serveru TURN/STUN"
 
 #. module: mail
+#. odoo-javascript
+#: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
+#, python-format
+msgid ""
+"If you were using a Tenor API key, please replace it with a Klipy API key in "
+"the General Settings."
+msgstr ""
+
+#. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.mail_resend_message_view_form
 msgid "Ignore all"
 msgstr "Ignorovat všechny"
@@ -5244,6 +5257,32 @@ msgid "Kind Regards"
 msgstr "S pozdravem"
 
 #. module: mail
+#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_api_key
+msgid "Klipy API key"
+msgstr ""
+
+#. module: mail
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "Klipy GIF API key"
+msgstr ""
+
+#. module: mail
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "Klipy GIF content filter"
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_gif_limit
+#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
+msgid "Klipy GIF limits"
+msgstr ""
+
+#. module: mail
+#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_content_filter
+msgid "Klipy content filter"
+msgstr ""
+
+#. module: mail
 #. odoo-javascript
 #: code:addons/mail/static/src/discuss/call/common/call_participant_card.xml:0
 #, python-format
@@ -5539,7 +5578,7 @@ msgstr "Zaznamenat činnost"
 #: code:addons/mail/static/src/views/web/composer_patch.js:0
 #, python-format
 msgid "Log an internal note…"
-msgstr "Zapsat inerní poznámku..."
+msgstr "Zapsat interní poznámku…"
 
 #. module: mail
 #. odoo-javascript
@@ -8350,6 +8389,13 @@ msgstr "Hledat servery příchozí pošty"
 
 #. module: mail
 #. odoo-javascript
+#: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
+#, python-format
+msgid "Search Klipy"
+msgstr ""
+
+#. module: mail
+#. odoo-javascript
 #: code:addons/mail/static/src/core/common/search_messages_panel.xml:0
 #: code:addons/mail/static/src/core/common/thread_actions.js:0
 #: code:addons/mail/static/src/core/web/chatter.xml:0
@@ -8368,13 +8414,6 @@ msgstr "Vyhledat relaci RTC"
 #, python-format
 msgid "Search button"
 msgstr "Tlačítko pro vyhledávání"
-
-#. module: mail
-#. odoo-javascript
-#: code:addons/mail/static/src/discuss/gif_picker/common/gif_picker.xml:0
-#, python-format
-msgid "Search for a GIF"
-msgstr "Hledat GIF"
 
 #. module: mail
 #. odoo-javascript
@@ -9225,36 +9264,6 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mail.view_email_template_search
 msgid "Templates"
 msgstr "Vzory"
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_api_key
-msgid "Tenor API key"
-msgstr "Tenor API klíč"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Tenor GIF API key"
-msgstr "Tenor GIF API klíč"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Tenor GIF content filter"
-msgstr "Tenor GIF obsahový filtr"
-
-#. module: mail
-#: model_terms:ir.ui.view,arch_db:mail.res_config_settings_view_form
-msgid "Tenor GIF limits"
-msgstr ""
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_gif_limit
-msgid "Tenor Gif Limit"
-msgstr ""
-
-#. module: mail
-#: model:ir.model.fields,field_description:mail.field_res_config_settings__tenor_content_filter
-msgid "Tenor content filter"
-msgstr "Tenor obsahový filtr"
 
 #. module: mail
 #: model_terms:ir.ui.view,arch_db:mail.view_email_server_form
@@ -11355,7 +11364,7 @@ msgstr "vám právě přidělil následující aktivitu:"
 
 #. module: mail
 #: model:ir.model.fields,help:mail.field_res_config_settings__tenor_content_filter
-msgid "https://developers.google.com/tenor/guides/content-filtering"
+msgid "https://docs.klipy.com/migrate-from-tenor/content-filtering"
 msgstr ""
 
 #. module: mail
@@ -11686,6 +11695,32 @@ msgstr "“%(member_name)s” v “%(channel_name)s”"
 #, python-format
 msgid "“%s”"
 msgstr ""
+
+#, python-format
+#~ msgid "Search for a GIF"
+#~ msgstr "Hledat GIF"
+
+#~ msgid "Add a Tenor GIF API key to enable GIFs support."
+#~ msgstr "Přidejte Tenor GIF API klíč, abyste umožnili podporu GIFů v Odoo."
+
+#~ msgid ""
+#~ "Add a Tenor GIF API key to enable GIFs support. https://"
+#~ "developers.google.com/tenor/guides/quickstart#setup"
+#~ msgstr ""
+#~ "Přidejte Tenor GIF API klíč, abyste umožnili podporu GIFů v Odoo. https://"
+#~ "developers.google.com/tenor/guides/quickstart#setup"
+
+#~ msgid "Tenor API key"
+#~ msgstr "Tenor API klíč"
+
+#~ msgid "Tenor GIF API key"
+#~ msgstr "Tenor GIF API klíč"
+
+#~ msgid "Tenor GIF content filter"
+#~ msgstr "Tenor GIF obsahový filtr"
+
+#~ msgid "Tenor content filter"
+#~ msgstr "Tenor obsahový filtr"
 
 #, python-format
 #~ msgid ""
