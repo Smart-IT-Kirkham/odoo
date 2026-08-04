@@ -331,9 +331,10 @@ class StockMove(models.Model):
                     continue
                 if correction_quantity:
                     previous_qty = move.quantity - correction_quantity
-                    ratio = correction_quantity / previous_qty if previous_qty else 0
-                    move.value += ratio * move.value
-                    continue
+                    if previous_qty:
+                        ratio = correction_quantity / previous_qty
+                        move.value += ratio * move.value
+                        continue
                 if move.product_id.lot_valuated:
                     value = 0.0
                     for move_line in move.move_line_ids:
@@ -450,9 +451,9 @@ class StockMove(models.Model):
 
     def _get_valued_qty(self, lot=None):
         self.ensure_one()
-        if self._is_in():
+        if (self.state == 'done' and self.is_in) or (self.state != 'done' and self._is_in()):
             return sum(self._get_in_move_lines(lot).mapped('quantity_product_uom'))
-        if self._is_out():
+        if (self.state == 'done' and self.is_out) or (self.state != 'done' and self._is_out()):
             return sum(self._get_out_move_lines(lot).mapped('quantity_product_uom'))
         if self.is_dropship:
             if lot:
