@@ -394,3 +394,29 @@ registry.category("web_tour.tours").add("test_not_available_pricelist_not_set_on
             ReceiptScreen.isShown(),
         ].flat(),
 });
+
+registry.category("web_tour.tours").add("test_refund_backend_duplicate", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+            ProductScreen.clickPayButton(),
+            PaymentScreen.clickPaymentMethod("Bank"),
+            PaymentScreen.clickValidate(),
+            TicketScreen.receiptTotalAmountIs("-10.00"),
+        ].flat(),
+});
+
+registry.category("web_tour.tours").add("test_ticket_screen_keeps_variants_collapsed", {
+    steps: () =>
+        [
+            Chrome.startPoS(),
+            Dialog.confirm("Open Register"),
+            ProductScreen.productCardCountIs("Variant Soup", 1),
+            Chrome.clickMenuOption("Orders"),
+            TicketScreen.selectFilter("Paid"),
+            TicketScreen.contains("Test/0001"),
+            TicketScreen.clickDiscard(),
+            ProductScreen.productCardCountIs("Variant Soup", 1),
+        ].flat(),
+});

@@ -19,6 +19,7 @@ class ResConfigSettings(models.TransientModel):
     account_peppol_phone_number = fields.Char(related='company_id.account_peppol_phone_number', readonly=False)
     account_peppol_proxy_state = fields.Selection(related='company_id.account_peppol_proxy_state', readonly=False)
     account_peppol_purchase_journal_id = fields.Many2one(related='company_id.peppol_purchase_journal_id', readonly=False)
+    peppol_purchase_journal_required = fields.Boolean(compute='_compute_peppol_purchase_journal_required')
     peppol_use_parent_company = fields.Boolean(compute='_compute_peppol_use_parent_company')
     peppol_parent_company_name = fields.Char(compute='_compute_peppol_use_parent_company')
 
@@ -44,6 +45,11 @@ class ResConfigSettings(models.TransientModel):
         mode_constraint = self.env['ir.config_parameter'].sudo().get_param('account_peppol.mode_constraint')
         trial_param = self.env['ir.config_parameter'].sudo().get_param('saas_trial.confirm_token')
         self.account_peppol_mode_constraint = trial_param and 'demo' or mode_constraint or 'prod'
+
+    @api.depends('account_peppol_proxy_state')
+    def _compute_peppol_purchase_journal_required(self):
+        for config in self:
+            config.peppol_purchase_journal_required = config.account_peppol_proxy_state in ('smp_registration', 'receiver')
 
     # -------------------------------------------------------------------------
     # BUSINESS ACTIONS
@@ -149,6 +155,14 @@ class ResConfigSettings(models.TransientModel):
             self.account_peppol_edi_user._peppol_deregister_participant_to_sender()
         return True
 
+    def button_peppol_reregister(self):
+        self.ensure_one()
+        if self.country_code == 'FR' and self.env['ir.module.module']._get('l10n_fr_pdp').state != 'installed':
+            raise UserError(self.env._("Please install the 'France - E-Invoicing (Approved Platform)' module (l10n_fr_pdp) first"))
+        self.button_deregister_peppol_participant()
+        self.company_id._reset_peppol_configuration()
+        return self.action_open_peppol_form()
+
     # Note: Deprecated; the button is permanently invisible.
     # Disabling services can lead to complicance issues and is not necessary
     # since all existing services should just work.
@@ -164,4 +178,26 @@ class ResConfigSettings(models.TransientModel):
             'res_id': wizard.id,
             'view_mode': 'form',
             'target': 'new',
+        }
+
+    @api.model
+    def _get_pdp_module_info(self):
+        pdp_module = self.env['ir.module.module'].sudo()._get('l10n_fr_pdp')  # avoid returning it since it is sudoed
+        module_name = self.env._("France - E-Invoicing (Approved Platform)")
+        if pdp_module:
+            action = pdp_module._get_records_action()
+            action_name = self.env._("Go to module")
+            warning = self.env._("To use the Approved Platform for French E-Invoicing install the module '%s'.", module_name)
+        else:
+            action = self.env.ref('base.action_view_base_module_update').id
+            action_name = self.env._("Update App List")
+            warning = self.env._("To use the Approved Platform for French E-Invoicing install the module '%s'.\n"
+                                 "The module was not found. Please update the app list first.",
+                                 module_name)
+        return {
+            'is_installed': pdp_module and pdp_module.state == 'installed',
+            'module_name': module_name,
+            'action': action,
+            'action_name': action_name,
+            'warning_message': warning,
         }
