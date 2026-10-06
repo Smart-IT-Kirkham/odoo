@@ -4,7 +4,8 @@ from lxml import etree
 from stdnum.be import vat as be_vat
 
 from odoo import Command, _, fields, models
-from odoo.tools import formatLang, frozendict, html2plaintext, html_escape
+from odoo.tools import formatLang, frozendict, html2plaintext, html_escape, unique
+from odoo.tools.float_utils import float_compare
 
 from odoo.addons.account.tools import dict_to_xml
 from odoo.addons.account_edi_ubl_cii.models.account_edi_common import (
@@ -262,6 +263,12 @@ class AccountEdiUBL(models.AbstractModel):
             return tax.amount_type in ('fixed', 'code') and not tax.include_base_amount
 
         new_base_lines = AccountTax._dispatch_taxes_into_new_base_lines(base_lines, company, exclude_function)
+
+        # fixed tax are not affected by discount, so the removed_tax_data_base_lines should get their discount remove
+        # to have the total equal to the fixed tax
+        for new_base_line in new_base_lines:
+            for removed_taxes_data_base_line in new_base_line['removed_taxes_data_base_lines']:
+                removed_taxes_data_base_line['discount'] = 0
 
         def aggregate_function(target_base_line, base_line):
             target_base_line.setdefault('_aggregated_quantity', 0.0)
@@ -1277,7 +1284,6 @@ class AccountEdiUBL(models.AbstractModel):
         }
 
     def _ubl_add_line_period_nodes(self, vals):
-        # DEPRECATED
         nodes = vals['line_node']['cac:InvoicePeriod'] = []
 
         if self._is_document(vals, 'invoice', 'credit_note', 'self_invoice', 'self_credit_note'):
@@ -1609,6 +1615,7 @@ class AccountEdiUBL(models.AbstractModel):
         self._ubl_add_line_invoiced_quantity_node(vals)
         self._ubl_add_line_allowance_charge_nodes(vals)
         self._ubl_add_line_extension_amount_node(vals)
+        self._ubl_add_line_period_nodes(vals)
         self._ubl_add_line_pricing_reference_node(vals)
         self._ubl_add_line_tax_totals_nodes(vals)
         self._ubl_add_line_item_node(vals)
@@ -1626,6 +1633,7 @@ class AccountEdiUBL(models.AbstractModel):
         self._ubl_add_line_credited_quantity_node(vals)
         self._ubl_add_line_allowance_charge_nodes(vals)
         self._ubl_add_line_extension_amount_node(vals)
+        self._ubl_add_line_period_nodes(vals)
         self._ubl_add_line_pricing_reference_node(vals)
         self._ubl_add_line_tax_totals_nodes(vals)
         self._ubl_add_line_item_node(vals)
@@ -1643,6 +1651,7 @@ class AccountEdiUBL(models.AbstractModel):
         self._ubl_add_line_debited_quantity_node(vals)
         self._ubl_add_line_allowance_charge_nodes(vals)
         self._ubl_add_line_extension_amount_node(vals)
+        self._ubl_add_line_period_nodes(vals)
         self._ubl_add_line_pricing_reference_node(vals)
         self._ubl_add_line_tax_totals_nodes(vals)
         self._ubl_add_line_item_node(vals)
@@ -2618,7 +2627,7 @@ class AccountEdiUBL(models.AbstractModel):
         tree = collected_values['tree']
         due_date_str = tree.findtext('./{*}DueDate')
         if not due_date_str:
-            due_date_str = tree.findtext('./{*}PaymentDueDate')
+            due_date_str = tree.findtext('./{*}PaymentMeans/{*}PaymentDueDate')
         if due_date_str:
             collected_values['to_write']['invoice_date_due'] = fields.Date.from_string(due_date_str)
 
@@ -2665,7 +2674,7 @@ class AccountEdiUBL(models.AbstractModel):
             if note := node.text:
                 payment_references.append(note)
 
-        if payment_reference := ','.join(payment_references):
+        if payment_reference := ','.join(unique(payment_references)):
             collected_values['to_write']['payment_reference'] = payment_reference
 
     def _import_ubl_invoice_add_delivery(self, collected_values):
@@ -3040,7 +3049,6 @@ class AccountEdiUBL(models.AbstractModel):
         }
 
     def _import_ubl_invoice_line_add_deferred_dates(self, collected_values):
-        # DEPRECATED
         if not self.module_installed('account_accountant'):
             return
 
@@ -3088,7 +3096,14 @@ class AccountEdiUBL(models.AbstractModel):
         return tax_values
 
     def _import_ubl_invoice_line_prepare_charge_tax_values(self, collected_values, charge):
-        if charge['reason_code'] != 'AEO':
+        discount_precision_digits = self.env['decimal.precision'].precision_get('Discount')
+        if (
+            charge['reason_code'] != 'AEO'
+            # Since a fixed tax is not affected by the discount, if the discount is 100.0,
+            # we don't search for a matching tax since it will create a tax amount that is not expected
+            # for the document.
+            or not float_compare(collected_values['to_write']['discount'], 100.0, precision_digits=discount_precision_digits)
+        ):
             return
 
         odoo_document_type = collected_values['odoo_document_type']
@@ -3172,9 +3187,10 @@ class AccountEdiUBL(models.AbstractModel):
                 # Extract information about allowance / charges.
                 self._import_ubl_invoice_line_add_allowance_charges_values(line_collected_values)
 
-                # name / quantity / price_unit / discount
+                # name / quantity / price_unit / discount/ deferred_start_date / deferred_end_date
                 self._import_ubl_invoice_line_add_name(line_collected_values)
                 self._import_ubl_invoice_line_add_price_unit_quantity_discount(line_collected_values)
+                self._import_ubl_invoice_line_add_deferred_dates(line_collected_values)
 
                 # product / product_uom / taxes
                 self._import_ubl_invoice_line_add_product_values(line_collected_values)
