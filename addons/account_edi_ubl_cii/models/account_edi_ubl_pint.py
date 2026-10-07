@@ -524,7 +524,8 @@ class AccountEdiUBLPint(models.AbstractModel):
 
             # [IBR-022] - Each Invoice line (ibg-25) MUST have an invoiced quantity (ibt-129).
             qty_node = line['cbc:InvoicedQuantity'] if is_invoice else line.get('cbc:CreditedQuantity', {})
-            if qty_node.get('_text') in [None, False]:
+            qty_text = qty_node.get('_text')
+            if qty_text is None or qty_text is False:
                 constraints[f'ibr_022_line_qty_required_{line_idx}'] = self.env._(
                     "Line %s: Invoiced quantity is missing [IBR-022].", line_idx
                 )
@@ -543,7 +544,7 @@ class AccountEdiUBLPint(models.AbstractModel):
 
             line_item = line['cac:Item']
             # [IBR-025] - Each Invoice line (ibg-25) MUST contain the Item name (ibt-153).
-            if not line_item['cbc:Name']['_text']:
+            if not (line_item.get('cbc:Name') or {}).get('_text'):
                 constraints[f'ibr_025_item_name_required_{line_idx}'] = self.env._(
                     "Line %s: Item name is missing [IBR-025].", line_idx
                 )
