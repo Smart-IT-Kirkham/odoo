@@ -13,7 +13,8 @@ import {
     orderUsageUTCtoLocalUtil,
 } from "@point_of_sale/utils";
 import { HWPrinter } from "@point_of_sale/app/utils/printer/hw_printer";
-import { ConnectionLostError } from "@web/core/network/rpc";
+import { ConnectionLostError, RPCError } from "@web/core/network/rpc";
+import { browser } from "@web/core/browser/browser";
 import { OrderReceipt } from "@point_of_sale/app/screens/receipt_screen/receipt/order_receipt";
 import { _t } from "@web/core/l10n/translation";
 import { OpeningControlPopup } from "@point_of_sale/app/components/popups/opening_control_popup/opening_control_popup";
@@ -50,6 +51,7 @@ import { logPosMessage } from "../utils/pretty_console_log";
 import { initLNA } from "../utils/init_lna";
 import { Domain } from "@web/core/domain";
 import { SIZES } from "@web/core/ui/ui_service";
+import { clearLocalStorage } from "../utils/devices_identifier_sequence";
 
 const { DateTime } = luxon;
 export const CONSOLE_COLOR = "#F5B427";
@@ -295,7 +297,7 @@ export class PosStore extends WithLazyGetterTrap {
         this.device.saveUnusedNumber(orders);
         await this.data.resetIndexedDB();
         sessionStorage.clear();
-        localStorage.clear();
+        clearLocalStorage();
         const url = new URL(window.location.href);
 
         if (fullReload) {
@@ -625,7 +627,11 @@ export class PosStore extends WithLazyGetterTrap {
     }
     async afterOrderDeletion() {
         if (!this.config.module_pos_restaurant) {
-            this.setOrder(this.getOpenOrders().at(-1) || this.addNewOrder());
+            const newOrder = this.getOpenOrders().at(-1) || this.addNewOrder();
+            this.setOrder(newOrder);
+            if (this.router.state.current === "ProductScreen") {
+                this.navigate("ProductScreen", { orderUuid: newOrder.uuid });
+            }
         }
     }
 
@@ -3157,6 +3163,17 @@ export class PosStore extends WithLazyGetterTrap {
         );
     }
 
+    async reloadIfSessionDeleted(error) {
+        if (
+            error instanceof RPCError &&
+            error.data.name === "odoo.exceptions.MissingError" &&
+            (await this.isSessionDeleted())
+        ) {
+            return browser.location.reload();
+        }
+        throw error;
+    }
+
     weighProduct() {
         return makeAwaitable(this.env.services.dialog, ScaleScreen);
     }
@@ -3173,7 +3190,9 @@ export class PosStore extends WithLazyGetterTrap {
     clickSaveOrder() {
         this.syncAllOrders({ orders: [this.getOrder()] });
         this.notification.add(_t("Order saved for later"), { type: "success" });
-        this.setOrder(this.getEmptyOrder());
+        const newOrder = this.getEmptyOrder();
+        this.setOrder(newOrder);
+        this.navigate("ProductScreen", { orderUuid: newOrder.uuid });
         this.mobile_pane = "right";
     }
     canEditPayment(order) {
@@ -3207,6 +3226,30 @@ export class PosStore extends WithLazyGetterTrap {
         const available = this.getAvailableCategories();
         const availableIds = new Set(available.map((c) => c.id));
         return available.filter((c) => !c.parent_id || !availableIds.has(c.parent_id.id));
+    }
+
+    async ensureRefundedOrderLoaded(order) {
+        if (!order?.isRefund || order.refunded_order_id || this.data.network.offline) {
+            return order;
+        }
+
+        const refundedOrderId = order.raw.refunded_order_id;
+        if (!refundedOrderId) {
+            return order;
+        }
+
+        try {
+            await this.data.loadServerOrders([["id", "=", refundedOrderId]]);
+        } catch (error) {
+            logPosMessage(
+                "Store",
+                "ensureRefundedOrderLoaded",
+                `Could not load refunded order ${refundedOrderId}`,
+                CONSOLE_COLOR,
+                [error]
+            );
+        }
+        return order;
     }
 }
 
