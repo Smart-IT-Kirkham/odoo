@@ -111,7 +111,8 @@ class Cart(PaymentPortal):
         :rtype: dict
         """
         order_sudo = request.cart or request.website._create_cart()
-        quantity = int(quantity)  # Do not allow float values in ecommerce by default
+        # Do not allow float values in ecommerce by default
+        quantity = (quantity and int(quantity)) or 1
 
         product = request.env['product.product'].browse(product_id).exists()
         if product and no_variant_attribute_value_ids:
@@ -126,6 +127,12 @@ class Cart(PaymentPortal):
             raise UserError(_(
                 "The given product does not exist therefore it cannot be added to cart."
             ))
+
+        if kwargs.pop("combo_item_id", None):
+            raise UserError(_("You cannot add a combo item separately from its combo."))
+
+        if kwargs.pop("linked_line_id", None):
+            raise UserError(_("Linked lines must be added to the cart with their parent."))
 
         def check_selected_combo_items(combo_product, linked_products):
             combo_item_products = [
@@ -156,7 +163,7 @@ class Cart(PaymentPortal):
         values = order_sudo.with_context(skip_cart_verification=True)._cart_add(
             product_id=product_id,
             quantity=quantity,
-            uom_id=uom_id,
+            uom_id=uom_id if product.type != 'combo' else None,
             product_custom_attribute_values=product_custom_attribute_values,
             no_variant_attribute_value_ids=no_variant_attribute_value_ids,
             **kwargs,
@@ -171,6 +178,10 @@ class Cart(PaymentPortal):
 
         if linked_products and values['line_id']:
             for product_data in linked_products:
+                # Do not allow float values in ecommerce by default
+                product_data['quantity'] = (
+                    product_data['quantity'] and int(product_data['quantity'])
+                ) or 1
                 product_sudo = request.env['product.product'].sudo().browse(
                     product_data['product_id']
                 ).exists()
@@ -192,7 +203,9 @@ class Cart(PaymentPortal):
                 product_values = order_sudo.with_context(skip_cart_verification=True)._cart_add(
                     product_id=product_data['product_id'],
                     quantity=product_data['quantity'],
-                    uom_id=product_data.get('uom_id'),
+                    uom_id=product_data.get('uom_id')
+                    if (product_sudo.type != 'combo' and not product_data.get('combo_item_id'))
+                    else None,
                     product_custom_attribute_values=product_data['product_custom_attribute_values'],
                     no_variant_attribute_value_ids=[
                         int(value_id) for value_id in product_data['no_variant_attribute_value_ids']
@@ -364,6 +377,16 @@ class Cart(PaymentPortal):
                 lambda sol: sol.product_id.id == product_id
             )[:1].id
 
+        # Combo item lines are updated together with their combo
+        if line_id:
+            target_line = order_sudo.order_line.filtered(lambda sol: sol.id == line_id)
+            if target_line.combo_item_id:
+                return {
+                    "warning": _(
+                        "This product is part of a combo and can't be updated individually."
+                    )
+                }
+
         values = order_sudo._cart_update_line_quantity(line_id, quantity, **kwargs)
 
         values['cart_quantity'] = order_sudo.cart_quantity
@@ -415,6 +438,11 @@ class Cart(PaymentPortal):
         def is_same_combo(line1_, line2_):
             """Check if two combo lines have the same linked product combination."""
             return line1_.linked_line_ids.product_id.ids == line2_.linked_line_ids.product_id.ids
+
+        # The public partner is shared by every anonymous visitor: it has no order history of its
+        # own, and searching its orders by date scans the whole table on large databases.
+        if request.website.is_public_user():
+            return {'order_history': []}
 
         # Get the last 10 confirmed orders from the current website user.
         previous_orders_lines_sudo = request.env['sale.order'].sudo().search(
@@ -546,12 +574,10 @@ class Cart(PaymentPortal):
         """
         lines = order_sudo.order_line.filtered(
             lambda line: line.id in line_ids
-        ).with_context(display_default_code=False)
+        )
         return [
             {
-                'item_id': line.product_id.barcode or line.product_id.id,
-                'item_name': line.product_id.display_name,
-                'item_category': line.product_id.categ_id.name,
+                **line.product_id._get_google_analytics_item(),
                 'currency': line.currency_id.name,
                 'price': line.price_reduce_taxexcl,
                 'discount': line.price_unit - line.price_reduce_taxexcl,

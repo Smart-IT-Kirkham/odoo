@@ -39,7 +39,8 @@ import { normalize } from "@web/core/l10n/utils";
 import { WithLazyGetterTrap } from "@point_of_sale/lazy_getter";
 import { debounce } from "@web/core/utils/timing";
 import DevicesSynchronisation from "../utils/devices_synchronisation";
-import { formatDate } from "@web/core/l10n/dates";
+import { formatDate, serializeDateTime } from "@web/core/l10n/dates";
+import { downloadFile } from "@web/core/network/download";
 import { localization } from "@web/core/l10n/localization";
 import { ProductInfoPopup } from "@point_of_sale/app/components/popups/product_info_popup/product_info_popup";
 import { RetryPrintPopup } from "@point_of_sale/app/components/popups/retry_print_popup/retry_print_popup";
@@ -266,8 +267,13 @@ export class PosStore extends WithLazyGetterTrap {
         return [
             {
                 timeout: 300000, // 5 minutes
-                action: () =>
-                    this.router.state.current !== "PaymentScreen" && this.navigate("SaverScreen"),
+                action: () => {
+                    if (this.router.state.current === "PaymentScreen") {
+                        return false;
+                    }
+                    this.resetCashier();
+                    return this.navigate("SaverScreen");
+                },
             },
             {
                 timeout: 120000, // 2 minutes
@@ -277,6 +283,12 @@ export class PosStore extends WithLazyGetterTrap {
         ];
     }
 
+    async exportLocalData() {
+        const data = await this.data.synchronizeLocalDataInIndexedDB();
+        const date = serializeDateTime(DateTime.now()).replace(/:|\s/gi, "-");
+        downloadFile(JSON.stringify(data), `pos_data${date}.json`, "application/json");
+    }
+
     async reloadData(fullReload = false) {
         try {
             await this.syncAllOrders();
@@ -284,14 +296,22 @@ export class PosStore extends WithLazyGetterTrap {
             logPosMessage("Store", "reloadData", "Failed to sync orders", CONSOLE_COLOR, [error]);
         }
         // Reloading wipes the local orders, a paid order must never be lost that way
-        if (this.models["pos.order"].some((o) => o.isUnsyncedPaid && o.state !== "cancel")) {
-            this.dialog.add(AlertDialog, {
+        if (
+            this.models["pos.order"].some(
+                (o) => o.isUnsyncedPaid && o.state !== "cancel" && this.shouldCreatePendingOrder(o)
+            )
+        ) {
+            const exportData = await ask(this.dialog, {
                 title: _t("Reload Data"),
                 body: _t(
                     "Some paid orders have not been synced to the server yet. Closing or reloading now may cause data loss."
                 ),
+                confirmLabel: _t("Export data"),
             });
-            return;
+            if (!exportData) {
+                return;
+            }
+            await this.exportLocalData();
         }
         const orders = this.models["pos.order"].getAll();
         this.device.saveUnusedNumber(orders);
@@ -786,7 +806,7 @@ export class PosStore extends WithLazyGetterTrap {
     async openConfigurator(pTemplate, opts = {}) {
         const attrById = this.models["product.attribute"].getAllBy("id");
         const attributeLines = pTemplate.attribute_line_ids.filter(
-            (attr) => attr.attribute_id?.id in attrById
+            (attr) => attr.active !== false && attr.attribute_id?.id in attrById
         );
         let attributeLinesValues = attributeLines.map((attr) => attr.product_template_value_ids);
         let variantProduct = null;
@@ -1215,24 +1235,11 @@ export class PosStore extends WithLazyGetterTrap {
                 // Find candidate based on instantly created variants.
                 const attributeValues = this.models["product.template.attribute.value"]
                     .readMany(payload.attribute_value_ids)
-                    .filter((value) => value.attribute_id.create_variant !== "no_variant")
-                    .map((value) => value.id);
+                    .filter((value) => value.attribute_id.create_variant !== "no_variant");
 
-                let candidate = productTemplate.product_variant_ids.find((variant) => {
-                    const attributeIds = variant.product_template_attribute_value_ids.map(
-                        (value) => value.id
-                    );
-                    return (
-                        attributeValues.every((id) => attributeIds.includes(id)) &&
-                        attributeValues.length
-                    );
-                });
+                let candidate = productTemplate.getVariantForCombination(attributeValues);
 
-                const isDynamic = productTemplate.attribute_line_ids.some(
-                    (line) => line.attribute_id.create_variant === "dynamic"
-                );
-
-                if (!candidate && isDynamic) {
+                if (!candidate && productTemplate.hasDynamicAttributes()) {
                     // Need to create the new product.
                     const result = await this.data.callRelated(
                         "product.template",
@@ -1240,6 +1247,14 @@ export class PosStore extends WithLazyGetterTrap {
                         [productTemplate.id, payload.attribute_value_ids, this.config.id]
                     );
                     candidate = result["product.product"][0];
+                }
+
+                if (!candidate && attributeValues.length) {
+                    this.dialog.add(AlertDialog, {
+                        title: _t("Variant does not exist"),
+                        body: _t("This option or combination of options is not available"),
+                    });
+                    return false;
                 }
 
                 Object.assign(values, {
@@ -2427,6 +2442,9 @@ export class PosStore extends WithLazyGetterTrap {
                         await this.data.searchRead("product.product", [
                             ["product_tmpl_id", "=", record.evalContext.id],
                         ]);
+                        if (this.selectedCategory?.id && !this.productsToDisplay.length) {
+                            this.setSelectedCategory(0);
+                        }
                         this.action.doAction({
                             type: "ir.actions.act_window_close",
                         });
@@ -2491,6 +2509,9 @@ export class PosStore extends WithLazyGetterTrap {
     }
     async closePos() {
         this.resetCashier();
+        // The redirect below may not happen (beforeunload guard, failed sync):
+        // never leave a screen where orders can be made without a cashier.
+        this.navigate("LoginScreen");
         // If pos is not properly loaded, we just go back to /web without
         // doing anything in the order data.
         if (!this) {
@@ -3179,11 +3200,29 @@ export class PosStore extends WithLazyGetterTrap {
     }
 
     async validateOrderFast(paymentMethod) {
+        const order = this.getOrder();
+        if (!order.canPay()) {
+            return;
+        }
         const validation = new OrderPaymentValidation({
             pos: this,
-            orderUuid: this.getOrder().uuid,
+            orderUuid: order.uuid,
             fastPaymentMethod: paymentMethod,
         });
+        if (paymentMethod.payment_method_type === "qr_code") {
+            const qrPaymentLines = order.payment_ids.filter(
+                (l) => l.payment_method_id.id === paymentMethod.id
+            );
+            if (!qrPaymentLines.length) {
+                return;
+            }
+            const line = qrPaymentLines[qrPaymentLines.length - 1];
+            const resp = await this.showQR(line);
+            if (!line.handlePaymentResponse(resp)) {
+                order.removePaymentline(line);
+                return;
+            }
+        }
         await validation.validateOrder(false);
     }
 

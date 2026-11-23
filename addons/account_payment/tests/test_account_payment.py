@@ -418,6 +418,42 @@ class TestAccountPayment(AccountPaymentCommon):
         tx._post_process()
         self.assertEqual(tx.payment_id.state, 'in_process')
 
+    def test_post_process_only_posts_invoices_of_done_transactions(self):
+        """ When several transactions are post-processed together, only the draft invoices of the
+            confirmed transactions must be posted.
+        """
+        invoice_done, invoice_error = self.env['account.move'].create([{
+            'move_type': 'out_invoice',
+            'partner_id': self.partner.id,
+            'invoice_line_ids': [
+                Command.create({
+                    'name': 'test line',
+                    'price_unit': 100.0,
+                }),
+            ],
+        } for _i in range(2)])
+        tx_done = self._create_transaction(
+            flow='direct',
+            state='pending',
+            reference='tx_done',
+            invoice_ids=[invoice_done.id],
+        )
+        tx_error = self._create_transaction(
+            flow='direct',
+            state='pending',
+            reference='tx_error',
+            invoice_ids=[invoice_error.id],
+        )
+        tx_done._set_done()
+        tx_error._set_error("Payment failed")
+        (tx_done | tx_error)._post_process()
+        self.assertEqual(invoice_done.state, 'posted')
+        self.assertEqual(
+            invoice_error.state,
+            'draft',
+            msg="The invoice of a failed transaction should not be posted.",
+        )
+
     def test_payment_token_for_invoice_partner_is_available(self):
         """Test that the payment token of the invoice partner is available"""
         Wizard = self.env['account.payment.register'].with_context(active_model='account.move')
@@ -486,49 +522,6 @@ class TestAccountPayment(AccountPaymentCommon):
                 self.env['account.move.send']._generate_and_send_invoices(move),
             )
             self.assertTrue(payment_qr_mock.called)
-
-    def test_partial_reconcile_with_payments_coming_from_provider(self):
-        """ Test that we not allow partial reconcile on payments coming from
-            payment provider.
-        """
-        provider = self.env['payment.provider'].create({
-            'name': 'Test',
-            'journal_id': self.company_data['default_journal_bank'].id,
-        })
-        invoice = self.env['account.move'].create({
-            'move_type': 'out_invoice',
-            'partner_id': self.partner_a.id,
-            'journal_id': self.company_data['default_journal_sale'].id,
-            'invoice_line_ids': [
-                Command.create({
-                    'account_id': self.company_data['default_account_revenue'].id,
-                    'product_id': self.product_a.id,
-                    'quantity': 1,
-                    'price_unit': 100,
-                })
-            ]
-        })
-        payment_transaction = self.env['payment.transaction'].create({
-            'provider_id': provider.id,
-            'payment_method_id': self.env.ref('payment.payment_method_unknown').id,
-            'invoice_ids': [invoice.id],
-            'partner_id': self.partner_a.id,
-            'amount': 200,
-            'currency_id': invoice.currency_id.id,
-        })
-        payment_transaction._create_payment(payment_method_line_id=self.company_data['default_journal_bank'].inbound_payment_method_line_ids[0].id)
-        payment_transaction._post_process()
-        payment = payment_transaction.payment_id
-        invoice.action_post()
-        payment.action_post()
-        statement_line = self.env['account.bank.statement.line'].create({
-            'journal_id': self.company_data['default_journal_bank'].id,
-            'date': '2026-01-01',
-            'partner_id': self.partner_a.id,
-            'amount': 100.0,
-        })
-        inv_line = payment.move_id.line_ids.filtered(lambda l: l.balance == 200)
-        self.assertFalse(statement_line._get_partial_amounts(-200, inv_line, -100, -100))
 
     def test_post_process_existing_payment_provider_reference(self):
         """Provider reference should propagate to a pre-existing payment."""

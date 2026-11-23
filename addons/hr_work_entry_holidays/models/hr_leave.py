@@ -23,6 +23,18 @@ class HrLeave(models.Model):
         vals['work_entry_type_id'] = self.holiday_status_id.work_entry_type_id.id
         return vals
 
+    def _split_leaves(self, split_date_from, split_date_to=False):
+        split_source_dates = {
+            leave.id: (leave.request_date_from, leave.request_date_to)
+            for leave in self
+        }
+        new_leaves = super()._split_leaves(split_date_from, split_date_to)
+        modified_leaves = self.filtered(
+            lambda leave: split_source_dates[leave.id] != (leave.request_date_from, leave.request_date_to)
+        )
+        (modified_leaves | new_leaves).filtered(lambda leave: leave.state == 'validate')._cancel_work_entry_conflict()
+        return new_leaves
+
     def _cancel_work_entry_conflict(self):
         """
         Creates a leave work entry for each hr.leave in self.
@@ -48,15 +60,13 @@ class HrLeave(models.Model):
                 if leave.date_to >= contract.date_generated_from and leave.date_from <= contract.date_generated_to:
                     contract_tz = (contract.resource_calendar_id or contract.employee_id.resource_calendar_id or contract.employee_id).tz
                     tz = pytz.timezone(contract_tz) if contract_tz else pytz.utc
-                    contract_start = tz.localize(fields.Datetime.to_datetime(contract.date_start)).astimezone(pytz.utc).replace(tzinfo=None)
+                    contract_start = fields.Datetime.to_datetime(contract.date_start)
                     contract_stop = datetime.combine(fields.Datetime.to_datetime(contract.date_end or datetime.max.date()), time.max)
-                    if contract.date_end:
-                        contract_stop = tz.localize(contract_stop).astimezone(pytz.utc).replace(tzinfo=None)
-                    work_entry_start = max(leave.date_from, contract_start)
-                    work_entry_end = min(leave.date_to, contract_stop)
+                    work_entry_start = max(pytz.utc.localize(leave.date_from).astimezone(tz).replace(tzinfo=None), contract_start)
+                    work_entry_end = min(pytz.utc.localize(leave.date_to).astimezone(tz).replace(tzinfo=None), contract_stop)
                     work_entries_vals_list += contract._get_work_entries_values(
-                        datetime.combine(work_entry_start, time.min),
-                        datetime.combine(work_entry_end, time.max),
+                        tz.localize(datetime.combine(work_entry_start, time.min)),
+                        tz.localize(datetime.combine(work_entry_end, time.max)),
                     )
 
         work_entries_vals_list = self.env['hr.version']._generate_work_entries_postprocess(work_entries_vals_list)
@@ -168,10 +178,10 @@ class HrLeave(models.Model):
         work_entries.write({'active': False})
         # Re-create attendance work entries
         vals_list = []
-        for work_entry in work_entries:
-            vals_list += work_entry.version_id._get_work_entries_values(
-                datetime.combine(work_entry.date, time.min),
-                datetime.combine(work_entry.date, time.max))
+        for version, work_entry_date in {(work_entry.version_id, work_entry.date) for work_entry in work_entries}:
+            vals_list += version._get_work_entries_values(
+                datetime.combine(work_entry_date, time.min),
+                datetime.combine(work_entry_date, time.max))
         vals_list = self.env['hr.version']._generate_work_entries_postprocess(vals_list)
         self.env['hr.work.entry'].create(vals_list)
 

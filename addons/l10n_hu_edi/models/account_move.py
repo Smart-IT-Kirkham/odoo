@@ -134,6 +134,12 @@ class AccountMove(models.Model):
             return self.delivery_date
         return super()._get_invoice_currency_rate_date()
 
+    def _get_default_currency_rate_date(self):
+        self.ensure_one()
+        if self.country_code == 'HU' and self.delivery_date:
+            return self.delivery_date
+        return super()._get_default_currency_rate_date()
+
     @api.depends('l10n_hu_edi_messages')
     def _compute_message_html(self):
         for move in self:
@@ -278,7 +284,15 @@ class AccountMove(models.Model):
         """ Get the invoice currency / HUF rate. """
         self.ensure_one()
 
-        return 1 / self.invoice_currency_rate
+        if self.company_currency_id == self.env.ref('base.HUF'):
+            return 1 / self.invoice_currency_rate
+        else:
+            return self.env['res.currency']._get_conversion_rate(
+                from_currency=self.currency_id,
+                to_currency=self.env.ref('base.HUF'),
+                company=self.company_id,
+                date=self._get_invoice_currency_rate_date(),
+            )
 
     def _l10n_hu_edi_set_chain_index(self):
         """ Set the l10n_hu_invoice_chain_index field. """
@@ -1043,9 +1057,14 @@ class AccountMove(models.Model):
                     invert_dict(tax_group, fields_to_reverse)
 
         currency_huf = self.env.ref('base.HUF')
-        tax_totals['total_vat_amount_in_huf'] = sum(
-            line.balance for line in self.line_ids.filtered(lambda l: l.tax_line_id.l10n_hu_tax_type)
-        ) * (1 if self.is_purchase_document() else -1)
+        vat_lines = self.line_ids.filtered(lambda l: l.tax_line_id.l10n_hu_tax_type)
+        if self.company_id.currency_id == currency_huf:
+            total_vat_huf = sum(vat_lines.mapped('balance'))
+        else:
+            huf_rate = self._l10n_hu_get_currency_rate()
+            total_vat_huf = sum(currency_huf.round(huf_rate * line.amount_currency) for line in vat_lines)
+
+        tax_totals['total_vat_amount_in_huf'] = currency_huf.round(total_vat_huf) * (1 if self.is_purchase_document() else -1)
         tax_totals['formatted_total_vat_amount_in_huf'] = formatLang(
             self.env, tax_totals['total_vat_amount_in_huf'], currency_obj=currency_huf
         )

@@ -707,6 +707,8 @@ class Website(models.Model):
     @api.model
     def configurator_skip(self):
         website = self.get_current_website()
+        if website.configurator_done:
+            return website.button_go_website()
         theme = self.env["ir.module.module"].search([("name", "=", "theme_default")])
         website.configurator_done = True
         return theme.button_choose_theme()
@@ -2289,16 +2291,22 @@ class Website(models.Model):
                         rel_table = direct_field.relation
                         rel_joinkey = direct_field.column2
                 subqueries.append(get_similarity_subquery(comodel, comodel_similarity_fields, id_column, rel_table, rel_joinkey))
+            # Rank only the records eligible for the provider domain, before the
+            # similarity LIMIT. The eligible ids are a sub-select (not fetched)
+            # to keep the domain's joins/aliases out of the similarity query.
             query = SQL("""
                 SELECT id,
                     MAX(similarity) as _best_similarity
-                FROM (%s) sub
+                FROM (%(subqueries)s) sub
+                WHERE id IN %(eligible_ids)s
                 GROUP BY id
                 ORDER BY _best_similarity DESC
                 LIMIT 1000
-            """, SQL("\nUNION ALL\n").join(subqueries))  # UNION ALL allows to hit GIST indexes in subplans.
-            self.env.cr.execute(query)
-            ids = {row[0] for row in self.env.cr.fetchall()}
+            """,
+                subqueries=SQL("\nUNION ALL\n").join(subqueries),  # UNION ALL allows to hit GIST indexes in subplans.
+                eligible_ids=model._search(domain).subselect(),
+            )
+            ids = {row[0] for row in self.env.execute_query(query)}
             domain = Domain.AND([domain, Domain([('id', 'in', list(ids))])])
             records = model.search_read(domain, direct_fields, limit=limit)
             for record in records:
