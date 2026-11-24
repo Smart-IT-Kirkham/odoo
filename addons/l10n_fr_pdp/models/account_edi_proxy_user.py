@@ -34,6 +34,7 @@ PROCESS_CONDITION_CODE_TO_RESPONSE_CODE_PDP = MappingProxyType({
     '203': 'made_available',  # PA-R
     '204': 'in_hand',  # R (receiver)
     '205': 'AP',  # R
+    '206': 'partially_approved',  # R
     '207': 'contested',  # R
     '208': 'suspended',  # R
     '209': 'completed',  # S
@@ -41,7 +42,14 @@ PROCESS_CONDITION_CODE_TO_RESPONSE_CODE_PDP = MappingProxyType({
     '211': 'payment_sent',  # R
     '212': 'PD',  # S (sender)
     '213': 'RE',  # PA-R
+    '214': 'endorsed',  # R
     '220': 'cancelled',  # S
+    '221': 'routing_error',  # PA-R
+    '224': 'direct_payment_requested',  # S
+    '225': 'factored',  # S
+    '226': 'factored_confidential',  # S
+    '227': 'payee_account_changed',  # S
+    '228': 'not_factored',  # S
 })
 
 PROCESS_CONDITION_CODE_TO_RESPONSE_CODE_PPF = MappingProxyType({
@@ -190,6 +198,13 @@ class AccountEdiProxyClientUser(models.Model):
             'refresh_token': response['refresh_token'],
         })
 
+    def _get_peppol_supported_document_types(self):
+        self.ensure_one()
+        supported_types = super()._get_peppol_supported_document_types()
+        if self.proxy_type == 'pdp':
+            supported_types.update(self.company_id._pdp_supported_document_types())
+        return supported_types
+
     @handle_demo
     def _peppol_register_receiver(self):
         self.ensure_one()
@@ -230,12 +245,16 @@ class AccountEdiProxyClientUser(models.Model):
 
         job_count = batch_size or BATCH_SIZE
         need_retrigger = False
+        params = {
+            'limit': job_count,
+        }
         for edi_user in self:
             edi_user = edi_user.with_company(edi_user.company_id)
             try:
                 # Request all messages that haven't been acknowledged
                 messages = edi_user._call_peppol_proxy(
                     endpoint=edi_user._get_peppol_proxy_endpoint('1/get_all_ppf_documents'),
+                    params=params
                 )
             except AccountEdiProxyError as e:
                 _logger.error('Error while receiving the document from Peppol Proxy: %s', e.message)
@@ -248,8 +267,8 @@ class AccountEdiProxyClientUser(models.Model):
             if not message_uuids:
                 continue
 
-            need_retrigger = need_retrigger or len(message_uuids) > job_count
-            message_uuids = message_uuids[:job_count]
+            has_more = messages.get('has_more', False)
+            need_retrigger = need_retrigger or has_more
 
             # Retrieve attachments for filtered messages
             all_messages = edi_user._call_peppol_proxy(
@@ -291,7 +310,6 @@ class AccountEdiProxyClientUser(models.Model):
                     peppol_response.peppol_state = 'error'
                     self._pdp_log_einvoicing_chatter(
                         peppol_response.move_id,
-                        pa_status='error',
                         errors=[self._pdp_proxy_error_message(content['error'])],
                         error_source=self.env._("PA Lifecycle"),
                     )
@@ -626,7 +644,6 @@ class AccountEdiProxyClientUser(models.Model):
                 )
             self._pdp_log_einvoicing_chatter(
                 origin_move,
-                pa_status='error' if flow_number == '2' else None,
                 ppf_status='error' if flow_number in ('1', '6') else None,
                 errors=[main_message] + status_details,
                 error_source=self.env._("PA Lifecycle") if flow_number == '2' else self.env._("PPF Lifecycle"),
@@ -650,7 +667,6 @@ class AccountEdiProxyClientUser(models.Model):
                 origin_move,
                 details=status_details if response_code != 'RE' else None,
                 errors=status_details if response_code == 'RE' else None,
-                pa_status='error' if response_code == 'RE' and flow_number == '2' else None,
                 ppf_status='error' if response_code == 'RE' and flow_number in ('1', '6') else None,
                 error_source=(
                     self.env._("PA Lifecycle") if flow_number == '2' else self.env._("PPF Lifecycle")
@@ -770,7 +786,8 @@ class AccountEdiProxyClientUser(models.Model):
     def _pdp_log_einvoicing_chatter(
         self, move, pa_status=None, ppf_status=None, details=None, errors=None, error_source=None,
     ):
-        if pa_status is None and ppf_status is None:
+        # An error does not change the statuses: only log the ones given explicitly.
+        if pa_status is None and ppf_status is None and errors is None:
             pa_status = move.peppol_move_state
             ppf_status = move.pdp_ppf_move_state
 
@@ -840,7 +857,7 @@ class AccountEdiProxyClientUser(models.Model):
             items.append(
                 Markup('<li><strong>')
                 + (
-                    self.env._("Errors from %(error_source)s:", error_source=error_source)
+                    self.env._("%(error_source)s:", error_source=error_source)
                     if error_source else self.env._("Errors:")
                 )
                 + Markup('</strong><ul>')
